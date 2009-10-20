@@ -31,7 +31,7 @@ INSTALL STEPS:
 -----------------------------------------------
 0. Make sure you have all above python libraries installed.
 
-1. Copy settings_local.py.dist to settings_local.py and 
+1. Copy settings_local.py.dist to local_settings.py and 
 update all your settings. Check settings.py and update 
 it as well if necessory.
 

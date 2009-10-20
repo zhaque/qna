@@ -77,5 +77,9 @@ INSTALLED_APPS = (
 )
 import django
 DJANGO_VERSION = django.get_version()
+
 # User settings
-from settings_local import *
+try:
+    from local_settings import *
+except ImportError:
+    pass
