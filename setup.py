@@ -10,8 +10,10 @@ version = '0.1'
 
 install_requires = [
     'setuptools',
-    'saaskit-core',
     'markdown2',
+    'python-openid',
+    #'mysql-python',
+    'html5lib',
 ]
 
 extras_require = dict(
@@ -24,12 +26,11 @@ extras_require = dict(
 install_requires.extend(extras_require['test'])
 
 setup(
-    name = "answers",
+    name = "cnprog",
     version = version,
     description = "http://stackoverflow.com/ like application.",
     long_description = read('README'),
-    author = 'Arvid Paeglit',
-    author_email = 'arvi3d@gmail.com',
+    author = 'Chen Gang',
     url = 'http://yotweets.com',
     packages = find_packages('src'),
     package_dir = {'': 'src'},
