@@ -1,6 +1,7 @@
 import os.path
 from django.conf.urls.defaults import *
 from django.contrib import admin
+from django.conf import settings
 from forum.views import index
 from forum import views as app
 from forum.feed import RssLastestQuestionsFeed

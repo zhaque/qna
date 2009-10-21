@@ -14,6 +14,7 @@ install_requires = [
     'python-openid',
     #'mysql-python',
     'html5lib',
+    'app_media',
 ]
 
 extras_require = dict(

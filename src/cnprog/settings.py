@@ -19,7 +19,7 @@ MANAGERS = ADMINS
 
 SITE_ID = 1
 
-MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media')
+MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'wide_media')
 APP_MEDIA_ROOT = MEDIA_ROOT
 
 SERVE_MEDIA = True
@@ -80,6 +80,7 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'forum',
     'django_authopenid',
+    'app_media',
     #'debug_toolbar' ,
 )
 import django

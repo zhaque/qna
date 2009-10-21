@@ -7,13 +7,13 @@
 {% block title %}{% spaceless %}{{ question.get_question_title }}{% endspaceless %}{% endblock %}
 {% block forejs %}
         {% if not question.closed and request.user.is_authenticated %}
-        <script type='text/javascript' src='{{ MEDIA_URL }}js/com.cnprog.editor.js'></script>
-        <script type='text/javascript' src='{{ MEDIA_URL }}js/wmd/showdown.js'></script>
-        <script type='text/javascript' src='{{ MEDIA_URL }}js/wmd/wmd.js'></script>
-        <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}js/wmd/wmd.css" />
+        <script type='text/javascript' src='{{ MEDIA_URL }}cnprog/js/com.cnprog.editor.js'></script>
+        <script type='text/javascript' src='{{ MEDIA_URL }}cnprog/js/wmd/showdown.js'></script>
+        <script type='text/javascript' src='{{ MEDIA_URL }}cnprog/js/wmd/wmd.js'></script>
+        <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}cnprog/js/wmd/wmd.css" />
         {% endif %}
-        <script type='text/javascript' src='{{ MEDIA_URL }}js/com.cnprog.post.js'></script>
-        <script type='text/javascript' src='{{ MEDIA_URL }}js/jquery.validate.pack.js'></script>
+        <script type='text/javascript' src='{{ MEDIA_URL }}cnprog/js/com.cnprog.post.js'></script>
+        <script type='text/javascript' src='{{ MEDIA_URL }}cnprog/js/jquery.validate.pack.js'></script>
         <script type="text/javascript">
         // define reputation needs for comments
         var repNeededForComments = 50;
@@ -65,37 +65,37 @@
                         <div class="vote-buttons">
                             {% if question_vote %}
                             <img id="question-img-upvote-{{ question.id }}" class="question-img-upvote" 
-								src="{{ MEDIA_URL }}images/vote-arrow-up{% if question_vote.is_upvote %}-on{% endif %}.png" 
+								src="{{ MEDIA_URL }}cnprog/images/vote-arrow-up{% if question_vote.is_upvote %}-on{% endif %}.png" 
 								title="{% trans "i like this post (click again to cancel)" %}" >
                             <div id="question-vote-number-{{ question.id }}" class="vote-number" 
 								title="{% trans "current number of votes" %}">
                                 {{ question.score }}
                             </div>
                             <img id="question-img-downvote-{{ question.id }}" class="question-img-downvote" 
-								src="{{ MEDIA_URL }}images/vote-arrow-down{% if question_vote.is_downvote %}-on{% endif %}.png" 
+								src="{{ MEDIA_URL }}cnprog/images/vote-arrow-down{% if question_vote.is_downvote %}-on{% endif %}.png" 
 								title="{% trans "i dont like this post (click again to cancel)" %}" >
                            
                             {% else %}
                             <img id="question-img-upvote-{{ question.id }}" class="question-img-upvote" 
-								src="{{ MEDIA_URL }}images/vote-arrow-up.png" 
+								src="{{ MEDIA_URL }}cnprog/images/vote-arrow-up.png" 
 								title="{% trans "i like this post (click again to cancel)" %}" >
                             <div id="question-vote-number-{{ question.id }}" class="vote-number" 
 								title="{% trans "current number of votes" %}">
                                 {{ question.score }}
                             </div>
                             <img id="question-img-downvote-{{ question.id }}" class="question-img-downvote" 
-								src="{{ MEDIA_URL }}images/vote-arrow-down.png" title="{% trans "i dont like this post (click again to cancel)" %}" >    
+								src="{{ MEDIA_URL }}cnprog/images/vote-arrow-down.png" title="{% trans "i dont like this post (click again to cancel)" %}" >    
           
                             {% endif %}
                             <br><br>
                             {% if favorited %}
-                            <img class="question-img-favorite" src="{{ MEDIA_URL }}images/vote-favorite-on.png" 
+                            <img class="question-img-favorite" src="{{ MEDIA_URL }}cnprog/images/vote-favorite-on.png" 
 								title="{% trans "mark this question as favorite (click again to cancel)" %}" >
                             <div id="favorite-number" class="favorite-number my-favorite-number">
                                 {{ question.favourite_count }}
                             </div>
                             {% else %}
-                            <img class="question-img-favorite" src="{{ MEDIA_URL }}images/vote-favorite-off.png" 
+                            <img class="question-img-favorite" src="{{ MEDIA_URL }}cnprog/images/vote-favorite-off.png" 
 								title="{% trans "remove favorite mark from this question (click again to restore mark)" %}" >   
                             <div id="favorite-number" class="favorite-number">{% ifnotequal question.favourite_count 0 %}{{ question.favourite_count }}{% endifnotequal %}
                             </div>
@@ -272,23 +272,23 @@
                             <tr>
                                 <td style="width:30px;vertical-align:top">
                                     <div class="vote-buttons">
-                                        <img id="answer-img-upvote-{{ answer.id }}" class="answer-img-upvote" src="{{ MEDIA_URL }}images/vote-arrow-up{% get_user_vote_image user_answer_votes answer.id 1 %}.png" title="{% trans "i like this answer (click again to cancel)" %}">
+                                        <img id="answer-img-upvote-{{ answer.id }}" class="answer-img-upvote" src="{{ MEDIA_URL }}cnprog/images/vote-arrow-up{% get_user_vote_image user_answer_votes answer.id 1 %}.png" title="{% trans "i like this answer (click again to cancel)" %}">
                                         <div id="answer-vote-number-{{ answer.id }}" class="vote-number" title="{% trans "current number of votes" %}">
                                             {{ answer.score }}
                                         </div>
                                         <img id="answer-img-downvote-{{ answer.id }}" class="answer-img-downvote" 
-											src="{{ MEDIA_URL }}images/vote-arrow-down{% get_user_vote_image user_answer_votes answer.id -1 %}.png" 
+											src="{{ MEDIA_URL }}cnprog/images/vote-arrow-down{% get_user_vote_image user_answer_votes answer.id -1 %}.png" 
 											title="{% trans "i dont like this answer (click again to cancel)" %}" >
                                      
                                         <br><br>
                                         {% ifequal request.user question.author  %}
                                         <img id="answer-img-accept-{{ answer.id }}" class="answer-img-accept" 
-											src="{{ MEDIA_URL }}images/vote-accepted{% if answer.accepted %}-on{% endif %}.png" 
+											src="{{ MEDIA_URL }}cnprog/images/vote-accepted{% if answer.accepted %}-on{% endif %}.png" 
 											title="{% trans "mark this answer as favorite (click again to undo)" %}" >
                                         {% else %}
                                             {% if answer.accepted %}
                                             <img id="answer-img-accept-{{ answer.id }}" class="answer-img-accept" 
-												src="{{ MEDIA_URL }}images/vote-accepted{% if answer.accepted %}-on{% endif %}.png" 
+												src="{{ MEDIA_URL }}cnprog/images/vote-accepted{% if answer.accepted %}-on{% endif %}.png" 
 												title="{% trans "the author of the question has selected this answer as correct" %}" >
                                             {% endif %}
                                         {% endifequal %}
