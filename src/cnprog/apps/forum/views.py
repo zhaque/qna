@@ -1066,7 +1066,7 @@ def user_stats(request, user_id, user_view):
                                        },
                                        select_params=[user_id],
                                        tables=['question', 'auth_user'],
-                                       where=['question.deleted = 0 AND question.author_id=%s AND question.last_activity_by_id = auth_user.id'],
+                                       where=['question.deleted = False AND question.author_id=%s AND question.last_activity_by_id = auth_user.id'],
                                        params=[user_id],
                                        order_by=['-vote_count', '-last_activity_at']
                                        ).values('vote_count',
@@ -1102,7 +1102,7 @@ def user_stats(request, user_id, user_view):
                                                 'comment_count': 'answer.comment_count'
                                                 },
                                                 tables=['question', 'answer'],
-                                                where=['answer.deleted=0 AND answer.author_id=%s AND answer.question_id=question.id'],
+                                                where=['answer.deleted=False AND answer.author_id=%s AND answer.question_id=question.id'],
                                                 params=[user_id],
                                                 order_by=['-vote_count', '-answer_id'],
                                                 select_params=[user_id]
@@ -1679,7 +1679,7 @@ def user_favorites(request, user_id, user_view):
                                        },
                                        select_params=[user_id],
                                        tables=['question', 'auth_user', 'favorite_question'],
-                                       where=['question.deleted = 0 AND question.last_activity_by_id = auth_user.id ' +
+                                       where=['question.deleted = False AND question.last_activity_by_id = auth_user.id ' +
                                        'AND favorite_question.question_id = question.id AND favorite_question.user_id = %s'],
                                        params=[user_id],
                                        order_by=['-vote_count', '-question.id']
