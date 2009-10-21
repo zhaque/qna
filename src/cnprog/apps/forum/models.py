@@ -594,28 +594,28 @@ QUESTIONS_PER_PAGE_CHOICES = (
    (50, u'50'),
 )
 
-User.add_to_class('email_isvalid', models.BooleanField(default=False))
-User.add_to_class('email_key', models.CharField(max_length=16, null=True))
-User.add_to_class('reputation', models.PositiveIntegerField(default=1))
-User.add_to_class('gravatar', models.CharField(max_length=32))
+User.add_to_class('email_isvalid', models.fields.BooleanField(default=False))
+User.add_to_class('email_key', models.fields.CharField(max_length=16, null=True))
+User.add_to_class('reputation', models.fields.PositiveIntegerField(default=1))
+User.add_to_class('gravatar', models.fields.CharField(max_length=32))
 User.add_to_class('email_feeds', generic.GenericRelation(EmailFeed))
 User.add_to_class('favorite_questions',
-                  models.ManyToManyField(Question, through=FavoriteQuestion,
-                                         related_name='favorited_by'))
+              models.ManyToManyField(Question, through=FavoriteQuestion,
+                                     related_name='favorited_by'))
 User.add_to_class('badges', models.ManyToManyField(Badge, through=Award,
-                                                   related_name='awarded_to'))
-User.add_to_class('gold', models.SmallIntegerField(default=0))
-User.add_to_class('silver', models.SmallIntegerField(default=0))
-User.add_to_class('bronze', models.SmallIntegerField(default=0))
+                                              related_name='awarded_to'))
+User.add_to_class('gold', models.fields.SmallIntegerField(default=0))
+User.add_to_class('silver', models.fields.SmallIntegerField(default=0))
+User.add_to_class('bronze', models.fields.SmallIntegerField(default=0))
 User.add_to_class('questions_per_page',
-                  models.SmallIntegerField(choices=QUESTIONS_PER_PAGE_CHOICES, default=10))
+                 models.fields.SmallIntegerField(choices=QUESTIONS_PER_PAGE_CHOICES, default=10))
 User.add_to_class('last_seen',
-                  models.DateTimeField(default=datetime.datetime.now))
-User.add_to_class('real_name', models.CharField(max_length=100, blank=True))
-User.add_to_class('website', models.URLField(max_length=200, blank=True))
-User.add_to_class('location', models.CharField(max_length=100, blank=True))
-User.add_to_class('date_of_birth', models.DateField(null=True, blank=True))
-User.add_to_class('about', models.TextField(blank=True))
+                  models.fields.DateTimeField(default=datetime.datetime.now))
+User.add_to_class('real_name', models.fields.CharField(max_length=100, blank=True))
+User.add_to_class('website', models.fields.URLField(max_length=200, blank=True))
+User.add_to_class('location', models.fields.CharField(max_length=100, blank=True))
+User.add_to_class('date_of_birth', models.fields.DateField(null=True, blank=True))
+User.add_to_class('about', models.fields.TextField(blank=True))
 
 # custom signal
 tags_updated = django.dispatch.Signal(providing_args=["question"])

@@ -935,8 +935,8 @@ def vote(request, id):
                     except EmailFeed.DoesNotExist:
                         feed = EmailFeed(subscriber=user, content=question)
                         feed.save()
-                        if settings.EMAIL_VALIDATION == 'on' and user.email_isvalid == False:
-                            response_data['message'] = _('subscription saved, %(email)s needs validation') % {'email':user.email}
+                        #if settings.EMAIL_VALIDATION == 'on' and user.email_isvalid == False:
+                        #    response_data['message'] = _('subscription saved, %(email)s needs validation') % {'email':user.email}
                     #response_data['status'] = 1
                     #responst_data['allowed'] = 1
                 else:
