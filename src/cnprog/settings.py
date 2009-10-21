@@ -19,6 +19,13 @@ MANAGERS = ADMINS
 
 SITE_ID = 1
 
+MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media')
+APP_MEDIA_ROOT = MEDIA_ROOT
+
+SERVE_MEDIA = True
+
+MEDIA_URL = '/media/'
+
 ADMIN_MEDIA_PREFIX = '/admin/media/'
 SECRET_KEY = '$oo^&_m&qwbib=(_4m_n*zn-d=g#s0he5fx9xonnym#8p6yigm'
 # List of callables that know how to import templates from various sources.

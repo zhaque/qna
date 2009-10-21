@@ -13,19 +13,13 @@ feeds = {
 APP_PATH = os.path.dirname(__file__)
 urlpatterns = patterns('',
     (r'^$', index),
-    (r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '/content/images/favicon.ico'}),
-    (r'^favicon\.gif$', 'django.views.generic.simple.redirect_to', {'url': '/content/images/favicon.gif'}),
-    (r'^content/(?P<path>.*)$', 'django.views.static.serve',
-        {'document_root': os.path.join(APP_PATH, 'templates/content').replace('\\','/')}
-    ),
-    (r'^upfiles/(?P<path>.*)$', 'django.views.static.serve',
-        {'document_root': os.path.join(APP_PATH, 'templates/upfiles').replace('\\','/')}
-    ),
-    (r'^account/', include('django_authopenid.urls')),
-    (r'^signin/$', 'django_authopenid.views.signin'),
-    url(r'^email/change/$', 'django_authopenid.views.changeemail', name='user_changeemail'),
-    url(r'^email/sendkey/$', 'django_authopenid.views.send_email_key'),
-    url(r'^email/verify/(?P<id>\d+)/(?P<key>[\dabcdef]{32})/$', 'django_authopenid.views.verifyemail', name='user_verifyemail'),
+    (r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '%simages/favicon.ico' % settings.MEDIA_URL}),
+    (r'^favicon\.gif$', 'django.views.generic.simple.redirect_to', {'url': '%simages/favicon.gif' % settings.MEDIA_URL}),
+    #(r'^account/', include('django_authopenid.urls')),
+    #(r'^signin/$', 'django_authopenid.views.signin'),
+    #url(r'^email/change/$', 'django_authopenid.views.changeemail', name='user_changeemail'),
+    #url(r'^email/sendkey/$', 'django_authopenid.views.send_email_key'),
+    #url(r'^email/verify/(?P<id>\d+)/(?P<key>[\dabcdef]{32})/$', 'django_authopenid.views.verifyemail', name='user_verifyemail'),
     url(r'^about/$', app.about, name='about'),
     url(r'^faq/$', app.faq, name='faq'),
     url(r'^privacy/$', app.privacy, name='privacy'),
@@ -50,7 +44,7 @@ urlpatterns = patterns('',
     (r'^tags/$', app.tags),
     (r'^tags/(?P<tag>[^/]+)/$', app.tag),
     (r'^users/$',app.users),
-    url(r'^users/(?P<id>\d+)/edit/$', app.edit_user, name='edit_user'),
+    #url(r'^users/(?P<id>\d+)/edit/$', app.edit_user, name='edit_user'),
     url(r'^users/(?P<id>\d+)//*', app.user, name='user'),
     url(r'^badges/$',app.badges, name='badges'),
     url(r'^badges/(?P<id>\d+)//*', app.badge, name='badge'),
@@ -65,3 +59,9 @@ urlpatterns = patterns('',
     url(r'^search/$', app.search, name='search'),
     (r'^i18n/', include('django.conf.urls.i18n')),
 )
+
+# serve static files in debug mode
+if settings.SERVE_MEDIA:
+    urlpatterns += patterns('',
+        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+    )

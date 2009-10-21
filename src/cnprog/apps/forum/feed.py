@@ -12,8 +12,10 @@
 #-------------------------------------------------------------------------------
 from django.contrib.syndication.feeds import Feed, FeedDoesNotExist
 from django.utils.translation import ugettext as _
+from django.conf import settings
+
 from models import Question
-import settings
+
 class RssLastestQuestionsFeed(Feed):
     title = settings.APP_TITLE + _(' - ')+ _('latest questions')
     link = settings.APP_URL + '/' + _('questions/')

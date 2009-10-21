@@ -13,7 +13,7 @@ from django.template.defaultfilters import slugify
 from django.db.models.signals import post_delete, post_save, pre_save
 from django.utils.translation import ugettext as _
 import django.dispatch
-import settings
+from django.conf import settings
 
 from forum.managers import *
 from const import *
@@ -781,7 +781,7 @@ def record_user_full_updated(instance, **kwargs):
 def post_stored_anonymous_content(sender,user,session_key,signal,*args,**kwargs):
     aq_list = AnonymousQuestion.objects.filter(session_key = session_key)
     aa_list = AnonymousAnswer.objects.filter(session_key = session_key)
-    import settings
+    
     if settings.EMAIL_VALIDATION == 'on':#add user to the record
         for aq in aq_list:
             aq.author = user

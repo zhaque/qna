@@ -7,9 +7,9 @@ Style sheet for cnprog.com
 All rights reserved. 2008 CNPROG.COM
 */
 
-@import url(/content/style/jquery.autocomplete.css);
-@import url(/content/style/openid.css);
-@import url(/content/style/prettify.css);
+@import url(jquery.autocomplete.css);
+@import url(openid.css);
+@import url(prettify.css);
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, form, label, table, caption, tbody, tfoot, thead, tr, th, td
 {
@@ -21,7 +21,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	background: transparent;
 }
 body{
-    font-family: "segoe ui",Helvetica,"Microsoft YaHei",ËÎÌå,Tahoma,Verdana,MingLiu,PMingLiu,Arial,sans-serif;
+    font-family: "segoe ui",Helvetica,"Microsoft YaHei",ï¿½ï¿½ï¿½ï¿½,Tahoma,Verdana,MingLiu,PMingLiu,Arial,sans-serif;
     font-size: 80%;
 
     margin:0;
@@ -48,7 +48,7 @@ input, select, button, textarea
 {
 	border: 1px solid #999;
 	font-size:100%;
-    font-family:"segoe ui",Helvetica,"Microsoft YaHei",ËÎÌå,Tahoma,Verdana,MingLiu,PMingLiu,Arial,sans-serif;
+    font-family:"segoe ui",Helvetica,"Microsoft YaHei",ï¿½ï¿½ï¿½ï¿½,Tahoma,Verdana,MingLiu,PMingLiu,Arial,sans-serif;
 }
 
 input
@@ -131,7 +131,7 @@ h2 {
     font-weight:bold;
     margin-bottom:7px;
 }
-h3 {display:block;font-size:120%;font-family:Trebuchet MS,"segoe ui",Helvetica,"Microsoft YaHei",ËÎÌå,Tahoma,Verdana,MingLiu,PMingLiu,Arial,sans-serif;font-weight:bold;}
+h3 {display:block;font-size:120%;font-family:Trebuchet MS,"segoe ui",Helvetica,"Microsoft YaHei",ï¿½ï¿½ï¿½ï¿½,Tahoma,Verdana,MingLiu,PMingLiu,Arial,sans-serif;font-weight:bold;}
 h3 a:visited{
    color:#86B0E1;
 }
@@ -232,19 +232,19 @@ h4 {display:block;font-size:90%; font-family:Verdana;color:#ccc;}
 }
 
 #main-bar .golden{
-    background:url(/content/images/bg_title_golden.gif) no-repeat;
+    background:url(../images/bg_title_golden.gif) no-repeat;
 }
 
 #main-bar .pink{
-    background:url(/content/images/bg_title_red.gif) no-repeat;
+    background:url(../images/bg_title_red.gif) no-repeat;
 }
 
 #main-bar .orange{
-    background:url(/content/images/bg_title_orange.gif) no-repeat;
+    background:url(../images/bg_title_orange.gif) no-repeat;
 }
 
 #main-bar .green{
-    background:url(/content/images/bg_title_green.gif) no-repeat;
+    background:url(../images/bg_title_green.gif) no-repeat;
 }
 
 #tab{
@@ -715,7 +715,7 @@ h4 {display:block;font-size:90%; font-family:Verdana;color:#ccc;}
 	padding: 2px 4px 2px 4px;
 	text-decoration: none;
     height:20px;
-    font-family:Microsoft Yahei,ËÎÌå,Tahoma;
+    font-family:Microsoft Yahei,ï¿½ï¿½ï¿½ï¿½,Tahoma;
 	font-size: 90%;
 	line-height: 2.2;
 	white-space:nowrap;
@@ -906,7 +906,7 @@ h4 {display:block;font-size:90%; font-family:Verdana;color:#ccc;}
 
 /* 2 textarea resizer styles */
 div.grippie {
-    background:#EEEEEE url(/content/images/grippie.png) no-repeat scroll center 2px;
+    background:#EEEEEE url(../images/grippie.png) no-repeat scroll center 2px;
     border-color:#DDDDDD;
     border-style:solid;
     border-width:0pt 1px 1px;
@@ -923,14 +923,14 @@ div.grippie {
 }
 
 .openid-input{
-    background:url(/content/images/openid.gif) no-repeat;
+    background:url(../images/openid.gif) no-repeat;
     padding-left:15px;
     cursor:pointer;
 }
 
 .openid-login-input{
     background-position:center left;
-    background:url(/content/images/openid.gif) no-repeat 0% 50%;
+    background:url(../images/openid.gif) no-repeat 0% 50%;
     padding:5px 5px 5px 15px;
     cursor:pointer;
     font-family:Trebuchet MS;
@@ -953,7 +953,7 @@ div.grippie {
 }
 
 .openid-samples .list, .list li{
-    font-family:Trebuchet MS,"segoe ui",Helvetica,"Microsoft YaHei",ËÎÌå,Tahoma,Verdana,MingLiu,PMingLiu,Arial,sans-serif;
+    font-family:Trebuchet MS,"segoe ui",Helvetica,"Microsoft YaHei",ï¿½ï¿½ï¿½ï¿½,Tahoma,Verdana,MingLiu,PMingLiu,Arial,sans-serif;
     list-style:none !important;
     margin-left:-30px !important;
     line-height:20px !important;

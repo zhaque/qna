@@ -29,7 +29,7 @@ from forum.diff import textDiff as htmldiff
 from forum.forms import *
 from forum.models import *
 from forum.user import *
-from utils.html import sanitize_html
+from cnprog.utils.html import sanitize_html
 
 # used in index page
 INDEX_PAGE_SIZE = 20

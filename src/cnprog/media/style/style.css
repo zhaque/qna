@@ -1,6 +1,6 @@
-@import url(/content/style/jquery.autocomplete.css);
-@import url(/content/style/openid.css);
-@import url(/content/style/prettify.css);
+@import url(jquery.autocomplete.css);
+@import url(openid.css);
+@import url(prettify.css);
 /* 公用 */
 body{background:#FFF; font-size:12px; line-height:150%; margin:0; padding:0; color:#000; font-family: sans-serif; 
 }
@@ -137,7 +137,7 @@ blockquote
 
 /*问题列表*/
 #listA {float:left; background-color:#FFF;padding:0 0px 0 0px; width:100%;}
-#listA .qstA {padding:3px 5px 0 5px; margin:0 0px 10px 0px; background:url(/content/images/quest-bg.gif) repeat-x top;}
+#listA .qstA {padding:3px 5px 0 5px; margin:0 0px 10px 0px; background:url(../images/quest-bg.gif) repeat-x top;}
 #listA .qstA thumb {float:left; }
 #listA .qstA H2 {font-size:15px; font-weight:800; margin:8px auto;padding:0px;}
 #listA .qstA H2 a {color:#663333; }
@@ -165,7 +165,7 @@ blockquote
 .boxA .body {border:1px solid #999; padding:8px; background:#FFF; font-size:13px;}
 .boxA .more {padding:2px; text-align:right; font-weight:800;}
 .boxB {background:#F9F7CD; padding:6px; margin-bottom:8px;}
-.boxB H3 {font-size:13px; font-weight:800; color:#000; margin:0; padding:0 0 0 15px; margin-bottom:4px; background:url(/content/images/dot-g.gif) no-repeat left center;}
+.boxB H3 {font-size:13px; font-weight:800; color:#000; margin:0; padding:0 0 0 15px; margin-bottom:4px; background:url(../images/dot-g.gif) no-repeat left center;}
 .boxB .body {border:1px solid #FFFF88; padding:8px; background:#FFF; font-size:13px; line-height:160%;}
 .boxB .more {padding:1px; text-align:right; font-weight:800;}
 .boxC {background:#F5F5F5; padding:6px; margin-bottom:8px;}
@@ -257,8 +257,8 @@ blockquote
 .tag-number {font-weight:700;font-family:sans-serif;}
 
 /*奖牌*/
-a.medal  { font-size:14px; line-height:250%; font-weight:800; color:#333; text-decoration:none; background:url(/content/images/medala.gif) no-repeat; border-left:1px solid #EEE; border-top:1px solid #EEE; border-bottom:1px solid #CCC; border-right:1px solid #CCC; padding:4px 12px 4px 6px;}
-a:hover.medal  {color:#333; text-decoration:none; background:url(/content/images/medala_on.gif) no-repeat; border-left:1px solid #E7E296; border-top:1px solid #E7E296; border-bottom:1px solid #D1CA3D; border-right:1px solid #D1CA3D;}
+a.medal  { font-size:14px; line-height:250%; font-weight:800; color:#333; text-decoration:none; background:url(../images/medala.gif) no-repeat; border-left:1px solid #EEE; border-top:1px solid #EEE; border-bottom:1px solid #CCC; border-right:1px solid #CCC; padding:4px 12px 4px 6px;}
+a:hover.medal  {color:#333; text-decoration:none; background:url(../images/medala_on.gif) no-repeat; border-left:1px solid #E7E296; border-top:1px solid #E7E296; border-bottom:1px solid #D1CA3D; border-right:1px solid #D1CA3D;}
 
 /*Tab栏*/
 .tabBar{background-color:#FFF;border-bottom: 1px solid #666;height: 30px; width: 100%;clear:both; margin-bottom:3px;}
@@ -297,17 +297,17 @@ a:hover.medal  {color:#333; text-decoration:none; background:url(/content/images
 }
 .tabsA a:hover, .tabsB a:hover {background: #fff;border: 1px solid #777;border-bottom:3px solid #FFF;}
 .headlineA {font-size:13px; border-bottom:1px solid #777; padding-bottom:2px; font-weight:800; margin-bottom:12px; text-align:right; height:30px;}
-.headQuestions {float:left; height:23px; line-height:23px; margin:5px 0 0 5px;padding:0px 6px 0px 15px; font-size:15px; font-weight:700; border-bottom:0px solid #777; border-left:0px solid #darkred; background-color:#FFF;background:url(/content/images/dot-list.gif) no-repeat left center;}
-.headAnswers {float:left; padding:3px; font-size:18px; font-weight:800; background:url(/content/images/ico_answers.gif) left 2px no-repeat; padding-left:24px;}
-.headTags {float:left; padding:3px; font-size:18px; font-weight:800; background:url(/content/images/ico_tags.gif) no-repeat; padding-left:24px;}
-.headUsers {float:left; height:23px; line-height:23px; margin:5px 0 0 5px;padding:0px 6px 0px 15px; font-size:15px; font-weight:700; border-bottom:0px solid #777; border-left:0px solid #darkred; background-color:#FFF;background:url(/content/images/dot-list.gif) no-repeat left center;}
-.headMedals {float:left; height:23px; line-height:23px; margin:5px 0 0 5px;padding:0px 6px 0px 15px; font-size:15px; font-weight:700; border-bottom:0px solid #777; border-left:0px solid #darkred; background-color:#FFF;background:url(/content/images/dot-list.gif) no-repeat left center;}
-.headLogin {float:left; padding:3px; font-size:15px; font-weight:800; background:url(/content/images/ico_login.gif) no-repeat; padding-left:24px;}
+.headQuestions {float:left; height:23px; line-height:23px; margin:5px 0 0 5px;padding:0px 6px 0px 15px; font-size:15px; font-weight:700; border-bottom:0px solid #777; border-left:0px solid #darkred; background-color:#FFF;background:url(../images/dot-list.gif) no-repeat left center;}
+.headAnswers {float:left; padding:3px; font-size:18px; font-weight:800; background:url(../images/ico_answers.gif) left 2px no-repeat; padding-left:24px;}
+.headTags {float:left; padding:3px; font-size:18px; font-weight:800; background:url(../images/ico_tags.gif) no-repeat; padding-left:24px;}
+.headUsers {float:left; height:23px; line-height:23px; margin:5px 0 0 5px;padding:0px 6px 0px 15px; font-size:15px; font-weight:700; border-bottom:0px solid #777; border-left:0px solid #darkred; background-color:#FFF;background:url(../images/dot-list.gif) no-repeat left center;}
+.headMedals {float:left; height:23px; line-height:23px; margin:5px 0 0 5px;padding:0px 6px 0px 15px; font-size:15px; font-weight:700; border-bottom:0px solid #777; border-left:0px solid #darkred; background-color:#FFF;background:url(../images/dot-list.gif) no-repeat left center;}
+.headLogin {float:left; padding:3px; font-size:15px; font-weight:800; background:url(../images/ico_login.gif) no-repeat; padding-left:24px;}
 .headNormal {text-align:left;padding:3px; font-size:15px; margin-bottom:12px; font-weight:800;border-bottom:1px solid #777;}
 .headUser {text-align:left;padding:5px; font-size:20px; letter-spacing:1px;margin-bottom:12px; font-weight:800;border-bottom:1px solid #777;}
 /*RSS订阅*/
 #feeds {margin:10px 0; }
-#feeds a {background:url(/content/images/feed-icon-small.png) no-repeat 0; padding-left:18px; font-weight:700; font-size:13px; }
+#feeds a {background:url(../images/feed-icon-small.png) no-repeat 0; padding-left:18px; font-weight:700; font-size:13px; }
 
 /*问题*/
 #question {margin-bottom:30px;}
@@ -355,9 +355,9 @@ a:hover.medal  {color:#333; text-decoration:none; background:url(/content/images
     font-weight:bold;
     color:#777;
 }
-.question-img-upvote:hover{background:url(/content/images/vote-arrow-up-on.png)}
-.question-img-downvote:hover{background:url(/content/images/vote-arrow-down-on.png)}
-.question-img-favorite:hover{background:url(/content/images/vote-favorite-on.png)}
+.question-img-upvote:hover{background:url(../images/vote-arrow-up-on.png)}
+.question-img-downvote:hover{background:url(../images/vote-arrow-down-on.png)}
+.question-img-favorite:hover{background:url(../images/vote-favorite-on.png)}
 .favorite-number{padding:0px;font-size:100%; font-family:Arial;font-weight:bold;color:#777;}
 .vote-notification
 {
@@ -556,7 +556,7 @@ a.comment-user:hover {
 	color: #E1E818;
 }
 
-.answer-img-accept:hover{background:url(/content/images/vote-accepted-on.png)}
+.answer-img-accept:hover{background:url(../images/vote-accepted-on.png)}
 
 .deleted{
     background:#F4E7E7 none repeat scroll 0 0;
@@ -586,10 +586,10 @@ a.comment-user:hover {
 	margin-top:10px;
 	padding:10px;
 }
-.openid-input{background:url(/content/images/openid.gif) no-repeat;padding-left:15px;cursor:pointer;}
+.openid-input{background:url(../images/openid.gif) no-repeat;padding-left:15px;cursor:pointer;}
 .openid-login-input{
     background-position:center left;
-    background:url(/content/images/openid.gif) no-repeat 0% 50%;
+    background:url(../images/openid.gif) no-repeat 0% 50%;
     padding:5px 5px 5px 15px;
     cursor:pointer;
     font-family:Trebuchet MS;
@@ -751,7 +751,7 @@ background-color: #97ff97;
 	}
 .user-details{font-size:13px;}
 .user-about{background-color:#EEEEEE;height:200px;line-height:20px; overflow:auto;padding:10px;width:90%;}
-.user-edit-link {background:url(/content/images/edit.png) no-repeat; padding-left:20px; font-weight:600;}
+.user-edit-link {background:url(../images/edit.png) no-repeat; padding-left:20px; font-weight:600;}
 .favorites-count-off {
     color:#919191;
     float:left;
@@ -1009,7 +1009,7 @@ div.started .reputation-score {
 a.comment {background:#EEE; color:#993300; padding:4px;}
 a.permLink {padding:2px;}
 a.offensive {color:#999;}
-ul.bulleta li {background:url(/content/images/bullet_green.gif) no-repeat 0px 2px; padding-left:16px; margin-bottom:4px;}
+ul.bulleta li {background:url(../images/bullet_green.gif) no-repeat 0px 2px; padding-left:16px; margin-bottom:4px;}
 .user {padding:5px; line-height:140%; width:170px;}
 .user ul {margin:0; list-style-type:none;}
 .user .thumb{clear:both;float:left; margin-right:4px; display:inline;}
