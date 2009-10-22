@@ -47,13 +47,13 @@ urlpatterns = patterns('',
     url(r'^questions/(?P<question_id>\d+)/comments/(?P<comment_id>\d+)/delete/$', app.delete_question_comment, name='delete_question_comment'),
     url(r'^answers/(?P<answer_id>\d+)/comments/(?P<comment_id>\d+)/delete/$', app.delete_answer_comment, name='delete_answer_comment'),
     #place general question item in the end of other operations
-    url(r'^questions/(?P<id>\d+)//*', app.question, name='question'),
-    (r'^tags/$', app.tags),
+    url(r'^questions/(?P<id>\d+)/$', app.question, name='question'),
+    url(r'^tags/$', app.tags, name="tags"),
     
     url(r'^tags/(?P<tag>[^/]+)/$', 'forum.views.tagged_search', name='tag_search'),
     
-    (r'^users/$',app.users),
-    #url(r'^users/(?P<id>\d+)/edit/$', app.edit_user, name='edit_user'),
+    url(r'^users/$',app.users, name="users"),
+    url(r'^users/(?P<id>\d+)/edit/$', app.edit_user, name='edit_user'),
     url(r'^users/(?P<id>\d+)//*', app.user, name='user'),
     url(r'^badges/$',app.badges, name='badges'),
     url(r'^badges/(?P<id>\d+)//*', app.badge, name='badge'),

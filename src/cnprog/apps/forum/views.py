@@ -68,7 +68,8 @@ def _get_tags_cache_json():
     tags = simplejson.dumps(tags_list)
     return tags
 
-def index(request, queryset=Question.objects.all(), template_name='index.html'):
+def index(request, queryset=Question.objects.all(), template_name='index.html', 
+          tag_queryset=Tag.objects.all().filter(deleted=False).exclude(used_count=0)):
     view_id = request.GET.get('sort', None)
     view_dic = {
         "latest":"-last_activity_at",
@@ -88,7 +89,7 @@ def index(request, queryset=Question.objects.all(), template_name='index.html'):
         questions = queryset.all().order_by(orderby)[:INDEX_PAGE_SIZE]
     # RISK - inner join queries
     questions = questions.select_related()
-    tags = Tag.objects.get_valid_tags(INDEX_TAGS_SIZE)
+    tags = tag_queryset.order_by("-id")[:INDEX_TAGS_SIZE]
 
     awards = Award.objects.get_recent_awards()
 
@@ -234,7 +235,7 @@ def ask(request, form_class=AskForm):
                               'tags': tags,
                               }, context_instance=RequestContext(request))
 
-def question(request, id):
+def question(request, id, queryset=Question.objects.all()):
     try:
         page = int(request.GET.get('page', '1'))
     except ValueError:
@@ -279,6 +280,17 @@ def question(request, id):
     page_objects = objects_list.page(page)
     # update view count
     Question.objects.update_view_count(question)
+    
+    #similar questions
+    similar_questions = list(queryset.filter(tagnames = question.tagnames))
+
+    tags_list = question.tags.all()
+    for tag in tags_list:
+        extend_questions = queryset.filter(tags__id = tag.id)[:50]
+        for item in extend_questions:
+            if item not in similar_questions and len(similar_questions) < 10:
+                similar_questions.append(item)
+    
     return render_to_response('question.html', {
                               "question": question,
                               "question_vote": question_vote,
@@ -289,7 +301,7 @@ def question(request, id):
                               "tags": question.tags.all(),
                               "tab_id": view_id,
                               "favorited": favorited,
-                              "similar_questions": Question.objects.get_similar_questions(question),
+                              "similar_questions": similar_questions,
                               "context": {
                               'is_paginated': True,
                               'pages': objects_list.num_pages,
@@ -614,7 +626,8 @@ def answer(request, id):
 
     return HttpResponseRedirect(question.get_absolute_url())
 
-def tags(request):
+def tags(request, queryset=Tag.objects.filter(deleted=False).exclude(used_count=0), 
+         template_name="tags.html"):
     stag = ""
     is_paginated = True
     sortby = request.GET.get('sort', 'used')
@@ -626,19 +639,16 @@ def tags(request):
     if request.method == "GET":
         stag = request.GET.get("q", "").strip()
         if len(stag) > 0:
-            objects_list = Paginator(Tag.objects.filter(deleted=False).exclude(used_count=0).extra(where=['name like %s'], params=['%' + stag + '%']), DEFAULT_PAGE_SIZE)
+            objects_list = Paginator(queryset.extra(where=['name like %s'], params=['%' + stag + '%']), DEFAULT_PAGE_SIZE)
         else:
-            if sortby == "used":
-                sortby = "-used_count"
-            else:
-                sortby = "name"
-            objects_list = Paginator(Tag.objects.all().filter(deleted=False).exclude(used_count=0).order_by(sortby), DEFAULT_PAGE_SIZE)
+            sortby = "-used_count" if sortby == "used" else "name" 
+            objects_list = Paginator(queryset.order_by(sortby), DEFAULT_PAGE_SIZE)
     try:
         tags = objects_list.page(page)
     except (EmptyPage, InvalidPage):
         tags = objects_list.page(objects_list.num_pages)
-
-    return render_to_response('tags.html', {
+    
+    return render_to_response(template_name, {
                               "tags": tags,
                               "stag": stag,
                               "tab_id": sortby,
@@ -882,7 +892,7 @@ def vote(request, id):
         data = simplejson.dumps(response_data)
     return HttpResponse(data, mimetype="application/json")
 
-def users(request):
+def users(request, queryset=User.objects.all(), template_name='users.html'):
     is_paginated = True
     sortby = request.GET.get('sort', 'reputation')
     suser = request.REQUEST.get('q', "")
@@ -893,18 +903,20 @@ def users(request):
 
     if suser == "":
         if sortby == "newest":
-            objects_list = Paginator(User.objects.all().order_by('-date_joined'), USERS_PAGE_SIZE)
+            sorted_by = '-date_joined'
         elif sortby == "last":
-            objects_list = Paginator(User.objects.all().order_by('date_joined'), USERS_PAGE_SIZE)
+            sorted_by = 'date_joined'
         elif sortby == "user":
-            objects_list = Paginator(User.objects.all().order_by('username'), USERS_PAGE_SIZE)
+            sorted_by = 'username'
         # default
         else:
-            objects_list = Paginator(User.objects.all().order_by('-reputation'), USERS_PAGE_SIZE)
+            sorted_by = '-reputation'
+        objects_list = Paginator(queryset.order_by(sorted_by), USERS_PAGE_SIZE)
+        
         base_url = '/users/?sort=%s&' % sortby
     else:
         sortby = "reputation"
-        objects_list = Paginator(User.objects.extra(where=['username like %s'], params=['%' + suser + '%']).order_by('-reputation'), USERS_PAGE_SIZE)
+        objects_list = Paginator(queryset.extra(where=['username like %s'], params=['%' + suser + '%']).order_by('-reputation'), USERS_PAGE_SIZE)
         base_url = '/users/?name=%s&sort=%s&' % (suser, sortby)
 
     try:
@@ -912,7 +924,7 @@ def users(request):
     except (EmptyPage, InvalidPage):
         users = objects_list.page(objects_list.num_pages)
 
-    return render_to_response('users.html', {
+    return render_to_response(template_name, {
                               "users": users,
                               "suser": suser,
                               "keywords": suser,
@@ -1897,7 +1909,7 @@ def ask_book(request, short_name, form_class=AskForm):
                               'tags': tags,
                               }, context_instance=RequestContext(request))
 
-def search(request):
+def search(request, queryset=Question.objects.all(), template_name = "questions.html"):
     """
     Search by question, user and tag keywords.
     For questions now we only search keywords in question title.
@@ -1917,7 +1929,6 @@ def search(request):
             return HttpResponseRedirect('/users/?q=%s&page=%s' % (keywords.strip(), page))
         elif search_type == "question":
             
-            template_file = "questions.html"
             # Set flag to False by default. If it is equal to True, then need to be saved.
             pagesize_changed = False
             # get pagesize from session, if failed then get default value
@@ -1953,7 +1964,7 @@ def search(request):
                 view_id = "latest"
                 orderby = "-added_at"
                 
-            objects = Question.objects.filter(deleted=False).extra(where=['title like %s'], params=['%' + keywords + '%']).order_by(orderby)
+            objects = queryset.extra(where=['title like %s'], params=['%' + keywords + '%']).order_by(orderby)
 
             # RISK - inner join queries
             objects = objects.select_related();
@@ -1961,14 +1972,12 @@ def search(request):
             questions = objects_list.page(page)
 
             # Get related tags from this page objects
-            related_tags = []
-            for question in questions.object_list:
-                tags = list(question.tags.all())
-                for tag in tags:
-                    if tag not in related_tags:
-                        related_tags.append(tag)
-
-            return render_to_response(template_file, {
+            if questions.object_list.count() > 0:
+                related_tags = Tag.objects.get_tags_by_questions(questions.object_list)
+            else:
+                related_tags = []
+                
+            return render_to_response(template_name, {
                                       "questions": questions,
                                       "tab_id": view_id,
                                       "questions_count": objects_list.count,

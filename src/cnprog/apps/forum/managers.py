@@ -69,26 +69,6 @@ class QuestionManager(models.Manager):
         from forum.models import FavoriteQuestion
         self.filter(id=question.id).update(favourite_count = FavoriteQuestion.objects.filter(question=question).count())
         
-    def get_similar_questions(self, question):
-        """
-        Get 10 similar questions for given one.
-        This will search the same tag list for give question(by exactly same string) first.
-        Questions with the individual tags will be added to list if above questions are not full.
-        """
-        #print datetime.datetime.now()
-        from forum.models import Question
-        questions = list(Question.objects.filter(tagnames = question.tagnames).all())
-
-        tags_list = question.tags.all()
-        for tag in tags_list:
-            extend_questions = Question.objects.filter(tags__id = tag.id)[:50]
-            for item in extend_questions:
-                if item not in questions and len(questions) < 10:
-                    questions.append(item)
-          
-        #print datetime.datetime.now()
-        return questions    
-    
 class TagManager(models.Manager):
     UPDATE_USED_COUNTS_QUERY = (
         'UPDATE tag '
@@ -97,11 +77,6 @@ class TagManager(models.Manager):
             'WHERE tag_id = tag.id'
         ') '
         'WHERE id IN (%s)')
-    
-    def get_valid_tags(self, page_size):
-      from forum.models import Tag
-      tags = Tag.objects.all().filter(deleted=False).exclude(used_count=0).order_by("-id")[:page_size]
-      return tags
     
     def get_or_create_multiple(self, names, user):
         """
@@ -135,17 +110,10 @@ class TagManager(models.Manager):
         transaction.commit_unless_managed()
     
     def get_tags_by_questions(self, questions):
-        question_ids = []
-        for question in questions:
-            question_ids.append(question.id)
-
-        question_ids_str = ','.join([str(id) for id in question_ids])
-        related_tags = self.extra(
-                tables=['tag', 'question_tags'],
-                where=["tag.id = question_tags.tag_id AND question_tags.question_id IN (" + question_ids_str + ")"]
-        ).distinct()
+        return self.filter(questions__id__in=[q.id for q in questions])
+            
         
-        return related_tags
+        
 
 class AnswerManager(models.Manager):
     GET_ANSWERS_FROM_USER_QUESTIONS = u'SELECT answer.* FROM answer INNER JOIN question ON answer.question_id = question.id WHERE question.author_id =%s AND answer.author_id <> %s'
