@@ -15,6 +15,7 @@ install_requires = [
     #'mysql-python',
     'html5lib',
     'app_media',
+    'django_authopenid',
 ]
 
 extras_require = dict(
