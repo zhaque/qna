@@ -111,7 +111,7 @@
                             </div>
                             <div id="question-tags" class="tags" >
                                 {% for tag in question.tagname_list %}
-                                    <a href="{% url forum.views.tag tag|urlencode %}" class="post-tag" 
+                                    <a href="{% url tag_search tag|urlencode %}" class="post-tag" 
 										title="{% trans "see questions tagged" %}'{{ tag }}'{% trans "using tags" %}" rel="tag">{{ tag }}</a>
                                 {% endfor %}
                             </div>
@@ -482,7 +482,7 @@
     </p>
     <p class="tags" >
         {% for tag in tags %}
-        	<a href="{% url forum.views.tag tag.name|urlencode %}" 
+        	<a href="{% url tag_search tag.name|urlencode %}" 
 			title="{% trans "see questions tagged"%}'{{tag.name}}'{% trans "using tags" %}" 
 			rel="tag">{{ tag.name }}</a> <span class="tag-number">× {{ tag.used_count|intcomma }}</span><br>
         {% endfor %}

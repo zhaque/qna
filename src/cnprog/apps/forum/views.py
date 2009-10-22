@@ -68,7 +68,7 @@ def _get_tags_cache_json():
     tags = simplejson.dumps(tags_list)
     return tags
 
-def index(request):
+def index(request, queryset=Question.objects.all(), template_name='index.html'):
     view_id = request.GET.get('sort', None)
     view_dic = {
         "latest":"-last_activity_at",
@@ -83,16 +83,16 @@ def index(request):
         orderby = "-last_activity_at"
     # group questions by author_id of 28,29
     if view_id == 'trans':
-        questions = Question.objects.get_translation_questions(orderby, INDEX_PAGE_SIZE)
+        questions = queryset.filter(author__id__in=[28,29]).order_by(orderby)[:INDEX_PAGE_SIZE]
     else:
-        questions = Question.objects.get_questions_by_pagesize(orderby, INDEX_PAGE_SIZE)
+        questions = queryset.all().order_by(orderby)[:INDEX_PAGE_SIZE]
     # RISK - inner join queries
     questions = questions.select_related()
     tags = Tag.objects.get_valid_tags(INDEX_TAGS_SIZE)
 
     awards = Award.objects.get_recent_awards()
 
-    return render_to_response('index.html', {
+    return render_to_response(template_name, {
                               "questions": questions,
                               "tab_id": view_id,
                               "tags": tags,
@@ -160,7 +160,7 @@ def questions(request, queryset=Question.objects.all(), template_name='questions
     
     return render_to_response(template_name, extra, context_instance=RequestContext(request))
 
-def tag(request, tag, queryset=Question.objects.all(), template_name='questions.html'):
+def tagged_search(request, tag, queryset=Question.objects.all(), template_name='questions.html'):
     queryset = queryset.filter(tags__name = unquote(tag))
     return questions(request, queryset, template_name, extra_context={'searchtag':tag})
 
@@ -217,90 +217,16 @@ def create_new_answer(question=None, author=None, \
         except:
             pass
 
-def create_new_question(title=None, author=None, added_at=None,
-                        wiki=False, tagnames=None, summary=None,
-                        text=None):
-    """this is not a view
-    and maybe should become one of the methods on Question object?
-    """
-    html = sanitize_html(markdowner.convert(text))
-    question = Question(
-                        title=title,
-                        author=author,
-                        added_at=added_at,
-                        last_activity_at=added_at,
-                        last_activity_by=author,
-                        wiki=wiki,
-                        tagnames=tagnames,
-                        html=html,
-                        summary=summary
-                        )
-    if question.wiki:
-        question.last_edited_by = question.author
-        question.last_edited_at = added_at
-        question.wikified_at = added_at
-
-    question.save()
-
-    # create the first revision
-    QuestionRevision.objects.create(
-                                    question=question,
-                                    revision=1,
-                                    title=question.title,
-                                    author=author,
-                                    revised_at=added_at,
-                                    tagnames=question.tagnames,
-                                    summary=CONST['default_version'],
-                                    text=text
-                                    )
-    return question
-
 #TODO: allow anynomus user to ask question by providing email and username.
-#@login_required
-def ask(request):
+@login_required
+def ask(request, form_class=AskForm):
     if request.method == "POST":
-        form = AskForm(request.POST)
+        form = form_class(request.POST)
         if form.is_valid():
-
-            added_at = datetime.datetime.now()
-            title = strip_tags(form.cleaned_data['title']).strip()
-            wiki = form.cleaned_data['wiki']
-            tagnames = form.cleaned_data['tags'].strip()
-            text = form.cleaned_data['text']
-            html = sanitize_html(markdowner.convert(text))
-            summary = strip_tags(html)[:120]
-
-            if request.user.is_authenticated():
-                author = request.user 
-
-                question = create_new_question(
-                                               title=title,
-                                               author=author,
-                                               added_at=added_at,
-                                               wiki=wiki,
-                                               tagnames=tagnames,
-                                               summary=summary,
-                                               text=text
-                                               )
-
-                return HttpResponseRedirect(question.get_absolute_url())
-            else:
-                request.session.flush()
-                session_key = request.session.session_key
-                question = AnonymousQuestion(
-                                             session_key=session_key,
-                                             title=title,
-                                             tagnames=tagnames,
-                                             wiki=wiki,
-                                             text=text,
-                                             summary=summary,
-                                             added_at=added_at,
-                                             ip_addr=request.META['REMOTE_ADDR'],
-                                             )
-                question.save()
-                return HttpResponseRedirect('%s%s%s' % (_('/account/'), _('signin/'), ('newquestion/')))
+            question = form.save(request)
+            return HttpResponseRedirect(question.get_absolute_url())
     else:
-        form = AskForm()
+        form = form_class()
 
     tags = _get_tags_cache_json()
     return render_to_response('ask.html', {
@@ -1948,42 +1874,12 @@ def book(request, short_name, unanswered=False):
                                   }, context_instance=RequestContext(request))
 
 @login_required
-def ask_book(request, short_name):
+def ask_book(request, short_name, form_class=AskForm):
     if request.method == "POST":
-        form = AskForm(request.POST)
+        form = form_class(request.POST)
         if form.is_valid():
-            added_at = datetime.datetime.now()
-            html = sanitize_html(markdowner.convert(form.cleaned_data['text']))
-            question = Question(
-                                title=strip_tags(form.cleaned_data['title']),
-                                author=request.user,
-                                added_at=added_at,
-                                last_activity_at=added_at,
-                                last_activity_by=request.user,
-                                wiki=form.cleaned_data['wiki'],
-                                tagnames=form.cleaned_data['tags'].strip(),
-                                html=html,
-                                summary=strip_tags(html)[:120]
-                                )
-            if question.wiki:
-                question.last_edited_by = question.author
-                question.last_edited_at = added_at
-                question.wikified_at = added_at
+            question = form.save(request)
 
-            question.save()
-
-            # create the first revision
-            QuestionRevision.objects.create(
-                                            question=question,
-                                            revision=1,
-                                            title=question.title,
-                                            author=request.user,
-                                            revised_at=added_at,
-                                            tagnames=question.tagnames,
-                                            summary=CONST['default_version'],
-                                            text=form.cleaned_data['text']
-                                            )
-            
             books = Book.objects.extra(where=['short_name = %s'], params=[short_name])
             match_count = len(books)
             if match_count == 1:
@@ -1993,7 +1889,7 @@ def ask_book(request, short_name):
 
             return HttpResponseRedirect(question.get_absolute_url())
     else:
-        form = AskForm()
+        form = form_class()
 
     tags = _get_tags_cache_json()
     return render_to_response('ask.html', {

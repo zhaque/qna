@@ -13,8 +13,14 @@ feeds = {
     'rss': RssLastestQuestionsFeed
 }
 
+unanswered_info = {
+    'template_name': 'unanswered.html',
+    'queryset': Question.objects.filter(answer_count=0),
+    'extra_context': {'is_unanswered':True},
+}
+
 urlpatterns = patterns('',
-    (r'^$', index),
+    url(r'^$', index, name="home"),
     (r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '%simages/favicon.ico' % settings.MEDIA_URL}),
     (r'^favicon\.gif$', 'django.views.generic.simple.redirect_to', {'url': '%simages/favicon.gif' % settings.MEDIA_URL}),
     (r'^accounts/', include('django_authopenid.urls')),
@@ -26,9 +32,11 @@ urlpatterns = patterns('',
     url(r'^answers/(?P<id>\d+)/edit/$', app.edit_answer, name='edit_answer'),
     url(r'^answers/(?P<id>\d+)/revisions/$', app.answer_revisions, name='answer_revisions'),
 
-    url(r'^questions/', include('forum.urls')),
+    url(r'^questions/$', 'forum.views.questions', name='questions'),
+    url(r'^questions/unanswered/$', 'forum.views.questions', 
+        unanswered_info, name='unanswered'),
+    url(r'^questions/ask/$', 'forum.views.ask', name='ask'),
     
-    url(r'^questions/ask/$', app.ask, name='ask'),
     url(r'^questions/(?P<id>\d+)/edit/$', app.edit_question, name='edit_question'),
     url(r'^questions/(?P<id>\d+)/close/$', app.close, name='close'),
     url(r'^questions/(?P<id>\d+)/reopen/$', app.reopen, name='reopen'),
@@ -42,7 +50,7 @@ urlpatterns = patterns('',
     url(r'^questions/(?P<id>\d+)//*', app.question, name='question'),
     (r'^tags/$', app.tags),
     
-    url(r'^tags/(?P<tag>[^/]+)/$', 'forum.views.tag', {}, name='tag_search'),
+    url(r'^tags/(?P<tag>[^/]+)/$', 'forum.views.tagged_search', name='tag_search'),
     
     (r'^users/$',app.users),
     #url(r'^users/(?P<id>\d+)/edit/$', app.edit_user, name='edit_user'),

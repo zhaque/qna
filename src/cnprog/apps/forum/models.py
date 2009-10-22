@@ -15,6 +15,7 @@ from django.utils.translation import ugettext as _
 import django.dispatch
 from django.conf import settings
 
+from cnprog.utils.html import sanitize_html
 from forum.managers import *
 from const import *
 
@@ -159,7 +160,9 @@ class Question(models.Model):
     email_feeds          = generic.GenericRelation(EmailFeed)
 
     objects = QuestionManager()
-
+    
+    #sanitize_html(markdowner.convert(text))
+    
     def save(self, **kwargs):
         """
         Overridden to manually manage addition of tags when the object
@@ -168,6 +171,7 @@ class Question(models.Model):
         This is required as we're using ``tagnames`` as the sole means of
         adding and editing tags.
         """
+        
         initial_addition = (self.id is None)
         super(Question, self).save(**kwargs)
         if initial_addition:
@@ -331,25 +335,6 @@ class AnonymousAnswer(models.Model):
         create_new_answer(question=self.question,wiki=self.wiki,
                             added_at=added_at,text=self.text,
                             author=user)
-        self.delete()
-
-class AnonymousQuestion(models.Model):
-    title = models.CharField(max_length=300)
-    session_key = models.CharField(max_length=40)  #session id for anonymous questions
-    text = models.TextField()
-    summary = models.CharField(max_length=180)
-    tagnames = models.CharField(max_length=125)
-    wiki = models.BooleanField(default=False)
-    added_at = models.DateTimeField(default=datetime.datetime.now)
-    ip_addr = models.IPAddressField(max_length=21) #allow high port numbers
-    author = models.ForeignKey(User,null=True)
-
-    def publish(self,user):
-        from forum.views import create_new_question
-        added_at = datetime.datetime.now()
-        create_new_question(title=self.title, author=user, added_at=added_at,
-                                wiki=self.wiki, tagnames=self.tagnames,
-                                summary=self.summary, text=self.text)
         self.delete()
 
 class Answer(models.Model):
@@ -652,6 +637,29 @@ def record_ask_event(instance, created, **kwargs):
     if created:
         activity = Activity(user=instance.author, active_at=instance.added_at, content_object=instance, activity_type=TYPE_ACTIVITY_ASK_QUESTION)
         activity.save()
+
+def update_question_dates(instance, created, **kwargs):
+    if created and instance.wiki:
+        added_at = datetime.datetime.now()
+        question.last_edited_by = instance.author
+        question.last_edited_at = added_at
+        question.wikified_at = added_at
+post_save.connect(update_question_dates, sender=Question)
+
+def create_revision(instance, created, **kwargs):
+    if created:
+        # create the first revision
+        QuestionRevision.objects.create(
+                                        question=instance,
+                                        revision=1,
+                                        title=instance.title,
+                                        author=instance.author,
+                                        revised_at=instance.last_activity_at,
+                                        tagnames=instance.tagnames,
+                                        summary=CONST['default_version'],
+                                        text=instance.html
+                                        )
+post_save.connect(create_revision, sender=Question)
 
 def record_answer_event(instance, created, **kwargs):
     if created:

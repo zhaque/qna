@@ -66,7 +66,7 @@
         {% endif %}
         <div class="tags">
         {% for tag in question.tagname_list %}
-        <a href="{% url forum.views.tag tag|urlencode %}" title="{% trans "see questions tagged" %}'{{ tag }}'{% trans "using tags" %}" rel="tag">{{ tag }}</a>
+        <a href="{% url tag_search tag|urlencode %}" title="{% trans "see questions tagged" %}'{{ tag }}'{% trans "using tags" %}" rel="tag">{{ tag }}</a>
         {% endfor %}
         </div>
     </div>
@@ -91,7 +91,7 @@
          <p class="tagsbox">
         {% for tag in tags %}
             <a rel="tag" 
-				title="{% blocktrans with tag.name as tagname %}see questions tagged '{{tagname}}'{% endblocktrans %}" href="{% url forum.views.tag tag.name|urlencode %}">{{ tag.name }}</a>
+				title="{% blocktrans with tag.name as tagname %}see questions tagged '{{tagname}}'{% endblocktrans %}" href="{% url tag_search tag.name|urlencode %}">{{ tag.name }}</a>
         {% endfor %}
         </p>
         <div class="more"><a href="/tags">{% trans "popular tags" %} »</a> </div>

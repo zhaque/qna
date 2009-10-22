@@ -92,7 +92,7 @@
                         {% for tag in tags%}
                         <a rel="tag" 
 							title="{% blocktrans %}see other questions tagged '{{ tag }}' {% endblocktrans %}" 
-							href="{% url forum.views.tag tag|urlencode %}">{{tag.name}}</a><span class="tag-number"> × {{ tag.used_count|intcomma }}</span><br>
+							href="{% url tag_search tag|urlencode %}">{{tag.name}}</a><span class="tag-number"> × {{ tag.used_count|intcomma }}</span><br>
                             {% if forloop.counter|divisibleby:"10" %}
                                 </td>
                                 <td width="180"  valign="top">

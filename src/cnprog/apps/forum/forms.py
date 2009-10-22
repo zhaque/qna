@@ -1,9 +1,15 @@
 import re
+from markdown2 import Markdown
 from datetime import date
+
 from django import forms
+
 from models import *
 from const import *
 from django.utils.translation import ugettext as _
+
+markdowner = Markdown(html4tags=True)
+
 
 class TitleField(forms.CharField):
     def __init__(self, *args, **kwargs):
@@ -98,7 +104,26 @@ class AskForm(forms.Form):
     openid = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'size' : 40, 'class':'openid-input'}))
     user   = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'size' : 35}))
     email  = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'size' : 35}))
+    
+    def prepare_data(self, request):
+        added_at = datetime.datetime.now()
+        html = sanitize_html(markdowner.convert(self.cleaned_data['text']))
 
+        return dict(
+            title = strip_tags(self.cleaned_data['title']).strip(),
+            author = request.user,
+            added_at = added_at,
+            last_activity_at = added_at,
+            last_activity_by = request.user,
+            wiki = self.cleaned_data['wiki'],
+            tagnames = self.cleaned_data['tags'].strip(),
+            html = html,
+            summary = strip_tags(html)[:120]
+        )
+        
+    def save(self, request):
+        return Question.objects.create(**self.prepare_data(request))
+    
 class AnswerForm(forms.Form):
     text   = EditorField()
     wiki   = WikiField()

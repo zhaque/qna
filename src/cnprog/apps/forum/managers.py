@@ -11,14 +11,6 @@ class QuestionManager(models.Manager):
     def get_query_set(self):
         return super(QuestionManager, self).get_query_set().filter(deleted=False)
     
-    def get_translation_questions(self, orderby, page_size):
-        questions = self.filter(author__id__in=[28,29]).order_by(orderby)[:page_size]
-        return questions
-    
-    def get_questions_by_pagesize(self, orderby, page_size):
-        questions = self.all().order_by(orderby)[:page_size]
-        return questions
-    
     def update_tags(self, question, tagnames, user):
         """
         Updates Tag associations for a question to match the given
