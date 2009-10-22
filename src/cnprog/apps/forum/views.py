@@ -1,5 +1,8 @@
 # encoding:utf-8
+
 import calendar
+from urllib import quote, unquote
+
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
@@ -105,16 +108,10 @@ def faq(request):
 def privacy(request):
     return render_to_response('privacy.html', context_instance=RequestContext(request))
 
-def unanswered(request):
-    return questions(request, unanswered=True)
-
-def questions(request, tagname=None, unanswered=False):
+def questions(request, queryset=Question.objects.all(), template_name='questions.html', extra_context=None):
     """
     List of Questions, Tagged questions, and Unanswered questions.
     """
-    # template file
-    # "questions.html" or "unanswered.html"
-    template_file = "questions.html"
     # get pagesize from session, if failed then get default value
     pagesize = request.session.get("pagesize", 10)
     try:
@@ -130,18 +127,7 @@ def questions(request, tagname=None, unanswered=False):
         view_id = "latest"
         orderby = "-added_at"
 
-    # check if request is from tagged questions
-    if tagname is not None:
-        objects = Question.objects.get_questions_by_tag(tagname, orderby)
-    elif unanswered:
-        #check if request is from unanswered questions
-        template_file = "unanswered.html"
-        objects = Question.objects.get_unanswered_questions(orderby)
-    else:
-        objects = Question.objects.get_questions(orderby)
-
-    # RISK - inner join queries
-    objects = objects.select_related(depth=1);
+    objects = queryset.select_related(depth=1).order_by(orderby)
     objects_list = Paginator(objects, pagesize)
     questions = objects_list.page(page)
 
@@ -150,24 +136,34 @@ def questions(request, tagname=None, unanswered=False):
         related_tags = Tag.objects.get_tags_by_questions(questions.object_list)
     else:
         related_tags = None
-    return render_to_response(template_file, {
-                              "questions": questions,
-                              "tab_id": view_id,
-                              "questions_count": objects_list.count,
-                              "tags": related_tags,
-                              "searchtag": tagname,
-                              "is_unanswered": unanswered,
-                              "context": {
-                              'is_paginated': True,
-                              'pages': objects_list.num_pages,
-                              'page': page,
-                              'has_previous': questions.has_previous(),
-                              'has_next': questions.has_next(),
-                              'previous': questions.previous_page_number(),
-                              'next': questions.next_page_number(),
-                              'base_url': request.path + '?sort=%s&' % view_id,
-                              'pagesize': pagesize
-                              }}, context_instance=RequestContext(request))
+    
+    extra = {
+        "questions": questions,
+        "tab_id": view_id,
+        "questions_count": objects_list.count,
+        "tags": related_tags,
+        "context": {
+            'is_paginated': True,
+            'pages': objects_list.num_pages,
+            'page': page,
+            'has_previous': questions.has_previous(),
+            'has_next': questions.has_next(),
+            'previous': questions.previous_page_number(),
+            'next': questions.next_page_number(),
+            'base_url': request.path + '?sort=%s&' % view_id,
+            'pagesize': pagesize
+        }
+    }
+    
+    if extra_context is not None:
+        extra.update(extra_context)
+    
+    return render_to_response(template_name, extra, context_instance=RequestContext(request))
+
+def tag(request, tag, queryset=Question.objects.all(), template_name='questions.html'):
+    queryset = queryset.filter(tags__name = unquote(tag))
+    return questions(request, queryset, template_name, extra_context={'searchtag':tag})
+
 
 def create_new_answer(question=None, author=None, \
                       added_at=None, wiki=False, \
@@ -733,9 +729,6 @@ def tags(request):
                               }
 
                               }, context_instance=RequestContext(request))
-
-def tag(request, tag):
-    return questions(request, tagname=tag)
 
 def vote(request, id):
     """

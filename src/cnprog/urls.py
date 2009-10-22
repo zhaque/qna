@@ -2,16 +2,17 @@ import os.path
 from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.conf import settings
+
 from forum.views import index
 from forum import views as app
 from forum.feed import RssLastestQuestionsFeed
+from forum.models import Question
 
 admin.autodiscover()
 feeds = {
     'rss': RssLastestQuestionsFeed
 }
 
-APP_PATH = os.path.dirname(__file__)
 urlpatterns = patterns('',
     (r'^$', index),
     (r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '%simages/favicon.ico' % settings.MEDIA_URL}),
@@ -24,9 +25,10 @@ urlpatterns = patterns('',
     url(r'^answers/(?P<id>\d+)/comments/$', app.answer_comments, name='answer_comments'),
     url(r'^answers/(?P<id>\d+)/edit/$', app.edit_answer, name='edit_answer'),
     url(r'^answers/(?P<id>\d+)/revisions/$', app.answer_revisions, name='answer_revisions'),
-    url(r'^questions/$', app.questions, name='questions'),
+
+    url(r'^questions/', include('forum.urls')),
+    
     url(r'^questions/ask/$', app.ask, name='ask'),
-    url(r'^questions/unanswered/$', app.unanswered, name='unanswered'),
     url(r'^questions/(?P<id>\d+)/edit/$', app.edit_question, name='edit_question'),
     url(r'^questions/(?P<id>\d+)/close/$', app.close, name='close'),
     url(r'^questions/(?P<id>\d+)/reopen/$', app.reopen, name='reopen'),
@@ -39,7 +41,9 @@ urlpatterns = patterns('',
     #place general question item in the end of other operations
     url(r'^questions/(?P<id>\d+)//*', app.question, name='question'),
     (r'^tags/$', app.tags),
-    (r'^tags/(?P<tag>[^/]+)/$', app.tag),
+    
+    url(r'^tags/(?P<tag>[^/]+)/$', 'forum.views.tag', {}, name='tag_search'),
+    
     (r'^users/$',app.users),
     #url(r'^users/(?P<id>\d+)/edit/$', app.edit_user, name='edit_user'),
     url(r'^users/(?P<id>\d+)//*', app.user, name='user'),

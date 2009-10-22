@@ -7,24 +7,16 @@ from forum.models import *
 from urllib import quote, unquote
 
 class QuestionManager(models.Manager):
+    
+    def get_query_set(self):
+        return super(QuestionManager, self).get_query_set().filter(deleted=False)
+    
     def get_translation_questions(self, orderby, page_size):
-        questions = self.filter(deleted=False, author__id__in=[28,29]).order_by(orderby)[:page_size]
+        questions = self.filter(author__id__in=[28,29]).order_by(orderby)[:page_size]
         return questions
     
     def get_questions_by_pagesize(self, orderby, page_size):
-        questions = self.filter(deleted=False).order_by(orderby)[:page_size]
-        return questions
-    
-    def get_questions_by_tag(self, tagname, orderby):
-        questions = self.filter(deleted=False, tags__name = unquote(tagname)).order_by(orderby)
-        return questions
-    
-    def get_unanswered_questions(self, orderby):
-        questions = self.filter(deleted=False, answer_count=0).order_by(orderby)
-        return questions
-    
-    def get_questions(self, orderby):
-        questions = self.filter(deleted=False).order_by(orderby)
+        questions = self.all().order_by(orderby)[:page_size]
         return questions
     
     def update_tags(self, question, tagnames, user):
