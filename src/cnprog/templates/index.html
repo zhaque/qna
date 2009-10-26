@@ -75,7 +75,7 @@
 {% endblock %}
 
 {% block sidebar %}
-{% if not request.user.is_authenticated %}
+{% if settings.APP_INTRO and not request.user.is_authenticated %}
 <div class="boxA">
 	<h3>{% trans "welcome to website" %}</h3>
 	<div class="body">
