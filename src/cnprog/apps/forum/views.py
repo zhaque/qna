@@ -14,6 +14,7 @@ from django.http import Http404
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
+from django.db.models.query import Q
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.utils import simplejson
@@ -162,7 +163,7 @@ def questions(request, queryset=Question.objects.all(), template_name='questions
     return render_to_response(template_name, extra, context_instance=RequestContext(request))
 
 def tagged_search(request, tag, queryset=Question.objects.all(), template_name='questions.html'):
-    queryset = queryset.filter(tags__name = unquote(tag))
+    queryset = queryset.filter(Q(tags__name__icontains=unquote(tag)))
     return questions(request, queryset, template_name, extra_context={'searchtag':tag})
 
 
@@ -639,7 +640,7 @@ def tags(request, queryset=Tag.objects.filter(deleted=False).exclude(used_count=
     if request.method == "GET":
         stag = request.GET.get("q", "").strip()
         if len(stag) > 0:
-            objects_list = Paginator(queryset.extra(where=['name like %s'], params=['%' + stag + '%']), DEFAULT_PAGE_SIZE)
+            objects_list = Paginator(queryset.filter(Q(name__icontains=stag)), DEFAULT_PAGE_SIZE)
         else:
             sortby = "-used_count" if sortby == "used" else "name" 
             objects_list = Paginator(queryset.order_by(sortby), DEFAULT_PAGE_SIZE)
@@ -916,7 +917,8 @@ def users(request, queryset=User.objects.all(), template_name='users.html'):
         base_url = '/users/?sort=%s&' % sortby
     else:
         sortby = "reputation"
-        objects_list = Paginator(queryset.extra(where=['username like %s'], params=['%' + suser + '%']).order_by('-reputation'), USERS_PAGE_SIZE)
+        objects_list = Paginator(queryset.filter(Q(username__icontains=suser)).order_by('-reputation'), 
+                                 USERS_PAGE_SIZE)
         base_url = '/users/?name=%s&sort=%s&' % (suser, sortby)
 
     try:
@@ -1915,7 +1917,7 @@ def search(request, queryset=Question.objects.all(), template_name = "questions.
     For questions now we only search keywords in question title.
     """
     if request.method == "GET":
-        keywords = request.GET.get("q")
+        keywords = request.GET.get("q").strip()
         search_type = request.GET.get("t")
         try:
             page = int(request.GET.get('page', '1'))
@@ -1964,7 +1966,8 @@ def search(request, queryset=Question.objects.all(), template_name = "questions.
                 view_id = "latest"
                 orderby = "-added_at"
                 
-            objects = queryset.extra(where=['title like %s'], params=['%' + keywords + '%']).order_by(orderby)
+            objects =  queryset.filter(Q(title__icontains=keywords) | Q(html__icontains=keywords)).order_by(orderby)
+            #  queryset.extra(where=['title like %s'], params=['%' + keywords + '%'])
 
             # RISK - inner join queries
             objects = objects.select_related();
