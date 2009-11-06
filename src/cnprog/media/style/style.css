@@ -120,9 +120,9 @@ blockquote
 #navBar .nav div.focus {float:right; padding-right:0px;}
 /*搜索栏*/
 #searchBar {
-    background-color:#9db2b1;/*#e9b96e;*/
-    padding:15px 0 15px 0;
-	margin-top:25px; } /* #B02B2C */
+  background-color:#9db2b1;/*#e9b96e;*/
+  padding:15px 0 15px 0;
+} /* #B02B2C */
 	
 #searchBar .content { }
 #searchBar .searchInput {font-size:13px; height:18px; width:400px; margin-left:25%; }
@@ -1112,4 +1112,8 @@ ul.bulleta li {background:url(../images/bullet_green.gif) no-repeat 0px 2px; pad
 }
 .highlight {
     background-color:#FFF8C6;
+}
+
+#roof table {
+  margin-bottom: 0 !important;
 }
