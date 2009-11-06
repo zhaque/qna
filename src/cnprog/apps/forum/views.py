@@ -236,7 +236,7 @@ def ask(request, form_class=AskForm):
                               'tags': tags,
                               }, context_instance=RequestContext(request))
 
-def question(request, id, queryset=Question.objects.all()):
+def question(request, id, queryset=Question.objects.all(), template_name='question.html'):
     try:
         page = int(request.GET.get('page', '1'))
     except ValueError:
@@ -249,17 +249,23 @@ def question(request, id, queryset=Question.objects.all()):
         view_id = "votes"
         orderby = "-score"
 
-    question = get_object_or_404(Question, id=id)
+    question = get_object_or_404(queryset, id=id)
     if question.deleted and not can_view_deleted_post(request.user, question):
         raise Http404
     answer_form = AnswerForm(question, request.user)
     answers = Answer.objects.get_answers_from_question(question, request.user, orderby)
     answers = answers.select_related(depth=1)
-
-    favorited = question.has_favorite_by_user(request.user)
-    question_vote = question.votes.filter(user=request.user)
-    if question_vote is not None and question_vote.count() > 0:
-        question_vote = question_vote[0]
+    
+    context = {}
+    
+    if request.user.is_authenticated():
+        favorited = question.has_favorite_by_user(request.user)
+        question_vote = question.votes.filter(user=request.user)
+        if question_vote is not None and question_vote.count() > 0:
+            question_vote = question_vote[0]
+            
+        context["question_vote"] = question_vote
+        context["favorited"] = favorited
 
     user_answer_votes = {}
     for vote in question.get_user_votes_in_answers(request.user):
@@ -291,30 +297,30 @@ def question(request, id, queryset=Question.objects.all()):
         for item in extend_questions:
             if item not in similar_questions and len(similar_questions) < 10:
                 similar_questions.append(item)
+    context.update({
+          "question": question,
+          "question_comment_count":question.comments.count(),
+          "answer": answer_form,
+          "answers": page_objects.object_list,
+          "user_answer_votes": user_answer_votes,
+          "tags": question.tags.all(),
+          "tab_id": view_id,
+          "similar_questions": similar_questions,
+          "context": {
+              'is_paginated': True,
+              'pages': objects_list.num_pages,
+              'page': page,
+              'has_previous': page_objects.has_previous(),
+              'has_next': page_objects.has_next(),
+              'previous': page_objects.previous_page_number(),
+              'next': page_objects.next_page_number(),
+              'base_url': request.path + '?sort=%s&' % view_id,
+              'extend_url': "#sort-top"
+          }
+    })
     
-    return render_to_response('question.html', {
-                              "question": question,
-                              "question_vote": question_vote,
-                              "question_comment_count":question.comments.count(),
-                              "answer": answer_form,
-                              "answers": page_objects.object_list,
-                              "user_answer_votes": user_answer_votes,
-                              "tags": question.tags.all(),
-                              "tab_id": view_id,
-                              "favorited": favorited,
-                              "similar_questions": similar_questions,
-                              "context": {
-                              'is_paginated': True,
-                              'pages': objects_list.num_pages,
-                              'page': page,
-                              'has_previous': page_objects.has_previous(),
-                              'has_next': page_objects.has_next(),
-                              'previous': page_objects.previous_page_number(),
-                              'next': page_objects.next_page_number(),
-                              'base_url': request.path + '?sort=%s&' % view_id,
-                              'extend_url': "#sort-top"
-                              }
-                              }, context_instance=RequestContext(request))
+    return render_to_response(template_name, context,
+                              context_instance=RequestContext(request))
 
 @login_required
 def close(request, id):
