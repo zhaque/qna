@@ -236,7 +236,7 @@ def ask(request, form_class=AskForm):
                               'tags': tags,
                               }, context_instance=RequestContext(request))
 
-def question(request, id, queryset=Question.objects.all(), template_name='question.html'):
+def question(request, object_id, queryset=Question.objects.all(), template_name='question.html'):
     try:
         page = int(request.GET.get('page', '1'))
     except ValueError:
@@ -249,7 +249,7 @@ def question(request, id, queryset=Question.objects.all(), template_name='questi
         view_id = "votes"
         orderby = "-score"
 
-    question = get_object_or_404(queryset, id=id)
+    question = get_object_or_404(queryset, id=object_id)
     if question.deleted and not can_view_deleted_post(request.user, question):
         raise Http404
     answer_form = AnswerForm(question, request.user)
