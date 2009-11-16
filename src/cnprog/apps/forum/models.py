@@ -14,6 +14,7 @@ from django.db.models.signals import post_delete, post_save, pre_save
 from django.utils.translation import ugettext as _
 import django.dispatch
 from django.conf import settings
+from django_extensions.db.fields import AutoSlugField
 
 from cnprog.utils.html import sanitize_html
 from forum.managers import *
@@ -121,6 +122,7 @@ class FlaggedItem(models.Model):
 
 class Question(models.Model):
     title    = models.CharField(max_length=300)
+    slug = AutoSlugField(_('slug'), populate_from='title')
     author   = models.ForeignKey(User, related_name='questions')
     added_at = models.DateTimeField(default=datetime.datetime.now)
     tags     = models.ManyToManyField(Tag, related_name='questions')
@@ -185,7 +187,7 @@ class Question(models.Model):
         return [name for name in self.tagnames.split(u' ')]
 
     def get_absolute_url(self):
-        return reverse('question', args=[self.id])
+        return reverse('question', kwargs={'slug': self.slug})
 
     def has_favorite_by_user(self, user):
         if not user.is_authenticated():

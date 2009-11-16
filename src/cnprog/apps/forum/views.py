@@ -2,6 +2,12 @@
 
 import calendar
 from urllib import quote, unquote
+from markdown2 import Markdown
+import os.path
+import random
+import time
+import datetime
+
 
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
@@ -20,12 +26,9 @@ from django.template import RequestContext
 from django.utils import simplejson
 from django.utils.html import *
 from django.utils.translation import ugettext as _
-from markdown2 import Markdown
-import os.path
-import random
-import time
+from django.views.generic.list_detail import object_detail
 
-import datetime
+
 from forum import auth
 from forum.auth import *
 from forum.const import *
@@ -236,7 +239,7 @@ def ask(request, form_class=AskForm):
                               'tags': tags,
                               }, context_instance=RequestContext(request))
 
-def question(request, object_id, queryset=Question.objects.all(), template_name='question.html'):
+def question(request, slug, queryset=Question.objects.all(), template_name='question.html'):
     try:
         page = int(request.GET.get('page', '1'))
     except ValueError:
@@ -248,8 +251,8 @@ def question(request, object_id, queryset=Question.objects.all(), template_name=
     except KeyError:
         view_id = "votes"
         orderby = "-score"
-
-    question = get_object_or_404(queryset, id=object_id)
+    
+    question = get_object_or_404(queryset, slug=slug)
     if question.deleted and not can_view_deleted_post(request.user, question):
         raise Http404
     answer_form = AnswerForm(question, request.user)
