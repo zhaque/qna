@@ -33,7 +33,7 @@ setup(
     description = "http://stackoverflow.com/ like application.",
     long_description = read('README'),
     author = 'Chen Gang',
-    url = 'http://yotweets.com',
+    url = 'http://cnprog.com',
     packages = find_packages('src'),
     package_dir = {'': 'src'},
     include_package_data = True,

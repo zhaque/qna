@@ -19,7 +19,7 @@ MANAGERS = ADMINS
 
 SITE_ID = 1
 
-MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'wide_media')
+MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'site_media')
 APP_MEDIA_ROOT = MEDIA_ROOT
 
 SERVE_MEDIA = True
