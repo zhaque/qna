@@ -10,7 +10,7 @@
  
 1.2 Starting the Project
 ~~~~~~~~~~~~~~~~~
-  1. Create local setting, for example:
+  1. Create local setting. You may take settings_local.py.dist like example or create your own:
 echo "
 DATABASE_ENGINE = 'postgresql_psycopg2'
 DATABASE_NAME = 'my_database'
