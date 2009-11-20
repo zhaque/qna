@@ -1368,7 +1368,8 @@ def user_responses(request, user_id, user_view):
 
     user = get_object_or_404(User, id=user_id)
     responses = []
-    answers = Answer.objects.extra(
+    
+    answers = Answer.objects.filter(deleted__exact=False, question__deleted__exact=False).extra(
                                    select={
                                    'title': 'question.title',
                                    'question_id': 'question.id',
@@ -1380,7 +1381,7 @@ def user_responses(request, user_id, user_view):
                                    },
                                    select_params=[user_id],
                                    tables=['answer', 'question', 'auth_user'],
-                                   where=['answer.question_id = question.id AND answer.deleted=0 AND question.deleted = 0 AND ' +
+                                   where=['answer.question_id = question.id AND ' +
                                    'question.author_id = %s AND answer.author_id <> %s AND answer.author_id=auth_user.id'],
                                    params=[user_id, user_id],
                                    order_by=['-answer.id']
@@ -1400,7 +1401,7 @@ def user_responses(request, user_id, user_view):
 
 
     # question comments
-    comments = Comment.objects.extra(
+    comments = Comment.objects.filter(question__deleted__exact=False).extra(
                                      select={
                                      'title': 'question.title',
                                      'question_id': 'comment.object_id',
@@ -1410,7 +1411,7 @@ def user_responses(request, user_id, user_view):
                                      'user_id': 'auth_user.id'
                                      },
                                      tables=['question', 'auth_user', 'comment'],
-                                     where=['question.deleted = 0 AND question.author_id = %s AND comment.object_id=question.id AND ' +
+                                     where=['question.author_id = %s AND comment.object_id=question.id AND ' +
                                      'comment.content_type_id=%s AND comment.user_id <> %s AND comment.user_id = auth_user.id'],
                                      params=[user_id, question_type_id, user_id],
                                      order_by=['-comment.added_at']
@@ -1440,7 +1441,7 @@ def user_responses(request, user_id, user_view):
                                      'user_id': 'auth_user.id'
                                      },
                                      tables=['answer', 'auth_user', 'comment', 'question'],
-                                     where=['answer.deleted = 0 AND answer.author_id = %s AND comment.object_id=answer.id AND ' +
+                                     where=['answer.deleted = False AND answer.author_id = %s AND comment.object_id=answer.id AND ' +
                                      'comment.content_type_id=%s AND comment.user_id <> %s AND comment.user_id = auth_user.id ' +
                                      'AND question.id = answer.question_id'],
                                      params=[user_id, answer_type_id, user_id],
@@ -1461,7 +1462,10 @@ def user_responses(request, user_id, user_view):
         responses.extend(comments)
 
     # answer has been accepted
-    answers = Answer.objects.extra(
+    answers = Answer.objects.filter(deleted__exact=False, 
+                                    question__deleted__exact=False, 
+                                    accepted__exact=True)\
+                            .extra(
                                    select={
                                    'title': 'question.title',
                                    'question_id': 'question.id',
@@ -1473,8 +1477,8 @@ def user_responses(request, user_id, user_view):
                                    },
                                    select_params=[user_id],
                                    tables=['answer', 'question', 'auth_user'],
-                                   where=['answer.question_id = question.id AND answer.deleted=0 AND question.deleted = 0 AND ' +
-                                   'answer.author_id = %s AND answer.accepted=1 AND question.author_id=auth_user.id'],
+                                   where=['answer.question_id = question.id AND ' +
+                                   'answer.author_id = %s AND question.author_id=auth_user.id'],
                                    params=[user_id],
                                    order_by=['-answer.id']
                                    ).values(
