@@ -107,7 +107,9 @@
                     <td>
                         <div id="item-right">
                             <div class="question-body">
+                            {% block question_body %}
                                 {{ question.html|safe }}
+                            {% endblock %}
                             </div>
                             <div id="question-tags" class="tags" >
                                 {% for tag in question.tagname_list %}
@@ -252,7 +254,7 @@
 			{% blocktrans %}close date {{question.closed_at}}{% endblocktrans %}</h3>
             </div>
             {% endif %}
-            
+            {% block answers %}
             {% ifnotequal answers.length 0 %}
                 <div class="tabBar">
                     <a name="sort-top"></a>
@@ -264,7 +266,8 @@
                     </div>
                 </div>
                 {% cnprog_paginator context %}
-  
+                
+                
                 {% for answer in answers %}
                     <a name="{{ answer.id }}"></a>
                     <div id="answer-container-{{ answer.id }}" class="answer {% if answer.accepted %}accepted-answer{% endif %} {% ifequal answer.author_id question.author_id %} answered-by-owner{% endifequal %} {% if answer.deleted %}deleted{% endif %}">
@@ -297,7 +300,9 @@
                                 <td>
                                     <div class="item-right">
                                         <div class="answer-body">
+                                            {% block answer_body %}
                                             {{ answer.html|safe }}
+                                            {% endblock %}
                                         </div>
                                         <div class="answer-controls" style="clear:both;">
                                             <table width="100%">
@@ -424,12 +429,14 @@
                         </table>
                     </div>
                 {% endfor %}
+                
                 <div class="paginator-container-left">
                     {% cnprog_paginator context %}
                 </div>
             {% else %}
                 <div class="line"></div>
             {% endifnotequal %}
+            {% endblock %}
             <div style="clear:both">
             </div>
             
