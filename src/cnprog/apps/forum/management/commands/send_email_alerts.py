@@ -18,15 +18,13 @@ class Command(NoArgsCommand):
     def send_email_alerts(self):
         report_time = datetime.datetime.now()
         feeds = EmailFeed.objects.all()
-        user_ctype = ContentType.objects.get_for_model(User)
 
         #lists of update messages keyed by email address
         update_collection = collections.defaultdict(list) 
         for feed in feeds:
             update_summary = feed.get_update_summary()
-            if update_summary != None:
-                email = feed.get_email()
-                update_collection[email].append(update_summary)
+            if update_summary is not None:
+                update_collection[feed.get_email()].append(self._construct_html(feed.content, update_summary))
                 feed.reported_at = report_time
                 feed.save()
 
@@ -38,4 +36,9 @@ class Command(NoArgsCommand):
             msg.content_subtype = 'html'
             msg.send()
 
-            
+    def _construct_html(self, obj, res_list):
+        url = settings.APP_URL + obj.get_absolute_url()
+        retval = '<a href="%s">%s</a>:<br>\n' % (url, obj.title)
+        out = map(lambda x: '<li>' + x + '</li>', res_list)
+        retval += '<ul>' + '\n'.join(out) + '</ul><br>\n'
+        return retval

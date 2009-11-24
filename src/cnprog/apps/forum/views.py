@@ -212,12 +212,11 @@ def create_new_answer(question=None, author=None, \
         try:
             EmailFeed.objects.get(feed_id=question.id, subscriber_id=author.id, feed_content_type=question_type)
         except EmailFeed.DoesNotExist:
-            feed = EmailFeed(content=question, subscriber=author)
-            feed.save()
+            feed = EmailFeed.objects.create(content=question, subscriber=author)
     else:
         #not sure if this is necessary. ajax should take care of this...
         try:
-            feed = Email.objects.get(feed_id=question.id, subscriber_id=author.id, feed_content_type=question_type)
+            feed = EmailFeed.objects.get(feed_id=question.id, subscriber_id=author.id, feed_content_type=question_type)
             feed.delete()
         except:
             pass
@@ -1105,6 +1104,7 @@ def user_stats(request, user_id, user_view):
 
 def user_recent(request, user_id, user_view):
     user = get_object_or_404(User, id=user_id)
+    
     def get_type_name(type_id):
         for item in TYPE_ACTIVITY:
             if type_id in item:
@@ -1128,53 +1128,23 @@ def user_recent(request, user_id, user_view):
 
     activities = []
     # ask questions
-    questions = Activity.objects.extra(
-                                       select={
-                                       'title': 'question.title',
-                                       'question_id': 'question.id',
-                                       'active_at': 'activity.active_at',
-                                       'activity_type': 'activity.activity_type'
-                                       },
-                                       tables=['activity', 'question'],
-                                       where=['activity.content_type_id = %s AND activity.object_id = ' +
-                                       'question.id AND activity.user_id = %s AND activity.activity_type = %s'],
-                                       params=[question_type_id, user_id, TYPE_ACTIVITY_ASK_QUESTION],
-                                       order_by=['-activity.active_at']
-                                       ).values(
-        'title',
-        'question_id',
-        'active_at',
-        'activity_type'
-        )
-    if len(questions) > 0:
-        questions = [(Event(q['active_at'], q['activity_type'], q['title'], '', '0', \
-                      q['question_id'])) for q in questions]
+    question_activity = Activity.objects.filter(content_type__id=question_type_id, user__id=user_id, 
+                                                activity_type=TYPE_ACTIVITY_ASK_QUESTION )\
+                                         .order_by('-active_at')
+
+    if len(question_activity) > 0:
+        questions = [(Event( qa.active_at, qa.activity_type, qa.content_object.title, '', '0', \
+                      qa.object_id)) for qa in question_activity]
         activities.extend(questions)
 
     # answers
-    answers = Activity.objects.extra(
-                                     select={
-                                     'title': 'question.title',
-                                     'question_id': 'question.id',
-                                     'answer_id': 'answer.id',
-                                     'active_at': 'activity.active_at',
-                                     'activity_type': 'activity.activity_type'
-                                     },
-                                     tables=['activity', 'answer', 'question'],
-                                     where=['activity.content_type_id = %s AND activity.object_id = answer.id AND ' +
-                                     'answer.question_id=question.id AND activity.user_id=%s AND activity.activity_type=%s'],
-                                     params=[answer_type_id, user_id, TYPE_ACTIVITY_ANSWER],
-                                     order_by=['-activity.active_at']
-                                     ).values(
-        'title',
-        'question_id',
-        'answer_id',
-        'active_at',
-        'activity_type'
-        )
-    if len(answers) > 0:
-        answers = [(Event(q['active_at'], q['activity_type'], q['title'], '', q['answer_id'], \
-                    q['question_id'])) for q in answers]
+    answer_activity = Activity.objects.filter(content_type__id=answer_type_id, user__id=user_id, 
+                                                activity_type=TYPE_ACTIVITY_ANSWER )\
+                                         .order_by('-active_at')
+    
+    if len(answer_activity) > 0:
+        answers = [(Event(qa.active_at, qa.activity_type, qa.content_object.question.title, '', qa.object_id, \
+                    qa.content_object.question.id)) for qa in answer_activity]
         activities.extend(answers)
 
     # question comments

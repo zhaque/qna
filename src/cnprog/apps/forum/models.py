@@ -37,7 +37,8 @@ class EmailFeed(models.Model):
     #getter functions rely on implementations of similar functions in content
     #of subscriber objects
     def get_update_summary(self):
-        return self.content.get_update_summary(last_reported_at = self.reported_at,recipient_email = self.get_email())
+        return self.content.get_update_summary(last_reported_at = self.reported_at,
+                                               recipient_email = self.get_email())
 
     def get_email(self):
         return self.subscriber.email
@@ -120,6 +121,26 @@ class FlaggedItem(models.Model):
     def __unicode__(self):
         return '[%s] flagged at %s' %(self.user, self.flagged_at)
 
+
+class Activity(models.Model):
+    """
+    We keep some history data for user activities
+    """
+    user = models.ForeignKey(User)
+    activity_type = models.SmallIntegerField(choices=TYPE_ACTIVITY)
+    active_at = models.DateTimeField(default=datetime.datetime.now)
+    content_type   = models.ForeignKey(ContentType)
+    object_id      = models.PositiveIntegerField()
+    content_object = generic.GenericForeignKey('content_type', 'object_id')
+    is_auditted    = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        return u'[%s] was active at %s' % (self.user.username, self.active_at)
+
+    class Meta:
+        db_table = u'activity'
+
+
 class Question(models.Model):
     title    = models.CharField(max_length=300)
     slug = AutoSlugField(_('slug'), populate_from='title')
@@ -156,10 +177,12 @@ class Question(models.Model):
     tagnames             = models.CharField(max_length=125)
     summary              = models.CharField(max_length=180)
     html                 = models.TextField()
+    
     comments             = generic.GenericRelation(Comment)
     votes                = generic.GenericRelation(Vote)
     flagged_items        = generic.GenericRelation(FlaggedItem)
     email_feeds          = generic.GenericRelation(EmailFeed)
+    activity             = generic.GenericRelation(Activity)
 
     objects = QuestionManager()
     
@@ -274,11 +297,7 @@ class Question(models.Model):
                     out.append(_('%(people)s commented answers') % {'people':people})
                 else:
                     out.append(_('%(people)s commented an answer') % {'people':people})
-            url = settings.APP_URL + self.get_absolute_url()
-            retval = '<a href="%s">%s</a>:<br>\n' % (url,self.title)
-            out = map(lambda x: '<li>' + x + '</li>',out)
-            retval += '<ul>' + '\n'.join(out) + '</ul><br>\n'
-            return retval
+            return out
         else:
             return None
 
@@ -495,24 +514,6 @@ class Repute(models.Model):
 
     class Meta:
         db_table = u'repute'
-
-class Activity(models.Model):
-    """
-    We keep some history data for user activities
-    """
-    user = models.ForeignKey(User)
-    activity_type = models.SmallIntegerField(choices=TYPE_ACTIVITY)
-    active_at = models.DateTimeField(default=datetime.datetime.now)
-    content_type   = models.ForeignKey(ContentType)
-    object_id      = models.PositiveIntegerField()
-    content_object = generic.GenericForeignKey('content_type', 'object_id')
-    is_auditted    = models.BooleanField(default=False)
-
-    def __unicode__(self):
-        return u'[%s] was active at %s' % (self.user.username, self.active_at)
-
-    class Meta:
-        db_table = u'activity'
 
 class Book(models.Model):
     """
