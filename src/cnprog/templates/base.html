@@ -76,7 +76,7 @@
             <a href="/users/{{ request.user.id }}/{{ request.user.username }}/">{{ request.user.username }}</a> {% get_score_badge request.user %} 
             <a href="/logout/">{% trans "logout" %}</a>
           {% else %}
-            <a href="/account/signin">{% trans "login" %}</a>
+            <a href="{% url user_signin %}">{% trans "login" %}</a>
           {% endif %}
           <a href="/about">{% trans "about" %}</a>
           <a href="/faq">{% trans "faq" %}</a>

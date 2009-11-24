@@ -27,6 +27,7 @@ var lanai =
 var Vote = function(){
     // All actions are related to a question
     var questionId;
+    var questionSlug;
     // The object we operate on actually. It can be a question or an answer.
     var postId;
     var questionAuthorId;
@@ -53,10 +54,10 @@ var Vote = function(){
     var acceptAnonymousMessage = $.i18n._('insufficient privilege');
     var acceptOwnAnswerMessage = $.i18n._('cannot pick own answer as best');
     var favoriteAnonymousMessage = $.i18n._('anonymous users cannot select favorite questions') 
-					+ "<a href='/account/signin/?next=/questions/{{QuestionID}}'>"
+					+ "<a href='/accounts/signin/?next=/questions/{{QuestionSlug}}'>"
 					+ $.i18n._('please login') + "</a>";
     var voteAnonymousMessage = $.i18n._('anonymous users cannot vote') 
-					+ "<a href='/account/signin/?next=/questions/{{QuestionID}}'>"
+					+ "<a href='/accounts/signin/?next=/questions/{{QuestionSlug}}'>"
 					+ $.i18n._('please login') + "</a>";
     var upVoteRequiredScoreMessage = $.i18n._('>15 points requried to upvote') 
 					+ $.i18n._('please see') + "<a href='/faq'>faq</a>";
@@ -69,7 +70,7 @@ var Vote = function(){
 					+ $.i18n._('please see') + "<a href='/faq'>faq</a>";
     var offensiveConfirmation = $.i18n._('please confirm offensive');
     var offensiveAnonymousMessage = $.i18n._('anonymous users cannot flag offensive posts')
-					+ "<a href='/account/signin/?next=/questions/{{QuestionID}}'>"
+					+ "<a href='/accounts/signin/?next=/questions/{{QuestionSlug}}'>"
 					+ $.i18n._('please login') + "</a>";
     var offensiveTwiceMessage = $.i18n._('cannot flag message as offensive twice')
 					+ $.i18n._('please see') + "<a href='/faq'>faq</a>";
@@ -285,7 +286,7 @@ var Vote = function(){
 
     var callback_favorite = function(object, voteType, data){
         if(data.allowed == "0" && data.success == "0"){
-            showMessage(object, favoriteAnonymousMessage.replace("{{QuestionID}}", questionId));
+            showMessage(object, favoriteAnonymousMessage.replace("{{QuestionSlug}}", questionSlug));
         }
         else if(data.status == "1"){
             object.attr("src", "/content/images/vote-favorite-off.png");
@@ -308,7 +309,7 @@ var Vote = function(){
         
     var callback_vote = function(object, voteType, data){
         if(data.allowed == "0" && data.success == "0"){
-            showMessage(object, voteAnonymousMessage.replace("{{QuestionID}}", questionId));
+            showMessage(object, voteAnonymousMessage.replace("{{QuestionSlug}}", questionSlug));
         }
         else if(data.allowed == "-3"){
             showMessage(object, voteRequiredMoreVotes);
@@ -342,7 +343,7 @@ var Vote = function(){
     var callback_offensive = function(object, voteType, data){
         object = $(object);
         if(data.allowed == "0" && data.success == "0"){
-            showMessage(object, offensiveAnonymousMessage.replace("{{QuestionID}}", questionId));
+            showMessage(object, offensiveAnonymousMessage.replace("{{QuestionSlug}}", questionSlug));
         }
         else if(data.allowed == "-3"){
             showMessage(object, offensiveNoFlagsLeftMessage);
@@ -360,7 +361,7 @@ var Vote = function(){
         
     var callback_remove = function(object, voteType, data){
         if(data.allowed == "0" && data.success == "0"){
-            showMessage(object, removeAnonymousMessage.replace("{{QuestionID}}", questionId));
+            showMessage(object, removeAnonymousMessage.replace("{{QuestionSlug}}", questionSlug));
         }
         else if (data.success == "1"){
 			if (removeActionType == 'delete'){
@@ -377,8 +378,9 @@ var Vote = function(){
     };
         
     return {
-        init : function(qId, questionAuthor, userId){
-            questionId = qId;
+        init : function(id, slug, questionAuthor, userId){
+    	    questionId = id;
+    	    questionSlug = slug;
             questionAuthorId = questionAuthor;
             currentUserId = userId;
             bindEvents();
@@ -392,7 +394,7 @@ var Vote = function(){
         
         favorite: function(object){
             if(!currentUserId || currentUserId.toUpperCase() == "NONE"){
-                showMessage(object, favoriteAnonymousMessage.replace("{{QuestionID}}", questionId));
+                showMessage(object, favoriteAnonymousMessage.replace("{{QuestionSlug}}", questionSlug));
                 return false;
             }
             submit(object, VoteType.favorite, callback_favorite);
@@ -400,7 +402,7 @@ var Vote = function(){
             
         vote: function(object, voteType){
             if(!currentUserId || currentUserId.toUpperCase() == "NONE"){
-                showMessage(object, voteAnonymousMessage.replace("{{QuestionID}}", questionId));
+                showMessage(object, voteAnonymousMessage.replace("{{QuestionSlug}}", questionSlug));
                 return false;   
             }
             if(voteType == VoteType.answerUpVote){
@@ -415,7 +417,7 @@ var Vote = function(){
         
         offensive: function(object, voteType){
             if(!currentUserId || currentUserId.toUpperCase() == "NONE"){
-                showMessage($(object), offensiveAnonymousMessage.replace("{{QuestionID}}", questionId));
+                showMessage($(object), offensiveAnonymousMessage.replace("{{QuestionSlug}}", questionSlug));
                 return false;   
             }
             if(confirm(offensiveConfirmation)){
@@ -426,7 +428,7 @@ var Vote = function(){
             
         remove: function(object, voteType){
             if(!currentUserId || currentUserId.toUpperCase() == "NONE"){
-                showMessage($(object), removeAnonymousMessage.replace("{{QuestionID}}", questionId));
+                showMessage($(object), removeAnonymousMessage.replace("{{QuestionSlug}}", questionSlug));
                 return false;   
             }
             if(confirm(removeConfirmation)){
