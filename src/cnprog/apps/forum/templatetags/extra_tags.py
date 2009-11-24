@@ -211,16 +211,6 @@ def convert2tagname_list(question):
     return ''
 
 @register.simple_tag
-def diff_date(date, limen=2):
-    current_time = datetime.datetime(*time.localtime()[0:6])
-    diff = current_time - date
-    diff_days = diff.days
-    if diff_days > limen:
-        return date
-    else:
-        return timesince(date) + _(' ago')
-        
-@register.simple_tag
 def get_latest_changed_timestamp():
     try:
         from time import localtime, strftime
