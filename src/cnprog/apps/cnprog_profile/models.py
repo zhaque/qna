@@ -10,7 +10,8 @@ class UserProfile(models.Model):
     location = models.fields.CharField(_('location'), max_length=100, blank=True)
     date_of_birth = models.fields.DateField(_('date of birth'), null=True, blank=True)
     about = models.fields.TextField(_('about'), blank=True)
-
+    is_public = models.BooleanField(default=True, editable=False)
+    
     @models.permalink
     def get_absolute_url(self):
         return ('profiles_profile_detail',
