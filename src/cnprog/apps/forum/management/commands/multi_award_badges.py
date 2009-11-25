@@ -113,7 +113,7 @@ class Command(BaseCommand):
         query = "SELECT act.id, act.user_id, act.object_id FROM activity act, question q WHERE act.object_id = q.id AND\
                 act.activity_type = %s AND\
                 q.vote_up_count >=3 AND \
-                act.is_auditted = 0" % (TYPE_ACTIVITY_DELETE_QUESTION)
+                act.is_auditted = False" % (TYPE_ACTIVITY_DELETE_QUESTION)
         self.__process_activities_badge(query, 1, Question)
         
     def delete_answer_be_voted_up_3(self):
@@ -123,7 +123,7 @@ class Command(BaseCommand):
         query = "SELECT act.id, act.user_id, act.object_id FROM activity act, answer an WHERE act.object_id = an.id AND\
                 act.activity_type = %s AND\
                 an.vote_up_count >=3 AND \
-                act.is_auditted = 0" % (TYPE_ACTIVITY_DELETE_ANSWER)
+                act.is_auditted = False" % (TYPE_ACTIVITY_DELETE_ANSWER)
         self.__process_activities_badge(query, 1, Answer)
         
     def delete_question_be_vote_down_3(self):
@@ -133,7 +133,7 @@ class Command(BaseCommand):
         query = "SELECT act.id, act.user_id, act.object_id FROM activity act, question q WHERE act.object_id = q.id AND\
                 act.activity_type = %s AND\
                 q.vote_down_count >=3 AND \
-                act.is_auditted = 0" % (TYPE_ACTIVITY_DELETE_QUESTION)
+                act.is_auditted = False" % (TYPE_ACTIVITY_DELETE_QUESTION)
         content_type = ContentType.objects.get_for_model(Question)
         self.__process_activities_badge(query, 2, Question)
 
@@ -144,7 +144,7 @@ class Command(BaseCommand):
         query = "SELECT act.id, act.user_id, act.object_id FROM activity act, answer an WHERE act.object_id = an.id AND\
                 act.activity_type = %s AND\
                 an.vote_down_count >=3 AND \
-                act.is_auditted = 0" % (TYPE_ACTIVITY_DELETE_ANSWER)
+                act.is_auditted = False" % (TYPE_ACTIVITY_DELETE_ANSWER)
         self.__process_activities_badge(query, 2, Answer)
         
     def answer_be_voted_up_10(self):
@@ -155,7 +155,7 @@ class Command(BaseCommand):
                     activity act, answer a WHERE act.object_id = a.id AND\
                     act.activity_type = %s AND \
                     a.vote_up_count >= 10 AND\
-                    act.is_auditted = 0" % (TYPE_ACTIVITY_ANSWER)
+                    act.is_auditted = False" % (TYPE_ACTIVITY_ANSWER)
         self.__process_activities_badge(query, 3, Answer)
         
     def question_be_voted_up_10(self):
@@ -166,7 +166,7 @@ class Command(BaseCommand):
                     activity act, question q WHERE act.object_id = q.id AND\
                     act.activity_type = %s AND \
                     q.vote_up_count >= 10 AND\
-                    act.is_auditted = 0" % (TYPE_ACTIVITY_ASK_QUESTION)
+                    act.is_auditted = False" % (TYPE_ACTIVITY_ASK_QUESTION)
         self.__process_activities_badge(query, 4, Question)
     
     def question_view_1000(self):

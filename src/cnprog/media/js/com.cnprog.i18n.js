@@ -57,7 +57,7 @@ var i18nZh = {
 };
 
 var i18nEn = {
-    '>15 points requried to upvote':'>15 points requried to upvote ',
+    '>15 points requried to upvote':'>15 points required to upvote ',
 	'tags cannot be empty':'please enter at least one tag',
 	'anonymous users cannot vote':'anonymous users cannot vote ',
 	'anonymous users cannot select favorite questions':'anonymous users cannot select favorite questions ',

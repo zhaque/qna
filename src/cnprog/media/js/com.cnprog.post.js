@@ -59,9 +59,9 @@ var Vote = function(){
     var voteAnonymousMessage = $.i18n._('anonymous users cannot vote') 
 					+ "<a href='/accounts/signin/?next=/questions/{{QuestionSlug}}'>"
 					+ $.i18n._('please login') + "</a>";
-    var upVoteRequiredScoreMessage = $.i18n._('>15 points requried to upvote') 
+    var upVoteRequiredScoreMessage = $.i18n._('>15 points required to upvote') 
 					+ $.i18n._('please see') + "<a href='/faq'>faq</a>";
-    var downVoteRequiredScoreMessage = $.i18n._('>100 points requried to downvote')
+    var downVoteRequiredScoreMessage = $.i18n._('>100 points required to downvote')
 					+ $.i18n._('please see') + "<a href='/faq'>faq</a>";
     var voteOwnDeniedMessage = $.i18n._('cannot vote for own posts');
     var voteRequiredMoreVotes = $.i18n._('daily vote cap exhausted')

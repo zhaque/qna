@@ -326,7 +326,7 @@ class QuestionRevision(models.Model):
         return self.question.title
 
     def get_absolute_url(self):
-        return '/questions/%s/revisions' % (self.question.id)
+        return reverse('question_revisions', (self.question.id,))
 
     def save(self, **kwargs):
         """Looks up the next available revision number."""
@@ -401,7 +401,7 @@ class Answer(models.Model):
         return self.question.title
 
     def get_absolute_url(self):
-        return '%s%s#%s' % (reverse('question', args=[self.question.id]), django_urlquote(self.question.title), self.id)
+        return '%s#%s' % (reverse('question', args=[self.question.id]), self.id)
 
     class Meta:
         db_table = u'answer'
@@ -438,7 +438,7 @@ class AnswerRevision(models.Model):
 
 class FavoriteQuestion(models.Model):
     """A favorite Question of a User."""
-    question      = models.ForeignKey(Question)
+    question      = models.ForeignKey(Question, related_name="favorites")
     user          = models.ForeignKey(User, related_name='user_favorite_questions')
     added_at = models.DateTimeField(default=datetime.datetime.now)
     class Meta:
@@ -463,7 +463,7 @@ class Badge(models.Model):
     description = models.CharField(max_length=300)
     multiple    = models.BooleanField(default=False)
     # Denormalised data
-    awarded_count = models.PositiveIntegerField(default=0)
+    awarded_count = models.PositiveIntegerField(default=0, editable=False)
 
     class Meta:
         db_table = u'badge'
@@ -483,8 +483,8 @@ class Badge(models.Model):
 
 class Award(models.Model):
     """The awarding of a Badge to a User."""
-    user       = models.ForeignKey(User, related_name='award_user')
-    badge      = models.ForeignKey(Badge, related_name='award_badge')
+    user       = models.ForeignKey(User, related_name='awards')
+    badge      = models.ForeignKey(Badge, related_name='awards')
     content_type   = models.ForeignKey(ContentType)
     object_id      = models.PositiveIntegerField()
     content_object = generic.GenericForeignKey('content_type', 'object_id')

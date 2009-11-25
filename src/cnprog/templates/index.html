@@ -24,7 +24,7 @@
     	 <a id="latest" href="?sort=latest" title="{% trans "last updated questions" %}" >{% trans "newest" %}</a>
         <a id="hottest" href="?sort=hottest" title="{% trans "hottest questions" %}" >{% trans "hottest" %}</a>
         <a id="mostvoted" href="?sort=mostvoted" title="{% trans "most voted questions" %}" >{% trans "most voted" %}</a>
-        <a id="all" href="/questions/" title="{% trans "all questions" %}" >{% trans "all questions" %}</a>
+        <a id="all" href="{% url questions %}" title="{% trans "all questions" %}" >{% trans "all questions" %}</a>
     </div>
 </div>
 <!-- 问题列表 -->
@@ -118,7 +118,7 @@
 {% endblock %}
 {% block tail %}
 <div style="padding:5px 0 5px 5px;">
-<span class="evenMore">{% trans "Still looking for more? See" %} <a href="/questions/">{% trans "complete list of questions" %}</a> {% trans "or" %} <a href="/tags/">{% trans "popular tags" %}</a>{% trans "." %} {% trans "Please help us answer" %} <a href="/questions/unanswered">{% trans "list of unanswered questions" %}</a>{% trans "." %}</span>
+<span class="evenMore">{% trans "Still looking for more? See" %} <a href="{% url questions %}">{% trans "complete list of questions" %}</a> {% trans "or" %} <a href="/tags/">{% trans "popular tags" %}</a>{% trans "." %} {% trans "Please help us answer" %} <a href="{% url unanswered %}">{% trans "list of unanswered questions" %}</a>{% trans "." %}</span>
 </div>
 {% endblock %}
 <!-- index.html -->

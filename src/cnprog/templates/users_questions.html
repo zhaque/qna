@@ -4,7 +4,7 @@
 {% load humanize %}
 {% load i18n %}
 <div class="user-stats-table">
-    {% for question in questions%}
+    {% for question in questions %}
         {% if question.favourite_count %}
             {% if question.favorited_myself %}
                 <div class="favorites-count">
@@ -23,10 +23,11 @@
             <div class="favorites-empty"> </div>
         {% endif %}
     <div id="question-summary-{{question.id}}" class="question-summary narrow">
-        <a style="text-decoration: none;" href="/questions/{{question.id}}/{{question.get_question_title}}">
+    <h1>{{ question.items }}</h1>
+        <a style="text-decoration: none;" href="{{ question.get_absolute_url }}">
             <div class="stats">
                 <div class="votes">
-                    <div class="vote-count-post">{{question.vote_count|intcomma}}</div> 
+                    <div class="vote-count-post">{{question.score|intcomma}}</div> 
                     {% trans "votes" %}
                   
                 </div>
@@ -43,19 +44,19 @@
         </a>
         <div class="summary">
             <h3>
-                <a title="{{question.summary}}" href="/questions/{{question.id}}/{{question.title}}">{{question.title}}</a>
+                <a title="{{question.summary}}" href="{{ question.get_absolute_url }}">{{question.title}}</a>
             </h3>
             <div class="tags">
                 {% convert2tagname_list question %}
-                {% for tag in question.tagnames %}
+                {% for tag in question.tagname_list %}
 					<!--todo - move trans below to blocktrans -->
                     <a href="{% url tag_search tag|urlencode %}" title="{% trans "see questions tagged" %} '{{ tag }}' {% trans "using tags" %}" rel="tag">{{ tag }}</a>
                 {% endfor %}
             </div>
             <div class="started">
                 <span class="relativetime" title="{{question.last_activity_at}}">{{ question.last_activity_at|timesince }} {% trans 'ago' %}</span>
-                {% if question.la_username %}
-                    <a href="/users/{{question.la_user_id}}/{{question.la_username}}">{{question.la_username}}</a> {% get_score_badge_by_details question.la_user_reputation question.la_user_gold question.la_user_silver question.la_user_bronze%}
+                {% if question.last_activity_by %}
+                    <a href="{% url user question.last_activity_by.id %}">{{question.last_activity_by}}</a> {% get_score_badge_by_details question.last_activity_by.reputation question.last_activity_by.gold question.last_activity_by.silver question.last_activity_by.bronze%}
                 {% endif %}
             </div>
         </div>

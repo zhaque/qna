@@ -7,8 +7,11 @@ from django import template
 from django.utils.encoding import smart_unicode
 from django.utils.safestring import mark_safe
 from django.utils.timesince import timesince
-from forum.const import *
+
 from django.utils.translation import ugettext as _
+
+from forum.const import *
+from forum.models import Question
 
 register = template.Library()
 
@@ -207,7 +210,8 @@ def format_number(value):
 
 @register.simple_tag
 def convert2tagname_list(question):
-    question['tagnames'] = [name for name in question['tagnames'].split(u' ')]
+    if not (hasattr(question, 'tagname_list') and callable(question.tagname_list)):
+        question['tagname_list'] = [name for name in question['tagnames'].split(u' ')] 
     return ''
 
 @register.simple_tag
