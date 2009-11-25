@@ -10,12 +10,14 @@ version = '0.1'
 
 install_requires = [
     'setuptools',
+    'Django',
     'markdown2',
     'python-openid',
     #'mysql-python',
     'html5lib',
     'app_media',
     'django_authopenid',
+    'django-extensions',
     'django-profiles',
 ]
 
@@ -44,5 +46,5 @@ setup(
     entry_points="""
       # -*- Entry points: -*-
       """,
-    dependency_links = [],
+    dependency_links = ['http://pypi.saaskit.org/app-media/',],
 )

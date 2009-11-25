@@ -959,39 +959,6 @@ def user(request, id):
     func = getattr(views, user_view.view_name)
     return func(request, id, user_view)
 
-@login_required
-def edit_user(request, id):
-    user = get_object_or_404(User, id=id)
-    if request.user != user:
-        raise Http404
-    if request.method == "POST":
-        form = EditUserForm(user, request.POST)
-        if form.is_valid():
-            new_email = sanitize_html(form.cleaned_data['email'])
-
-            from django_authopenid.views import set_new_email
-            set_new_email(user, new_email)
-
-            user.real_name = sanitize_html(form.cleaned_data['realname'])
-            user.website = sanitize_html(form.cleaned_data['website'])
-            user.location = sanitize_html(form.cleaned_data['city'])
-            user.date_of_birth = sanitize_html(form.cleaned_data['birthday'])
-            if len(user.date_of_birth) == 0:
-                user.date_of_birth = '1900-01-01'
-            user.about = sanitize_html(form.cleaned_data['about'])
-
-            user.save()
-            # send user updated singal if full fields have been updated
-            if user.email and user.real_name and user.website and user.location and \
-                user.date_of_birth and user.about:
-                user_updated.send(sender=user.__class__, instance=user, updated_by=user)
-            return HttpResponseRedirect(user.get_profile_url())
-    else:
-        form = EditUserForm(user)
-    return render_to_response('user_edit.html', {
-                              'form': form,
-                              }, context_instance=RequestContext(request))
-
 def user_stats(request, user_id, user_view):
     user = get_object_or_404(User, id=user_id)
     questions = Question.objects.extra(

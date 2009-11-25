@@ -8,6 +8,8 @@ from forum import views as app
 from forum.feed import RssLastestQuestionsFeed
 from forum.models import Question
 
+from cnprog_profile.forms import UserProfileForm
+
 admin.autodiscover()
 feeds = {
     'rss': RssLastestQuestionsFeed
@@ -53,8 +55,16 @@ urlpatterns = patterns('',
     url(r'^tags/(?P<tag>[^/]+)/$', 'forum.views.tagged_search', name='tag_search'),
     
     url(r'^users/$',app.users, name="users"),
-    url(r'^users/(?P<id>\d+)/edit/$', app.edit_user, name='edit_user'),
+    
+    #url(r'^users/(?P<id>\d+)/edit/$', app.edit_user, name='edit_user'),
+    url(r'^users/edit/$', 'profiles.views.edit_profile', 
+        {'success_url': lambda profile: '/users/%s/' % profile.user.pk,
+         'form_class': UserProfileForm,
+         'template_name': 'user_edit.html'}, 
+        name='edit_user'),
+    
     url(r'^users/(?P<id>\d+)//*', app.user, name='user'),
+    
     url(r'^badges/$',app.badges, name='badges'),
     url(r'^badges/(?P<id>\d+)//*', app.badge, name='badge'),
     url(r'^messages/markread/$',app.read_message, name='read_message'),

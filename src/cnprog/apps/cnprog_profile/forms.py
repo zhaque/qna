@@ -19,14 +19,27 @@ class UserProfileForm(forms.ModelForm):
         model = UserProfile
         exclude = ('user', )
 
+    def clean_email(self):
+        """For security reason one unique email in database"""
+        if self.instance.user.email != self.cleaned_data['email']:
+            #todo dry it, there is a similar thing in openidauth
+            if getattr(settings, 'EMAIL_UNIQUE', True) == True:
+                if 'email' in self.cleaned_data:
+                    try:
+                        user = User.objects.get(email = self.cleaned_data['email'])
+                    except User.DoesNotExist:
+                        return self.cleaned_data['email']
+                    except User.MultipleObjectsReturned:
+                        raise forms.ValidationError(_('this email has already been registered, please use another one'))
+                    raise forms.ValidationError(_('this email has already been registered, please use another one'))
+        return self.cleaned_data['email']
+    
     def save(self, user=None):
-        if not self.instance.pk:
-            profile = super(UserProfileForm, self).save(commit=False)
-            profile.user = user
-            profile.save()
-        else:
-            profile = super(UserProfileForm, self).save()
+        profile = super(UserProfileForm, self).save()
 
         if self.cleaned_data['email']:
             profile.user.email = self.cleaned_data['email']
             profile.user.save()
+        
+        return profile
+    
