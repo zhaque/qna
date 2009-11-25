@@ -16,6 +16,7 @@ install_requires = [
     'html5lib',
     'app_media',
     'django_authopenid',
+    'django-profiles',
 ]
 
 extras_require = dict(

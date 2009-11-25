@@ -583,7 +583,6 @@ QUESTIONS_PER_PAGE_CHOICES = (
 )
 
 User.add_to_class('email_isvalid', models.fields.BooleanField(default=False))
-User.add_to_class('email_key', models.fields.CharField(max_length=16, null=True))
 User.add_to_class('reputation', models.fields.PositiveIntegerField(default=1))
 User.add_to_class('gravatar', models.fields.CharField(max_length=32))
 User.add_to_class('email_feeds', generic.GenericRelation(EmailFeed))
@@ -599,11 +598,6 @@ User.add_to_class('questions_per_page',
                  models.fields.SmallIntegerField(choices=QUESTIONS_PER_PAGE_CHOICES, default=10))
 User.add_to_class('last_seen',
                   models.fields.DateTimeField(default=datetime.datetime.now))
-User.add_to_class('real_name', models.fields.CharField(max_length=100, blank=True))
-User.add_to_class('website', models.fields.URLField(max_length=200, blank=True))
-User.add_to_class('location', models.fields.CharField(max_length=100, blank=True))
-User.add_to_class('date_of_birth', models.fields.DateField(null=True, blank=True))
-User.add_to_class('about', models.fields.TextField(blank=True))
 
 # custom signal
 tags_updated = django.dispatch.Signal(providing_args=["question"])
