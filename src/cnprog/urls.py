@@ -2,6 +2,7 @@ import os.path
 from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.conf import settings
+from django.db.models import aggregates
 
 from forum.views import index
 from forum import views as app
@@ -17,7 +18,7 @@ feeds = {
 
 unanswered_info = {
     'template_name': 'unanswered.html',
-    'queryset': Question.objects.filter(answer_count=0),
+    'queryset': Question.objects.annotate(answer_count=aggregates.Count('answers')).filter(answer_count__exact=0),
     'extra_context': {'is_unanswered':True},
 }
 
