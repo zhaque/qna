@@ -423,7 +423,7 @@ def onDeleteCanceled(post, user):
     post.deleted_at = None
     post.save()
     for tag in list(post.tags.all()):
-        if tag.used_count == 1 and tag.deleted:
+        if tag.questions.count() == 1 and tag.deleted:
             tag.deleted = False
             tag.deleted_by = None
             tag.deleted_at = None
@@ -436,7 +436,7 @@ def onDeleted(post, user):
     post.save()
 
     for tag in list(post.tags.all()):
-        if tag.used_count == 1:
+        if tag.questions.count() == 1:
             tag.deleted = True
             tag.deleted_by = user
             tag.deleted_at = datetime.datetime.now()

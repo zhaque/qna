@@ -51,13 +51,12 @@ class Tag(models.Model):
     deleted_by      = models.ForeignKey(User, null=True, blank=True, related_name='deleted_tags')
     email_feeds     = generic.GenericRelation(EmailFeed)
     # Denormalised data
-    used_count = models.PositiveIntegerField(default=0)
 
     objects = TagManager()
 
     class Meta:
         db_table = u'tag'
-        ordering = ('-used_count', 'name')
+        ordering = ('name',)
 
     def __unicode__(self):
         return self.name
@@ -203,7 +202,6 @@ class Question(models.Model):
             tags = Tag.objects.get_or_create_multiple(self.tagname_list(),
                                                       self.author)
             self.tags.add(*tags)
-            Tag.objects.update_use_counts(tags)
 
     def tagname_list(self):
         """Creates a list of Tag names from the ``tagnames`` attribute."""

@@ -65,7 +65,7 @@ question_revision_type_id = question_revision_type.id
 answer_revision_type_id = answer_revision_type.id
 repute_type_id = repute_type.id
 def _get_tags_cache_json():
-    tags = Tag.objects.filter(deleted=False).all()
+    tags = Tag.objects.filter(deleted=False).annotate(used_count=aggregates.Count('questions'))
     tags_list = []
     for tag in tags:
         dic = {'n': tag.name, 'c': tag.used_count}
@@ -74,7 +74,7 @@ def _get_tags_cache_json():
     return tags
 
 def index(request, queryset=Question.objects.all(), template_name='index.html', 
-          tag_queryset=Tag.objects.all().filter(deleted=False).exclude(used_count=0)):
+          tag_queryset=Tag.objects.filter(deleted=False)):
     view_id = request.GET.get('sort', None)
     view_dic = {
         "latest":"-last_activity_at",
@@ -114,7 +114,8 @@ def faq(request):
 def privacy(request):
     return render_to_response('privacy.html', context_instance=RequestContext(request))
 
-def questions(request, queryset=Question.objects.all(), template_name='questions.html', extra_context=None):
+def questions(request, queryset=Question.objects.all(), tag_queryset=Tag.objects.all(),
+              template_name='questions.html', extra_context=None):
     """
     List of Questions, Tagged questions, and Unanswered questions.
     """
@@ -139,7 +140,8 @@ def questions(request, queryset=Question.objects.all(), template_name='questions
 
     # Get related tags from this page objects
     if questions.object_list.count() > 0:
-        related_tags = Tag.objects.get_tags_by_questions(questions.object_list)
+        related_tags = tag_queryset.filter(questions__id__in=questions.object_list.values_list('id', flat=True))\
+                            .annotate(used_count=aggregates.Count('questions'))
     else:
         related_tags = None
     
@@ -168,7 +170,7 @@ def questions(request, queryset=Question.objects.all(), template_name='questions
 
 def tagged_search(request, tag, queryset=Question.objects.all(), template_name='questions.html'):
     queryset = queryset.filter(Q(tags__name__icontains=unquote(tag)))
-    return questions(request, queryset, template_name, extra_context={'searchtag':tag})
+    return questions(request, queryset=queryset, template_name=template_name, extra_context={'searchtag':tag})
 
 
 def create_new_answer(question=None, author=None, \
@@ -239,7 +241,8 @@ def ask(request, form_class=AskForm):
                               'tags': tags,
                               }, context_instance=RequestContext(request))
 
-def question(request, slug, queryset=Question.objects.all(), template_name='question.html'):
+def question(request, slug, queryset=Question.objects.all(), tag_queryset=Tag.objects.all(),
+             template_name='question.html'):
     try:
         page = int(request.GET.get('page', '1'))
     except ValueError:
@@ -306,7 +309,7 @@ def question(request, slug, queryset=Question.objects.all(), template_name='ques
           "answer": answer_form,
           "answers": page_objects.object_list,
           "user_answer_votes": user_answer_votes,
-          "tags": question.tags.all(),
+          "tags": tag_queryset.annotate(used_count=aggregates.Count('questions')).filter(questions__id=question.id),
           "tab_id": view_id,
           "similar_questions": similar_questions,
           "context": {
@@ -636,7 +639,7 @@ def answer(request, id):
 
     return HttpResponseRedirect(question.get_absolute_url())
 
-def tags(request, queryset=Tag.objects.filter(deleted=False).exclude(used_count=0), 
+def tags(request, queryset=Tag.objects.filter(deleted=False), 
          template_name="tags.html"):
     stag = ""
     is_paginated = True
@@ -659,7 +662,7 @@ def tags(request, queryset=Tag.objects.filter(deleted=False).exclude(used_count=
         tags = objects_list.page(objects_list.num_pages)
     
     return render_to_response(template_name, {
-                              "tags": tags,
+                              "tags": tags.object_list.annotate(used_count=aggregates.Count('questions')),
                               "stag": stag,
                               "tab_id": sortby,
                               "keywords": stag,
@@ -986,7 +989,7 @@ def user_stats(request, user_id, user_view):
     down_votes = Vote.objects.get_down_vote_count_from_user(user)
     votes_today = Vote.objects.get_votes_count_today_from_user(user)
     votes_total = VOTE_RULES['scope_votes_per_user_per_day']
-    tags = user.created_tags.all().order_by('-used_count')[:50]
+    tags = user.created_tags.annotate(used_count=aggregates.Count('questions')).order_by('-used_count')[:50]
     try:
         from django.db.models import Count
         awards = Award.objects.extra(
@@ -1779,7 +1782,8 @@ def ask_book(request, short_name, form_class=AskForm):
                               'tags': tags,
                               }, context_instance=RequestContext(request))
 
-def search(request, queryset=Question.objects.all(), template_name = "questions.html"):
+def search(request, queryset=Question.objects.all(), tag_queryset=Tag.objects.all(),
+           template_name = "questions.html"):
     """
     Search by question, user and tag keywords.
     For questions now we only search keywords in question title.
@@ -1844,7 +1848,8 @@ def search(request, queryset=Question.objects.all(), template_name = "questions.
 
             # Get related tags from this page objects
             if questions.object_list.count() > 0:
-                related_tags = Tag.objects.get_tags_by_questions(questions.object_list)
+                related_tags = tag_queryset.filter(questions__id__in=questions.object_list.values_list('id', flat=True))\
+                            .annotate(used_count=aggregates.Count('questions'))
             else:
                 related_tags = []
                 

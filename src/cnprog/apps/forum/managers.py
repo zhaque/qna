@@ -1,10 +1,14 @@
 ﻿import datetime
 import logging
+from urllib import quote, unquote
+
 from django.contrib.auth.models import User, UserManager
 from django.db import connection, models, transaction
-from django.db.models import Q
+from django.db.models import Q, aggregates, sql, query
+from django.db import connection
+
+
 from forum.models import *
-from urllib import quote, unquote
 
 class QuestionManager(models.Manager):
     
@@ -38,10 +42,6 @@ class QuestionManager(models.Manager):
             modified_tags.extend(added_tags)
             question.tags.add(*added_tags)
 
-        if modified_tags:
-            Tag.objects.update_use_counts(modified_tags)
-            return True
-
         return False
 
     def update_answer_count(self, question):
@@ -68,19 +68,11 @@ class QuestionManager(models.Manager):
         """
         from forum.models import FavoriteQuestion
         self.filter(id=question.id).update(favourite_count = FavoriteQuestion.objects.filter(question=question).count())
-        
+
 class TagManager(models.Manager):
-    UPDATE_USED_COUNTS_QUERY = (
-        'UPDATE tag '
-        'SET used_count = ('
-            'SELECT COUNT(*) FROM question_tags '
-            'WHERE tag_id = tag.id'
-        ') '
-        'WHERE id IN (%s)')
     
     def get_query_set(self):
         return super(TagManager, self).get_query_set().distinct()
-        
     
     def get_or_create_multiple(self, names, user):
         """
@@ -104,20 +96,6 @@ class TagManager(models.Manager):
              
         return tags
 
-    def update_use_counts(self, tags):
-        """Updates the given Tags with their current use counts."""
-        if not tags:
-            return
-        cursor = connection.cursor()
-        query = self.UPDATE_USED_COUNTS_QUERY % ','.join(['%s'] * len(tags))
-        cursor.execute(query, [tag.id for tag in tags])
-        transaction.commit_unless_managed()
-    
-    def get_tags_by_questions(self, questions):
-        return self.filter(questions__id__in=[q.id for q in questions])
-            
-        
-        
 
 class AnswerManager(models.Manager):
     GET_ANSWERS_FROM_USER_QUESTIONS = u'SELECT answer.* FROM answer INNER JOIN question ON answer.question_id = question.id WHERE question.author_id =%s AND answer.author_id <> %s'

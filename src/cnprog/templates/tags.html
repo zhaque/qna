@@ -37,12 +37,12 @@
 {% if stag %}
     {% trans "All tags matching query" %} '<span class="darkred"><strong>{{ stag }}</strong></span>' {% trans "all tags - make this empty in english" %}:
 {% endif %}
-{% if not tags.object_list %}
+{% if not tags %}
     <span>{% trans "Nothing found" %}</span>
 {% endif %}
 </p>
 <ul class="tagsList tags">
-{% for tag in tags.object_list %}
+{% for tag in tags %}
    <li>
     <a href="{% url tag_search tag|urlencode %}" title="{% trans "see questions tagged" %}'{{ tag }}'{% trans "using tags" %}" rel="tag">
         {{ tag }}
