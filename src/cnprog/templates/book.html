@@ -122,7 +122,9 @@
                     </h3>
                     <div class="tags">
                         {% for tag in question.tagname_list %}
+                        {% if tag %}
                         <a href="{% url tag_search tag|urlencode %}" title="{% "see questions tagged with" %}'{{ tag }}'{% trans "using tags" %}" rel="tag">{{ tag }}</a>
+                        {% endif %}
                         {% endfor %}
                     </div>
                     <div class="started">

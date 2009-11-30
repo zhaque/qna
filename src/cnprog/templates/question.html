@@ -113,8 +113,11 @@
                             </div>
                             <div id="question-tags" class="tags" >
                                 {% for tag in question.tagname_list %}
+                                {% if tag %}
                                     <a href="{% url tag_search tag|urlencode %}" class="post-tag" 
-										title="{% trans "see questions tagged" %}'{{ tag }}'{% trans "using tags" %}" rel="tag">{{ tag }}</a>
+										                    title="{% trans "see questions tagged" %}'{{ tag }}'{% trans "using tags" %}" 
+                                        rel="tag">{{ tag }}</a>
+                                {% endif %}
                                 {% endfor %}
                             </div>
                             <div id="question-controls" style="clear:both;">
