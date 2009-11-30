@@ -53,35 +53,35 @@ var Vote = function(){
     
     var acceptAnonymousMessage = $.i18n._('insufficient privilege');
     var acceptOwnAnswerMessage = $.i18n._('cannot pick own answer as best');
-    var favoriteAnonymousMessage = $.i18n._('anonymous users cannot select favorite questions') 
+    var favoriteAnonymousMessage = '<p>' + $.i18n._('anonymous users cannot select favorite questions') + '</p>' 
 					+ "<a href='/accounts/signin/?next=/questions/{{QuestionSlug}}'>"
 					+ $.i18n._('please login') + "</a>";
-    var voteAnonymousMessage = $.i18n._('anonymous users cannot vote') 
+    var voteAnonymousMessage = '<p>'+ $.i18n._('anonymous users cannot vote') + '</p>' 
 					+ "<a href='/accounts/signin/?next=/questions/{{QuestionSlug}}'>"
 					+ $.i18n._('please login') + "</a>";
-    var upVoteRequiredScoreMessage = $.i18n._('>15 points required to upvote') 
+    var upVoteRequiredScoreMessage = '<p>' + $.i18n._('>15 points required to upvote') + '</p>'
 					+ $.i18n._('please see') + "<a href='/faq'>faq</a>";
-    var downVoteRequiredScoreMessage = $.i18n._('>100 points required to downvote')
+    var downVoteRequiredScoreMessage = '<p>' + $.i18n._('>100 points required to downvote') + '</p>'
 					+ $.i18n._('please see') + "<a href='/faq'>faq</a>";
-    var voteOwnDeniedMessage = $.i18n._('cannot vote for own posts');
-    var voteRequiredMoreVotes = $.i18n._('daily vote cap exhausted')
+    var voteOwnDeniedMessage = '<p>' + $.i18n._('cannot vote for own posts') + '</p>';
+    var voteRequiredMoreVotes = '<p>' + $.i18n._('daily vote cap exhausted') + '</p>'
 					+ $.i18n._('please see') + "<a href='/faq'>faq</a>";
-    var voteDenyCancelMessage = $.i18n._('cannot revoke old vote')
+    var voteDenyCancelMessage = '<p>' + $.i18n._('cannot revoke old vote') + '</p>'
 					+ $.i18n._('please see') + "<a href='/faq'>faq</a>";
-    var offensiveConfirmation = $.i18n._('please confirm offensive');
-    var offensiveAnonymousMessage = $.i18n._('anonymous users cannot flag offensive posts')
+    var offensiveConfirmation = '<p>' + $.i18n._('please confirm offensive') + '</p>';
+    var offensiveAnonymousMessage = '<p>' + $.i18n._('anonymous users cannot flag offensive posts') + '</p>'
 					+ "<a href='/accounts/signin/?next=/questions/{{QuestionSlug}}'>"
 					+ $.i18n._('please login') + "</a>";
-    var offensiveTwiceMessage = $.i18n._('cannot flag message as offensive twice')
+    var offensiveTwiceMessage = '<p>' + $.i18n._('cannot flag message as offensive twice') + '</p>'
 					+ $.i18n._('please see') + "<a href='/faq'>faq</a>";
-    var offensiveNoFlagsLeftMessage = $.i18n._('flag offensive cap exhausted')
+    var offensiveNoFlagsLeftMessage = '<p>' + $.i18n._('flag offensive cap exhausted') + '</p>'
 					+ $.i18n._('please see') + "<a href='/faq'>faq</a>";
-    var offensiveNoPermissionMessage = $.i18n._('need >15 points to report spam')
+    var offensiveNoPermissionMessage = '<p>' + $.i18n._('need >15 points to report spam') + '</p>'
 					+ $.i18n._('please see') + "<a href='/faq'>faq</a>";
-    var removeConfirmation = $.i18n._('confirm delete');
-    var removeAnonymousMessage = $.i18n._('anonymous users cannot delete/undelete');
-    var recoveredMessage = $.i18n._('post recovered');
-    var deletedMessage = $.i18n._('post deleted');
+    var removeConfirmation = '<p>' + $.i18n._('confirm delete') + '</p>';
+    var removeAnonymousMessage = '<p>' + $.i18n._('anonymous users cannot delete/undelete') + '</p>';
+    var recoveredMessage = '<p>' + $.i18n._('post recovered') + '</p>';
+    var deletedMessage = '<p>' + $.i18n._('post deleted') + '</p>';
     
     var VoteType = {
         acceptAnswer : 0,
@@ -493,9 +493,9 @@ function createComments(type) {
             var divId = "comments-rep-needed-" + objectType + '-' + id;
             if (jDiv.find("#" + divId).length == 0) {
                 jDiv.append('<div id="' + divId + '" style="color:red">'
-					+ $.i18n._('to comment, need') + ' ' +
+					+ '<p>' + $.i18n._('to comment, need') + ' ' +
 					+ repNeededForComments + ' ' + $.i18n._('community reputation points')
-					+ '<a href="/faq" class="comment-user">' + $.i18n._('please see') + 'faq</a></span>');
+					+ '</p><a href="/faq" class="comment-user">' + $.i18n._('please see ') + 'faq</a></span>');
             }
         }
     };
