@@ -78,6 +78,10 @@ class TagManager(models.Manager):
         ') '
         'WHERE id IN (%s)')
     
+    def get_query_set(self):
+        return super(TagManager, self).get_query_set().distinct()
+        
+    
     def get_or_create_multiple(self, names, user):
         """
         Fetches a list of Tags with the given names, creating any Tags
