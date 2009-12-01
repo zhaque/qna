@@ -142,7 +142,7 @@ class Activity(models.Model):
 
 class Question(models.Model):
     title    = models.CharField(max_length=300)
-    slug = AutoSlugField(_('slug'), populate_from='title')
+    slug = AutoSlugField(_('slug'), populate_from='title', max_length=100)
     author   = models.ForeignKey(User, related_name='questions')
     added_at = models.DateTimeField(default=datetime.datetime.now)
     tags     = models.ManyToManyField(Tag, related_name='questions')
