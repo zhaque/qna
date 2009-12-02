@@ -1,6 +1,9 @@
 from django import forms
-from cnprog_profile.models import UserProfile
+from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
+from django.contrib.auth.models import User
 
+from cnprog_profile.models import UserProfile
 
 class UserProfileForm(forms.ModelForm):
     email = forms.EmailField(required=False)
@@ -30,7 +33,7 @@ class UserProfileForm(forms.ModelForm):
                     except User.DoesNotExist:
                         return self.cleaned_data['email']
                     except User.MultipleObjectsReturned:
-                        raise forms.ValidationError(_('this email has already been registered, please use another one'))
+                        pass
                     raise forms.ValidationError(_('this email has already been registered, please use another one'))
         return self.cleaned_data['email']
     
