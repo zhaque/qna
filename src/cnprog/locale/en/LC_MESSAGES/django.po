@@ -2,19 +2,19 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-03 10:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2009-12-03 15:38\n"
+"Last-Translator: <admin@example.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Translated-Using: django-rosetta 0.5.1\n"
 
 #: apps/cnprog_profile/forms.py:37
 msgid "this email has already been registered, please use another one"
@@ -200,8 +200,7 @@ msgid "tags"
 msgstr ""
 
 #: apps/forum/forms.py:53
-msgid ""
-"Tags are short keywords, with no spaces within. Up to five tags can be used."
+msgid "Tags are short keywords, with no spaces within. Up to five tags can be used."
 msgstr ""
 
 #: apps/forum/forms.py:60 templates/question_retag.html:38
@@ -217,9 +216,7 @@ msgid "tags must be shorter than 20 characters"
 msgstr ""
 
 #: apps/forum/forms.py:71
-msgid ""
-"please use following characters in tags: letters 'a-z', numbers, and "
-"characters '.-_#'"
+msgid "please use following characters in tags: letters 'a-z', numbers, and characters '.-_#'"
 msgstr ""
 
 #: apps/forum/forms.py:81 templates/index.html:57 templates/question.html:204
@@ -230,9 +227,7 @@ msgid "community wiki"
 msgstr ""
 
 #: apps/forum/forms.py:82
-msgid ""
-"if you choose community wiki option, the question and answer do not generate "
-"points and name of author will not be shown"
+msgid "if you choose community wiki option, the question and answer do not generate points and name of author will not be shown"
 msgstr ""
 
 #: apps/forum/forms.py:95
@@ -240,9 +235,7 @@ msgid "update summary:"
 msgstr ""
 
 #: apps/forum/forms.py:96
-msgid ""
-"enter a brief summary of your revision (e.g. fixed spelling, grammar, "
-"improved style, this field is optional)"
+msgid "enter a brief summary of your revision (e.g. fixed spelling, grammar, improved style, this field is optional)"
 msgstr ""
 
 #: apps/forum/models.py:145
@@ -385,8 +378,7 @@ msgstr ""
 
 #: apps/forum/views.py:1683
 #, python-format
-msgid ""
-"Error uploading file. Please contact the site administrator. Thank you. %s"
+msgid "Error uploading file. Please contact the site administrator. Thank you. %s"
 msgstr ""
 
 #: apps/forum/management/commands/send_email_alerts.py:33
@@ -420,9 +412,7 @@ msgid "url has error - please check it;"
 msgstr ""
 
 #: templates/404.html:30
-msgid ""
-"the page you tried to visit is protected or you don't have sufficient "
-"points, see"
+msgid "the page you tried to visit is protected or you don't have sufficient points, see"
 msgstr ""
 
 #: templates/404.html:31
@@ -588,23 +578,12 @@ msgstr ""
 
 #: templates/ask.html:67
 msgid "login to post question info"
-msgstr ""
-"<span class=\"strong big\">You are welcome to start submitting your question "
-"anonymously</span>  - you are currently not logged in. When you post your "
-"question, you will be redirected to the login/signup page. Your question "
-"will be saved meanwhile  and will be posted when you log in. Login/signup "
-"process is very simple. Login takes about 30 seconds, initial signup takes a "
-"minute or less."
+msgstr "login to post question info"
 
 #: templates/ask.html:73
 #, python-format
 msgid "must have valid %(email)s to post"
-msgstr ""
-"<span class='strong big'>Looks like your email address, %(email)s has not "
-"yet been validated.</span> To post messages you must verify your email, "
-"please see <a href='/faq#validate'>more details here</a>.<br>You can submit "
-"your question now and validate email after that. Your question will saved as "
-"pending meanwhile. "
+msgstr "<span class='strong big'>Looks like your email address, %(email)s has not yet been validated.</span> To post messages you must verify your email, please see <a href='/faq#validate'>more details here</a>.<br>You can submit your question now and validate email after that. Your question will saved as pending meanwhile. "
 
 #: templates/ask.html:108
 msgid "(required)"
@@ -636,21 +615,11 @@ msgstr ""
 
 #: templates/badges.html:21
 msgid "Community gives you awards for your questions, answers and votes."
-msgstr ""
-"If your questions and answers are highly voted, your contribution to this "
-"Q&amp;A community will be recognized with the variety of badges."
+msgstr "If your questions and answers are highly voted, your contribution to this Q&amp;A community will be recognized with the variety of badges."
 
 #: templates/badges.html:22
-msgid ""
-"Below is the list of available badges and number of times each type of badge "
-"has been awarded."
-msgstr ""
-"Currently badges differ only by their level: <strong>gold</strong>, "
-"<strong>silver</strong> and <strong>bronze</strong> (their meanings are "
-"described on the right). In the future there will be many types of badges at "
-"each level. <strong>Please give us your <a href=\"/faq#feedback\">feedback</"
-"a></strong> - what kinds of badges would you like to see and suggest the "
-"activity for which those badges might be awarded."
+msgid "Below is the list of available badges and number of times each type of badge has been awarded."
+msgstr "Currently badges differ only by their level: <strong>gold</strong>, <strong>silver</strong> and <strong>bronze</strong> (their meanings are described on the right). In the future there will be many types of badges at each level. <strong>Please give us your <a href=\"/faq#feedback\">feedback</a></strong> - what kinds of badges would you like to see and suggest the activity for which those badges might be awarded."
 
 #: templates/badges.html:49
 msgid "Community badges"
@@ -658,15 +627,11 @@ msgstr "Badge levels"
 
 #: templates/badges.html:55
 msgid "gold badge description"
-msgstr ""
-"Gold badge is the highest award in this community. To obtain it have to show "
-"profound knowledge and ability in addition to your active participation."
+msgstr "Gold badge is the highest award in this community. To obtain it have to show profound knowledge and ability in addition to your active participation."
 
 #: templates/badges.html:63
 msgid "silver badge description"
-msgstr ""
-"Obtaining silver badge requires significant patience. If you have received "
-"one, that means you have greatly contributed to this community."
+msgstr "Obtaining silver badge requires significant patience. If you have received one, that means you have greatly contributed to this community."
 
 #: templates/badges.html:66
 msgid "bronze badge: often given as a special honor"
@@ -674,9 +639,7 @@ msgstr ""
 
 #: templates/badges.html:70
 msgid "bronze badge description"
-msgstr ""
-"If you are an active participant in this community, you will be recognized "
-"with this badge."
+msgstr "If you are an active participant in this community, you will be recognized with this badge."
 
 #: templates/base.html:77
 msgid "logout"
@@ -859,27 +822,19 @@ msgid "What kinds of questions can I ask here?"
 msgstr ""
 
 #: templates/faq.html:17
-msgid ""
-"Most importanly - questions should be <strong>relevant</strong> to this "
-"community."
+msgid "Most importanly - questions should be <strong>relevant</strong> to this community."
 msgstr ""
 
 #: templates/faq.html:18
-msgid ""
-"Before asking the question - please make sure to use search to see whether "
-"your question has alredy been answered."
-msgstr ""
-"Before you ask - please make sure to search for a similar question. You can "
-"search questions by their title or tags."
+msgid "Before asking the question - please make sure to use search to see whether your question has alredy been answered."
+msgstr "Before you ask - please make sure to search for a similar question. You can search questions by their title or tags."
 
 #: templates/faq.html:21
 msgid "What questions should I avoid asking?"
 msgstr "What kinds of questions should be avoided?"
 
 #: templates/faq.html:22
-msgid ""
-"Please avoid asking questions that are not relevant to this community, too "
-"subjective and argumentative."
+msgid "Please avoid asking questions that are not relevant to this community, too subjective and argumentative."
 msgstr ""
 
 #: templates/faq.html:27
@@ -891,15 +846,8 @@ msgid "site title"
 msgstr ""
 
 #: templates/faq.html:28
-msgid ""
-"is a Q&A site, not a discussion group. Therefore - please avoid having "
-"discussions in your answers, comment facility allows some space for brief "
-"discussions."
-msgstr ""
-"is a <strong>question and answer</strong> site - <strong>it is not a "
-"discussion group</strong>. Please avoid holding debates in your answers as "
-"they tend to dilute the essense of questions and answers. For the brief "
-"discussions please use commenting facility."
+msgid "is a Q&A site, not a discussion group. Therefore - please avoid having discussions in your answers, comment facility allows some space for brief discussions."
+msgstr "is a <strong>question and answer</strong> site - <strong>it is not a discussion group</strong>. Please avoid holding debates in your answers as they tend to dilute the essense of questions and answers. For the brief discussions please use commenting facility."
 
 #: templates/faq.html:32
 msgid "Who moderates this community?"
@@ -914,9 +862,7 @@ msgid "This website is moderated by the users."
 msgstr ""
 
 #: templates/faq.html:35
-msgid ""
-"The reputation system allows users earn the authorization to perform a "
-"variety of moderation tasks."
+msgid "The reputation system allows users earn the authorization to perform a variety of moderation tasks."
 msgstr ""
 
 #: templates/faq.html:40
@@ -925,11 +871,7 @@ msgstr ""
 
 #: templates/faq.html:41
 msgid "Rep system summary"
-msgstr ""
-"When a question or answer is upvoted, the user who posted them will gain "
-"some points, which are called \"reputation points\". These points serve as a "
-"rough measure of the community trust to him/her. Various moderation tasks "
-"are gradually assigned to the users based on those points."
+msgstr "When a question or answer is upvoted, the user who posted them will gain some points, which are called \"reputation points\". These points serve as a rough measure of the community trust to him/her. Various moderation tasks are gradually assigned to the users based on those points."
 
 #: templates/faq.html:59 templates/user_votes.html:14
 msgid "upvote"
@@ -981,19 +923,7 @@ msgstr "How to validate email and why?"
 
 #: templates/faq.html:108
 msgid "how to validate email info"
-msgstr ""
-"<form style='margin:0;padding:0;' action='/email/sendkey/'><p><span class="
-"\"bigger strong\">How?</span> If you have just set or changed your email "
-"address - <strong>check your email and click the included link</strong>."
-"<br>The link contains a key generated specifically for you. You can also "
-"<button style='display:inline' type='submit'><strong>get a new key</strong></"
-"button> and check your email again.</p></form><span class=\"bigger strong"
-"\">Why?</span> Email validation is required to make sure that <strong>only "
-"you can post messages</strong> on your behalf and to <strong>minimize spam</"
-"strong> posts.<br>With email you can <strong>subscribe for updates</strong> "
-"on the most interesting questions. Also, when you sign up for the first time "
-"- create a unique <a href='/faq#gravatar'><strong>gravatar</strong></a> "
-"personal image.</p>"
+msgstr "<form style='margin:0;padding:0;' action='/email/sendkey/'><p><span class=\"bigger strong\">How?</span> If you have just set or changed your email address - <strong>check your email and click the included link</strong>.<br>The link contains a key generated specifically for you. You can also <button style='display:inline' type='submit'><strong>get a new key</strong></button> and check your email again.</p></form><span class=\"bigger strong\">Why?</span> Email validation is required to make sure that <strong>only you can post messages</strong> on your behalf and to <strong>minimize spam</strong> posts.<br>With email you can <strong>subscribe for updates</strong> on the most interesting questions. Also, when you sign up for the first time - create a unique <a href='/faq#gravatar'><strong>gravatar</strong></a> personal image.</p>"
 
 #: templates/faq.html:112
 msgid "what is gravatar"
@@ -1001,23 +931,14 @@ msgstr "What is gravatar?"
 
 #: templates/faq.html:113
 msgid "gravatar faq info"
-msgstr ""
-"<strong>Gravatar</strong> means <strong>g</strong>lobally <strong>r</"
-"strong>ecognized <strong>avatar</strong> - your unique avatar image "
-"associated with your email address. It's simply a picture that shows next to "
-"your posts on the websites that support gravatar protocol. By default gravar "
-"appears as a square filled with a snowflake-like figure. You can <strong>set "
-"your image</strong> at <a href='http://gravatar.com'><strong>gravatar.com</"
-"strong></a>"
+msgstr "<strong>Gravatar</strong> means <strong>g</strong>lobally <strong>r</strong>ecognized <strong>avatar</strong> - your unique avatar image associated with your email address. It's simply a picture that shows next to your posts on the websites that support gravatar protocol. By default gravar appears as a square filled with a snowflake-like figure. You can <strong>set your image</strong> at <a href='http://gravatar.com'><strong>gravatar.com</strong></a>"
 
 #: templates/faq.html:116
 msgid "To register, do I need to create new password?"
 msgstr ""
 
 #: templates/faq.html:117
-msgid ""
-"No, you don't have to. You can login through any service that supports "
-"OpenID, e.g. Google, Yahoo, AOL, etc."
+msgid "No, you don't have to. You can login through any service that supports OpenID, e.g. Google, Yahoo, AOL, etc."
 msgstr ""
 
 #: templates/faq.html:118
@@ -1033,10 +954,7 @@ msgid "Goal of this site is..."
 msgstr ""
 
 #: templates/faq.html:124
-msgid ""
-"So questions and answers can be edited like wiki pages by experienced users "
-"of this site and this improves the overall quality of the knowledge base "
-"content."
+msgid "So questions and answers can be edited like wiki pages by experienced users of this site and this improves the overall quality of the knowledge base content."
 msgstr ""
 
 #: templates/faq.html:125
@@ -1049,9 +967,7 @@ msgstr ""
 
 #: templates/faq.html:130
 msgid "Please ask your question, help make our community better!"
-msgstr ""
-"Please <a href=\"/questions/ask\">ask</a> your question, help make our "
-"community better!"
+msgstr "Please <a href=\"/questions/ask\">ask</a> your question, help make our community better!"
 
 #: templates/faq.html:132 templates/index.html:123
 msgid "."
@@ -1129,7 +1045,7 @@ msgstr ""
 
 #: templates/index.html:82
 msgid "welcome to website"
-msgstr ""
+msgstr "welcome to website"
 
 #: templates/index.html:91
 msgid "Recent tags"
@@ -1185,9 +1101,7 @@ msgid "Logout"
 msgstr ""
 
 #: templates/logout.html:20
-msgid ""
-"As a registered user you can login with your OpenID, log out of the site or "
-"permanently remove your account."
+msgid "As a registered user you can login with your OpenID, log out of the site or permanently remove your account."
 msgstr ""
 
 #: templates/logout.html:21
@@ -1301,8 +1215,7 @@ msgid "close"
 msgstr ""
 
 #: templates/question.html:149 templates/question.html.py:338
-msgid ""
-"report as offensive (i.e containing spam, advertising, malicious text, etc.)"
+msgid "report as offensive (i.e containing spam, advertising, malicious text, etc.)"
 msgstr ""
 
 #: templates/question.html:150 templates/question.html.py:339
@@ -1329,9 +1242,7 @@ msgstr ""
 
 #: templates/question.html:255
 #, python-format
-msgid ""
-"The question has been closed for the following reason \"%(question."
-"get_close_reason_display)s\" by"
+msgid "The question has been closed for the following reason \"%(question.get_close_reason_display)s\" by"
 msgstr ""
 
 #: templates/question.html:257
@@ -1406,9 +1317,7 @@ msgstr ""
 
 #: templates/question.html:451
 msgid "you can answer anonymously and then login"
-msgstr ""
-"<span class='strong big'>You are now not logged in</span> but you can answer "
-"first and then login"
+msgstr "<span class='strong big'>You are now not logged in</span> but you can answer first and then login"
 
 #: templates/question.html:475
 msgid "Answer the question"
@@ -1518,12 +1427,10 @@ msgid_plural ""
 "\t\t\t"
 msgstr[0] ""
 "\n"
-"<div class=\"questions-count\">%(q_num)s</div><p>question tagged</p><p><span "
-"class=\"tag\">%(tagname)s</span></p>"
+"<div class=\"questions-count\">%(q_num)s</div><p>question tagged</p><p><span class=\"tag\">%(tagname)s</span></p>"
 msgstr[1] ""
 "\n"
-"<div class=\"questions-count\">%(q_num)s</div><p>questions tagged</p><div "
-"class=\"tags\"><span class=\"tag\">%(tagname)s</span></div>"
+"<div class=\"questions-count\">%(q_num)s</div><p>questions tagged</p><div class=\"tags\"><span class=\"tag\">%(tagname)s</span></div>"
 
 #: templates/questions.html:118
 #, python-format
@@ -1537,14 +1444,10 @@ msgid_plural ""
 "\t\t\t\t"
 msgstr[0] ""
 "\n"
-"<div class=\"questions-count\">%(q_num)s</div><p>question with title "
-"containing <strong><span class=\"darkred\">%(searchtitle)s</span></strong></"
-"p>"
+"<div class=\"questions-count\">%(q_num)s</div><p>question with title containing <strong><span class=\"darkred\">%(searchtitle)s</span></strong></p>"
 msgstr[1] ""
 "\n"
-"<div class=\"questions-count\">%(q_num)s</div><p>questions with title "
-"containing <strong><span class=\"darkred\">%(searchtitle)s</span></strong></"
-"p>"
+"<div class=\"questions-count\">%(q_num)s</div><p>questions with title containing <strong><span class=\"darkred\">%(searchtitle)s</span></strong></p>"
 
 #: templates/questions.html:124
 #, python-format
@@ -1667,9 +1570,7 @@ msgstr ""
 #: templates/unanswered.html:99
 #, python-format
 msgid "have %(num_q)s unanswered questions"
-msgstr ""
-"<div class=\"questions-count\">%(num_q)s</div><strong>unanswered</strong> "
-"questions"
+msgstr "<div class=\"questions-count\">%(num_q)s</div><strong>unanswered</strong> questions"
 
 #: templates/unanswered.html:101
 msgid "Have a total of"
@@ -1855,10 +1756,7 @@ msgstr "Change Email"
 #: templates/authopenid/changeemail.html:10
 #, python-format
 msgid "change %(email)s info"
-msgstr ""
-"<span class=\"strong big\">Enter your new email into the box below</span> if "
-"you'd like to use another email for <strong>update subscriptions</strong>."
-"<br>Currently you are using <strong>%(email)s</strong>"
+msgstr "<span class=\"strong big\">Enter your new email into the box below</span> if you'd like to use another email for <strong>update subscriptions</strong>.<br>Currently you are using <strong>%(email)s</strong>"
 
 #: templates/authopenid/changeemail.html:13
 #: templates/authopenid/changeopenid.html:14
@@ -1870,9 +1768,7 @@ msgstr ""
 
 #: templates/authopenid/changeemail.html:30
 msgid "Your new Email"
-msgstr ""
-"<strong>Your new Email:</strong> (will <strong>not</strong> be shown to "
-"anyone, must be valid)"
+msgstr "<strong>Your new Email:</strong> (will <strong>not</strong> be shown to anyone, must be valid)"
 
 #: templates/authopenid/changeemail.html:31
 #: templates/authopenid/complete.html:67 templates/authopenid/signin.html:138
@@ -1895,11 +1791,7 @@ msgstr ""
 #: templates/authopenid/changeemail.html:53
 #, python-format
 msgid "old %(email)s kept"
-msgstr ""
-"<span class=\"strong big\">Your email address %(email)s has not been changed."
-"</span> If you decide to change it later - you can always do it by editing "
-"it in your user profile or by using the <a href=\"/email/change/"
-"\"><strong>previous form</strong></a> again."
+msgstr "<span class=\"strong big\">Your email address %(email)s has not been changed.</span> If you decide to change it later - you can always do it by editing it in your user profile or by using the <a href=\"/email/change/\"><strong>previous form</strong></a> again."
 
 #: templates/authopenid/changeemail.html:58
 msgid "Email changed"
@@ -1908,11 +1800,7 @@ msgstr ""
 #: templates/authopenid/changeemail.html:61
 #, python-format
 msgid "your current %(email)s can be used for this"
-msgstr ""
-"<span class='big strong'>Your email address is now set to %(email)s.</span> "
-"Updates on the questions that you like most will be sent to this address. "
-"Email notifications are sent once a day or less frequently - only when there "
-"are any news."
+msgstr "<span class='big strong'>Your email address is now set to %(email)s.</span> Updates on the questions that you like most will be sent to this address. Email notifications are sent once a day or less frequently - only when there are any news."
 
 #: templates/authopenid/changeemail.html:66
 msgid "Email verified"
@@ -1920,12 +1808,7 @@ msgstr ""
 
 #: templates/authopenid/changeemail.html:69
 msgid "thanks for verifying email"
-msgstr ""
-"<span class=\"big strong\">Thank you for verifying your email!</span> Now "
-"you can <strong>ask</strong> and <strong>answer</strong> questions. Also if "
-"you find a very interesting question you can <strong>subscribe for the "
-"updates</strong> - then will be notified about changes <strong>once a day</"
-"strong> or less frequently."
+msgstr "<span class=\"big strong\">Thank you for verifying your email!</span> Now you can <strong>ask</strong> and <strong>answer</strong> questions. Also if you find a very interesting question you can <strong>subscribe for the updates</strong> - then will be notified about changes <strong>once a day</strong> or less frequently."
 
 #: templates/authopenid/changeemail.html:74
 msgid "email key not sent"
@@ -1934,18 +1817,14 @@ msgstr "Validation email not sent"
 #: templates/authopenid/changeemail.html:77
 #, python-format
 msgid "email key not sent %(email)s change email here %(change_link)s"
-msgstr ""
-"<span class='big strong'>Your current email address %(email)s has been "
-"validated before</span> so the new key was not sent. You can <a href='%"
-"(change_link)s'>change</a> email used for update subscriptions if necessary."
+msgstr "<span class='big strong'>Your current email address %(email)s has been validated before</span> so the new key was not sent. You can <a href='%(change_link)s'>change</a> email used for update subscriptions if necessary."
 
 #: templates/authopenid/changeopenid.html:8
 msgid "Account: change OpenID URL"
 msgstr ""
 
 #: templates/authopenid/changeopenid.html:12
-msgid ""
-"This is where you can change your OpenID URL. Make sure you remember it!"
+msgid "This is where you can change your OpenID URL. Make sure you remember it!"
 msgstr ""
 
 #: templates/authopenid/changeopenid.html:29
@@ -1995,8 +1874,7 @@ msgstr ""
 #: templates/authopenid/complete.html:13
 msgid ""
 "\n"
-"  <p>Your OpenID can now be associated with a new or existing membership. "
-"You can change the association later in your preferences.</p>\n"
+"  <p>Your OpenID can now be associated with a new or existing membership. You can change the association later in your preferences.</p>\n"
 "  "
 msgstr ""
 
@@ -2007,9 +1885,7 @@ msgstr ""
 #: templates/authopenid/complete.html:18
 msgid ""
 "\n"
-"  <p>If you're joining <strong>Sitename</strong>, associate your OpenID with "
-"a new account. If you're already a member, associate with your existing "
-"account.</p>\n"
+"  <p>If you're joining <strong>Sitename</strong>, associate your OpenID with a new account. If you're already a member, associate with your existing account.</p>\n"
 "  "
 msgstr ""
 
@@ -2035,9 +1911,7 @@ msgid "Account: delete account"
 msgstr ""
 
 #: templates/authopenid/delete.html:13
-msgid ""
-"Note: After deleting your account, anyone will be able to register this "
-"username."
+msgid "Note: After deleting your account, anyone will be able to register this username."
 msgstr ""
 
 #: templates/authopenid/delete.html:17
@@ -2073,9 +1947,7 @@ msgid "Lost your password? No problem - here you can reset it."
 msgstr ""
 
 #: templates/authopenid/sendpw.html:13
-msgid ""
-"Please enter your username below and new password will be sent to your "
-"registered e-mail"
+msgid "Please enter your username below and new password will be sent to your registered e-mail"
 msgstr ""
 
 #: templates/authopenid/sendpw.html:28
@@ -2091,9 +1963,7 @@ msgid "return to login"
 msgstr ""
 
 #: templates/authopenid/sendpw.html:33
-msgid ""
-"Note: your new password will be activated only after you click the "
-"activation link in the email message"
+msgid "Note: your new password will be activated only after you click the activation link in the email message"
 msgstr ""
 
 #: templates/authopenid/settings.html:21
@@ -2132,14 +2002,11 @@ msgstr "User login"
 #, python-format
 msgid ""
 "\n"
-"                Your answer to %(title)s %(summary)s will be posted once you "
-"log in\n"
+"                Your answer to %(title)s %(summary)s will be posted once you log in\n"
 "                "
 msgstr ""
 "\n"
-"<span class=\"strong big\">Your answer to </span> <i>\"<strong>%(title)s</"
-"strong> %(summary)s...\"</i> <span class=\"strong big\">is saved and will be "
-"posted once you log in.</span>"
+"<span class=\"strong big\">Your answer to </span> <i>\"<strong>%(title)s</strong> %(summary)s...\"</i> <span class=\"strong big\">is saved and will be posted once you log in.</span>"
 
 #: templates/authopenid/signin.html:35
 #, python-format
@@ -2147,34 +2014,19 @@ msgid ""
 "Your question \n"
 "                %(title)s %(summary)s will be posted once you log in\n"
 "                "
-msgstr ""
-"<span class=\"strong big\">Your question</span> <i>\"<strong>%(title)s</"
-"strong> %(summary)s...\"</i> <span class=\"strong big\">is saved and will be "
-"posted once you log in.</span>"
+msgstr "<span class=\"strong big\">Your question</span> <i>\"<strong>%(title)s</strong> %(summary)s...\"</i> <span class=\"strong big\">is saved and will be posted once you log in.</span>"
 
 #: templates/authopenid/signin.html:40
 msgid "Click to sign in through any of these services."
-msgstr ""
-"<p><span class=\"big strong\">We accept <a href=\"http://openid.net"
-"\">OpenID</a> login.</span> <font color=\"gray\">Instead of creating a new "
-"password - log in through any of the services below.<p><span class=\"big "
-"strong\">1. Select the login service by clicking one of the icons</span></p>"
+msgstr "<p><span class=\"big strong\">We accept <a href=\"http://openid.net\">OpenID</a> login.</span> <font color=\"gray\">Instead of creating a new password - log in through any of the services below.<p><span class=\"big strong\">1. Select the login service by clicking one of the icons</span></p>"
 
 #: templates/authopenid/signin.html:103
 msgid "Enter your <span id=\"enter_your_what\">Provider user name</span>"
-msgstr ""
-"<span class=\"big strong\">2. Enter your <span id=\"enter_your_what"
-"\">Provider user name</span></span><br>(or select another OpenID provider "
-"above)"
+msgstr "<span class=\"big strong\">2. Enter your <span id=\"enter_your_what\">Provider user name</span></span><br>(or select another OpenID provider above)"
 
 #: templates/authopenid/signin.html:110
-msgid ""
-"Enter your <a class=\"openid_logo\" href=\"http://openid.net\">OpenID</a> "
-"web address"
-msgstr ""
-"<span class=\"big strong\">2. Enter your <a class=\"openid_logo\" href="
-"\"http://openid.net\">OpenID</a> web address</span><br>(or choose specific "
-"provider by clicking on one of the icons above)"
+msgid "Enter your <a class=\"openid_logo\" href=\"http://openid.net\">OpenID</a> web address"
+msgstr "<span class=\"big strong\">2. Enter your <a class=\"openid_logo\" href=\"http://openid.net\">OpenID</a> web address</span><br>(or choose specific provider by clicking on one of the icons above)"
 
 #: templates/authopenid/signin.html:112 templates/authopenid/signin.html:139
 msgid "Login"
@@ -2182,9 +2034,7 @@ msgstr ""
 
 #: templates/authopenid/signin.html:116
 msgid "we support two login modes"
-msgstr ""
-"You can log in either through one of these services or traditionally - using "
-"local username/password."
+msgstr "You can log in either through one of these services or traditionally - using local username/password."
 
 #: templates/authopenid/signin.html:121
 msgid "Sorry, looks like we have some errors:"
@@ -2220,9 +2070,7 @@ msgstr "You can safely re-use the same login for all OpenID-enabled websites."
 
 #: templates/authopenid/signin.html:160
 msgid "openid is widely adopted"
-msgstr ""
-"There are > 160,000,000 OpenID account in use. Over 10,000 sites are OpenID-"
-"enabled."
+msgstr "There are > 160,000,000 OpenID account in use. Over 10,000 sites are OpenID-enabled."
 
 #: templates/authopenid/signin.html:163
 msgid "openid is supported open standard"
@@ -2241,9 +2089,7 @@ msgid "Signup"
 msgstr ""
 
 #: templates/authopenid/signup.html:12
-msgid ""
-"We support two types of user registration: conventional username/password, "
-"and"
+msgid "We support two types of user registration: conventional username/password, and"
 msgstr ""
 
 #: templates/authopenid/signup.html:12
@@ -2289,58 +2135,35 @@ msgstr ""
 #~ msgid "invalid user name"
 #~ msgstr "User names can contain letters, underscore and empty space."
 
-#~ msgid "Welcome"
-#~ msgstr "Verification Email from Q&A forum"
-
 #~ msgid "your email needs to be validated"
-#~ msgstr ""
-#~ "Your email needs to be validated. Please see details <a "
-#~ "id='validate_email_alert' href=\"/faq#validate\">here</a>."
+#~ msgstr "Your email needs to be validated. Please see details <a id='validate_email_alert' href=\"/faq#validate\">here</a>."
 
 #~ msgid "subscription saved, %(email)s needs validation"
-#~ msgstr ""
-#~ "Your subscription is saved, but email address %(email)s needs to be "
-#~ "validated, please see <a href='/faq#validate'>more details here</a>"
+#~ msgstr "Your subscription is saved, but email address %(email)s needs to be validated, please see <a href='/faq#validate'>more details here</a>"
 
 #~ msgid "register new %(provider)s account info"
-#~ msgstr ""
-#~ "<p><span class=\"big strong\">You are here for the first time with your %"
-#~ "(provider)s login.</span> Please create your <strong>screen name</strong> "
-#~ "and save your <strong>email</strong> address. Saved email address will "
-#~ "let you <strong>subscribe for the updates</strong> on the most "
-#~ "interesting questions and will be used to create and retrieve your unique "
-#~ "avatar image - <a href='/faq#gravatar'><strong>gravatar</strong></a>."
+#~ msgstr "<p><span class=\"big strong\">You are here for the first time with your %(provider)s login.</span> Please create your <strong>screen name</strong> and save your <strong>email</strong> address. Saved email address will let you <strong>subscribe for the updates</strong> on the most interesting questions and will be used to create and retrieve your unique avatar image - <a href='/faq#gravatar'><strong>gravatar</strong></a>."
 
 #~ msgid "Screen name label"
 #~ msgstr "<strong>Screen Name</strong> (<i>will be shown to others</i>)"
 
 #~ msgid "Email address label"
-#~ msgstr ""
-#~ "<strong>Email Address</strong> (<i>will <strong>not</strong> be shared "
-#~ "with anyone, must be valid</i>)"
+#~ msgstr "<strong>Email Address</strong> (<i>will <strong>not</strong> be shared with anyone, must be valid</i>)"
 
 #~ msgid "what is this website"
-#~ msgstr ""
-#~ "This is a collaboratively edited question and answer site for the "
-#~ "Magnetic Resonance specialists."
+#~ msgstr "This is a collaboratively edited question and answer site for the Magnetic Resonance specialists."
 
-#
 #~ msgid "editing tips"
 #~ msgstr "Tips"
 
 #~ msgid "Newest questions shown first."
-#~ msgstr ""
-#~ "Questions are sorted by <strong>entry date</strong>.Newest questions "
-#~ "shown first."
+#~ msgstr "Questions are sorted by <strong>entry date</strong>.Newest questions shown first."
 
-#~ msgid ""
-#~ "please use space to separate tags (this enables autocomplete feature)"
+#~ msgid "please use space to separate tags (this enables autocomplete feature)"
 #~ msgstr "please use space to separate tags (uses autocomplete utility)"
 
 #~ msgid "select openid provider"
 #~ msgstr "1) Please select your id service provider."
 
 #~ msgid "verify openid link and login"
-#~ msgstr ""
-#~ "2) Please verify the OpenID URL (type your login name over {username}, if "
-#~ "present) and then log in."
+#~ msgstr "2) Please verify the OpenID URL (type your login name over {username}, if present) and then log in."

@@ -2,52 +2,52 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 10:17+0000\n"
-"PO-Revision-Date: 2009-12-03 10:21\n"
-"Last-Translator: <admin@example.com>\n"
+"POT-Creation-Date: 2009-12-03 15:50+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Translated-Using: django-rosetta 0.5.1\n"
 
 #: apps/cnprog_profile/forms.py:37
 msgid "this email has already been registered, please use another one"
-msgstr "этот адерс используется другим пользователем, пожалуйста, используйте другой"
+msgstr ""
 
 #: apps/cnprog_profile/models.py:8 templates/user_info.html:40
 msgid "real name"
-msgstr "Настоящее имя"
+msgstr ""
 
 #: apps/cnprog_profile/models.py:9
 msgid "website"
-msgstr "Вебсайт"
+msgstr ""
 
 #: apps/cnprog_profile/models.py:10 templates/user_info.html:62
 msgid "location"
-msgstr "местонахождение"
+msgstr ""
 
 #: apps/cnprog_profile/models.py:11
 msgid "date of birth"
-msgstr "Дата рождения"
+msgstr ""
 
 #: apps/cnprog_profile/models.py:12 templates/base.html:81
 #: templates/footer.html:7 templates/index.html:85
 msgid "about"
-msgstr "О нас"
+msgstr ""
 
 #: apps/cnprog_profile/models.py:13
 msgid "public"
-msgstr "Открытый для всех"
+msgstr ""
 
 #: apps/forum/const.py:8
 msgid "duplicate question"
-msgstr "дубликат вопроса"
+msgstr ""
 
 #: apps/forum/const.py:9
 msgid "question if off-topic or not relevant"
@@ -79,11 +79,11 @@ msgstr ""
 
 #: apps/forum/const.py:56
 msgid "question"
-msgstr "Вопрос"
+msgstr ""
 
 #: apps/forum/const.py:57 templates/book.html:110
 msgid "answer"
-msgstr "ответ"
+msgstr ""
 
 #: apps/forum/const.py:58
 msgid "commented question"
@@ -200,7 +200,8 @@ msgid "tags"
 msgstr ""
 
 #: apps/forum/forms.py:53
-msgid "Tags are short keywords, with no spaces within. Up to five tags can be used."
+msgid ""
+"Tags are short keywords, with no spaces within. Up to five tags can be used."
 msgstr ""
 
 #: apps/forum/forms.py:60 templates/question_retag.html:38
@@ -216,7 +217,9 @@ msgid "tags must be shorter than 20 characters"
 msgstr ""
 
 #: apps/forum/forms.py:71
-msgid "please use following characters in tags: letters 'a-z', numbers, and characters '.-_#'"
+msgid ""
+"please use following characters in tags: letters 'a-z', numbers, and "
+"characters '.-_#'"
 msgstr ""
 
 #: apps/forum/forms.py:81 templates/index.html:57 templates/question.html:204
@@ -227,7 +230,9 @@ msgid "community wiki"
 msgstr ""
 
 #: apps/forum/forms.py:82
-msgid "if you choose community wiki option, the question and answer do not generate points and name of author will not be shown"
+msgid ""
+"if you choose community wiki option, the question and answer do not generate "
+"points and name of author will not be shown"
 msgstr ""
 
 #: apps/forum/forms.py:95
@@ -235,7 +240,9 @@ msgid "update summary:"
 msgstr ""
 
 #: apps/forum/forms.py:96
-msgid "enter a brief summary of your revision (e.g. fixed spelling, grammar, improved style, this field is optional)"
+msgid ""
+"enter a brief summary of your revision (e.g. fixed spelling, grammar, "
+"improved style, this field is optional)"
 msgstr ""
 
 #: apps/forum/models.py:145
@@ -378,7 +385,8 @@ msgstr ""
 
 #: apps/forum/views.py:1683
 #, python-format
-msgid "Error uploading file. Please contact the site administrator. Thank you. %s"
+msgid ""
+"Error uploading file. Please contact the site administrator. Thank you. %s"
 msgstr ""
 
 #: apps/forum/management/commands/send_email_alerts.py:33
@@ -412,7 +420,9 @@ msgid "url has error - please check it;"
 msgstr ""
 
 #: templates/404.html:30
-msgid "the page you tried to visit is protected or you don't have sufficient points, see"
+msgid ""
+"the page you tried to visit is protected or you don't have sufficient "
+"points, see"
 msgstr ""
 
 #: templates/404.html:31
@@ -618,7 +628,9 @@ msgid "Community gives you awards for your questions, answers and votes."
 msgstr ""
 
 #: templates/badges.html:22
-msgid "Below is the list of available badges and number of times each type of badge has been awarded."
+msgid ""
+"Below is the list of available badges and number of times each type of badge "
+"has been awarded."
 msgstr ""
 
 #: templates/badges.html:49
@@ -822,11 +834,15 @@ msgid "What kinds of questions can I ask here?"
 msgstr ""
 
 #: templates/faq.html:17
-msgid "Most importanly - questions should be <strong>relevant</strong> to this community."
+msgid ""
+"Most importanly - questions should be <strong>relevant</strong> to this "
+"community."
 msgstr ""
 
 #: templates/faq.html:18
-msgid "Before asking the question - please make sure to use search to see whether your question has alredy been answered."
+msgid ""
+"Before asking the question - please make sure to use search to see whether "
+"your question has alredy been answered."
 msgstr ""
 
 #: templates/faq.html:21
@@ -834,7 +850,9 @@ msgid "What questions should I avoid asking?"
 msgstr ""
 
 #: templates/faq.html:22
-msgid "Please avoid asking questions that are not relevant to this community, too subjective and argumentative."
+msgid ""
+"Please avoid asking questions that are not relevant to this community, too "
+"subjective and argumentative."
 msgstr ""
 
 #: templates/faq.html:27
@@ -846,7 +864,10 @@ msgid "site title"
 msgstr ""
 
 #: templates/faq.html:28
-msgid "is a Q&A site, not a discussion group. Therefore - please avoid having discussions in your answers, comment facility allows some space for brief discussions."
+msgid ""
+"is a Q&A site, not a discussion group. Therefore - please avoid having "
+"discussions in your answers, comment facility allows some space for brief "
+"discussions."
 msgstr ""
 
 #: templates/faq.html:32
@@ -862,7 +883,9 @@ msgid "This website is moderated by the users."
 msgstr ""
 
 #: templates/faq.html:35
-msgid "The reputation system allows users earn the authorization to perform a variety of moderation tasks."
+msgid ""
+"The reputation system allows users earn the authorization to perform a "
+"variety of moderation tasks."
 msgstr ""
 
 #: templates/faq.html:40
@@ -938,7 +961,9 @@ msgid "To register, do I need to create new password?"
 msgstr ""
 
 #: templates/faq.html:117
-msgid "No, you don't have to. You can login through any service that supports OpenID, e.g. Google, Yahoo, AOL, etc."
+msgid ""
+"No, you don't have to. You can login through any service that supports "
+"OpenID, e.g. Google, Yahoo, AOL, etc."
 msgstr ""
 
 #: templates/faq.html:118
@@ -954,7 +979,10 @@ msgid "Goal of this site is..."
 msgstr ""
 
 #: templates/faq.html:124
-msgid "So questions and answers can be edited like wiki pages by experienced users of this site and this improves the overall quality of the knowledge base content."
+msgid ""
+"So questions and answers can be edited like wiki pages by experienced users "
+"of this site and this improves the overall quality of the knowledge base "
+"content."
 msgstr ""
 
 #: templates/faq.html:125
@@ -1101,7 +1129,9 @@ msgid "Logout"
 msgstr ""
 
 #: templates/logout.html:20
-msgid "As a registered user you can login with your OpenID, log out of the site or permanently remove your account."
+msgid ""
+"As a registered user you can login with your OpenID, log out of the site or "
+"permanently remove your account."
 msgstr ""
 
 #: templates/logout.html:21
@@ -1215,7 +1245,8 @@ msgid "close"
 msgstr ""
 
 #: templates/question.html:149 templates/question.html.py:338
-msgid "report as offensive (i.e containing spam, advertising, malicious text, etc.)"
+msgid ""
+"report as offensive (i.e containing spam, advertising, malicious text, etc.)"
 msgstr ""
 
 #: templates/question.html:150 templates/question.html.py:339
@@ -1242,7 +1273,9 @@ msgstr ""
 
 #: templates/question.html:255
 #, python-format
-msgid "The question has been closed for the following reason \"%(question.get_close_reason_display)s\" by"
+msgid ""
+"The question has been closed for the following reason \"%(question."
+"get_close_reason_display)s\" by"
 msgstr ""
 
 #: templates/question.html:257
@@ -1811,7 +1844,8 @@ msgid "Account: change OpenID URL"
 msgstr ""
 
 #: templates/authopenid/changeopenid.html:12
-msgid "This is where you can change your OpenID URL. Make sure you remember it!"
+msgid ""
+"This is where you can change your OpenID URL. Make sure you remember it!"
 msgstr ""
 
 #: templates/authopenid/changeopenid.html:29
@@ -1861,7 +1895,8 @@ msgstr ""
 #: templates/authopenid/complete.html:13
 msgid ""
 "\n"
-"  <p>Your OpenID can now be associated with a new or existing membership. You can change the association later in your preferences.</p>\n"
+"  <p>Your OpenID can now be associated with a new or existing membership. "
+"You can change the association later in your preferences.</p>\n"
 "  "
 msgstr ""
 
@@ -1872,7 +1907,9 @@ msgstr ""
 #: templates/authopenid/complete.html:18
 msgid ""
 "\n"
-"  <p>If you're joining <strong>Sitename</strong>, associate your OpenID with a new account. If you're already a member, associate with your existing account.</p>\n"
+"  <p>If you're joining <strong>Sitename</strong>, associate your OpenID with "
+"a new account. If you're already a member, associate with your existing "
+"account.</p>\n"
 "  "
 msgstr ""
 
@@ -1897,7 +1934,9 @@ msgid "Account: delete account"
 msgstr ""
 
 #: templates/authopenid/delete.html:13
-msgid "Note: After deleting your account, anyone will be able to register this username."
+msgid ""
+"Note: After deleting your account, anyone will be able to register this "
+"username."
 msgstr ""
 
 #: templates/authopenid/delete.html:17
@@ -1933,7 +1972,9 @@ msgid "Lost your password? No problem - here you can reset it."
 msgstr ""
 
 #: templates/authopenid/sendpw.html:13
-msgid "Please enter your username below and new password will be sent to your registered e-mail"
+msgid ""
+"Please enter your username below and new password will be sent to your "
+"registered e-mail"
 msgstr ""
 
 #: templates/authopenid/sendpw.html:28
@@ -1949,7 +1990,9 @@ msgid "return to login"
 msgstr ""
 
 #: templates/authopenid/sendpw.html:33
-msgid "Note: your new password will be activated only after you click the activation link in the email message"
+msgid ""
+"Note: your new password will be activated only after you click the "
+"activation link in the email message"
 msgstr ""
 
 #: templates/authopenid/settings.html:21
@@ -1988,7 +2031,8 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"                Your answer to %(title)s %(summary)s will be posted once you log in\n"
+"                Your answer to %(title)s %(summary)s will be posted once you "
+"log in\n"
 "                "
 msgstr ""
 
@@ -2009,7 +2053,9 @@ msgid "Enter your <span id=\"enter_your_what\">Provider user name</span>"
 msgstr ""
 
 #: templates/authopenid/signin.html:110
-msgid "Enter your <a class=\"openid_logo\" href=\"http://openid.net\">OpenID</a> web address"
+msgid ""
+"Enter your <a class=\"openid_logo\" href=\"http://openid.net\">OpenID</a> "
+"web address"
 msgstr ""
 
 #: templates/authopenid/signin.html:112 templates/authopenid/signin.html:139
@@ -2073,7 +2119,9 @@ msgid "Signup"
 msgstr ""
 
 #: templates/authopenid/signup.html:12
-msgid "We support two types of user registration: conventional username/password, and"
+msgid ""
+"We support two types of user registration: conventional username/password, "
+"and"
 msgstr ""
 
 #: templates/authopenid/signup.html:12
