@@ -62,6 +62,7 @@
 <div id="main-body" class="ask-body">
     <div id="askform">
         <form id="fmask" action="" method="post" >
+        {% block ask_form %}
 			{% if not request.user.is_authenticated %}
             <div class="message">
 			    <p>{% trans "login to post question info" %}</p>
@@ -116,6 +117,7 @@
 			{% else %}
             <input type="submit" value="{% trans "Ask your question" %}" class="submit" />
             {% endif %}
+          {% endblock %}
         </form>
     </div>
 </div>

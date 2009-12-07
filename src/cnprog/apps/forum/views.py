@@ -64,8 +64,8 @@ comment_type_id = comment_type.id
 question_revision_type_id = question_revision_type.id
 answer_revision_type_id = answer_revision_type.id
 repute_type_id = repute_type.id
-def _get_tags_cache_json():
-    tags = Tag.objects.filter(deleted=False).annotate(used_count=aggregates.Count('questions'))
+def _get_tags_cache_json(queryset=Tag.objects.filter(deleted=False)):
+    tags = queryset.annotate(used_count=aggregates.Count('questions'))
     tags_list = []
     for tag in tags:
         dic = {'n': tag.name, 'c': tag.used_count}
@@ -226,7 +226,7 @@ def create_new_answer(question=None, author=None, \
 
 #TODO: allow anynomus user to ask question by providing email and username.
 @login_required
-def ask(request, form_class=AskForm):
+def ask(request, form_class=AskForm, template_name='ask.html'):
     if request.method == "POST":
         form = form_class(request.POST)
         if form.is_valid():
@@ -236,7 +236,7 @@ def ask(request, form_class=AskForm):
         form = form_class()
 
     tags = _get_tags_cache_json()
-    return render_to_response('ask.html', {
+    return render_to_response(template_name, {
                               'form': form,
                               'tags': tags,
                               }, context_instance=RequestContext(request))
