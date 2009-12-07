@@ -27,6 +27,7 @@ from django.utils import simplejson
 from django.utils.html import *
 from django.utils.translation import ugettext as _
 from django.views.generic.list_detail import object_detail
+from django.views.generic.create_update import apply_extra_context
 from django.db.models import Sum
 from django.db.models import aggregates
 
@@ -956,14 +957,14 @@ def users(request, queryset=User.objects.all(), template_name='users.html'):
 
                               }, context_instance=RequestContext(request))
 
-def user(request, id):
+def user(request, id, extra_context=None):
     sort = request.GET.get('sort', 'stats')
     user_view = dict((v.id, v) for v in USER_TEMPLATE_VIEWS).get(sort, USER_TEMPLATE_VIEWS[0])
     from forum import views
     func = getattr(views, user_view.view_name)
-    return func(request, id, user_view)
+    return func(request, id, user_view, extra_context=extra_context)
 
-def user_stats(request, user_id, user_view):
+def user_stats(request, user_id, user_view, extra_context=None):
     user = get_object_or_404(User, id=user_id)
     questions = Question.objects.filter(deleted__exact=False, author=user)\
                                 .annotate(favorited_myself = aggregates.Count('favorites') )\
@@ -1011,26 +1012,28 @@ def user_stats(request, user_id, user_view):
                                      ).values('id', 'count', 'name', 'description', 'type')
         total_awards = awards.count()
         awards.query.group_by = ['badge_id']
+    
+    context = {
+          "tab_name": user_view.id,
+          "tab_description": user_view.tab_description,
+          "page_title": user_view.page_title,
+          "view_user": user,
+          "questions": questions,
+          "answered_questions": answered_questions,
+          "up_votes": up_votes,
+          "down_votes": down_votes,
+          "total_votes": up_votes + down_votes,
+          "votes_today_left": votes_total-votes_today,
+          "votes_total_per_day": votes_total,
+          "tags": tags,
+          "awards": awards,
+          "total_awards": total_awards,
+    }
+    
+    apply_extra_context(extra_context or {}, context)
+    return render_to_response(user_view.template_file, context, context_instance=RequestContext(request))
 
-
-    return render_to_response(user_view.template_file, {
-                              "tab_name": user_view.id,
-                              "tab_description": user_view.tab_description,
-                              "page_title": user_view.page_title,
-                              "view_user": user,
-                              "questions": questions,
-                              "answered_questions": answered_questions,
-                              "up_votes": up_votes,
-                              "down_votes": down_votes,
-                              "total_votes": up_votes + down_votes,
-                              "votes_today_left": votes_total-votes_today,
-                              "votes_total_per_day": votes_total,
-                              "tags": tags,
-                              "awards": awards,
-                              "total_awards": total_awards,
-                              }, context_instance=RequestContext(request))
-
-def user_recent(request, user_id, user_view):
+def user_recent(request, user_id, user_view, extra_context=None):
     user = get_object_or_404(User, id=user_id)
     
     def get_type_name(type_id):
@@ -1230,7 +1233,7 @@ def user_recent(request, user_id, user_view):
                               "activities": activities[:user_view.data_size]
                               }, context_instance=RequestContext(request))
 
-def user_responses(request, user_id, user_view):
+def user_responses(request, user_id, user_view, extra_context=None):
     """
     We list answers for question, comments, and answer accepted by others for this user.
     """
@@ -1387,7 +1390,7 @@ def user_responses(request, user_id, user_view):
 
                               }, context_instance=RequestContext(request))
 
-def user_votes(request, user_id, user_view):
+def user_votes(request, user_id, user_view, extra_context=None):
     user = get_object_or_404(User, id=user_id)
     if not can_view_user_votes(request.user, user):
         raise Http404
@@ -1449,7 +1452,7 @@ def user_votes(request, user_id, user_view):
 
                               }, context_instance=RequestContext(request))
 
-def user_reputation(request, user_id, user_view):
+def user_reputation(request, user_id, user_view, extra_context=None):
     user = get_object_or_404(User, id=user_id)
 
     reputation = Repute.objects.filter(user__id=user_id)\
@@ -1474,7 +1477,7 @@ def user_reputation(request, user_id, user_view):
                               "reps": reps
                               }, context_instance=RequestContext(request))
 
-def user_favorites(request, user_id, user_view):
+def user_favorites(request, user_id, user_view, extra_context=None):
     user = get_object_or_404(User, id=user_id)
     questions = Question.objects.filter(deleted__exact = False)\
                                 .extra(
@@ -1495,31 +1498,7 @@ def user_favorites(request, user_id, user_view):
                                        params=[user_id],
                                        order_by=['-score', '-question.id']
                                        )
-#===============================================================================
-#    .values('vote_count',
-#        'favorited_myself',
-#        'id',
-#        'slug',
-#        'title',
-#        'author_id',
-#        'added_at',
-#        'answer_accepted',
-#        'answer_count',
-#        'comment_count',
-#        'view_count',
-#        'favourite_count',
-#        'summary',
-#        'tagnames',
-#        'vote_up_count',
-#        'vote_down_count',
-#        'last_activity_at',
-#        'la_user_id',
-#        'la_username',
-#        'la_user_gold',
-#        'la_user_silver',
-#        'la_user_bronze',
-#        'la_user_reputation')
-#===============================================================================
+
     return render_to_response(user_view.template_file, {
                               "tab_name": user_view.id,
                               "tab_description": user_view.tab_description,
@@ -1529,7 +1508,7 @@ def user_favorites(request, user_id, user_view):
                               }, context_instance=RequestContext(request))
 
 
-def user_preferences(request, user_id, user_view):
+def user_preferences(request, user_id, user_view, extra_context=None):
     user = get_object_or_404(User, id=user_id)
     return render_to_response(user_view.template_file, {
                               "tab_name": user_view.id,

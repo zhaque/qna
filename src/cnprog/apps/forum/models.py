@@ -399,7 +399,7 @@ class Answer(models.Model):
         return self.question.title
 
     def get_absolute_url(self):
-        return '%s#%s' % (reverse('question', args=[self.question.id]), self.id)
+        return '%s#%s' % (reverse('question', args=[self.question.slug]), self.id)
 
     class Meta:
         db_table = u'answer'

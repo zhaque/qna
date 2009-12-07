@@ -1,7 +1,7 @@
 var showMessage = function(object, msg) {
     var div = $('<div class="vote-notification"><h3>' + msg + '</h3>(' 
 				+ $.i18n._('click to close') + ')</div>');
-
+    
     div.click(function(event) {
         $(".vote-notification").fadeOut("fast", function() { $(this).remove(); });
     });
