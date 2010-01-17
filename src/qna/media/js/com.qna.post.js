@@ -1,9 +1,4 @@
-﻿/*
-Scripts for qna.com
-Project Name: Lanai
-All Rights Resevred 2008. CNPROG.COM
-*/
-var lanai =
+﻿var lanai =
 {
     /**
      * Finds any <pre><code></code></pre> tags which aren't registered for
