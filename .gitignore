@@ -28,4 +28,4 @@ saaskit.db
 tempfile
 src/saaskit/local_settings.py
 #media
-src/saaskit/site_media/*
+src/qna/site_media/*
