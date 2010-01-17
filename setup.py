@@ -19,6 +19,7 @@ install_requires = [
     'app_media',
     'django_authopenid',
     'django-profiles',
+    'django-registration',
 ]
 
 extras_require = dict(
