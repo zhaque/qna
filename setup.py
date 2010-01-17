@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
-version = '0.1'
+version = '1.0'
 
 install_requires = [
     'setuptools',
@@ -31,12 +31,14 @@ extras_require = dict(
 install_requires.extend(extras_require['test'])
 
 setup(
-    name = "cnprog",
+    name = "qna",
     version = version,
-    description = "http://stackoverflow.com/ like application.",
+    description = "Q&A System",
     long_description = read('README'),
     author = 'Chen Gang',
     url = 'http://cnprog.com',
+    maintainer="Answerlog",
+    maintainer_email="admin@answerlog.net",
     packages = find_packages('src'),
     package_dir = {'': 'src'},
     include_package_data = True,
@@ -46,5 +48,4 @@ setup(
     entry_points="""
       # -*- Entry points: -*-
       """,
-    dependency_links = ['http://pypi.saaskit.org/app-media/',],
 )
