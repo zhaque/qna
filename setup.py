@@ -9,21 +9,21 @@ def read(fname):
 version = '1.0'
 
 install_requires = [
-    'setuptools',
-    'Django',
-    'markdown2',
-    'python-openid',
-    #'mysql-python',
-    'html5lib',
+    'setuptools==0.6c11',
+    'Django==1.1.1',
+    'markdown2==1.0.1.16',
+    'python-openid==2.2.4',
+    'html5lib==0.11.1',
+    'django-extensions==0.4.1',
+
     'app_media',
     'django_authopenid',
-    'django-extensions',
     'django-profiles',
 ]
 
 extras_require = dict(
-    test = ['coverage',
-            'windmill',
+    test = ['coverage==3.2',
+            'windmill==1.3',
             ]
 )
 
