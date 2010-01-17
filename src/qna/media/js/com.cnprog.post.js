@@ -1,5 +1,5 @@
 ﻿/*
-Scripts for cnprog.com
+Scripts for qna.com
 Project Name: Lanai
 All Rights Resevred 2008. CNPROG.COM
 */

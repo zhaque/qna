@@ -59,7 +59,7 @@ LEADING_PAGE_RANGE = TRAILING_PAGE_RANGE = 4
 NUM_PAGES_OUTSIDE_RANGE = 1
 ADJACENT_PAGES = 2
 @register.inclusion_tag("paginator.html")
-def cnprog_paginator(context):
+def qna_paginator(context):
     """
     custom paginator tag
     Inspired from http://blog.localkinegrinds.com/2007/09/06/digg-style-pagination-in-django/
@@ -104,7 +104,7 @@ def cnprog_paginator(context):
         }
 
 @register.inclusion_tag("pagesize.html")
-def cnprog_pagesize(context):
+def qna_pagesize(context):
     """
     display the pagesize selection boxes for paginator
     """

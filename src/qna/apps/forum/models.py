@@ -16,7 +16,7 @@ import django.dispatch
 from django.conf import settings
 from django_extensions.db.fields import AutoSlugField
 
-from cnprog.utils.html import sanitize_html
+from qna.utils.html import sanitize_html
 from forum.managers import *
 from const import *
 

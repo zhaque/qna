@@ -52,7 +52,7 @@ var i18nZh = {
 	'undo':'撤销',
 	'redo':'重做',
 	'enter image url':'<b>输入图片地址</b></p><p>示例：<br />http://www.example.com/image.jpg   \"我的截图\"',
-	'enter url':'<b>输入Web地址</b></p><p>示例：<br />http://www.cnprog.com/   \"我的网站\"</p>"',
+	'enter url':'<b>输入Web地址</b></p><p>示例：<br />http://www.answerlog.net   \"我的网站\"</p>"',
 	'upload image':'或者上传本地图片：',
 };
 

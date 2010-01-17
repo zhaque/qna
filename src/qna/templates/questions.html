@@ -51,7 +51,7 @@
 	            <tr>
                     <td><span class="num">{{ question.answer_count|intcomma }}</span> </td>
                     <td><span class="num">{{ question.score|intcomma }}</span> </td>
-                    <td><span class="num">{{ question.view_count|cnprog_intword|safe }}</span> </td>
+                    <td><span class="num">{{ question.view_count|qna_intword|safe }}</span> </td>
 	            </tr>  
                 <tr>
                     <td><span class="unit">{% trans "answers" %}</span></td>
@@ -107,11 +107,11 @@
 {% block tail %}
                             
                         <div class="pager">
-                            {% cnprog_paginator context %}
+                            {% qna_paginator context %}
                             
                         </div>
                         <div class="pagesize">
-                            {% cnprog_pagesize context %}
+                            {% qna_pagesize context %}
                         </div>
                         
 {% endblock %}

@@ -36,7 +36,7 @@ setup(
     description = "Q&A System",
     long_description = read('README'),
     author = 'Chen Gang',
-    url = 'http://cnprog.com',
+    url = 'http://answerlog.net.com',
     maintainer="Answerlog",
     maintainer_email="admin@answerlog.net",
     packages = find_packages('src'),

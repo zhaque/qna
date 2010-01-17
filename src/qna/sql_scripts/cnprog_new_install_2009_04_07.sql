@@ -1,4 +1,4 @@
-USE cnprog;
+USE qna;
 
 
 /************ Add Foreign Keys to Database ***************/

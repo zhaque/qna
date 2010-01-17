@@ -15,18 +15,18 @@
 
 
 --
--- Create schema cnprog
+-- Create schema qna
 --
 
-CREATE DATABASE IF NOT EXISTS cnprog;
-USE cnprog;
+CREATE DATABASE IF NOT EXISTS qna;
+USE qna;
 
 --
--- Definition of table `cnprog`.`answer`
+-- Definition of table `qna`.`answer`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`answer`;
-CREATE TABLE  `cnprog`.`answer` (
+DROP TABLE IF EXISTS `qna`.`answer`;
+CREATE TABLE  `qna`.`answer` (
   `id` int(11) NOT NULL auto_increment,
   `question_id` int(11) NOT NULL,
   `author_id` int(11) NOT NULL,
@@ -61,11 +61,11 @@ CREATE TABLE  `cnprog`.`answer` (
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
--- Definition of table `cnprog`.`auth_group`
+-- Definition of table `qna`.`auth_group`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`auth_group`;
-CREATE TABLE  `cnprog`.`auth_group` (
+DROP TABLE IF EXISTS `qna`.`auth_group`;
+CREATE TABLE  `qna`.`auth_group` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(80) NOT NULL,
   PRIMARY KEY  (`id`),
@@ -73,15 +73,15 @@ CREATE TABLE  `cnprog`.`auth_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`auth_group`
+-- Dumping data for table `qna`.`auth_group`
 --
 
 --
--- Definition of table `cnprog`.`auth_group_permissions`
+-- Definition of table `qna`.`auth_group_permissions`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`auth_group_permissions`;
-CREATE TABLE  `cnprog`.`auth_group_permissions` (
+DROP TABLE IF EXISTS `qna`.`auth_group_permissions`;
+CREATE TABLE  `qna`.`auth_group_permissions` (
   `id` int(11) NOT NULL auto_increment,
   `group_id` int(11) NOT NULL,
   `permission_id` int(11) NOT NULL,
@@ -93,15 +93,15 @@ CREATE TABLE  `cnprog`.`auth_group_permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`auth_group_permissions`
+-- Dumping data for table `qna`.`auth_group_permissions`
 --
 
 --
--- Definition of table `cnprog`.`auth_message`
+-- Definition of table `qna`.`auth_message`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`auth_message`;
-CREATE TABLE  `cnprog`.`auth_message` (
+DROP TABLE IF EXISTS `qna`.`auth_message`;
+CREATE TABLE  `qna`.`auth_message` (
   `id` int(11) NOT NULL auto_increment,
   `user_id` int(11) NOT NULL,
   `message` longtext NOT NULL,
@@ -111,15 +111,15 @@ CREATE TABLE  `cnprog`.`auth_message` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`auth_message`
+-- Dumping data for table `qna`.`auth_message`
 --
 
 --
--- Definition of table `cnprog`.`auth_permission`
+-- Definition of table `qna`.`auth_permission`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`auth_permission`;
-CREATE TABLE  `cnprog`.`auth_permission` (
+DROP TABLE IF EXISTS `qna`.`auth_permission`;
+CREATE TABLE  `qna`.`auth_permission` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(50) NOT NULL,
   `content_type_id` int(11) NOT NULL,
@@ -131,9 +131,9 @@ CREATE TABLE  `cnprog`.`auth_permission` (
 ) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`auth_permission`
+-- Dumping data for table `qna`.`auth_permission`
 --
-INSERT INTO `cnprog`.`auth_permission` VALUES  (1,'Can add permission',1,'add_permission'),
+INSERT INTO `qna`.`auth_permission` VALUES  (1,'Can add permission',1,'add_permission'),
  (2,'Can change permission',1,'change_permission'),
  (3,'Can delete permission',1,'delete_permission'),
  (4,'Can add group',2,'add_group'),
@@ -204,11 +204,11 @@ INSERT INTO `cnprog`.`auth_permission` VALUES  (1,'Can add permission',1,'add_pe
  (75,'Can delete award',25,'delete_award');
 
 --
--- Definition of table `cnprog`.`auth_user`
+-- Definition of table `qna`.`auth_user`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`auth_user`;
-CREATE TABLE  `cnprog`.`auth_user` (
+DROP TABLE IF EXISTS `qna`.`auth_user`;
+CREATE TABLE  `qna`.`auth_user` (
   `id` int(11) NOT NULL auto_increment,
   `username` varchar(30) NOT NULL,
   `first_name` varchar(30) NOT NULL,
@@ -237,9 +237,9 @@ CREATE TABLE  `cnprog`.`auth_user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`auth_user`
+-- Dumping data for table `qna`.`auth_user`
 --
-INSERT INTO `cnprog`.`auth_user` VALUES  (2,'chagel','','','chagel@gmail.com','sha1$6a2fb$0d2ffe90bcba542fc962f57967a88e507799cc74',1,1,1,'2008-12-16 15:35:17','2008-12-11 20:12:53',0,0,0,1,'8c1efc4f4618aa68b18c88f2bcaa5564',10,NULL,NULL,NULL,NULL,NULL,NULL),
+INSERT INTO `qna`.`auth_user` VALUES  (2,'chagel','','','chagel@gmail.com','sha1$6a2fb$0d2ffe90bcba542fc962f57967a88e507799cc74',1,1,1,'2008-12-16 15:35:17','2008-12-11 20:12:53',0,0,0,1,'8c1efc4f4618aa68b18c88f2bcaa5564',10,NULL,NULL,NULL,NULL,NULL,NULL),
  (3,'mike','','','ichagel@yahoo.com','sha1$f7ef5$1015ae6b2c8a2774a028419d3c57e13145b83284',0,1,0,'2008-12-15 12:56:23','2008-12-15 12:56:23',0,0,0,1,NULL,10,NULL,NULL,NULL,NULL,NULL,NULL),
  (4,'sailingcai','','','sailingcai@gmail.com','sha1$a417c$ca7d9f2ad55666bf98068cc392b6f62450b216e0',0,1,0,'2008-12-23 06:14:45','2008-12-20 15:19:21',1,2,3,1,'a1cb9864605a32760518b90a4f9a0e73',10,'2008-12-20 15:19:21','','','',NULL,''),
  (5,'sailingcai1','','','1@gmail.com','sha1$a417c$ca7d9f2ad55666bf98068cc392b6f62450b216e0',0,1,0,'2008-12-20 15:19:21','2008-12-20 15:19:21',0,0,0,1,'a1cb9864605a32760518b90a4f9a0e73',10,'2008-12-20 15:19:21',NULL,NULL,NULL,NULL,NULL),
@@ -343,11 +343,11 @@ INSERT INTO `cnprog`.`auth_user` VALUES  (2,'chagel','','','chagel@gmail.com','s
  (103,'sailing99','','','99@gmail.com','sha1$a417c$ca7d9f2ad55666bf98068cc392b6f62450b216e0',0,1,0,'2008-12-20 15:19:21','2008-12-20 15:19:21',0,0,0,1,'a1cb9864605a32760518b90a4f9a0e73',10,'2008-12-20 15:19:21','','','','0000-00-00 00:00:00','');
 
 --
--- Definition of table `cnprog`.`auth_user_groups`
+-- Definition of table `qna`.`auth_user_groups`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`auth_user_groups`;
-CREATE TABLE  `cnprog`.`auth_user_groups` (
+DROP TABLE IF EXISTS `qna`.`auth_user_groups`;
+CREATE TABLE  `qna`.`auth_user_groups` (
   `id` int(11) NOT NULL auto_increment,
   `user_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
@@ -359,15 +359,15 @@ CREATE TABLE  `cnprog`.`auth_user_groups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`auth_user_groups`
+-- Dumping data for table `qna`.`auth_user_groups`
 --
 
 --
--- Definition of table `cnprog`.`auth_user_user_permissions`
+-- Definition of table `qna`.`auth_user_user_permissions`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`auth_user_user_permissions`;
-CREATE TABLE  `cnprog`.`auth_user_user_permissions` (
+DROP TABLE IF EXISTS `qna`.`auth_user_user_permissions`;
+CREATE TABLE  `qna`.`auth_user_user_permissions` (
   `id` int(11) NOT NULL auto_increment,
   `user_id` int(11) NOT NULL,
   `permission_id` int(11) NOT NULL,
@@ -379,15 +379,15 @@ CREATE TABLE  `cnprog`.`auth_user_user_permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`auth_user_user_permissions`
+-- Dumping data for table `qna`.`auth_user_user_permissions`
 --
 
 --
--- Definition of table `cnprog`.`award`
+-- Definition of table `qna`.`award`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`award`;
-CREATE TABLE  `cnprog`.`award` (
+DROP TABLE IF EXISTS `qna`.`award`;
+CREATE TABLE  `qna`.`award` (
   `id` int(11) NOT NULL auto_increment,
   `user_id` int(11) NOT NULL,
   `badge_id` int(11) NOT NULL,
@@ -401,15 +401,15 @@ CREATE TABLE  `cnprog`.`award` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`award`
+-- Dumping data for table `qna`.`award`
 --
 
 --
--- Definition of table `cnprog`.`badge`
+-- Definition of table `qna`.`badge`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`badge`;
-CREATE TABLE  `cnprog`.`badge` (
+DROP TABLE IF EXISTS `qna`.`badge`;
+CREATE TABLE  `qna`.`badge` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(50) NOT NULL,
   `type` smallint(6) NOT NULL,
@@ -423,15 +423,15 @@ CREATE TABLE  `cnprog`.`badge` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`badge`
+-- Dumping data for table `qna`.`badge`
 --
 
 --
--- Definition of table `cnprog`.`comment`
+-- Definition of table `qna`.`comment`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`comment`;
-CREATE TABLE  `cnprog`.`comment` (
+DROP TABLE IF EXISTS `qna`.`comment`;
+CREATE TABLE  `qna`.`comment` (
   `id` int(11) NOT NULL auto_increment,
   `content_type_id` int(11) NOT NULL,
   `object_id` int(10) unsigned NOT NULL,
@@ -447,15 +447,15 @@ CREATE TABLE  `cnprog`.`comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`comment`
+-- Dumping data for table `qna`.`comment`
 --
 
 --
--- Definition of table `cnprog`.`django_admin_log`
+-- Definition of table `qna`.`django_admin_log`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`django_admin_log`;
-CREATE TABLE  `cnprog`.`django_admin_log` (
+DROP TABLE IF EXISTS `qna`.`django_admin_log`;
+CREATE TABLE  `qna`.`django_admin_log` (
   `id` int(11) NOT NULL auto_increment,
   `action_time` datetime NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -472,16 +472,16 @@ CREATE TABLE  `cnprog`.`django_admin_log` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`django_admin_log`
+-- Dumping data for table `qna`.`django_admin_log`
 --
-INSERT INTO `cnprog`.`django_admin_log` VALUES  (1,'2008-12-18 23:41:41',2,7,'1','cnprog.com',2,'已修改 domain 和 name 。');
+INSERT INTO `qna`.`django_admin_log` VALUES  (1,'2008-12-18 23:41:41',2,7,'1','qna.com',2,'已修改 domain 和 name 。');
 
 --
--- Definition of table `cnprog`.`django_authopenid_association`
+-- Definition of table `qna`.`django_authopenid_association`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`django_authopenid_association`;
-CREATE TABLE  `cnprog`.`django_authopenid_association` (
+DROP TABLE IF EXISTS `qna`.`django_authopenid_association`;
+CREATE TABLE  `qna`.`django_authopenid_association` (
   `id` int(11) NOT NULL auto_increment,
   `server_url` longtext NOT NULL,
   `handle` varchar(255) NOT NULL,
@@ -493,20 +493,20 @@ CREATE TABLE  `cnprog`.`django_authopenid_association` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`django_authopenid_association`
+-- Dumping data for table `qna`.`django_authopenid_association`
 --
-INSERT INTO `cnprog`.`django_authopenid_association` VALUES  (2,'https://www.google.com/accounts/o8/ud','AOQobUfcCH4sgjsBGGscrzxIa5UM4clofAB6nixx8Qq_NWco4ynn_Kc4','u5cva43abzdwF8CJOFZfkzfk7x8=\n',1229022261,1229022261,'HMAC-SHA1'),
+INSERT INTO `qna`.`django_authopenid_association` VALUES  (2,'https://www.google.com/accounts/o8/ud','AOQobUfcCH4sgjsBGGscrzxIa5UM4clofAB6nixx8Qq_NWco4ynn_Kc4','u5cva43abzdwF8CJOFZfkzfk7x8=\n',1229022261,1229022261,'HMAC-SHA1'),
  (3,'https://api.screenname.aol.com/auth/openidServer','diAyLjAgayAwIGJhT2VvYkdDZ21RSHJ4QldzQnhTdjIxV3BVbz0%3D-j5HRXRB1VbPyg48jGKE1Q70dfv76lGHEPwd9071%2FJ7f6SSw5YhakrwWpsVXtr34T6iHwPDdo6RU%3D','EmQL3+5oR6mFKIaeBNy6hXyUJ/w=\n',1229282202,1229282202,'HMAC-SHA1'),
  (4,'https://open.login.yahooapis.com/openid/op/auth','JcBeY.uWXu2YjzbuCQiqFzAb0MIc7ATeKiPO4eAp3vluPMqZp_NCxepvMLGrJjxxDKTaNnr06wepMos8ap6SQYZiTi51tZ05lMWnpZAiOA1hsq_WMlEL7G9YE66GEA9A','QXiuN6B7E8nP5QhyHI3IB26t4SA=\n',1229282256,1229282256,'HMAC-SHA1'),
  (5,'http://openid.claimid.com/server','{HMAC-SHA1}{494575fd}{uLEbxQ==}','GvPbkgMHh0QVPH7mStCGuWb2AKY=\n',1229288957,1229288957,'HMAC-SHA1'),
  (6,'http://www.blogger.com/openid-server.g','oida-1229424484019-158830626','8gaU4aKnIFCLKIkHdxZQp7ZGNck=\n',1229424478,1229424478,'HMAC-SHA1');
 
 --
--- Definition of table `cnprog`.`django_authopenid_nonce`
+-- Definition of table `qna`.`django_authopenid_nonce`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`django_authopenid_nonce`;
-CREATE TABLE  `cnprog`.`django_authopenid_nonce` (
+DROP TABLE IF EXISTS `qna`.`django_authopenid_nonce`;
+CREATE TABLE  `qna`.`django_authopenid_nonce` (
   `id` int(11) NOT NULL auto_increment,
   `server_url` varchar(255) NOT NULL,
   `timestamp` int(11) NOT NULL,
@@ -515,11 +515,11 @@ CREATE TABLE  `cnprog`.`django_authopenid_nonce` (
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 --
--- Definition of table `cnprog`.`django_authopenid_userassociation`
+-- Definition of table `qna`.`django_authopenid_userassociation`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`django_authopenid_userassociation`;
-CREATE TABLE  `cnprog`.`django_authopenid_userassociation` (
+DROP TABLE IF EXISTS `qna`.`django_authopenid_userassociation`;
+CREATE TABLE  `qna`.`django_authopenid_userassociation` (
   `id` int(11) NOT NULL auto_increment,
   `openid_url` varchar(255) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -529,18 +529,18 @@ CREATE TABLE  `cnprog`.`django_authopenid_userassociation` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`django_authopenid_userassociation`
+-- Dumping data for table `qna`.`django_authopenid_userassociation`
 --
-INSERT INTO `cnprog`.`django_authopenid_userassociation` VALUES  (2,'https://www.google.com/accounts/o8/id?id=AItOawl7CVVHl4DWtteqj4dd_A23zKRwPZgOOjw',2),
+INSERT INTO `qna`.`django_authopenid_userassociation` VALUES  (2,'https://www.google.com/accounts/o8/id?id=AItOawl7CVVHl4DWtteqj4dd_A23zKRwPZgOOjw',2),
  (3,'https://me.yahoo.com/a/f8f2zXF91okYL4iN2Zh4P542a5s-#f4af2',3),
  (4,'https://me.yahoo.com/sailingcai#6fa4e',4);
 
 --
--- Definition of table `cnprog`.`django_authopenid_userpasswordqueue`
+-- Definition of table `qna`.`django_authopenid_userpasswordqueue`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`django_authopenid_userpasswordqueue`;
-CREATE TABLE  `cnprog`.`django_authopenid_userpasswordqueue` (
+DROP TABLE IF EXISTS `qna`.`django_authopenid_userpasswordqueue`;
+CREATE TABLE  `qna`.`django_authopenid_userpasswordqueue` (
   `id` int(11) NOT NULL auto_increment,
   `user_id` int(11) NOT NULL,
   `new_password` varchar(30) NOT NULL,
@@ -551,15 +551,15 @@ CREATE TABLE  `cnprog`.`django_authopenid_userpasswordqueue` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`django_authopenid_userpasswordqueue`
+-- Dumping data for table `qna`.`django_authopenid_userpasswordqueue`
 --
 
 --
--- Definition of table `cnprog`.`django_content_type`
+-- Definition of table `qna`.`django_content_type`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`django_content_type`;
-CREATE TABLE  `cnprog`.`django_content_type` (
+DROP TABLE IF EXISTS `qna`.`django_content_type`;
+CREATE TABLE  `qna`.`django_content_type` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(100) NOT NULL,
   `app_label` varchar(100) NOT NULL,
@@ -569,9 +569,9 @@ CREATE TABLE  `cnprog`.`django_content_type` (
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`django_content_type`
+-- Dumping data for table `qna`.`django_content_type`
 --
-INSERT INTO `cnprog`.`django_content_type` VALUES  (1,'permission','auth','permission'),
+INSERT INTO `qna`.`django_content_type` VALUES  (1,'permission','auth','permission'),
  (2,'group','auth','group'),
  (3,'user','auth','user'),
  (4,'message','auth','message'),
@@ -596,11 +596,11 @@ INSERT INTO `cnprog`.`django_content_type` VALUES  (1,'permission','auth','permi
  (25,'award','forum','award');
 
 --
--- Definition of table `cnprog`.`django_session`
+-- Definition of table `qna`.`django_session`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`django_session`;
-CREATE TABLE  `cnprog`.`django_session` (
+DROP TABLE IF EXISTS `qna`.`django_session`;
+CREATE TABLE  `qna`.`django_session` (
   `session_key` varchar(40) NOT NULL,
   `session_data` longtext NOT NULL,
   `expire_date` datetime NOT NULL,
@@ -608,11 +608,11 @@ CREATE TABLE  `cnprog`.`django_session` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Definition of table `cnprog`.`django_site`
+-- Definition of table `qna`.`django_site`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`django_site`;
-CREATE TABLE  `cnprog`.`django_site` (
+DROP TABLE IF EXISTS `qna`.`django_site`;
+CREATE TABLE  `qna`.`django_site` (
   `id` int(11) NOT NULL auto_increment,
   `domain` varchar(100) NOT NULL,
   `name` varchar(50) NOT NULL,
@@ -620,16 +620,16 @@ CREATE TABLE  `cnprog`.`django_site` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`django_site`
+-- Dumping data for table `qna`.`django_site`
 --
-INSERT INTO `cnprog`.`django_site` VALUES  (1,'cnprog.com','CNProg.com');
+INSERT INTO `qna`.`django_site` VALUES  (1,'qna.com','CNProg.com');
 
 --
--- Definition of table `cnprog`.`favorite_question`
+-- Definition of table `qna`.`favorite_question`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`favorite_question`;
-CREATE TABLE  `cnprog`.`favorite_question` (
+DROP TABLE IF EXISTS `qna`.`favorite_question`;
+CREATE TABLE  `qna`.`favorite_question` (
   `id` int(11) NOT NULL auto_increment,
   `question_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -642,15 +642,15 @@ CREATE TABLE  `cnprog`.`favorite_question` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`favorite_question`
+-- Dumping data for table `qna`.`favorite_question`
 --
 
 --
--- Definition of table `cnprog`.`flagged_item`
+-- Definition of table `qna`.`flagged_item`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`flagged_item`;
-CREATE TABLE  `cnprog`.`flagged_item` (
+DROP TABLE IF EXISTS `qna`.`flagged_item`;
+CREATE TABLE  `qna`.`flagged_item` (
   `id` int(11) NOT NULL auto_increment,
   `content_type_id` int(11) NOT NULL,
   `object_id` int(10) unsigned NOT NULL,
@@ -665,15 +665,15 @@ CREATE TABLE  `cnprog`.`flagged_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`flagged_item`
+-- Dumping data for table `qna`.`flagged_item`
 --
 
 --
--- Definition of table `cnprog`.`question`
+-- Definition of table `qna`.`question`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`question`;
-CREATE TABLE  `cnprog`.`question` (
+DROP TABLE IF EXISTS `qna`.`question`;
+CREATE TABLE  `qna`.`question` (
   `id` int(11) NOT NULL auto_increment,
   `title` varchar(300) NOT NULL,
   `author_id` int(11) NOT NULL,
@@ -722,11 +722,11 @@ CREATE TABLE  `cnprog`.`question` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
--- Definition of table `cnprog`.`question_tags`
+-- Definition of table `qna`.`question_tags`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`question_tags`;
-CREATE TABLE  `cnprog`.`question_tags` (
+DROP TABLE IF EXISTS `qna`.`question_tags`;
+CREATE TABLE  `qna`.`question_tags` (
   `id` int(11) NOT NULL auto_increment,
   `question_id` int(11) NOT NULL,
   `tag_id` int(11) NOT NULL,
@@ -738,11 +738,11 @@ CREATE TABLE  `cnprog`.`question_tags` (
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 --
--- Definition of table `cnprog`.`tag`
+-- Definition of table `qna`.`tag`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`tag`;
-CREATE TABLE  `cnprog`.`tag` (
+DROP TABLE IF EXISTS `qna`.`tag`;
+CREATE TABLE  `qna`.`tag` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   `created_by_id` int(11) NOT NULL,
@@ -754,11 +754,11 @@ CREATE TABLE  `cnprog`.`tag` (
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 --
--- Definition of table `cnprog`.`user_badge`
+-- Definition of table `qna`.`user_badge`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`user_badge`;
-CREATE TABLE  `cnprog`.`user_badge` (
+DROP TABLE IF EXISTS `qna`.`user_badge`;
+CREATE TABLE  `qna`.`user_badge` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `user_id` int(10) unsigned NOT NULL,
   `badge_id` int(10) unsigned NOT NULL,
@@ -766,11 +766,11 @@ CREATE TABLE  `cnprog`.`user_badge` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Definition of table `cnprog`.`user_favorite_questions`
+-- Definition of table `qna`.`user_favorite_questions`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`user_favorite_questions`;
-CREATE TABLE  `cnprog`.`user_favorite_questions` (
+DROP TABLE IF EXISTS `qna`.`user_favorite_questions`;
+CREATE TABLE  `qna`.`user_favorite_questions` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `user_id` int(10) unsigned NOT NULL,
   `question_id` int(10) unsigned NOT NULL,
@@ -778,11 +778,11 @@ CREATE TABLE  `cnprog`.`user_favorite_questions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`user_favorite_questions`
+-- Dumping data for table `qna`.`user_favorite_questions`
 --
 
-DROP TABLE IF EXISTS `cnprog`.`vote`;
-CREATE TABLE  `cnprog`.`vote` (
+DROP TABLE IF EXISTS `qna`.`vote`;
+CREATE TABLE  `qna`.`vote` (
   `id` int(11) NOT NULL auto_increment,
   `content_type_id` int(11) NOT NULL,
   `object_id` int(10) unsigned NOT NULL,
@@ -797,7 +797,7 @@ CREATE TABLE  `cnprog`.`vote` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cnprog`.`vote`
+-- Dumping data for table `qna`.`vote`
 --
 
 

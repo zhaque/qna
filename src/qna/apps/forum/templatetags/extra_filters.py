@@ -72,7 +72,7 @@ def is_user_self(request_user, target_user):
     return auth.is_user_self(request_user, target_user)
     
 @register.filter
-def cnprog_intword(number):
+def qna_intword(number):
     try:
         if 1000 <= number < 10000:
             string = str(number)[0:1]

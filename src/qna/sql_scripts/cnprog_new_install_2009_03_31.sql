@@ -1,4 +1,4 @@
-USE cnprog;
+USE qna;
 
 
 /************ Update: Tables ***************/

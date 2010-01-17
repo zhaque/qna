@@ -9,7 +9,7 @@ from forum import views as app
 from forum.feed import RssLastestQuestionsFeed
 from forum.models import Question
 
-from cnprog_profile.forms import UserProfileForm
+from qna_profile.forms import UserProfileForm
 
 admin.autodiscover()
 feeds = {

@@ -1,15 +1,5 @@
 #!/usr/bin/env python
 #encoding:utf-8
-#-------------------------------------------------------------------------------
-# Name:        Syndication feed class for subsribtion
-# Purpose:
-#
-# Author:      Mike
-#
-# Created:     29/01/2009
-# Copyright:   (c) CNPROG.COM 2009
-# Licence:     GPL V2
-#-------------------------------------------------------------------------------
 from django.contrib.syndication.feeds import Feed, FeedDoesNotExist
 from django.utils.translation import ugettext as _
 from django.conf import settings

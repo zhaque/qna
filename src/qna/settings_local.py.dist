@@ -17,10 +17,10 @@ DATABASE_ENGINE = ''  #mysql, etc
  
 #email server settings
 SERVER_EMAIL = ''
-DEFAULT_FROM_EMAIL = 'team@cnprog.com'
+DEFAULT_FROM_EMAIL = 'team@qna.com'
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
-EMAIL_SUBJECT_PREFIX = '[cnprog.com]'
+EMAIL_SUBJECT_PREFIX = '[qna.com]'
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT='587'
 EMAIL_USE_TLS=True

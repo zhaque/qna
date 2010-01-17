@@ -16,32 +16,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Translated-Using: django-rosetta 0.5.1\n"
 
-#: apps/cnprog_profile/forms.py:37
+#: apps/qna_profile/forms.py:37
 msgid "this email has already been registered, please use another one"
 msgstr ""
 
-#: apps/cnprog_profile/models.py:8 templates/user_info.html:40
+#: apps/qna_profile/models.py:8 templates/user_info.html:40
 msgid "real name"
 msgstr ""
 
-#: apps/cnprog_profile/models.py:9
+#: apps/qna_profile/models.py:9
 msgid "website"
 msgstr ""
 
-#: apps/cnprog_profile/models.py:10 templates/user_info.html:62
+#: apps/qna_profile/models.py:10 templates/user_info.html:62
 msgid "location"
 msgstr ""
 
-#: apps/cnprog_profile/models.py:11
+#: apps/qna_profile/models.py:11
 msgid "date of birth"
 msgstr ""
 
-#: apps/cnprog_profile/models.py:12 templates/base.html:81
+#: apps/qna_profile/models.py:12 templates/base.html:81
 #: templates/footer.html:7 templates/index.html:85
 msgid "about"
 msgstr ""
 
-#: apps/cnprog_profile/models.py:13
+#: apps/qna_profile/models.py:13
 msgid "public"
 msgstr ""
 

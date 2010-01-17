@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 from django.contrib.auth.models import User
 
-from cnprog_profile.models import UserProfile
+from qna_profile.models import UserProfile
 
 class UserProfileForm(forms.ModelForm):
     email = forms.EmailField(required=False)

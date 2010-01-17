@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, related_name="cnprog_profile")
+    user = models.OneToOneField(User, related_name="qna_profile")
     real_name = models.fields.CharField(_('real name'), max_length=100, blank=True)
     website = models.fields.URLField(_('website'), max_length=200, blank=True)
     location = models.fields.CharField(_('location'), max_length=100, blank=True)
