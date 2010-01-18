@@ -1,8 +1,8 @@
 
 DATABASE_ENGINE = 'postgresql_psycopg2'
 DATABASE_NAME = 'qna'
-DATABASE_USER = 'user'
-DATABASE_PASSWORD = 'password'
+DATABASE_USER = 'saaskit'
+DATABASE_PASSWORD = 'saaskitS3n89mkk'
 DATABASE_HOST = ''
 DATABASE_PORT = '5432'
 

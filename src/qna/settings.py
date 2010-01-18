@@ -66,6 +66,7 @@ INSTALLED_APPS = (
     'qna_profile',
     'forum',
     #'debug_toolbar' ,
+    'templatesadmin',
 )
 
 
