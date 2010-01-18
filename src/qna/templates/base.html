@@ -1,25 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- template base.html -->
-{% load extra_filters %}
-{% load i18n %}
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>{% block title %}{% endblock %} - {{ settings.APP_TITLE }}</title>
-        {% spaceless %}
         {% block meta %}{% endblock %}
-        {% endspaceless %}
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="verify-v1" content="{{settings.GOOGLE_SITEMAP_CODE}}" />
-        <link rel="shortcut icon" href="{{ MEDIA_URL }}qna/images/favicon.ico" >
-        <link href="{{ MEDIA_URL }}qna/style/style.css" rel="stylesheet" type="text/css" />
-        <script src="http://www.google.com/jsapi"></script>
-        <script>google.load("jquery", "1.2.6");</script>
-		<script type="text/javascript">
-			var i18nLang = '{{settings.LANGUAGE_CODE}}';
-		</script>
-        <script type='text/javascript' src='{{ MEDIA_URL }}qna/js/com.qna.i18n.js'></script>
-		<script type='text/javascript' src='{{ MEDIA_URL }}qna/js/jquery.i18n.js'></script>
-        <script type='text/javascript' src='{{ MEDIA_URL }}qna/js/com.qna.utils.js'></script>
+
 
         {% if messages %}
         <style type="text/css">
@@ -73,7 +53,7 @@
           <div id="logo">
             {% block logo %}
             <a href="/">
-              <img src="{{ MEDIA_URL }}qna/images/logo.png" title="{% trans 'back to home page' %}" />
+              <img src="{{ MEDIA_URL }}qna/img/logo.png" title="{% trans 'back to home page' %}" />
             </a>
             {% endblock %}
           </div>

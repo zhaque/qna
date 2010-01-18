@@ -24,7 +24,7 @@
             var arrow = $("#rev-arrow-" + id);
             var visible = arrow.attr("src").indexOf("hide") > -1;
 
-            arrow.attr("src", "{{ MEDIA_URL }}/images/expander-arrow-" + (visible ? "show" : "hide") + ".gif");
+            arrow.attr("src", "{{ MEDIA_URL }}/img/expander-arrow-" + (visible ? "show" : "hide") + ".gif");
             $("#rev-body-" + id).slideToggle("fast");
         }
         
@@ -43,7 +43,7 @@
           <div class="header-controls">
             <table width="100%">
                 <tr>
-                    <td width="20" style="vertical-align:middle"><img id="rev-arrow-{{ revision.revision }}" src="{{ MEDIA_URL }}/images/expander-arrow-show.gif"></td>
+                    <td width="20" style="vertical-align:middle"><img id="rev-arrow-{{ revision.revision }}" src="{{ MEDIA_URL }}/img/expander-arrow-show.gif"></td>
                     <td width="30px" style="vertical-align:middle"><span class="revision-number" title="{% trans "revision" %} {{ revision.revision }}">{{ revision.revision }}</span></td>
                     <td width="200px" style="vertical-align:middle">
                         {% if revision.summary %}
