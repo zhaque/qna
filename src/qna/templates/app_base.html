@@ -18,7 +18,7 @@
     
     <body class="{% block skin %}yui-skin-app{% endblock %}">
 	    <div id="{% block doctype %}doc3{% endblock %}" class="{% block class %}yui-t5{% endblock %}">
-            <div id="hd" class="saaskit-hd">
+            <div id="hd" class="app-hd">
 				{% block logo %} 
 				  <div class="logo"><h1><a href="/">Q&A</a> | </h1></div>
 				{% endblock %}
@@ -30,7 +30,7 @@
                   <div id="hd" class="tagline">Knowledge Sharing</div>
                 {% endblock %}
 
-                <div class="saaskit-nav-rhs">
+                <div class="app-nav-rhs">
 					  <ul>
 		                {% block nav-rhs-add %}
 						  <li>
@@ -50,9 +50,15 @@
 					    {% endif %}
 					  </ul>		
 		        </div>
-	     	    <div class="saaskit-nav">{% block nav %}{% endblock %}</div>
+	     	    <div class="app-nav">{% block nav %}{% endblock %}</div>
+                    <div class="app-search">
+                            <form method="post" action="#">
+                            <input type="text" id="searchInput" />
+                            <input type="submit" value="Search Questions" id="searchButton" />
+                            </form>
+                    </div>
             </div>
-	        <div id="bd" class="{% block type %}saaskit-bd{% endblock %}">
+	        <div id="bd" class="{% block type %}app-bd{% endblock %}">
 	            <div id="{% block column %}yui-main{% endblock %}">
 	                <div class="{% block grid %}yui-b{% endblock %}">
 		              {% block landing_main %}{% endblock %}
@@ -60,11 +66,13 @@
 		            </div>
 		            {% block extra_content %}{% endblock %}		
                 </div>
+                 <div class="yui-b app-sidebar">
      	            {% block sidebar %}{% endblock %}		
-		            {% block extra_sidebar %}{% endblock %}
+		    {% block extra_sidebar %}{% endblock %}
+                 </div>
             </div>          
         
-            <div id="ft" class="saaskit-ft">
+            <div id="ft" class="app-ft">
 				{% block footer %}  
 				  <p>
 					<strong>
@@ -80,5 +88,11 @@
 		{% endblock %}	
     </body>
 </html>
+
+
+
+
+
+
 
 

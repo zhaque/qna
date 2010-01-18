@@ -15,17 +15,20 @@
         </script>
 {% endblock %}
 {% block content %}
-<div class="tabBar">
-    <div class="headQuestions">{% trans "Questions" %}</div>
-    <div class="tabsA">
-    	 <a id="latest" href="?sort=latest" title="{% trans "last updated questions" %}" >{% trans "newest" %}</a>
-        <a id="hottest" href="?sort=hottest" title="{% trans "hottest questions" %}" >{% trans "hottest" %}</a>
-        <a id="mostvoted" href="?sort=mostvoted" title="{% trans "most voted questions" %}" >{% trans "most voted" %}</a>
-        <a id="all" href="{% url questions %}" title="{% trans "all questions" %}" >{% trans "all questions" %}</a>
-    </div>
-</div>
+<div class="app-block">
+    <h3>{% trans "Questions" %}</h3>
+    <div class="clear"></div>
+    <div class="app-menu">
+      <ul>
+        <li><a id="all" href="{% url questions %}" title="{% trans "all questions" %}" >{% trans "all questions" %}</a></li>
+        <li><a id="mostvoted" href="?sort=mostvoted" title="{% trans "most voted questions" %}" >{% trans "most voted" %}</a></li>
+        <li><a id="hottest" href="?sort=hottest" title="{% trans "hottest questions" %}" >{% trans "hottest" %}</a></li>
+    	<li><a id="latest" href="?sort=latest" title="{% trans "last updated questions" %}" >{% trans "newest" %}</a></li>
+      </ul>
+    </div> 
+    <div class="clear"></div>   
 <!-- 问题列表 -->
-<div id="listA">
+<div class="app-block-content">
     {% for question in questions %}
     <div class="qstA">
         <h2>
@@ -70,23 +73,62 @@
         </div>
     </div>
     {% endfor %}
+    <div class="question">
+      <div class="summary">
+        <p>some dummy question</p>
+        <span class="info"><a>User</a> | Created 2 days ago</span>
+      </div>
+      <div class="stats">
+     
+          <div class="box-answers"><h2>10</h2><p>answers</p></div>
+          <div class="box-votes"><h2>20</h2><p>votes</p></div>
+          <div class="box-views"><h2>30</h2><p>views</p></div>
+       
+      </div>
+    <div class="clear"></div>    
+    </div>
+    <hr />
+<div class="question">
+      <div class="summary">
+        <p>some dummy question</p>
+        <span class="info"><a>User</a> | Created 2 days ago</span>
+      </div>
+      <div class="stats">
+     
+          <div class="box-answers"><h2>10</h2><p>answers</p></div>
+          <div class="box-votes"><h2>20</h2><p>votes</p></div>
+          <div class="box-views"><h2>30</h2><p>views</p></div>
+       
+      </div>
+    <div class="clear"></div>    
+    </div>
+    <hr />
+    
+</div>
 </div>
 {% endblock %}
 
 {% block sidebar %}
 {% if settings.APP_INTRO and not request.user.is_authenticated %}
-<div class="boxA">
+<div class="app-block">
 	<h3>{% trans "welcome to website" %}</h3>
-	<div class="body">
+	<div class="yuiapp-content">
       {{ settings.APP_INTRO|safe }}
 	  <div class="more"><a href="/about">{% trans "about" %} »</a></div>
 	  <div class="more"><a href="/faq">{% trans "faq" %} »</a></div>
 	</div>
 </div>
 {% endif %}
-<div class="boxB">
+<div class="question-box">
+<h4>Ask a Question</h4>
+           <form method="post" action="#">
+           <textarea class="question-input"></textarea>
+           <input type="submit" value="Submit!" class="question-submit" />
+           </form>
+</div>
+<div class="app-block">
 	<h3>{% trans "Recent tags" %}</h3>
-	<div class="body">
+	<div class="app-block-content">
          <p class="tagsbox">
         {% for tag in tags %}
             <a rel="tag" 
@@ -96,9 +138,9 @@
         <div class="more"><a href="/tags">{% trans "popular tags" %} »</a> </div>
     </div>
 </div>
-<div class="boxB">
+<div class="app-block">
     <h3>{% trans "Recent awards" %}</h3>
-        <div class="body">
+        <div class="app-block-content">
              <ul class="badge-list">
              {% for award in awards %}
                 <li>
@@ -121,4 +163,30 @@
 </div>
 {% endblock %}
 <!-- index.html -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
