@@ -1,0 +1,2165 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-12-03 10:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: apps/qna_profile/forms.py:37
+msgid "this email has already been registered, please use another one"
+msgstr ""
+
+#: apps/qna_profile/models.py:8 templates/user_info.html:40
+msgid "real name"
+msgstr ""
+
+#: apps/qna_profile/models.py:9
+msgid "website"
+msgstr ""
+
+#: apps/qna_profile/models.py:10 templates/user_info.html:62
+msgid "location"
+msgstr ""
+
+#: apps/qna_profile/models.py:11
+msgid "date of birth"
+msgstr ""
+
+#: apps/qna_profile/models.py:12 templates/base.html:81
+#: templates/footer.html:7 templates/index.html:85
+msgid "about"
+msgstr ""
+
+#: apps/qna_profile/models.py:13
+msgid "public"
+msgstr ""
+
+#: apps/forum/const.py:8
+msgid "duplicate question"
+msgstr ""
+
+#: apps/forum/const.py:9
+msgid "question if off-topic or not relevant"
+msgstr ""
+
+#: apps/forum/const.py:10
+msgid "too subjective and argumentative"
+msgstr ""
+
+#: apps/forum/const.py:11
+msgid "is not an answer to the question"
+msgstr ""
+
+#: apps/forum/const.py:12
+msgid "the question is answered, right answer was accepted"
+msgstr ""
+
+#: apps/forum/const.py:13
+msgid "problem is not reproducible or outdated"
+msgstr ""
+
+#: apps/forum/const.py:15
+msgid "question contains offensive inappropriate, or malicious remarks"
+msgstr ""
+
+#: apps/forum/const.py:16
+msgid "spam or advertising"
+msgstr ""
+
+#: apps/forum/const.py:56
+msgid "question"
+msgstr ""
+
+#: apps/forum/const.py:57 templates/book.html:110
+msgid "answer"
+msgstr ""
+
+#: apps/forum/const.py:58
+msgid "commented question"
+msgstr ""
+
+#: apps/forum/const.py:59
+msgid "commented answer"
+msgstr ""
+
+#: apps/forum/const.py:60
+msgid "edited question"
+msgstr ""
+
+#: apps/forum/const.py:61
+msgid "edited answer"
+msgstr ""
+
+#: apps/forum/const.py:62
+msgid "received award"
+msgstr ""
+
+#: apps/forum/const.py:63
+msgid "marked best answer"
+msgstr ""
+
+#: apps/forum/const.py:64
+msgid "upvoted"
+msgstr ""
+
+#: apps/forum/const.py:65
+msgid "downvoted"
+msgstr ""
+
+#: apps/forum/const.py:66
+msgid "canceled vote"
+msgstr ""
+
+#: apps/forum/const.py:67
+msgid "deleted question"
+msgstr ""
+
+#: apps/forum/const.py:68
+msgid "deleted answer"
+msgstr ""
+
+#: apps/forum/const.py:69
+msgid "marked offensive"
+msgstr ""
+
+#: apps/forum/const.py:70
+msgid "updated tags"
+msgstr ""
+
+#: apps/forum/const.py:71
+msgid "selected favorite"
+msgstr ""
+
+#: apps/forum/const.py:72
+msgid "completed user profile"
+msgstr ""
+
+#: apps/forum/const.py:83
+msgid "[closed]"
+msgstr ""
+
+#: apps/forum/const.py:84
+msgid "[deleted]"
+msgstr ""
+
+#: apps/forum/const.py:85
+msgid "initial version"
+msgstr ""
+
+#: apps/forum/const.py:86
+msgid "retagged"
+msgstr ""
+
+#: apps/forum/feed.py:20
+msgid " - "
+msgstr ""
+
+#: apps/forum/feed.py:20
+msgid "latest questions"
+msgstr ""
+
+#: apps/forum/feed.py:21
+msgid "questions/"
+msgstr ""
+
+#: apps/forum/forms.py:20 templates/answer_edit_tips.html:34
+#: templates/answer_edit_tips.html.py:38 templates/question_edit_tips.html:31
+#: templates/question_edit_tips.html:36
+msgid "title"
+msgstr ""
+
+#: apps/forum/forms.py:21
+msgid "please enter a descriptive title for your question"
+msgstr ""
+
+#: apps/forum/forms.py:26
+msgid "title must be > 10 characters"
+msgstr ""
+
+#: apps/forum/forms.py:35
+msgid "content"
+msgstr ""
+
+#: apps/forum/forms.py:41
+msgid "question content must be > 10 characters"
+msgstr ""
+
+#: apps/forum/forms.py:51 templates/base.html:100 templates/base.html.py:131
+msgid "tags"
+msgstr ""
+
+#: apps/forum/forms.py:53
+msgid ""
+"Tags are short keywords, with no spaces within. Up to five tags can be used."
+msgstr ""
+
+#: apps/forum/forms.py:60 templates/question_retag.html:38
+msgid "tags are required"
+msgstr ""
+
+#: apps/forum/forms.py:64
+msgid "please use 5 tags or less"
+msgstr ""
+
+#: apps/forum/forms.py:67
+msgid "tags must be shorter than 20 characters"
+msgstr ""
+
+#: apps/forum/forms.py:71
+msgid ""
+"please use following characters in tags: letters 'a-z', numbers, and "
+"characters '.-_#'"
+msgstr ""
+
+#: apps/forum/forms.py:81 templates/index.html:57 templates/question.html:204
+#: templates/question.html.py:388 templates/questions.html:58
+#: templates/questions.html.py:70 templates/unanswered.html:48
+#: templates/unanswered.html.py:60
+msgid "community wiki"
+msgstr ""
+
+#: apps/forum/forms.py:82
+msgid ""
+"if you choose community wiki option, the question and answer do not generate "
+"points and name of author will not be shown"
+msgstr ""
+
+#: apps/forum/forms.py:95
+msgid "update summary:"
+msgstr ""
+
+#: apps/forum/forms.py:96
+msgid ""
+"enter a brief summary of your revision (e.g. fixed spelling, grammar, "
+"improved style, this field is optional)"
+msgstr ""
+
+#: apps/forum/models.py:145
+msgid "slug"
+msgstr ""
+
+#: apps/forum/models.py:281
+#, python-format
+msgid "%(author)s modified the question"
+msgstr ""
+
+#: apps/forum/models.py:285
+#, python-format
+msgid "%(people)s posted %(new_answer_count)s new answers"
+msgstr ""
+
+#: apps/forum/models.py:290
+#, python-format
+msgid "%(people)s commented the question"
+msgstr ""
+
+#: apps/forum/models.py:295
+#, python-format
+msgid "%(people)s commented answers"
+msgstr ""
+
+#: apps/forum/models.py:297
+#, python-format
+msgid "%(people)s commented an answer"
+msgstr ""
+
+#: apps/forum/models.py:453 templates/badges.html:52
+msgid "gold"
+msgstr ""
+
+#: apps/forum/models.py:454 templates/badges.html:60
+msgid "silver"
+msgstr ""
+
+#: apps/forum/models.py:455 templates/badges.html:67
+msgid "bronze"
+msgstr ""
+
+#: apps/forum/user.py:16 templates/user_tabs.html:7
+msgid "overview"
+msgstr ""
+
+#: apps/forum/user.py:17
+msgid "user profile"
+msgstr ""
+
+#: apps/forum/user.py:18
+msgid "user profile overview"
+msgstr ""
+
+#: apps/forum/user.py:24 templates/user_tabs.html:9
+msgid "recent activity"
+msgstr ""
+
+#: apps/forum/user.py:25
+msgid "recent user activity"
+msgstr ""
+
+#: apps/forum/user.py:26
+msgid "profile - recent activity"
+msgstr ""
+
+#: apps/forum/user.py:33 templates/user_tabs.html:13
+msgid "responses"
+msgstr ""
+
+#: apps/forum/user.py:34 templates/user_tabs.html:12
+msgid "comments and answers to others questions"
+msgstr ""
+
+#: apps/forum/user.py:35
+msgid "profile - responses"
+msgstr ""
+
+#: apps/forum/user.py:42 templates/user_info.html:23 templates/users.html:26
+msgid "reputation"
+msgstr ""
+
+#: apps/forum/user.py:43
+msgid "user reputation in the community"
+msgstr ""
+
+#: apps/forum/user.py:44
+msgid "profile - user reputation"
+msgstr ""
+
+#: apps/forum/user.py:50
+msgid "favorite questions"
+msgstr ""
+
+#: apps/forum/user.py:51
+msgid "users favorite questions"
+msgstr ""
+
+#: apps/forum/user.py:52
+msgid "profile - favorite questions"
+msgstr ""
+
+#: apps/forum/user.py:59 templates/user_tabs.html:20
+msgid "casted votes"
+msgstr ""
+
+#: apps/forum/user.py:60 templates/user_tabs.html:20
+msgid "user vote record"
+msgstr ""
+
+#: apps/forum/user.py:61
+msgid "profile - votes"
+msgstr ""
+
+#: apps/forum/user.py:68
+msgid "preferences"
+msgstr ""
+
+#: apps/forum/user.py:69 templates/user_tabs.html:27
+msgid "user preference settings"
+msgstr ""
+
+#: apps/forum/user.py:70
+msgid "profile - user preferences"
+msgstr ""
+
+#: apps/forum/views.py:1677
+msgid "uploading images is limited to users with >60 reputation points"
+msgstr ""
+
+#: apps/forum/views.py:1679
+msgid "allowed file types are 'jpg', 'jpeg', 'gif', 'bmp', 'png', 'tiff'"
+msgstr ""
+
+#: apps/forum/views.py:1681
+#, python-format
+msgid "maximum upload file size is %sK"
+msgstr ""
+
+#: apps/forum/views.py:1683
+#, python-format
+msgid ""
+"Error uploading file. Please contact the site administrator. Thank you. %s"
+msgstr ""
+
+#: apps/forum/management/commands/send_email_alerts.py:33
+msgid "updates from website"
+msgstr ""
+
+#: apps/forum/templatetags/extra_tags.py:142
+#: apps/forum/templatetags/extra_tags.py:171 templates/base.html:103
+msgid "badges"
+msgstr ""
+
+#: apps/forum/templatetags/extra_tags.py:143
+#: apps/forum/templatetags/extra_tags.py:170
+msgid "reputation points"
+msgstr ""
+
+#: templates/404.html:24
+msgid "Sorry, could not find the page you requested."
+msgstr ""
+
+#: templates/404.html:26
+msgid "This might have happened for the following reasons:"
+msgstr ""
+
+#: templates/404.html:28
+msgid "this question or answer has been deleted;"
+msgstr ""
+
+#: templates/404.html:29
+msgid "url has error - please check it;"
+msgstr ""
+
+#: templates/404.html:30
+msgid ""
+"the page you tried to visit is protected or you don't have sufficient "
+"points, see"
+msgstr ""
+
+#: templates/404.html:31
+msgid "if you believe this error 404 should not have occured, please"
+msgstr ""
+
+#: templates/404.html:32
+msgid "report this problem"
+msgstr ""
+
+#: templates/404.html:41 templates/500.html:27
+msgid "back to previous page"
+msgstr ""
+
+#: templates/404.html:42
+msgid "see all questions"
+msgstr ""
+
+#: templates/404.html:43
+msgid "see all tags"
+msgstr ""
+
+#: templates/500.html:22
+msgid "sorry, system error"
+msgstr ""
+
+#: templates/500.html:24
+msgid "system error log is recorded, error will be fixed as soon as possible"
+msgstr ""
+
+#: templates/500.html:25
+msgid "please report the error to the site administrators if you wish"
+msgstr ""
+
+#: templates/500.html:28
+msgid "see latest questions"
+msgstr ""
+
+#: templates/500.html:29
+msgid "see tags"
+msgstr ""
+
+#: templates/about.html:6 templates/about.html.py:11
+msgid "About"
+msgstr ""
+
+#: templates/answer_edit.html:4 templates/answer_edit.html.py:47
+msgid "Edit answer"
+msgstr ""
+
+#: templates/answer_edit.html:24 templates/answer_edit.html.py:27
+#: templates/ask.html:25 templates/ask.html.py:28 templates/question.html:40
+#: templates/question.html.py:43 templates/question_edit.html:27
+msgid "hide preview"
+msgstr ""
+
+#: templates/answer_edit.html:27 templates/ask.html:28
+#: templates/question.html:43 templates/question_edit.html:27
+msgid "show preview"
+msgstr ""
+
+#: templates/answer_edit.html:47 templates/question_edit.html:65
+#: templates/question_retag.html:52 templates/revisions_answer.html:36
+#: templates/revisions_question.html:36
+msgid "back"
+msgstr ""
+
+#: templates/answer_edit.html:52 templates/question_edit.html:70
+#: templates/revisions_answer.html:47 templates/revisions_question.html:47
+msgid "revision"
+msgstr ""
+
+#: templates/answer_edit.html:55 templates/question_edit.html:74
+msgid "select revision"
+msgstr ""
+
+#: templates/answer_edit.html:62 templates/ask.html:94
+#: templates/question.html:462 templates/question_edit.html:91
+msgid "Toggle the real time Markdown editor preview"
+msgstr ""
+
+#: templates/answer_edit.html:62 templates/ask.html:94
+#: templates/question.html:462 templates/question_edit.html:91
+msgid "toggle preview"
+msgstr ""
+
+#: templates/answer_edit.html:73 templates/question_edit.html:119
+#: templates/question_retag.html:75
+msgid "Save edit"
+msgstr ""
+
+#: templates/answer_edit.html:74 templates/close.html:29
+#: templates/question_edit.html:120 templates/question_retag.html:76
+#: templates/reopen.html:30 templates/user_edit.html:46
+#: templates/authopenid/changeemail.html:34
+msgid "Cancel"
+msgstr ""
+
+#: templates/answer_edit_tips.html:4
+msgid "answer tips"
+msgstr ""
+
+#: templates/answer_edit_tips.html:7
+msgid "please make your answer relevant to this community"
+msgstr ""
+
+#: templates/answer_edit_tips.html:10
+msgid "try to give an answer, rather than engage into a discussion"
+msgstr ""
+
+#: templates/answer_edit_tips.html:13
+msgid "please try to provide details"
+msgstr ""
+
+#: templates/answer_edit_tips.html:16 templates/question_edit_tips.html:13
+msgid "be clear and concise"
+msgstr ""
+
+#: templates/answer_edit_tips.html:19 templates/question_edit_tips.html:16
+msgid "see frequently asked questions"
+msgstr ""
+
+#: templates/answer_edit_tips.html:25 templates/question_edit_tips.html:22
+msgid "Markdown tips"
+msgstr ""
+
+#: templates/answer_edit_tips.html:28 templates/question_edit_tips.html:25
+msgid "*italic* or __italic__"
+msgstr ""
+
+#: templates/answer_edit_tips.html:31 templates/question_edit_tips.html:28
+msgid "**bold** or __bold__"
+msgstr ""
+
+#: templates/answer_edit_tips.html:34 templates/question_edit_tips.html:31
+msgid "link"
+msgstr ""
+
+#: templates/answer_edit_tips.html:34 templates/answer_edit_tips.html.py:38
+#: templates/question_edit_tips.html:31 templates/question_edit_tips.html:36
+msgid "text"
+msgstr ""
+
+#: templates/answer_edit_tips.html:38 templates/question_edit_tips.html:36
+msgid "image"
+msgstr ""
+
+#: templates/answer_edit_tips.html:42 templates/question_edit_tips.html:40
+msgid "numbered list:"
+msgstr ""
+
+#: templates/answer_edit_tips.html:47 templates/question_edit_tips.html:45
+msgid "basic HTML tags are also supported"
+msgstr ""
+
+#: templates/answer_edit_tips.html:50 templates/question_edit_tips.html:48
+msgid "learn more about Markdown"
+msgstr ""
+
+#: templates/ask.html:4 templates/ask.html.py:60
+msgid "Ask a question"
+msgstr ""
+
+#: templates/ask.html:67
+msgid "login to post question info"
+msgstr ""
+
+#: templates/ask.html:73
+#, python-format
+msgid "must have valid %(email)s to post"
+msgstr ""
+
+#: templates/ask.html:108
+msgid "(required)"
+msgstr ""
+
+#: templates/ask.html:115
+msgid "Login/signup to post your question"
+msgstr ""
+
+#: templates/ask.html:117
+msgid "Ask your question"
+msgstr ""
+
+#: templates/badge.html:6 templates/badge.html.py:17
+msgid "Badge"
+msgstr ""
+
+#: templates/badge.html:26
+msgid "The users have been awarded with badges:"
+msgstr ""
+
+#: templates/badges.html:6
+msgid "Badges summary"
+msgstr ""
+
+#: templates/badges.html:17 templates/user_stats.html:113
+msgid "Badges"
+msgstr ""
+
+#: templates/badges.html:21
+msgid "Community gives you awards for your questions, answers and votes."
+msgstr ""
+
+#: templates/badges.html:22
+msgid ""
+"Below is the list of available badges and number of times each type of badge "
+"has been awarded."
+msgstr ""
+
+#: templates/badges.html:49
+msgid "Community badges"
+msgstr ""
+
+#: templates/badges.html:55
+msgid "gold badge description"
+msgstr ""
+
+#: templates/badges.html:63
+msgid "silver badge description"
+msgstr ""
+
+#: templates/badges.html:66
+msgid "bronze badge: often given as a special honor"
+msgstr ""
+
+#: templates/badges.html:70
+msgid "bronze badge description"
+msgstr ""
+
+#: templates/base.html:77
+msgid "logout"
+msgstr ""
+
+#: templates/base.html:79 templates/authopenid/signup.html:41
+msgid "login"
+msgstr ""
+
+#: templates/base.html:82 templates/footer.html:8 templates/index.html:86
+msgid "faq"
+msgstr ""
+
+#: templates/base.html:92
+msgid "back to home page"
+msgstr ""
+
+#: templates/base.html:99 templates/base.html.py:130 templates/faq.html:132
+msgid "questions"
+msgstr ""
+
+#: templates/base.html:101 templates/base.html.py:132
+msgid "users"
+msgstr ""
+
+#: templates/base.html:102
+msgid "books"
+msgstr ""
+
+#: templates/base.html:104
+msgid "unanswered questions"
+msgstr ""
+
+#: templates/base.html:108
+msgid "my profile"
+msgstr ""
+
+#: templates/base.html:112
+msgid "ask a question"
+msgstr ""
+
+#: templates/base.html:127
+msgid "search"
+msgstr ""
+
+#: templates/book.html:7
+msgid "reading channel"
+msgstr ""
+
+#: templates/book.html:26
+msgid "[author]"
+msgstr ""
+
+#: templates/book.html:30
+msgid "[publisher]"
+msgstr ""
+
+#: templates/book.html:34
+msgid "[publication date]"
+msgstr ""
+
+#: templates/book.html:38
+msgid "[price]"
+msgstr ""
+
+#: templates/book.html:39
+msgid "currency unit"
+msgstr ""
+
+#: templates/book.html:42
+msgid "[pages]"
+msgstr ""
+
+#: templates/book.html:43
+msgid "pages abbreviation"
+msgstr ""
+
+#: templates/book.html:46
+msgid "[tags]"
+msgstr ""
+
+#: templates/book.html:56
+msgid "author blog"
+msgstr ""
+
+#: templates/book.html:62
+msgid "book directory"
+msgstr ""
+
+#: templates/book.html:66
+msgid "buy online"
+msgstr ""
+
+#: templates/book.html:79
+msgid "reader questions"
+msgstr ""
+
+#: templates/book.html:82
+msgid "ask the author"
+msgstr ""
+
+#: templates/book.html:88 templates/book.html.py:93
+#: templates/users_questions.html:17
+msgid "this question was selected as favorite"
+msgstr ""
+
+#: templates/book.html:88 templates/book.html.py:93
+#: templates/users_questions.html:11 templates/users_questions.html.py:17
+msgid "number of times"
+msgstr ""
+
+#: templates/book.html:105 templates/index.html:48 templates/questions.html:46
+#: templates/unanswered.html:37 templates/users_questions.html:31
+msgid "votes"
+msgstr ""
+
+#: templates/book.html:108
+msgid "the answer has been accepted to be correct"
+msgstr ""
+
+#: templates/book.html:115 templates/index.html:49 templates/questions.html:47
+#: templates/unanswered.html:38 templates/users_questions.html:41
+msgid "views"
+msgstr ""
+
+#: templates/book.html:126 templates/index.html:70 templates/question.html:118
+#: templates/question.html.py:496 templates/questions.html:85
+#: templates/questions.html.py:158 templates/tags.html:47
+#: templates/unanswered.html:76 templates/unanswered.html.py:111
+#: templates/users_questions.html:53
+msgid "using tags"
+msgstr ""
+
+#: templates/book.html:133 templates/index.html:58 templates/question.html:162
+#: templates/question.html.py:211 templates/question.html:348
+#: templates/question.html.py:395 templates/question.html:501
+#: templates/question.html.py:507 templates/questions.html:59
+#: templates/questions.html.py:65 templates/questions.html:71
+#: templates/questions.html.py:77 templates/reopen.html:22
+#: templates/revisions_answer.html:63 templates/revisions_answer.html.py:65
+#: templates/revisions_question.html:63 templates/revisions_question.html:65
+#: templates/unanswered.html:49 templates/unanswered.html.py:55
+#: templates/unanswered.html:61 templates/unanswered.html.py:67
+#: templates/user_info.html:46 templates/user_info.html.py:51
+#: templates/user_recent.html:11 templates/user_responses.html:11
+#: templates/user_votes.html:11 templates/users_questions.html:58
+msgid "ago"
+msgstr ""
+
+#: templates/book.html:149
+msgid "subscribe to book RSS feed"
+msgstr ""
+
+#: templates/book.html:149 templates/index.html:118
+msgid "subscribe to the questions feed"
+msgstr ""
+
+#: templates/close.html:6 templates/close.html.py:16
+msgid "Close question"
+msgstr ""
+
+#: templates/close.html:19
+msgid "Close the question"
+msgstr ""
+
+#: templates/close.html:25
+msgid "Reasons"
+msgstr ""
+
+#: templates/close.html:28
+msgid "OK to close"
+msgstr ""
+
+#: templates/faq.html:11
+msgid "Frequently Asked Questions "
+msgstr ""
+
+#: templates/faq.html:16
+msgid "What kinds of questions can I ask here?"
+msgstr ""
+
+#: templates/faq.html:17
+msgid ""
+"Most importanly - questions should be <strong>relevant</strong> to this "
+"community."
+msgstr ""
+
+#: templates/faq.html:18
+msgid ""
+"Before asking the question - please make sure to use search to see whether "
+"your question has alredy been answered."
+msgstr ""
+
+#: templates/faq.html:21
+msgid "What questions should I avoid asking?"
+msgstr ""
+
+#: templates/faq.html:22
+msgid ""
+"Please avoid asking questions that are not relevant to this community, too "
+"subjective and argumentative."
+msgstr ""
+
+#: templates/faq.html:27
+msgid "What should I avoid in my answers?"
+msgstr ""
+
+#: templates/faq.html:28 templates/faq.html.py:132
+msgid "site title"
+msgstr ""
+
+#: templates/faq.html:28
+msgid ""
+"is a Q&A site, not a discussion group. Therefore - please avoid having "
+"discussions in your answers, comment facility allows some space for brief "
+"discussions."
+msgstr ""
+
+#: templates/faq.html:32
+msgid "Who moderates this community?"
+msgstr ""
+
+#: templates/faq.html:33
+msgid "The short answer is: <strong>you</strong>."
+msgstr ""
+
+#: templates/faq.html:34
+msgid "This website is moderated by the users."
+msgstr ""
+
+#: templates/faq.html:35
+msgid ""
+"The reputation system allows users earn the authorization to perform a "
+"variety of moderation tasks."
+msgstr ""
+
+#: templates/faq.html:40
+msgid "How does reputation system work?"
+msgstr ""
+
+#: templates/faq.html:41
+msgid "Rep system summary"
+msgstr ""
+
+#: templates/faq.html:59 templates/user_votes.html:14
+msgid "upvote"
+msgstr ""
+
+#: templates/faq.html:63
+msgid "use tags"
+msgstr ""
+
+#: templates/faq.html:68
+msgid "add comments"
+msgstr ""
+
+#: templates/faq.html:72 templates/user_votes.html:16
+msgid "downvote"
+msgstr ""
+
+#: templates/faq.html:75
+msgid "open and close own questions"
+msgstr ""
+
+#: templates/faq.html:79
+msgid "retag questions"
+msgstr ""
+
+#: templates/faq.html:83
+msgid "edit community wiki questions"
+msgstr ""
+
+#: templates/faq.html:87
+msgid "edit any answer"
+msgstr ""
+
+#: templates/faq.html:91
+msgid "open any closed question"
+msgstr ""
+
+#: templates/faq.html:95
+msgid "delete any comment"
+msgstr ""
+
+#: templates/faq.html:99
+msgid "delete any questions and answers and perform other moderation tasks"
+msgstr ""
+
+#: templates/faq.html:106
+msgid "how to validate email title"
+msgstr ""
+
+#: templates/faq.html:108
+msgid "how to validate email info"
+msgstr ""
+
+#: templates/faq.html:112
+msgid "what is gravatar"
+msgstr ""
+
+#: templates/faq.html:113
+msgid "gravatar faq info"
+msgstr ""
+
+#: templates/faq.html:116
+msgid "To register, do I need to create new password?"
+msgstr ""
+
+#: templates/faq.html:117
+msgid ""
+"No, you don't have to. You can login through any service that supports "
+"OpenID, e.g. Google, Yahoo, AOL, etc."
+msgstr ""
+
+#: templates/faq.html:118
+msgid "Login now!"
+msgstr ""
+
+#: templates/faq.html:123
+msgid "Why other people can edit my questions/answers?"
+msgstr ""
+
+#: templates/faq.html:124
+msgid "Goal of this site is..."
+msgstr ""
+
+#: templates/faq.html:124
+msgid ""
+"So questions and answers can be edited like wiki pages by experienced users "
+"of this site and this improves the overall quality of the knowledge base "
+"content."
+msgstr ""
+
+#: templates/faq.html:125
+msgid "If this approach is not for you, we respect your choice."
+msgstr ""
+
+#: templates/faq.html:129
+msgid "Still have questions?"
+msgstr ""
+
+#: templates/faq.html:130
+msgid "Please ask your question, help make our community better!"
+msgstr ""
+
+#: templates/faq.html:132 templates/index.html:123
+msgid "."
+msgstr ""
+
+#: templates/footer.html:9
+msgid "blog"
+msgstr ""
+
+#: templates/footer.html:10
+msgid "contact us"
+msgstr ""
+
+#: templates/footer.html:11
+msgid "privacy policy"
+msgstr ""
+
+#: templates/footer.html:12
+msgid "give feedback"
+msgstr ""
+
+#: templates/footer.html:18
+msgid "current revision"
+msgstr ""
+
+#: templates/index.html:7
+msgid "Home"
+msgstr ""
+
+#: templates/index.html:22 templates/questions.html:7
+msgid "Questions"
+msgstr ""
+
+#: templates/index.html:24
+msgid "last updated questions"
+msgstr ""
+
+#: templates/index.html:24 templates/questions.html:25
+#: templates/unanswered.html:20
+msgid "newest"
+msgstr ""
+
+#: templates/index.html:25 templates/questions.html:27
+msgid "hottest questions"
+msgstr ""
+
+#: templates/index.html:25 templates/questions.html:27
+msgid "hottest"
+msgstr ""
+
+#: templates/index.html:26 templates/questions.html:28
+msgid "most voted questions"
+msgstr ""
+
+#: templates/index.html:26 templates/questions.html:28
+msgid "most voted"
+msgstr ""
+
+#: templates/index.html:27
+msgid "all questions"
+msgstr ""
+
+#: templates/index.html:47 templates/questions.html:45
+#: templates/unanswered.html:36 templates/users_questions.html:36
+msgid "answers"
+msgstr ""
+
+#: templates/index.html:70 templates/question.html:118
+#: templates/question.html.py:496 templates/questions.html:85
+#: templates/questions.html.py:158 templates/tags.html:47
+#: templates/unanswered.html:76 templates/unanswered.html.py:111
+#: templates/users_questions.html:53
+msgid "see questions tagged"
+msgstr ""
+
+#: templates/index.html:82
+msgid "welcome to website"
+msgstr ""
+
+#: templates/index.html:91
+msgid "Recent tags"
+msgstr ""
+
+#: templates/index.html:96
+#, python-format
+msgid "see questions tagged '%(tagname)s'"
+msgstr ""
+
+#: templates/index.html:99 templates/index.html.py:123
+msgid "popular tags"
+msgstr ""
+
+#: templates/index.html:103
+msgid "Recent awards"
+msgstr ""
+
+#: templates/index.html:109
+msgid "given to"
+msgstr ""
+
+#: templates/index.html:114
+msgid "all awards"
+msgstr ""
+
+#: templates/index.html:118
+msgid "subscribe to last 30 questions by RSS"
+msgstr ""
+
+#: templates/index.html:123
+msgid "Still looking for more? See"
+msgstr ""
+
+#: templates/index.html:123
+msgid "complete list of questions"
+msgstr ""
+
+#: templates/index.html:123
+msgid "or"
+msgstr ""
+
+#: templates/index.html:123
+msgid "Please help us answer"
+msgstr ""
+
+#: templates/index.html:123
+msgid "list of unanswered questions"
+msgstr ""
+
+#: templates/logout.html:6 templates/logout.html.py:17
+msgid "Logout"
+msgstr ""
+
+#: templates/logout.html:20
+msgid ""
+"As a registered user you can login with your OpenID, log out of the site or "
+"permanently remove your account."
+msgstr ""
+
+#: templates/logout.html:21
+msgid "Logout now"
+msgstr ""
+
+#: templates/pagesize.html:6
+msgid "posts per page"
+msgstr ""
+
+#: templates/paginator.html:6 templates/paginator.html.py:7
+msgid "previous"
+msgstr ""
+
+#: templates/paginator.html:19
+msgid "current page"
+msgstr ""
+
+#: templates/paginator.html:22 templates/paginator.html.py:29
+msgid "page number "
+msgstr ""
+
+#: templates/paginator.html:22 templates/paginator.html.py:29
+msgid "number - make blank in english"
+msgstr ""
+
+#: templates/paginator.html:33
+msgid "next page"
+msgstr ""
+
+#: templates/privacy.html:6 templates/privacy.html.py:11
+msgid "Privacy policy"
+msgstr ""
+
+#: templates/privacy.html:15
+msgid "general message about privacy"
+msgstr ""
+
+#: templates/privacy.html:18
+msgid "Site Visitors"
+msgstr ""
+
+#: templates/privacy.html:20
+msgid "what technical information is collected about visitors"
+msgstr ""
+
+#: templates/privacy.html:23
+msgid "Personal Information"
+msgstr ""
+
+#: templates/privacy.html:25
+msgid "details on personal information policies"
+msgstr ""
+
+#: templates/privacy.html:28
+msgid "Other Services"
+msgstr ""
+
+#: templates/privacy.html:30
+msgid "details on sharing data with third parties"
+msgstr ""
+
+#: templates/privacy.html:35
+msgid "cookie policy details"
+msgstr ""
+
+#: templates/privacy.html:37
+msgid "Policy Changes"
+msgstr ""
+
+#: templates/privacy.html:38
+msgid "how privacy policies can be changed"
+msgstr ""
+
+#: templates/question.html:69 templates/question.html.py:81
+msgid "i like this post (click again to cancel)"
+msgstr ""
+
+#: templates/question.html:71 templates/question.html.py:83
+#: templates/question.html:282
+msgid "current number of votes"
+msgstr ""
+
+#: templates/question.html:76 templates/question.html.py:87
+msgid "i dont like this post (click again to cancel)"
+msgstr ""
+
+#: templates/question.html:93
+msgid "mark this question as favorite (click again to cancel)"
+msgstr ""
+
+#: templates/question.html:99
+msgid "remove favorite mark from this question (click again to restore mark)"
+msgstr ""
+
+#: templates/question.html:129 templates/question.html.py:315
+#: templates/revisions_answer.html:53 templates/revisions_question.html:53
+msgid "edit"
+msgstr ""
+
+#: templates/question.html:133 templates/question.html.py:325
+msgid "delete"
+msgstr ""
+
+#: templates/question.html:138
+msgid "reopen"
+msgstr ""
+
+#: templates/question.html:143
+msgid "close"
+msgstr ""
+
+#: templates/question.html:149 templates/question.html.py:338
+msgid ""
+"report as offensive (i.e containing spam, advertising, malicious text, etc.)"
+msgstr ""
+
+#: templates/question.html:150 templates/question.html.py:339
+msgid "flag offensive"
+msgstr ""
+
+#: templates/question.html:162 templates/question.html.py:348
+#: templates/revisions_answer.html:65 templates/revisions_question.html:65
+msgid "updated"
+msgstr ""
+
+#: templates/question.html:211 templates/revisions_answer.html:63
+#: templates/revisions_question.html:63
+msgid "asked"
+msgstr ""
+
+#: templates/question.html:241 templates/question.html.py:422
+msgid "comments"
+msgstr ""
+
+#: templates/question.html:242 templates/question.html.py:423
+msgid "add comment"
+msgstr ""
+
+#: templates/question.html:255
+#, python-format
+msgid ""
+"The question has been closed for the following reason \"%(question."
+"get_close_reason_display)s\" by"
+msgstr ""
+
+#: templates/question.html:257
+#, python-format
+msgid "close date %(question.closed_at)s"
+msgstr ""
+
+#: templates/question.html:264 templates/user_stats.html:28
+msgid "Answers"
+msgstr ""
+
+#: templates/question.html:266
+msgid "oldest answers will be shown first"
+msgstr ""
+
+#: templates/question.html:266
+msgid "oldest answers"
+msgstr ""
+
+#: templates/question.html:267
+msgid "newest answers will be shown first"
+msgstr ""
+
+#: templates/question.html:267
+msgid "newest answers"
+msgstr ""
+
+#: templates/question.html:268
+msgid "most voted answers will be shown first"
+msgstr ""
+
+#: templates/question.html:268
+msgid "popular answers"
+msgstr ""
+
+#: templates/question.html:281
+msgid "i like this answer (click again to cancel)"
+msgstr ""
+
+#: templates/question.html:287
+msgid "i dont like this answer (click again to cancel)"
+msgstr ""
+
+#: templates/question.html:293
+msgid "mark this answer as favorite (click again to undo)"
+msgstr ""
+
+#: templates/question.html:298
+msgid "the author of the question has selected this answer as correct"
+msgstr ""
+
+#: templates/question.html:322
+msgid "undelete"
+msgstr ""
+
+#: templates/question.html:332
+msgid "answer permanent link"
+msgstr ""
+
+#: templates/question.html:333
+msgid "permanent link"
+msgstr ""
+
+#: templates/question.html:395
+msgid "answered"
+msgstr ""
+
+#: templates/question.html:448
+msgid "Your answer"
+msgstr ""
+
+#: templates/question.html:451
+msgid "you can answer anonymously and then login"
+msgstr ""
+
+#: templates/question.html:475
+msgid "Answer the question"
+msgstr ""
+
+#: templates/question.html:477
+msgid "Notify me daily if there are any new answers."
+msgstr ""
+
+#: templates/question.html:479
+msgid "once you sign in you will be able to subscribe for any updates here"
+msgstr ""
+
+#: templates/question.html:491
+msgid "Question tags"
+msgstr ""
+
+#: templates/question.html:501
+msgid "question asked"
+msgstr ""
+
+#: templates/question.html:504
+msgid "question was seen"
+msgstr ""
+
+#: templates/question.html:504
+msgid "times"
+msgstr ""
+
+#: templates/question.html:507
+msgid "last updated"
+msgstr ""
+
+#: templates/question.html:512
+msgid "Related questions"
+msgstr ""
+
+#: templates/question_edit.html:4 templates/question_edit.html.py:65
+msgid "Edit question"
+msgstr ""
+
+#: templates/question_edit_tips.html:4
+msgid "question tips"
+msgstr ""
+
+#: templates/question_edit_tips.html:7
+msgid "please ask a relevant question"
+msgstr ""
+
+#: templates/question_edit_tips.html:10
+msgid "please try provide enough details"
+msgstr ""
+
+#: templates/question_retag.html:3 templates/question_retag.html.py:52
+msgid "Change tags"
+msgstr ""
+
+#: templates/question_retag.html:39
+msgid "up to 5 tags, less than 20 characters each"
+msgstr ""
+
+#: templates/question_retag.html:86
+msgid "Why use and modify tags?"
+msgstr ""
+
+#: templates/question_retag.html:89
+msgid "tags help us keep Questions organized"
+msgstr ""
+
+#: templates/question_retag.html:95
+msgid "tag editors receive special awards from the community"
+msgstr ""
+
+#: templates/questions.html:23
+msgid "Found by tags"
+msgstr ""
+
+#: templates/questions.html:23
+msgid "Found by title"
+msgstr ""
+
+#: templates/questions.html:23
+msgid "All questions"
+msgstr ""
+
+#: templates/questions.html:25 templates/unanswered.html:20
+msgid "most recently asked questions"
+msgstr ""
+
+#: templates/questions.html:26
+msgid "most recently updated questions"
+msgstr ""
+
+#: templates/questions.html:26
+msgid "active"
+msgstr ""
+
+#: templates/questions.html:111
+#, python-format
+msgid ""
+"\n"
+"\t\t\thave total %(q_num)s questions tagged %(tagname)s\n"
+"\t\t\t"
+msgid_plural ""
+"\n"
+"\t\t\thave total %(q_num)s questions tagged %(tagname)s\n"
+"\t\t\t"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/questions.html:118
+#, python-format
+msgid ""
+"\n"
+"\t\t\t\thave total %(q_num)s questions containing %(searchtitle)s\n"
+"\t\t\t\t"
+msgid_plural ""
+"\n"
+"\t\t\t\thave total %(q_num)s questions containing %(searchtitle)s\n"
+"\t\t\t\t"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/questions.html:124
+#, python-format
+msgid ""
+"\n"
+"\t\t\t\thave total %(q_num)s questions\n"
+"\t\t\t\t"
+msgid_plural ""
+"\n"
+"\t\t\t\thave total %(q_num)s questions\n"
+"\t\t\t\t"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/questions.html:133
+msgid "latest questions info"
+msgstr ""
+
+#: templates/questions.html:137
+msgid "Questions are sorted by the <strong>time of last update</strong>."
+msgstr ""
+
+#: templates/questions.html:138
+msgid "Most recently answered ones are shown first."
+msgstr ""
+
+#: templates/questions.html:142
+msgid "Questions sorted by <strong>number of responses</strong>."
+msgstr ""
+
+#: templates/questions.html:143
+msgid "Most answered questions are shown first."
+msgstr ""
+
+#: templates/questions.html:147
+msgid "Questions are sorted by the <strong>number of votes</strong>."
+msgstr ""
+
+#: templates/questions.html:148
+msgid "Most voted questions are shown first."
+msgstr ""
+
+#: templates/questions.html:155 templates/unanswered.html:107
+msgid "Related tags"
+msgstr ""
+
+#: templates/reopen.html:6 templates/reopen.html.py:16
+msgid "Reopen question"
+msgstr ""
+
+#: templates/reopen.html:19
+msgid "Open the previously closed question"
+msgstr ""
+
+#: templates/reopen.html:22
+msgid "The question was closed for the following reason "
+msgstr ""
+
+#: templates/reopen.html:22
+msgid "reason - leave blank in english"
+msgstr ""
+
+#: templates/reopen.html:22
+msgid "on "
+msgstr ""
+
+#: templates/reopen.html:22
+msgid "date closed"
+msgstr ""
+
+#: templates/reopen.html:29
+msgid "Reopen this question"
+msgstr ""
+
+#: templates/revisions_answer.html:7 templates/revisions_answer.html.py:36
+#: templates/revisions_question.html:8 templates/revisions_question.html:36
+msgid "Revision history"
+msgstr ""
+
+#: templates/tags.html:6 templates/tags.html.py:29
+msgid "Tag list"
+msgstr ""
+
+#: templates/tags.html:31
+msgid "sorted alphabetically"
+msgstr ""
+
+#: templates/tags.html:31
+msgid "by name"
+msgstr ""
+
+#: templates/tags.html:32
+msgid "sorted by frequency of tag use"
+msgstr ""
+
+#: templates/tags.html:32
+msgid "by popularity"
+msgstr ""
+
+#: templates/tags.html:38
+msgid "All tags matching query"
+msgstr ""
+
+#: templates/tags.html:38
+msgid "all tags - make this empty in english"
+msgstr ""
+
+#: templates/tags.html:41
+msgid "Nothing found"
+msgstr ""
+
+#: templates/unanswered.html:7 templates/unanswered.html.py:18
+msgid "Unanswered questions"
+msgstr ""
+
+#: templates/unanswered.html:99
+#, python-format
+msgid "have %(num_q)s unanswered questions"
+msgstr ""
+
+#: templates/unanswered.html:101
+msgid "Have a total of"
+msgstr ""
+
+#: templates/user_edit.html:6
+msgid "Edit user profile"
+msgstr ""
+
+#: templates/user_edit.html:19
+msgid "edit profile"
+msgstr ""
+
+#: templates/user_edit.html:31
+msgid "image associated with your email address"
+msgstr ""
+
+#: templates/user_edit.html:31
+msgid "avatar"
+msgstr ""
+
+#: templates/user_edit.html:36 templates/user_info.html:31
+msgid "Registered user"
+msgstr ""
+
+#: templates/user_edit.html:45
+msgid "Update"
+msgstr ""
+
+#: templates/user_info.html:34
+msgid "update profile"
+msgstr ""
+
+#: templates/user_info.html:45
+msgid "member for"
+msgstr ""
+
+#: templates/user_info.html:50
+msgid "last seen"
+msgstr ""
+
+#: templates/user_info.html:56
+msgid "user website"
+msgstr ""
+
+#: templates/user_info.html:69
+msgid "age"
+msgstr ""
+
+#: templates/user_info.html:70
+msgid "age unit"
+msgstr ""
+
+#: templates/user_info.html:76
+msgid "todays unused votes"
+msgstr ""
+
+#: templates/user_info.html:77
+msgid "votes left"
+msgstr ""
+
+#: templates/user_preferences.html:10
+msgid "Connect with Twitter"
+msgstr ""
+
+#: templates/user_preferences.html:12
+msgid "Twitter account name:"
+msgstr ""
+
+#: templates/user_preferences.html:14
+msgid "Twitter password:"
+msgstr ""
+
+#: templates/user_preferences.html:16
+msgid "Send my Questions to Twitter"
+msgstr ""
+
+#: templates/user_preferences.html:17
+msgid "Send my Answers to Twitter"
+msgstr ""
+
+#: templates/user_preferences.html:18
+msgid "Save"
+msgstr ""
+
+#: templates/user_stats.html:15
+msgid "User questions"
+msgstr ""
+
+#: templates/user_stats.html:37
+#, python-format
+msgid "the answer has been voted for %(vote_count)s times"
+msgstr ""
+
+#: templates/user_stats.html:37
+msgid "this answer has been selected as correct"
+msgstr ""
+
+#: templates/user_stats.html:43
+#, python-format
+msgid "the answer has been commented %(count)s times"
+msgstr ""
+
+#: templates/user_stats.html:56
+msgid "votes total"
+msgstr ""
+
+#: templates/user_stats.html:65
+msgid "user has voted up this many times"
+msgstr ""
+
+#: templates/user_stats.html:70
+msgid "user voted down this many times"
+msgstr ""
+
+#: templates/user_stats.html:84
+msgid "Tags"
+msgstr ""
+
+#: templates/user_stats.html:94
+#, python-format
+msgid "see other questions tagged '%(tag)s' "
+msgstr ""
+
+#: templates/user_tabs.html:7
+msgid "User profile"
+msgstr ""
+
+#: templates/user_tabs.html:16
+msgid "graph of user reputation"
+msgstr ""
+
+#: templates/user_tabs.html:17
+msgid "reputation history"
+msgstr ""
+
+#: templates/user_tabs.html:24
+msgid "favorites"
+msgstr ""
+
+#: templates/user_tabs.html:28
+msgid "settings"
+msgstr ""
+
+#: templates/users.html:6 templates/users.html.py:24
+msgid "Users"
+msgstr ""
+
+#: templates/users.html:27
+msgid "recent"
+msgstr ""
+
+#: templates/users.html:28
+msgid "oldest"
+msgstr ""
+
+#: templates/users.html:29
+msgid "by username"
+msgstr ""
+
+#: templates/users.html:35
+#, python-format
+msgid "users matching query %(suser)s:"
+msgstr ""
+
+#: templates/users.html:39
+msgid "Nothing found."
+msgstr ""
+
+#: templates/users_questions.html:11
+msgid "this questions was selected as favorite"
+msgstr ""
+
+#: templates/users_questions.html:34
+msgid "this answer has been accepted to be correct"
+msgstr ""
+
+#: templates/authopenid/changeemail.html:7
+#: templates/authopenid/changeemail.html:33
+msgid "Change email"
+msgstr ""
+
+#: templates/authopenid/changeemail.html:10
+#, python-format
+msgid "change %(email)s info"
+msgstr ""
+
+#: templates/authopenid/changeemail.html:13
+#: templates/authopenid/changeopenid.html:14
+#: templates/authopenid/changepw.html:19 templates/authopenid/complete.html:26
+#: templates/authopenid/complete.html:36 templates/authopenid/delete.html:15
+#: templates/authopenid/delete.html:25
+msgid "Please correct errors below:"
+msgstr ""
+
+#: templates/authopenid/changeemail.html:30
+msgid "Your new Email"
+msgstr ""
+
+#: templates/authopenid/changeemail.html:31
+#: templates/authopenid/complete.html:67 templates/authopenid/signin.html:138
+msgid "Password"
+msgstr ""
+
+#: templates/authopenid/changeemail.html:42
+msgid "Validate email"
+msgstr ""
+
+#: templates/authopenid/changeemail.html:45
+#, python-format
+msgid "validate %(email)s info"
+msgstr ""
+
+#: templates/authopenid/changeemail.html:50
+msgid "Email not changed"
+msgstr ""
+
+#: templates/authopenid/changeemail.html:53
+#, python-format
+msgid "old %(email)s kept"
+msgstr ""
+
+#: templates/authopenid/changeemail.html:58
+msgid "Email changed"
+msgstr ""
+
+#: templates/authopenid/changeemail.html:61
+#, python-format
+msgid "your current %(email)s can be used for this"
+msgstr ""
+
+#: templates/authopenid/changeemail.html:66
+msgid "Email verified"
+msgstr ""
+
+#: templates/authopenid/changeemail.html:69
+msgid "thanks for verifying email"
+msgstr ""
+
+#: templates/authopenid/changeemail.html:74
+msgid "email key not sent"
+msgstr ""
+
+#: templates/authopenid/changeemail.html:77
+#, python-format
+msgid "email key not sent %(email)s change email here %(change_link)s"
+msgstr ""
+
+#: templates/authopenid/changeopenid.html:8
+msgid "Account: change OpenID URL"
+msgstr ""
+
+#: templates/authopenid/changeopenid.html:12
+msgid ""
+"This is where you can change your OpenID URL. Make sure you remember it!"
+msgstr ""
+
+#: templates/authopenid/changeopenid.html:29
+msgid "OpenID URL:"
+msgstr ""
+
+#: templates/authopenid/changeopenid.html:30
+msgid "Change OpenID"
+msgstr ""
+
+#: templates/authopenid/changepw.html:14
+msgid "Account: change password"
+msgstr ""
+
+#: templates/authopenid/changepw.html:17
+msgid "This is where you can change your password. Make sure you remember it!"
+msgstr ""
+
+#: templates/authopenid/changepw.html:27
+msgid "Current password"
+msgstr ""
+
+#: templates/authopenid/changepw.html:28
+msgid "New password"
+msgstr ""
+
+#: templates/authopenid/changepw.html:29
+msgid "New password again"
+msgstr ""
+
+#: templates/authopenid/changepw.html:30 templates/authopenid/settings.html:29
+msgid "Change password"
+msgstr ""
+
+#: templates/authopenid/complete.html:5
+msgid "Connect your OpenID with this site"
+msgstr ""
+
+#: templates/authopenid/complete.html:8
+msgid "Connect your OpenID with your account on this site"
+msgstr ""
+
+#: templates/authopenid/complete.html:12
+msgid "Your OpenID is verified! "
+msgstr ""
+
+#: templates/authopenid/complete.html:13
+msgid ""
+"\n"
+"  <p>Your OpenID can now be associated with a new or existing membership. "
+"You can change the association later in your preferences.</p>\n"
+"  "
+msgstr ""
+
+#: templates/authopenid/complete.html:17
+msgid "Associate your OpenID"
+msgstr ""
+
+#: templates/authopenid/complete.html:18
+msgid ""
+"\n"
+"  <p>If you're joining <strong>Sitename</strong>, associate your OpenID with "
+"a new account. If you're already a member, associate with your existing "
+"account.</p>\n"
+"  "
+msgstr ""
+
+#: templates/authopenid/complete.html:50
+msgid "A new account"
+msgstr ""
+
+#: templates/authopenid/complete.html:51 templates/authopenid/complete.html:66
+msgid "Username"
+msgstr ""
+
+#: templates/authopenid/complete.html:52
+msgid "Email"
+msgstr ""
+
+#: templates/authopenid/complete.html:65
+msgid "An exisiting account"
+msgstr ""
+
+#: templates/authopenid/delete.html:9
+msgid "Account: delete account"
+msgstr ""
+
+#: templates/authopenid/delete.html:13
+msgid ""
+"Note: After deleting your account, anyone will be able to register this "
+"username."
+msgstr ""
+
+#: templates/authopenid/delete.html:17
+msgid "Check confirm box, if you want delete your account."
+msgstr ""
+
+#: templates/authopenid/delete.html:20
+msgid "Password:"
+msgstr ""
+
+#: templates/authopenid/delete.html:32
+msgid "I am sure I want to delete my account."
+msgstr ""
+
+#: templates/authopenid/delete.html:33
+msgid "Password/OpenID URL"
+msgstr ""
+
+#: templates/authopenid/delete.html:33
+msgid "(required for your security)"
+msgstr ""
+
+#: templates/authopenid/delete.html:35
+msgid "Delete account permanently"
+msgstr ""
+
+#: templates/authopenid/sendpw.html:4 templates/authopenid/sendpw.html.py:8
+msgid "Send new password"
+msgstr ""
+
+#: templates/authopenid/sendpw.html:12
+msgid "Lost your password? No problem - here you can reset it."
+msgstr ""
+
+#: templates/authopenid/sendpw.html:13
+msgid ""
+"Please enter your username below and new password will be sent to your "
+"registered e-mail"
+msgstr ""
+
+#: templates/authopenid/sendpw.html:28
+msgid "User name"
+msgstr ""
+
+#: templates/authopenid/sendpw.html:30
+msgid "Reset password"
+msgstr ""
+
+#: templates/authopenid/sendpw.html:30
+msgid "return to login"
+msgstr ""
+
+#: templates/authopenid/sendpw.html:33
+msgid ""
+"Note: your new password will be activated only after you click the "
+"activation link in the email message"
+msgstr ""
+
+#: templates/authopenid/settings.html:21
+msgid "Profile"
+msgstr ""
+
+#: templates/authopenid/settings.html:30
+msgid "Give your  account a new password."
+msgstr ""
+
+#: templates/authopenid/settings.html:31
+msgid "Change email "
+msgstr ""
+
+#: templates/authopenid/settings.html:32
+msgid "Add or update the email address associated with your account."
+msgstr ""
+
+#: templates/authopenid/settings.html:35
+msgid "Change openid associated to your account"
+msgstr ""
+
+#: templates/authopenid/settings.html:38
+msgid "Delete account"
+msgstr ""
+
+#: templates/authopenid/settings.html:39
+msgid "Erase your username and all your data from website"
+msgstr ""
+
+#: templates/authopenid/signin.html:4 templates/authopenid/signin.html:21
+msgid "User login"
+msgstr ""
+
+#: templates/authopenid/signin.html:28
+#, python-format
+msgid ""
+"\n"
+"                Your answer to %(title)s %(summary)s will be posted once you "
+"log in\n"
+"                "
+msgstr ""
+
+#: templates/authopenid/signin.html:35
+#, python-format
+msgid ""
+"Your question \n"
+"                %(title)s %(summary)s will be posted once you log in\n"
+"                "
+msgstr ""
+
+#: templates/authopenid/signin.html:40
+msgid "Click to sign in through any of these services."
+msgstr ""
+
+#: templates/authopenid/signin.html:103
+msgid "Enter your <span id=\"enter_your_what\">Provider user name</span>"
+msgstr ""
+
+#: templates/authopenid/signin.html:110
+msgid ""
+"Enter your <a class=\"openid_logo\" href=\"http://openid.net\">OpenID</a> "
+"web address"
+msgstr ""
+
+#: templates/authopenid/signin.html:112 templates/authopenid/signin.html:139
+msgid "Login"
+msgstr ""
+
+#: templates/authopenid/signin.html:116
+msgid "we support two login modes"
+msgstr ""
+
+#: templates/authopenid/signin.html:121
+msgid "Sorry, looks like we have some errors:"
+msgstr ""
+
+#: templates/authopenid/signin.html:136
+msgid "Use login name and password"
+msgstr ""
+
+#: templates/authopenid/signin.html:137
+msgid "Login name"
+msgstr ""
+
+#: templates/authopenid/signin.html:140
+msgid "Forgot your password?"
+msgstr ""
+
+#: templates/authopenid/signin.html:141
+msgid "Create new account"
+msgstr ""
+
+#: templates/authopenid/signin.html:150
+msgid "Why use OpenID?"
+msgstr ""
+
+#: templates/authopenid/signin.html:154
+msgid "with openid it is easier"
+msgstr ""
+
+#: templates/authopenid/signin.html:157
+msgid "reuse openid"
+msgstr ""
+
+#: templates/authopenid/signin.html:160
+msgid "openid is widely adopted"
+msgstr ""
+
+#: templates/authopenid/signin.html:163
+msgid "openid is supported open standard"
+msgstr ""
+
+#: templates/authopenid/signin.html:167
+msgid "Find out more"
+msgstr ""
+
+#: templates/authopenid/signin.html:168
+msgid "Get OpenID"
+msgstr ""
+
+#: templates/authopenid/signup.html:4 templates/authopenid/signup.html.py:8
+msgid "Signup"
+msgstr ""
+
+#: templates/authopenid/signup.html:12
+msgid ""
+"We support two types of user registration: conventional username/password, "
+"and"
+msgstr ""
+
+#: templates/authopenid/signup.html:12
+msgid "the OpenID method"
+msgstr ""
+
+#: templates/authopenid/signup.html:17
+msgid "Sorry, looks like we have some errors"
+msgstr ""
+
+#: templates/authopenid/signup.html:35
+msgid "Conventional registration"
+msgstr ""
+
+#: templates/authopenid/signup.html:36
+msgid "choose a user name"
+msgstr ""
+
+#: templates/authopenid/signup.html:38
+msgid "your email address"
+msgstr ""
+
+#: templates/authopenid/signup.html:39
+msgid "choose password"
+msgstr ""
+
+#: templates/authopenid/signup.html:40
+msgid "retype password"
+msgstr ""
+
+#: templates/authopenid/signup.html:42
+msgid "back to login"
+msgstr ""
+
+#: templates/authopenid/signup.html:48
+msgid "Register with your OpenID"
+msgstr ""
+
+#: templates/authopenid/signup.html:51
+msgid "Login with your OpenID"
+msgstr ""

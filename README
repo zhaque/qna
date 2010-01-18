@@ -1,0 +1,33 @@
+1 Getting started
+~~~~~~~~~~~~~~~~~
+
+1.1 Dependencies
+~~~~~~~~~~~~~~~~~
+   Download all dependencies before proceeding to step 1, 
+   You will need the following programs:
+    - Python (2.5 or higher, 
+    but may work on earlier versions of Python)
+ 
+1.2 Starting the Project
+~~~~~~~~~~~~~~~~~
+  1. Create local setting. You may take settings_local.py.dist like example or create your own:
+echo "
+DATABASE_ENGINE = 'postgresql_psycopg2'
+DATABASE_NAME = 'qna'
+DATABASE_USER = 'user'
+DATABASE_PASSWORD = 'password'
+DATABASE_HOST = ''
+DATABASE_PORT = '5432'
+
+CACHE_BACKEND = 'dummy:///'
+" > ./src/qna/local_settings.py
+  2. Setup your local smtp server, postfix for example. Or add following lines to local_settings.py to use gmail smtp:
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = '<gmail account>'
+EMAIL_HOST_PASSWORD = '<gmail password>'
+EMAIL_PORT = 587
+
+  3. python ./bootstrap.py
+  4. ./bin/buildout -c
+  5. ./bin/instance runserver 8001
