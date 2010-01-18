@@ -15,6 +15,7 @@ install_requires = [
     'python-openid==2.2.4',
     'html5lib==0.90',
     'django-extensions==0.4.1',
+    'django-templatesadmin==0.6',
 
     'app_media',
     'django_authopenid',

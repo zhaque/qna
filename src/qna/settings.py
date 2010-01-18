@@ -106,6 +106,22 @@ EMAIL_VALIDATION = False
 
 AUTH_PROFILE_MODULE = 'qna_profile.UserProfile'
 
+# Templatesadmin
+# Settings for templates editing via django admin
+ 
+TEMPLATESADMIN_HIDE_READONLY = True
+TEMPLATESADMIN_GROUP = 'Editors'
+TEMPLATESADMIN_VALID_FILE_EXTENSIONS = (
+        'html',
+        'css',
+        'txt',
+        'backup',
+   )
+ 
+TEMPLATESADMIN_EDITHOOKS = (
+         'templatesadmin.edithooks.dotbackupfiles.DotBackupFilesHook',
+   )
+
 # User settings
 try:
     from local_settings import *
