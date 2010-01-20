@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "app_base.html" %}
 <!-- template badges.html -->
 {% load extra_tags %}
 {% load humanize %}
@@ -13,9 +13,9 @@
         </script>
 {% endblock %}
 {% block content %}
-<div class="headlineA">
-        <span class="headMedals">{% trans "Badges" %}</span>
-</div>
+<div class="app-block">
+        <h3>{% trans "Badges" %}</h3>
+
 <div class="badges" id="main-body" style="width:100%">
     <p>
 	{% trans "Community gives you awards for your questions, answers and votes." %}<br>
@@ -42,12 +42,13 @@
         {% endfor %}
     </div>
 </div>
+</div>
 {% endblock %}
 {% block sidebar %}
 
-<div class="boxC">
+<div class="app-block">
     <h3>{% trans "Community badges" %}</h3>
-    <div class="body">
+    <div class="app-block-content">
     <p>
         <a style="cursor:default;" title="gold badge: the highest honor and is very rare" class="medal"><span class="badge1">&#9679;</span>&nbsp;{% trans "gold" %}</a>
     </p>
@@ -73,3 +74,5 @@
 </div>
 {% endblock %}
 <!-- end template badges.html -->
+
+

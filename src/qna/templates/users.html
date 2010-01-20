@@ -1,4 +1,4 @@
-{% extends "base_content.html" %}
+{% extends "add_base.html" %}
 <!-- users.html -->
 {% load extra_tags %}
 {% load humanize %}
@@ -20,16 +20,18 @@
         </script>
 {% endblock %}
 {% block content %}
-<div class="tabBar">
-    <div class="headUsers">{% trans "Users" %}</div>
-    <div class="tabsA">
-        <a id="sort_reputation" href="?sort=reputation" class="off" title="{% trans "reputation" %}">{% trans "reputation" %}</a>
-        <a id="sort_newest" href="?sort=newest" class="off" title="{% trans "recent" %}">{% trans "recent" %}</a>
-        <a id="sort_last" href="?sort=last" class="off" title="{% trans "oldest" %}">{% trans "oldest" %}</a>
-        <a id="sort_user" href="?sort=user" class="off" title="{% trans "by username" %}">{% trans "by username" %}</a>
+<div class="app-block">
+    <h3>{% trans "Users" %}</h3>
+    <div class="app-menu">
+      <ul>
+        <li><a id="sort_reputation" href="?sort=reputation" class="off" title="{% trans "reputation" %}">{% trans "reputation" %}</a></li>
+        <li><a id="sort_newest" href="?sort=newest" class="off" title="{% trans "recent" %}">{% trans "recent" %}</a></li>
+        <li><a id="sort_last" href="?sort=last" class="off" title="{% trans "oldest" %}">{% trans "oldest" %}</a></li>
+        <li><a id="sort_user" href="?sort=user" class="off" title="{% trans "by username" %}">{% trans "by username" %}</a></li>
+      </ul>
+     <div class="clear"></div>
     </div>
-</div>
-<div id="main-body" style="width:100%">
+<div class="app-block-content">
     <p>        
         {% if suser %}
 			{% blocktrans %}users matching query {{suser}}:{% endblocktrans %}
@@ -64,6 +66,7 @@
         </table>
     </div>
 </div>
+</div>
 {% endblock %}
 {% block tail %}
 <div class="pager">
@@ -71,3 +74,4 @@
 </div>              
 {% endblock %}
 <!-- end users.html -->
+

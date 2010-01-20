@@ -1,8 +1,9 @@
 <!-- template answer_edit_tips.html -->
 {% load i18n %}
-<div class="boxC">
+<div class="app-block">
+  <div class="app-block-content">
     <p class="subtitle darkred">{% trans "answer tips" %}</p>
-    <div>
+   
         <ul class="list-item">
             <li> <b>{% trans "please make your answer relevant to this community" %}</b>
             </li>
@@ -18,10 +19,12 @@
         </ul>
          <a href="/faq/" target="_blank" title="{% trans "see frequently asked questions" %}" style="float:right;position:relative">faq »</a>
          <br>  
-    </div>
+    
+   </div>
 </div>
 
-<div class="boxC">
+<div class="app-block">
+    <div class="app-block-content">
     <p class="subtitle">{% trans "Markdown tips" %}</p>
     <ul class="list-item">
         <li>
@@ -48,6 +51,8 @@
         </li>
     </ul>
     <a href="http://en.wikipedia.org/wiki/Markdown" target="_blank" style="float:right;position:relative">{% trans "learn more about Markdown" %} »</a>
-    <br>  
+    <br> 
+   </div> 
 </div>
 <!-- end template answer_edit_tips.html -->
+

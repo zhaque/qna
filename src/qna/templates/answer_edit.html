@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "app_base.html" %}
 <!-- template answer_edit.html -->
 {% load i18n %}
 {% block title %}{% spaceless %}{% trans "Edit answer" %}{% endspaceless %}{% endblock %}
@@ -43,10 +43,9 @@
 {% endblock %}
         
 {% block content %}
-<div id="main-bar" class="headNormal">
-    {% trans "Edit answer" %} [<a href="{{ answer.question.get_absolute_url }}#{{ answer.id }}">{% trans "back" %}</a>]
-</div>
-<div id="main-body" class="ask-body">
+<div class="app-block">
+    <h3>{% trans "Edit answer" %} [<a href="{{ answer.question.get_absolute_url }}#{{ answer.id }}">{% trans "back" %}</a>]</h3>
+<div class="app-block-content">
     <div id="askform">
         <form id="fmedit" action="{% url edit_answer answer.id %}" method="post" >
             <label for="id_revision" ><strong>{% trans "revision" %}:</strong></label> <br> 
@@ -77,6 +76,7 @@
         </form>
     </div>
 </div>
+</div>
 {% endblock %}
 
 {% block sidebar %}
@@ -86,3 +86,4 @@
 {% block endjs %}
 {% endblock %}
 <!-- end template answer_edit.html -->
+

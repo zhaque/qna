@@ -1,4 +1,4 @@
-{% extends "base_content.html" %}
+{% extends "app_base.html" %}
 <!-- template 500.html -->
 {% load i18n %}
 {% block title %}{% spaceless %}500 Error{% endspaceless %}{% endblock %}
@@ -17,7 +17,7 @@
     </h3>
 
 </div>
-<div id="main-body" class="headNormal">
+<div class="app-block">
     <div style="padding:5px 0px 10px 0;line-height:25px">
         <h3>{% trans "sorry, system error" %}</h3>
         <br>
@@ -33,3 +33,4 @@
 </div>
 {% endblock %}
 <!-- end template 500.html -->
+

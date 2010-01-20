@@ -1,4 +1,4 @@
-{% extends "base_content.html" %}
+{% extends "app_base.html" %}
 <!-- template logout.html -->
 {% load extra_tags %}
 {% load humanize %}
@@ -13,13 +13,15 @@
     </script>
 {% endblock %}
 {% block content %}
-<div  class="headNormal">
-    {% trans "Logout" %} 
-</div>
-<div id="main-body" style="width:100%">
+<div  class="app-block">
+   <h3>{% trans "Logout" %}</h3>
+
+<div class="app-block-content">
     <p>{% trans "As a registered user you can login with your OpenID, log out of the site or permanently remove your account." %}</p>
     <input id="btLogout" type="button" class="submit" value="{% trans "Logout now" %}"><!-- style="width:150px">-->
     <br><br>
 </div>
+</div>
 {% endblock %}
 <!-- end logout.html -->
+

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "app_base.html" %}
 <!-- unanswered.html -->
 {% load extra_tags %}
 {% load i18n %}
@@ -14,15 +14,17 @@
         </script>
 {% endblock %}
 {% block content %}
-<div class="tabBar">
-    <span class="headQuestions">{% trans "Unanswered questions" %}</span>
-    <div class="tabsA">
-        <a id="latest" href="?sort=latest" class="on" title="{% trans "most recently asked questions" %}">{% trans "newest" %}</a> 
+<div class="app-block">
+    <h3>{% trans "Unanswered questions" %}</h3>
+    <div class="app-menu">
+       <ul>
+        <li><a id="latest" href="?sort=latest" class="on" title="{% trans "most recently asked questions" %}">{% trans "newest" %}</a></li>
+       </ul>
+       <div class="clear"></div>
     </div>
-</div>
 
-<div id="listA">
-    {% for question in questions.object_list %}
+<div id="spp-block-content">
+<!--    {% for question in questions.object_list %}
     <div class="qstA">
         <h2><a href="{{ question.get_absolute_url }}">{{ question.get_question_title }}</a></h2>
         <div class="stat">
@@ -81,6 +83,31 @@
         </div>
     </div>
     {% endfor %}
+-->
+<div class="question">
+      <div class="summary">
+        <p>some dummy question</p>
+        <span class="info"><a>User</a> | Created 2 days ago</span>
+      </div>          
+          <div class="box-answers"><h2>10</h2><p>answers</p></div>
+          <div class="box-votes"><h2>20</h2><p>votes</p></div>
+          <div class="box-views"><h2>30</h2><p>views</p></div>                
+    <div class="clear"></div>    
+    </div>
+    <hr />
+<div class="question">
+      <div class="summary">
+        <p>some dummy question</p>
+        <span class="info"><a>User</a> | Created 2 days ago</span>
+      </div>           
+          <div class="box-answers"><h2>10</h2><p>answers</p></div>
+          <div class="box-votes"><h2>20</h2><p>votes</p></div>
+          <div class="box-views"><h2>30</h2><p>views</p></div>                
+     <div class="clear"></div>   
+    </div>
+    <hr />
+    
+</div>
 </div>
 {% endblock %}
 
@@ -120,3 +147,4 @@
 {% endblock %}
 
 <!-- end unanswered.html -->
+

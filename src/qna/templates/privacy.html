@@ -1,4 +1,4 @@
-{% extends "base_content.html" %}
+{% extends "app_base.html" %}
 <!-- privacy.html -->
 {% load extra_tags %}
 {% load i18n %}
@@ -7,37 +7,39 @@
 {% block forejs %}
 {% endblock %}
 {% block content %}
-<div class="headNormal">
-	{% trans "Privacy policy" %}
-</div>
-<div id="main-body" style="width:100%">
+<div class="app-block">
+	<h3>{% trans "Privacy policy" %}</h3>
+<div class="app-block-content">
     <p>
 		{% trans "general message about privacy" %}
     </p>
     
-        <h3 class="subtitle">{% trans "Site Visitors" %}</h3>
+        <h4 class="subtitle">{% trans "Site Visitors" %}</h4>
     <p>    
 	{% trans "what technical information is collected about visitors" %}
     </p>
     
-        <h3 class="subtitle">{% trans "Personal Information" %}</h3>
+        <h4 class="subtitle">{% trans "Personal Information" %}</h4>
     <p>   
 		{% trans "details on personal information policies" %}
     </p>
    
-        <h3 class="subtitle">{% trans "Other Services" %}</h3>
+        <h4 class="subtitle">{% trans "Other Services" %}</h4>
      <p>   
 	 {% trans "details on sharing data with third parties" %}
     </p>
     
-        <h3 class="subtitle">Cookies</h3>
+        <h4 class="subtitle">Cookies</h4>
     <p>
 		{% trans "cookie policy details" %}
     </p>
-        <h3 class="subtitle">{% trans "Policy Changes" %}</h3>
+        <h4 class="subtitle">{% trans "Policy Changes" %}</h4>
     <p>{% trans "how privacy policies can be changed" %}
     </p>
     <br><br>
 </div>
+</div>
 {% endblock %}
 <!-- end privacy.html -->
+
+

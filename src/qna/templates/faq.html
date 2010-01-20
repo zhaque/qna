@@ -1,4 +1,4 @@
-{% extends "base_content.html" %}
+{% extends "app_base.html" %}
 <!-- template faq.html -->
 {% load extra_tags %}
 {% load humanize %}
@@ -7,37 +7,40 @@
 {% block forejs %}
 {% endblock %}
 {% block content %}
-<div class="headNormal">
-    {% trans "Frequently Asked Questions " %}(FAQ)
-</div>
-<div id="main-body" class="about" style="width:100%">
+<div class="app-block">
+    <h3>{% trans "Frequently Asked Questions " %}(FAQ)</h3>
 
-        <div class="first">
-            <h3 class="subtitle">{% trans "What kinds of questions can I ask here?" %}</h3>
+<div class="app-block-content">
+
+        <div class>
+            <h4 class="subtitle">{% trans "What kinds of questions can I ask here?" %}</h4>
             <p>{% trans "Most importanly - questions should be <strong>relevant</strong> to this community." %}
             {% trans "Before asking the question - please make sure to use search to see whether your question has alredy been answered."%}
             </p>
             
-                <h3 class="subtitle">{% trans "What questions should I avoid asking?" %}</h3>
+                <h4 class="subtitle">{% trans "What questions should I avoid asking?" %}</h4>
                 <p>{% trans "Please avoid asking questions that are not relevant to this community, too subjective and argumentative." %}</p>
             </p>
+            <hr />
         </div>
     
         <div>
-            <h3 class="subtitle">{% trans "What should I avoid in my answers?" %}</h3>
+            <h4 class="subtitle">{% trans "What should I avoid in my answers?" %}</h4>
             <p>{% trans "site title" %} {% trans "is a Q&A site, not a discussion group. Therefore - please avoid having discussions in your answers, comment facility allows some space for brief discussions." %}</p>
+            <hr />
         </div>
     
         <div>
-            <h3 class="subtitle">{% trans "Who moderates this community?" %}</h3>
+            <h4 class="subtitle">{% trans "Who moderates this community?" %}</h4>
             <p>{% trans "The short answer is: <strong>you</strong>." %}
             {% trans "This website is moderated by the users." %}
             {% trans "The reputation system allows users earn the authorization to perform a variety of moderation tasks." %} 
             </p>
+            <hr />
         </div>
 
         <div>
-            <h3 class="subtitle">{% trans "How does reputation system work?" %}</h3>
+            <h4 class="subtitle">{% trans "How does reputation system work?" %}</h4>
             <p>{% trans "Rep system summary" %}</p>
             <p>
                 For example, if you ask an interesting question or give a helpful answer, your input will be upvoted.
@@ -100,39 +103,46 @@
                 </tr>
 
             </table>
+            <hr />
         </div>
         {% ifequal settings.EMAIL_VALIDATION 'on' %}
         <div>
-            <a id='validate'></a><h3 class="subtitle">{% trans "how to validate email title" %}</h3>
+            <a id='validate'></a><h4 class="subtitle">{% trans "how to validate email title" %}</h4>
             <!--special case here message must contain paragraphs-->
             {% trans "how to validate email info" %}
+            <hr />
         </div>
         {% endifequal %}
         <div>
-            <a id='gravatar'></a><h3 class="subtitle">{% trans "what is gravatar" %}</h3>
+            <a id='gravatar'></a><h4 class="subtitle">{% trans "what is gravatar" %}</h4>
             <p>{% trans "gravatar faq info" %}</p>
+            <hr />
         </div>
         <div>
-            <h3 class="subtitle">{% trans "To register, do I need to create new password?" %}</h3>
+            <h4 class="subtitle">{% trans "To register, do I need to create new password?" %}</h4>
             <p>{% trans "No, you don't have to. You can login through any service that supports OpenID, e.g. Google, Yahoo, AOL, etc." %}
             <strong><a href="{% url user_signin %}">{% trans "Login now!" %}</a> »</strong> 
             </p>
+            <hr />
         </div>
     
         <div>
-            <h3 class="subtitle">{% trans "Why other people can edit my questions/answers?" %}</h3>
+            <h4 class="subtitle">{% trans "Why other people can edit my questions/answers?" %}</h4>
             <p> {% trans "Goal of this site is..." %} {% trans "So questions and answers can be edited like wiki pages by experienced users of this site and this improves the overall quality of the knowledge base content." %}
             {% trans "If this approach is not for you, we respect your choice." %}
             </p>
+            <hr />
         </div>
         <div>
-            <h3 class="subtitle">{% trans "Still have questions?" %}</h3>
+            <h4 class="subtitle">{% trans "Still have questions?" %}</h4>
             <p>{% trans "Please ask your question, help make our community better!" %} 
             <!--
             <a href="/tags/faq" class="big">{% trans "site title" %} {% trans "questions" %}</a>{% trans "." %}
             -->
             </p>
+            <hr />
         </div>
+</div>
 </div>
 <script type="text/javascript">
     //highlihts section if url has matching #anchor_name
@@ -146,3 +156,8 @@
 </script>
 {% endblock %}
 <!-- end template faq.html -->
+
+
+
+
+

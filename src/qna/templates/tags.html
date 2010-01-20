@@ -1,4 +1,4 @@
-{% extends "base_content.html" %}
+{% extends "app_base.html" %}
 <!-- tags.html -->
 {% load i18n %}
 {% load extra_tags %}
@@ -25,14 +25,17 @@
 {% endblock %}
 {% block content %}
 <!-- Tabs -->
-<div class="tabBar">
-    <div class="headQuestions">{% trans "Tag list" %}</div>
-    <div class="tabsA">
-        <a id="sort_name" href="/tags/?sort=name" class="off" title="{% trans "sorted alphabetically" %}">{% trans "by name" %}</a>
-        <a id="sort_used" href="/tags/?sort=used" class="off" title="{% trans "sorted by frequency of tag use" %}">{% trans "by popularity" %}</a>
+<div class="app-block">
+    <h3>{% trans "Tag list" %}</h3>
+    <div class="app-menu">
+       <ul>
+        <li><a id="sort_name" href="/tags/?sort=name" class="off" title="{% trans "sorted alphabetically" %}">{% trans "by name" %}</a></li>
+        <li><a id="sort_used" href="/tags/?sort=used" class="off" title="{% trans "sorted by frequency of tag use" %}">{% trans "by popularity" %}</a></li>
+      </ul>
+    <div class="clear"></div>
     </div>
-</div>
-<div id="searchtags">
+<div class="app-block-content">
+<div class="tags">
 <p>
 {% if stag %}
     {% trans "All tags matching query" %} '<span class="darkred"><strong>{{ stag }}</strong></span>' {% trans "all tags - make this empty in english" %}:
@@ -41,20 +44,24 @@
     <span>{% trans "Nothing found" %}</span>
 {% endif %}
 </p>
-<ul class="tagsList tags">
 {% for tag in tags %}
-   <li>
+   
     <a href="{% url tag_search tag|urlencode %}" title="{% trans "see questions tagged" %}'{{ tag }}'{% trans "using tags" %}" rel="tag">
         {{ tag }}
+    <span class="tag-number">× {{ tag.used_count|intcomma }}</span> 
     </a>&nbsp;
-    <span class="tag-number">× {{ tag.used_count|intcomma }}</span>
-    <br>
-
-    </li>
+      
 {% endfor %}
-</ul>
+        <a rel="tag" title="" href="">Lorem<span class="tag-number">(10)</span></a>                
+        <a rel="tag" title="" href="">Ipsum<span class="tag-number">(15)</span></a> 
+        <a rel="tag" title="" href="">dolor<span class="tag-number">(8)</span></a>                
+        <a rel="tag" title="" href="">sit<span class="tag-number">(3)</span></a>
+        <a rel="tag" title="" href="">amet<span class="tag-number">(3)</span></a>.
+        <a rel="tag" title="" href="">consecutor<span class="tag-number">(3)</span></a>
+    <div class="clear"></div>               
 </div>
-
+</div>
+</div>
 {% endblock %}
 {% block tail %}
 <div class="pager">
@@ -62,3 +69,9 @@
 </div>              
 {% endblock %}
 <!-- end tags.html -->
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "app_base.html" %}
 <!-- question.html -->
 {% load extra_tags %}
 {% load extra_filters %}
@@ -53,12 +53,11 @@
 {% endblock %}
         
 {% block content %}
-<div class="headNormal">
+<div class="app-block">
   {% block question_title %}
-    <a href="{{ question.get_absolute_url }}">{{ question.get_question_title }}</a>
+    <h3><a href="{{ question.get_absolute_url }}">{{ question.get_question_title }}</a></h3>
   {% endblock %}
-</div>
-<div id="main-body" class="">
+<div class="app-block-content">
     <div id="askform">
         <form id="fmanswer" action="{% url answer question.id %}" method="post">
             <table style="width:100%;" id="question-table" {% if question.deleted %}class="deleted"{%endif%}>
@@ -463,6 +462,7 @@
         </form>
     </div>
 </div>
+</div>
 {% endblock %}
 
 {% block sidebar %}
@@ -505,3 +505,4 @@
 {% block endjs %}
 {% endblock %}
 <!-- end question.html -->
+

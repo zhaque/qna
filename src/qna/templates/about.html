@@ -1,4 +1,4 @@
-{% extends "base_content.html" %}
+{% extends "app_base.html" %}
 <!-- template about.html -->
 {% load i18n %}
 {% load extra_tags %}
@@ -7,16 +7,17 @@
 {% block forejs %}
 {% endblock %}
 {% block content %}
-<div class="headNormal">
-{% trans "About" %}
-</div>
+<div class="app-block">
+<h3>{% trans "About" %}</h3>
 
-<div class="content">
+<div class="app-block-content">
 	<p>edit file templates/about.html. Below are just suggestions of what can go here</p>
 	<p>what is your site for? </p>
 	<p>how does it work? what are roles of members?</p>
 	<p>is there a place to find out more about this website?</p>
 </div>
+</div>
 {% endblock %}
 <!-- end template about.html -->
+
 

@@ -1,4 +1,4 @@
-{% extends "base_content.html" %}
+{% extends "app_base.html" %}
 <!-- template badge.html -->
 {% load i18n %}
 {% load extra_tags %}
@@ -13,10 +13,10 @@
         </script>
 {% endblock %}
 {% block content %}
-<div id="main-bar" class="headNormal">
-	{% trans "Badge" %}
-</div>
-<div id="main-body" style="width:100%;margin-bottom:20px">
+<div class="app-block">
+	<h3>{% trans "Badge" %}</h3>
+
+<div class="app-block-content">
     <p>
         <a href="{{badge.get_absolute_url}}" title="{{ badge.get_type_display }} : {{ badge.description }}" class="medal"><span class="badge{{ badge.type }}">&#9679;</span>&nbsp;{{ badge.name }}</a> {{ badge.description }}
     </p>
@@ -37,5 +37,7 @@
     </div>
 
 </div>
+</div>
 {% endblock %}
 <!-- end template badge.html -->
+

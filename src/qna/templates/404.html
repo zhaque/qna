@@ -1,4 +1,4 @@
-{% extends "base_content.html" %}
+{% extends "app_base.html" %}
 <!-- template 404.html -->
 {% load i18n %}
 {% block title %}{% spaceless %}404 Error{% endspaceless %}{% endblock %}
@@ -16,10 +16,8 @@
         </script>
 {% endblock %}
 {% block content %}
-<div id="main-bar" class="headNormal">
+<div class="app-block">
     404 Not Found
-</div>
-<div id="main-body" class="">
     <div style="padding:5px 0px 10px 0;line-height:25px;">
         <h3>{% trans "Sorry, could not find the page you requested." %}</h3>
         <div style="margin-top:5px">
@@ -47,3 +45,4 @@
 </div>
 {% endblock %}
 <!-- end template 404.html -->
+
