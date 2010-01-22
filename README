@@ -28,6 +28,6 @@ EMAIL_HOST_PASSWORD = '<gmail password>'
 EMAIL_PORT = 587
 " > ./src/qna/local_settings.py
 
-  3. python ./bootstrap.py
-  4. ./bin/buildout -c
-  5. ./bin/instance runserver 8001
+  2. python ./bootstrap.py
+  3. ./bin/buildout
+  4. ./bin/instance runserver 8000
