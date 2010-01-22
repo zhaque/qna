@@ -1,4 +1,4 @@
-{% extends "add_base.html" %}
+{% extends "app_base.html" %}
 <!-- users.html -->
 {% load extra_tags %}
 {% load humanize %}
@@ -41,7 +41,7 @@
             <span>{% trans "Nothing found." %}</span>
         {% endif %}
     </p>
-    <div class="userList">
+    <div class="users">
         <table class="list-table">
             <tr>    
                 <td class="list-td">
@@ -50,8 +50,8 @@
                     <div class="user">
                         <ul>
                                 <li class="thumb"><a href="{{ user.get_profile_url }}">{% gravatar user 32 %}</a></li>
-                                <li><a href="{{ user.get_profile_url }}">{{user.username}}</a></li>
-                                <li>{% get_score_badge user %}</li>
+                                <li style="display:inline"><strong><a href="{{ user.get_profile_url }}">{{user.username}}</a></strong></li>
+                                <li class="score">{% get_score_badge user %}</li>
                             </ul>
                     </div>
                     
@@ -74,4 +74,7 @@
 </div>              
 {% endblock %}
 <!-- end users.html -->
+
+
+
 

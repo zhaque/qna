@@ -5,64 +5,62 @@
 {% load i18n %}
 <div class="user-stats-table">
     {% for question in questions %}
-        {% if question.favourite_count %}
+  
+	<div class="question">
+        <div class="summary">
+            <p class="title">
+                <a title="{{question.summary}}" href="{{ question.get_absolute_url }}">{{question.title}}</a>
+            </p>
+                     
+            <span class="info" title="{{question.last_activity_at}}">{{ question.last_activity_at|timesince }} {% trans 'ago' %}
+                {% if question.last_activity_by %}
+                    <a href="{% url user question.last_activity_by.id %}">{{question.last_activity_by}}</a> {% get_score_badge_by_details question.last_activity_by.reputation question.last_activity_by.gold question.last_activity_by.silver question.last_activity_by.bronze%}
+                {% endif %}</span>
+             </div>
+             <div class="box-answers"><h2>{{ question.answer_count|intcomma }}</h2><p>{% trans "answers" %}</p></div>
+             <div class="box-votes"><h2>{{ question.score|intcomma }}</h2><p>{% trans "votes" %}</p></div>
+             <div class="box-views"><h2>{{ question.view_count|qna_intword|safe }}</h2><p>{% trans "views" %}</p></div>
+	    <div title="{% if question.answer_accepted %}{% trans "this answer has been accepted to be correct" %}{% endif %}" class="status {% if question.answer_accepted %}answered-accepted{% endif %} {% ifequal question.answer_count 0 %}unanswered{% endifequal %}{% ifnotequal question.answer_count 0 %}answered{% endifnotequal %}">
+            <div class="answer-count-post">{{question.answer_count|intcomma}}</div>
+                    {% trans "answers" %}                         
+            </div>
+	    {% if question.favourite_count %}
             {% if question.favorited_myself %}
-                <div class="favorites-count">
+                <div class="favourites-count">
                     <img title="{% trans "this questions was selected as favorite" %} {{question.favourite_count}} {% trans "number of times" %}" 
-						src="{{ MEDIA_URL }}qna/images/vote-favorite-on.png">
-                    <div><b>{{question.favourite_count|intcomma}}</b></div>
+						src="{{ MEDIA_URL }}qna/img/vote-favorite-on.png">
+                    <b>{{question.favourite_count|intcomma}}</b>
                 </div>
             {% else %}
-                <div class="favorites-count-off">
+                <div class="favourites-count-off">
                     <img title="{% trans "this question was selected as favorite" %}{{question.favourite_count}} {% trans "number of times" %}" 
-						src="{{ MEDIA_URL }}qna/images/vote-favorite-off.png">
-                    <div><b>{{question.favourite_count|intcomma}}</b></div>
+						src="{{ MEDIA_URL }}qna/img/vote-favorite-off.png">
+                    <b>{{question.favourite_count|intcomma}}</b>
                 </div>
             {% endif %}
         {% else %}
-            <div class="favorites-empty"> </div>
-        {% endif %}
-    <div id="question-summary-{{question.id}}" class="question-summary narrow">
-    <h1>{{ question.items }}</h1>
-        <a style="text-decoration: none;" href="{{ question.get_absolute_url }}">
-            <div class="stats">
-                <div class="votes">
-                    <div class="vote-count-post">{{question.score|intcomma}}</div> 
-                    {% trans "votes" %}
-                  
-                </div>
-                <div title="{% if question.answer_accepted %}{% trans "this answer has been accepted to be correct" %}{% endif %}" class="status {% if question.answer_accepted %}answered-accepted{% endif %} {% ifequal question.answer_count 0 %}unanswered{% endifequal %}{% ifnotequal question.answer_count 0 %}answered{% endifnotequal %}">
-                    <div class="answer-count-post">{{question.answer_count|intcomma}}</div>
-                    {% trans "answers" %}
-             
-                </div>
-                <div class="views">
-                     <div class="views-count-post">{{question.view_count|qna_intword|safe}}</div>
-					 {% trans "views" %}
-                </div>
+            <div class="favourites-empty"> </div>
+        {% endif %}            
+            <div class="clear">  
             </div>
-        </a>
-        <div class="summary">
-            <h3>
-                <a title="{{question.summary}}" href="{{ question.get_absolute_url }}">{{question.title}}</a>
-            </h3>
-            <div class="tags">
+        <div class="tags">
                 {% convert2tagname_list question %}
                 {% for tag in question.tagname_list %}
 					       {% if tag %}
-                    <a href="{% url tag_search tag|urlencode %}" title="{% trans "see questions tagged" %} '{{ tag }}' {% trans "using tags" %}" rel="tag">{{ tag }}</a>
-                 {% endif %}
+                    <a href="{% url tag_search tag|urlencode %}" title="{% trans "see questions tagged" %} '{{ tag }}' {% trans "using tags" %}" rel="tag">{{ tag }}</a>        
+                 {% endif %}    
                 {% endfor %}
-            </div>
-            <div class="started">
-                <span class="relativetime" title="{{question.last_activity_at}}">{{ question.last_activity_at|timesince }} {% trans 'ago' %}</span>
-                {% if question.last_activity_by %}
-                    <a href="{% url user question.last_activity_by.id %}">{{question.last_activity_by}}</a> {% get_score_badge_by_details question.last_activity_by.reputation question.last_activity_by.gold question.last_activity_by.silver question.last_activity_by.bronze%}
-                {% endif %}
-            </div>
+        <div class="clear"></div>
         </div>
-    </div>
-    <br clear="both"/>
+        </div>
+    
+    <hr />
     {% endfor %}
+
 </div>
 <!-- end users_questions.html -->
+
+
+
+
+

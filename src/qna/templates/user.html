@@ -25,10 +25,13 @@
 {% block content %}
     <div id="mainbar-full">
         {% include "user_info.html" %}
+        <div class="app-block">
         {% include "user_tabs.html" %}
         {% block usercontent %}
         {% endblock %}
+        </div>
         {% include "user_footer.html" %}
     </div>
 {% endblock %}<!-- end user.html -->
+
 

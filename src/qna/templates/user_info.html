@@ -3,11 +3,10 @@
 {% load extra_filters %}
 {% load humanize %}
 {% load i18n %}
-<div id="subheader" class="headUser">
-    {{view_user.username}}
-    
-</div>
+<div class="app-block">
+    <h3>{{view_user.username}}</h3>
 
+<div class="app-block-content">    
 <table class="user-info-table">
     <tr>
         <td width="180" style="vertical-align:middle;text-align:center;">
@@ -89,4 +88,7 @@
         </td>
     </tr>
 </table>
+</div>
+</div>
 <!-- end user_info.html -->
+
