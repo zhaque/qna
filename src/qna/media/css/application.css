@@ -14,6 +14,7 @@
 .yui-skin-app abbr,
 .yui-skin-app acronym { border-width:0 0 1px; border-style: dashed; cursor:help; }
 
+
 /* Make the page full bleed */
 .yui-skin-app #doc3 { margin:0; }
 
@@ -27,22 +28,22 @@
 .yui-skin-app .app-hd .tagline {margin: 6px 0px 0px 105px; width: 455px; font-size: 14px; line-height: 1.16em;}
 .yui-skin-app .app-hd .tagline a:link, .yui-skin-app .app-hd .tagline a:visited, .yui-skin-app .app-hd .tagline a:hover, .yui-skin-app .app-hd .tagline a:active { text-decoration: none;}
 .yui-skin-app .app-hd .app-nav {width: 100%;}
-.yui-skin-app .app-hd .app-nav ul { margin: 10px; padding: 0px; list-style-type: none;}
+/*.yui-skin-app .app-hd .app-nav ul { margin: 10px; padding: 0px; list-style-type: none;}
 .yui-skin-app .app-hd .app-nav ul li {margin-right: 5px;  float: left; }
 .yui-skin-app .app-hd .app-nav ul li a { font-size: 12px; display: block;  padding: 5px 10px; }
 .yui-skin-app .app-hd .app-nav li a:hover { text-decoration:underline; }
-.yui-skin-app .app-hd .app-nav ul li { border-top-left-radius: 5px; border-top-right-radius: 5px;}
+.yui-skin-app .app-hd .app-nav ul li { border-top-left-radius: 5px; border-top-right-radius: 5px;}*/
 .yui-skin-app .app-hd .app-nav-rhs { position: absolute; top: 5px; right: 20px; }
 .yui-skin-app .app-hd .app-nav-rhs ul { margin: 1px; padding: 1px; list-style-type: none; display:inline;}
 .yui-skin-app .app-hd .app-nav-rhs ul li {float: left; padding: 0px 5px; display:inline}
 .yui-skin-app .app-hd .app-nav-rhs li a { font-size:95%;}
 .yui-skin-app .app-hd .app-nav-rhs ul li a:link, .yui-skin-app .app-hd .app-nav-rhs ul li a:visited, .yui-skin-app .app-hd .app-nav-rhs ul li a:hover, .yui-skin-app .app-hd .app-nav-rhs ul li a:active { text-decoration: none; }
-.yui-skin-app .app-hd .app-search {margin-left:30%; width:65%; margin-bottom:15px;}
+.yui-skin-app .app-hd .app-search {margin-left:32%; width:60%; margin-bottom:15px;}
 .yui-skin-app .app-hd .app-search #searchInput {width:65%;height:25px; margin:0; outline:0; vertical-align:top;} 
 .yui-skin-app .app-hd .app-search #searchButton {height:30px; text-align:center; font-size:17px; width:26%; margin-left:0; font-weight:800}
 
 /* Landing Page */
-.yui-skin-app .app-landing-main { padding:10px 0px 0px 0px; }
+/*.yui-skin-app .app-landing-main { padding:10px 0px 0px 0px; }
 .yui-skin-app .app-landing-main h1 { font-size: 24px; padding: 0px 4px; margin:0px 5px; 
      -moz-border-radius: 4px;
 	     -webkit-border-radius: 3px;
@@ -60,17 +61,15 @@
 	     -webkit-border-radius: 10px;
 }
 
-
-.yui-skin-app .app-landing-img {margin: -470px 0px 0px 260px; width:720px; height:480px; margin-bottom: -1em;}
+.yui-skin-app .app-landing-img {margin: -470px 0px 0px 260px; width:720px; height:480px; margin-bottom: -1em;}*/
 
 /* Landing Extra */
-.yui-skin-app .app-landing-extra {width: 100%; margin: 0px 0px 0px 0px; }
-/*.yui-skin-app .app-landing-extra .benefits_list { width: 95%; margin: 0px 0px 10px 50px;}
-*/
+/*.yui-skin-app .app-landing-extra {width: 100%; margin: 0px 0px 0px 0px; }
+.yui-skin-app .app-landing-extra .benefits_list { width: 95%; margin: 0px 0px 10px 50px;}
 .yui-skin-app .app-landing-extra .benefits_list { margin: 0px 0px 0px 30px; width: 900px; font-size: 16px; line-height: 1.16em; margin-bottom: 0.8em; }
 .yui-skin-app .app-landing-extra .benefit { width:30%; float:left; margin: 20px 30px 0px 0px;}
 .yui-skin-app .app-landing-extra .benefit h5 { font-size:120%; font-weight:600;}
-.yui-skin-app .app-landing-extra .benefit p { width:85%; margin: 10px 0px 0px 20px; font-size: 12px; margin-bottom: 30px;}
+.yui-skin-app .app-landing-extra .benefit p { width:85%; margin: 10px 0px 0px 20px; font-size: 12px; margin-bottom: 30px;}*/
 
 /* Body */
 .yui-skin-app .app-bd  { width: 95%;}
@@ -94,15 +93,20 @@
 .yui-skin-app .app-bd .app-menu ul li a {margin-right: 5px; padding: 3px 10px; display:block; float:right; font-size:16px; }
 .yui-skin-app .app-bd .app-block .app-menu ul li:hover a {font-weight:800}
 
+
 /*Question block*/
-.yui-skin-app .app-bd .app-block .app-block-content .question {width:100%; margin-bottom:7px; padding:10px 5px 5px 10px;}
-.yui-skin-app .app-bd .app-block .app-block-content .question .summary {float:left; width:80%; padding-top:2px;}
-.yui-skin-app .app-bd .app-block .app-block-content .question .summary p {font-size:15px; margin-top:0}
-.yui-skin-app .app-bd .app-block .app-block-content .question .summaty span.info {font-size:11px;}
-.yui-skin-app .app-bd .app-block .app-block-content .question .stats {float:left; width:20%;}
-.yui-skin-app .app-bd .app-block .app-block-content .question .stats .box-answers,.yui-skin-app .app-bd .app-block .app-block-content .question .stats .box-votes, .yui-skin-app .app-bd .app-block .app-block-content .question .stats .box-views {text-align:center; float:left; margin-right:4px; width:50px; height:50px; padding:2px 2px 2px 2px;}
-.yui-skin-app .app-bd .app-block .app-block-content .question .stats .box-answers h2,.yui-skin-app .app-bd .app-block .app-block-content .question .stats .box-votes h2, .yui-skin-app .app-bd .app-block .app-block-content .question .stats .box-views h2 {font-size:16px; font-weight:800; margin-bottom:3px; }
-.yui-skin-app .app-bd .app-block .app-block-content .question .stats .box-answers p,.yui-skin-app .app-bd .app-block .app-block-content .question .stats .box-votes p, .yui-skin-app .app-bd .app-block .app-block-content .question .stats .box-views p {font-size:12px; font-weight:400; margin:0;}
+.yui-skin-app .app-bd .app-block .app-block-content .question {width:98%; margin-bottom:7px; padding:10px 5px 5px 10px;}
+.yui-skin-app .app-bd .app-block .app-block-content .question .summary { float:left; width:75%; padding-top:2px;}
+.yui-skin-app .app-bd .app-block .app-block-content .question .summary p.title {font-size:15px; margin-top:0}
+.yui-skin-app .app-bd .app-block .app-block-content .question .summary p.content {font-size:12px; margin-top:3px; margin-left:15px;}
+.yui-skin-app .app-bd .app-block .app-block-content .question .summary span.info {font-size:11px; margin-left:20px;}
+.yui-skin-app .app-bd .app-block .app-block-content .question .box-answers,.yui-skin-app .app-bd .app-block .app-block-content .question .box-votes, .yui-skin-app .app-bd .app-block .app-block-content .question .box-views {text-align:center; float:left; margin-right:4px; width:7%; height:40px; padding:2px 2px 2px 2px;}
+.yui-skin-app .app-bd .app-block .app-block-content .question .box-answers h2,.yui-skin-app .app-bd .app-block .app-block-content .question .box-votes h2, .yui-skin-app .app-bd .app-block .app-block-content .question .box-views h2 {font-size:16px; font-weight:800; margin-bottom:0; margin-top:2px; }
+.yui-skin-app .app-bd .app-block .app-block-content .question .box-answers p,.yui-skin-app .app-bd .app-block .app-block-content .question .box-votes p, .yui-skin-app .app-bd .app-block .app-block-content .question .box-views p {font-size:10px; font-weight:400; margin:0;}
+
+/*tags*/
+.yui-skin-app .app-bd .app-block .app-block-content .tags a {font-size:13px; font-weight:700; float:left; margin-right:3px; margin-left:3px;}
+.yui-skin-app .app-bd .app-block .app-block-content .tags span.tag-number {font-size:11px;}
 
 /* Extend block and header to have rounded corners */
 .yui-skin-app.rounded #hd .yui-g,
@@ -145,6 +149,7 @@
 .yui-skin-app .text-right { text-align:right; }
 .yui-skin-app .text-center { text-align:center; }
 .yui-skin-app .clear { clear:both; }
+.yui-skin-app  h4.subtitle {font-size:14px; font-weight:700;}
 
 .yui-skin-app .checkbox, .radio {width: 19px; height: 25px; padding: 0 5px 0 0; background: url(../img/checkbox.gif) no-repeat; display: block; clear: left; float: left;}
 .yui-skin-app .radio {background: url(../img/radio.gif) no-repeat;}
@@ -162,7 +167,7 @@
 /* Default app Skin Colour Scheme */
 
 /* Generics */
-html {background-color:#fff;}
+html {background-color:#ddd;}
 body.yui-skin-app { color: #333; background-color: #EBEBEB; }
 .yui-skin-app a:link, a:visited { color: #07b; }
 .yui-skin-app a, a:hover, a:active { color: #d30; }
@@ -173,7 +178,7 @@ body.yui-skin-app { color: #333; background-color: #EBEBEB; }
 .yui-skin-app h3 { color: #444}
 
 /* Header */
-.yui-skin-app .app=hd {color:#fff}
+.yui-skin-app .app-hd {color:#fff}
 .yui-skin-app .app-hd {background-color:/*#232C30*/#040C72; }
 .yui-skin-app .app-hd .logo {margin: 0; padding: 0px 0px; float: left;}
 .yui-skin-app .app-hd .tagline { color:#fff; }
@@ -183,29 +188,30 @@ body.yui-skin-app { color: #333; background-color: #EBEBEB; }
 .yui-skin-app .app-hd h1 a:link, .yui-skin-app .app-hd h1 a:active, .yui-skin-app .app-hd h1 a:hover, .yui-skin-app .app-hd h1 a:visited { color: #eaeaea; }
 .yui-skin-app .app-hd .app-nav-rhs ul li a:link, .yui-skin-app .app-hd .app-nav-rhs ul li a:visited {color: #CDE; border-bottom: 1px dotted #345; }
 .yui-skin-app .app-hd .app-nav-rhs ul li a:hover {color: #fff; border-bottom: 1px dotted #CDE;}
-.yui-skin-app .app-hd .app-nav ul li { background: #456; border-top: 1px solid #5C738A; color: #eee; }
+
+/*.yui-skin-app .app-hd .app-nav ul li { background: #456; border-top: 1px solid #5C738A; color: #eee; }
 .yui-skin-app .app-hd .app-nav ul li:hover { border-top-color: #7593B0; background-color: #576C82 !important; color: #fff; }
 .yui-skin-app .app-hd .app-nav ul li.app-nav-active { border-top: 1px solid #fff; background-color: #eee !important; color: #333;}
-.yui-skin-app .app-hd .app-nav ul li.app-nav-active a:link, .yui-skin-app .app-hd .app-nav ul li.app-nav-active a:visited, .yui-skin-app .app-hd .app-nav ul li.app-nav-active a:hover, .yui-skin-app .app-hd .app-nav ul li.app-nav-active a:active {color: #364b69;}
+.yui-skin-app .app-hd .app-nav ul li.app-nav-active a:link, .yui-skin-app .app-hd .app-nav ul li.app-nav-active a:visited, .yui-skin-app .app-hd .app-nav ul li.app-nav-active a:hover, .yui-skin-app .app-hd .app-nav ul li.app-nav-active a:active {color: #364b69;}*/
 .yui-skin-app .app-hd .tagline a:link, .yui-skin-app .app-hd .tagline a:visited {color: #CDE; border-bottom: 1px dotted #345;}
 .yui-skin-app .app-hd .tagline a:hover {color: #fff; border-bottom: 1px dotted #CDE;}
 .yui-skin-app .app-hd .app-search #searchInput {background-color:#23B1D6} 
 .yui-skin-app .app-hd .app-search #searchButton {background-color:#6CCa49;color:#fff;}
 
 /* Landing Main */
-.yui-skin-app .app-landing-main {background-color:#232C30;}
+/*.yui-skin-app .app-landing-main {background-color:#232C30;}
 .yui-skin-app .app-landing-main h4 {color:#fff;}
 .yui-skin-app .app-landing-main ul li {color:#fff;}
 .yui-skin-app .app-landing-main .plans {background-color:#cc0000; color:#fff;}
 .yui-skin-app .app-landing-main .tour {background-color:#0B43A8; color:#fff;}
 .yui-skin-app .app-landing-main .tour a {color:#fff;}
 .yui-skin-app .app-landing-main .plans a {color:#fff;}
-.yui-skin-app .app-landing-main p {color:#fff;}
+.yui-skin-app .app-landing-main p {color:#fff;}*/
 
 /* Landing Extra */
-.yui-skin-app .app-landing-extra { background-color:#cfcfcf;}
+/*.yui-skin-app .app-landing-extra { background-color:#cfcfcf;}
 .yui-skin-app .app-landing-extra .benefit h5 {color:#1a1a1a;}
-.yui-skin-app .app-landing-extra .benefit p {color:#1a1a1a;}
+.yui-skin-app .app-landing-extra .benefit p {color:#1a1a1a;}*/
 
 /* Body */
 .yui-skin-app .app-bd h1 {color:#f00;}
@@ -224,17 +230,21 @@ body.yui-skin-app { color: #333; background-color: #EBEBEB; }
   background: #eee;}
 
 .yui-skin-app .app-bd .app-block .app-block-content .question {background:#FFFEC1;}
-.yui-skin-app .app-bd .app-block .app-block-content .question .summary p {color:#11197D;}
+.yui-skin-app .app-bd .app-block .app-block-content .question .summary p.title {color:#11197D;}
 .yui-skin-app .app-bd .app-block .app-block-content .question .summary span.info {color:#000;}
-.yui-skin-app .app-bd .app-block .app-block-content .question .stats .box-answers {background:#0FBD0F; color: #B47F09;}
-.yui-skin-app .app-bd .app-block .app-block-content .question .stats .box-votes {background:#fff; color:#000;}
-.yui-skin-app .app-bd .app-block .app-block-content .question .stats .box-views {background:#EDC713; color: #3E1EA3;}
-.yui-skin-app .app-bd .app-block .app-block-content .question .stats .box-answers h2 {color: #B47F09;}
-.yui-skin-app .app-bd .app-block .app-block-content .question .stats .box-votes h2 {color:#000;}
-.yui-skin-app .app-bd .app-block .app-block-content .question .stats .box-views h2 {color: #3E1EA3;}
-.yui-skin-app .app-bd .app-block .app-block-content .question .stats .box-answers p {color:#111}
-.yui-skin-app .app-bd .app-block .app-block-content .question .stats .box-votes p {color:#111}
-.yui-skin-app .app-bd .app-block .app-block-content .question .stats .box-views p {color:#111}
+.yui-skin-app .app-bd .app-block .app-block-content .question .box-answers {background:#2AD221; color: #B47F09;}
+.yui-skin-app .app-bd .app-block .app-block-content .question .box-votes {background:#79ADD5; color:#000;}
+.yui-skin-app .app-bd .app-block .app-block-content .question .box-views {background:#0C4470; color: #3E1EA3;}
+.yui-skin-app .app-bd .app-block .app-block-content .question .box-answers h2 {color: #fff;}
+.yui-skin-app .app-bd .app-block .app-block-content .question .box-votes h2 {color: #FFE628;}
+.yui-skin-app .app-bd .app-block .app-block-content .question .box-views h2 {color: #fff;}
+.yui-skin-app .app-bd .app-block .app-block-content .question .box-answers p {color:#fff}
+.yui-skin-app .app-bd .app-block .app-block-content .question .box-votes p {color: #FFE628}
+.yui-skin-app .app-bd .app-block .app-block-content .question .box-views p {color: #fff}
+
+/*tags*/
+.yui-skin-app .app-bd .app-block .app-block-content .tags a {color: #087782}
+.yui-skin-app .app-bd .app-block .app-block-content .tags span.tag-number {color:#FF3328;}
 
 /* Sidebar */
 .yui-skin-app .app-bd .app-sidebar h3 {/* background: #fff; border-bottom:1px solid #ccc;border-right:1px solid #ccc; border-left:1px solid #ddd; border-top:1px solid #ddd; color: #333;*/  background-color:#A0C2DE; border-color:#064780; color: #456;}
@@ -266,77 +276,6 @@ body.yui-skin-app { color: #333; background-color: #EBEBEB; }
 .uniForm button.button img, a.button img { margin:0 3px -3px 0 !important; padding:0; border:none; width:16px; height:16px; }
 .uniForm button.button:hover, a.button:hover { background-color:#dedede; } 
 .uniForm button.button:active, a.button:active { background-color:#e5e5e5; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
