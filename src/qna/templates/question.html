@@ -60,36 +60,33 @@
 <div class="app-block-content">
     <div id="askform">
         <form id="fmanswer" action="{% url answer question.id %}" method="post">
-            <table style="width:100%;" id="question-table" {% if question.deleted %}class="deleted"{%endif%}>
-                <tr>
-                    <td style="width:30px;vertical-align:top">
-                        <div class="vote-buttons">
+            <div class="question-page" {% if question.deleted %}class="deleted"{%endif%}>                
+                 <div class="buttons">
                           {% block question_vote_buttons %}
                             {% if question_vote %}
-                            <img id="question-img-upvote-{{ question.id }}" class="question-img-upvote" 
+                            <img id="question-img-upvote-{{ question.id }}"
 								src="{{ MEDIA_URL }}qna/images/vote-arrow-up{% if question_vote.is_upvote %}-on{% endif %}.png" 
 								title="{% trans "i like this post (click again to cancel)" %}" >
                             <div id="question-vote-number-{{ question.id }}" class="vote-number" 
 								title="{% trans "current number of votes" %}">
                                 {{ question.score }}
                             </div>
-                            <img id="question-img-downvote-{{ question.id }}" class="question-img-downvote" 
+                            <img id="question-img-downvote-{{ question.id }}"
 								src="{{ MEDIA_URL }}qna/images/vote-arrow-down{% if question_vote.is_downvote %}-on{% endif %}.png" 
 								title="{% trans "i dont like this post (click again to cancel)" %}" >
                            
                             {% else %}
-                            <img id="question-img-upvote-{{ question.id }}" class="question-img-upvote" 
+                            <img id="question-img-upvote-{{ question.id }}"
 								src="{{ MEDIA_URL }}qna/images/vote-arrow-up.png" 
 								title="{% trans "i like this post (click again to cancel)" %}" >
                             <div id="question-vote-number-{{ question.id }}" class="vote-number" 
 								title="{% trans "current number of votes" %}">
                                 {{ question.score }}
                             </div>
-                            <img id="question-img-downvote-{{ question.id }}" class="question-img-downvote" 
+                            <img id="question-img-downvote-{{ question.id }}"
 								src="{{ MEDIA_URL }}qna/images/vote-arrow-down.png" title="{% trans "i dont like this post (click again to cancel)" %}" >    
           
-                            {% endif %}
-                            <br><br>
+                            {% endif %}                           
                             {% if favorited %}
                             <img class="question-img-favorite" src="{{ MEDIA_URL }}qna/images/vote-favorite-on.png" 
 								title="{% trans "mark this question as favorite (click again to cancel)" %}" >
@@ -104,11 +101,9 @@
                         
                             {% endif %}
                           {% endblock %}  
-                        </div>
-                    </td>
-                    <td>
-                        <div id="item-right">
-                            <div class="question-body">
+                  </div>                    
+                  <div class="question-body">
+                            <div class="content">
                             {% block question_body %}
                                 {{ question.html|safe }}
                             {% endblock %}
@@ -118,15 +113,12 @@
                                 {% if tag %}
                                     <a href="{% url tag_search tag|urlencode %}" class="post-tag" 
 										                    title="{% trans "see questions tagged" %}'{{ tag }}'{% trans "using tags" %}" 
-                                        rel="tag">{{ tag }}</a>
+                                        rel="tag">{{ tag }}</a>                                    
                                 {% endif %}
                                 {% endfor %}
+                                <div class="clear"></div>
                             </div>
-                            <div id="question-controls" style="clear:both;">
-                                <table width="100%">
-                                    <tr>
-                                        <td width="210px" style="vertical-align:top">
-                                            
+                            <div class="actions">                               
                                             {% if request.user|can_edit_post:question %}
                                             <span class="action-link"><a href="{% url edit_question question.id %}">{% trans 'edit' %}</a></span>
                                             <span class="action-link-separator">|</span>
@@ -148,96 +140,65 @@
                                             {% endif %}
                                             
                                             <span id="question-offensive-flag-{{ question.id }}" class="offensive-flag" 
-												title="{% trans "report as offensive (i.e containing spam, advertising, malicious text, etc.)" %}">
+												 title="{% trans "report as offensive (i.e containing spam, advertising, malicious text, etc.)" %}">
 												<a>{% trans "flag offensive" %}</a>
 												<span class="darkred">{% if request.user|can_view_offensive_flags %}
 												{% if question.offensive_flag_count %}({{ question.offensive_flag_count }}){% endif %}{% endif %}</span>
                                             </span>
-                                            
-                                        </td>
-                                        <td width="210px" style="vertical-align:top">
+                          </div>                                       
                                             {% if question.last_edited_by %}
-                                            <div class="question-edit" >
-                                                <table width="200px" >
-                                                    <tr>
-                                                        <td colspan="2"> 
+                                            <div class="details">
+                                            <div class="date" >                                                                                                    
                                                          {% trans "updated" %} <a href="{% url question_revisions question.id %}"><strong title="{{question.last_edited_at }}">{{ question.last_edited_at|timesince }} {% trans 'ago' %}</strong></a>
-                                                        </td>
                                                         
-                                                    </tr>
                                                     {% if question.wiki %}
-                                                    <tr>
-                                                        <td style="width:40px;vertical-align:bottom">
-                                                        {% gravatar question.last_edited_by 32 %}
-                                                        </td>
-                                                        <td style="width:160px; vertical-align:top">
-                                                            <a href="/users/{{ question.last_edited_by.id }}/{{ question.last_edited_by.username }}">{{ question.last_edited_by.username }}</a>
-                                                        </td>
-                                                    </tr>
+                                                    
+                                                        <div class="user">{% gravatar question.last_edited_by 32 %}
+                                                       
+                                                            <a href="/users/{{ question.last_edited_by.id }}/{{ question.last_edited_by.username }}">{{ question.last_edited_by.username }}</a></div>
+                                                    
+                                                    
                                                     {% else %}
                                                     {% ifequal question.last_edited_by question.author %}
-                                                    <tr>
-                                                        <td> </td>
-                                                        <td> </td>
-                                                    </tr>
+                                                    
                                                     {% else %}
-                                                    <tr>
-                                                        <td style="width:40px;vertical-align:bottom">
-                                                        {% gravatar question.last_edited_by 32 %}
-                                                        </td>
-                                                        <td style="width:160px; vertical-align:top">
-                                                            <div><a href="/users/{{ question.last_edited_by.id }}/{{ question.last_edited_by.username }}">{{ question.last_edited_by.username }}</a></div>
-                                
-                                                            <div>
-                                                            {% get_score_badge question.last_edited_by %}
-                                                            </div>
+                                                   
+                                                        <div class="user">{% gravatar question.last_edited_by 32 %}
+                                                        
+                                                            <a href="/users/{{ question.last_edited_by.id }}/{{ question.last_edited_by.username }}">{{ question.last_edited_by.username }}</a>  {% get_score_badge question.last_edited_by %}</div>
+                                                                                                                                                                                                                  
                                                           
-                                                        </td>
-                                                    </tr>
+                                                      
                                                     {% endifequal %}
                                                     {% endif %}
-                                                </table>
+                                            <div class="clear"></div>  
                                             </div>
                                             {% endif %}
-                                            
-                                        </td>
-                                        <td style="vertical-align:top">
+                                                                                    
                                             {% if question.wiki %}
                                             <span class="wiki-category">{% trans "community wiki" %}</span>
-                                            <div style="margin-bottom:10px"></div>
+                                            
                                             {% else %}
-                                            <div  class="question-mark">
-                                                <table width="200px">
-                                                    <tr>
-                                                        <td colspan="2"> 
+                                            <div class="details">
+                                            <div  class="date">                                                
                                                         {% trans "asked" %} <strong title="{{ question.added_at }}">{{ question.added_at|timesince }} {% trans 'ago' %}</strong>
-                                                        </td>
-                                                        
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td style="width:40px; vertical-align:bottom">
+                                            </div>
+                                                        <div class="user">
                                                         {% gravatar question.author 32 %}
-                                                        </td>
-                                                        <td align="left" style="width:160px;vertical-align:top">
-                                                            <div><a href="/users/{{ question.author.id }}/{{ question.author }}">{{ question.author }}</a></div>
-                                                            <div>
-                                                            {% get_score_badge question.author %}
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    
-                                                </table>
+                                                        
+                                                        <a href="/users/{{ question.author.id }}/{{ question.author }}">{{ question.author }}</a>  {% get_score_badge question.author %}
+                                                            
+                                            </div>
+                                            <div class="clear"></div>
                                             </div>
                                             {% endif %}
                                         
-                                        </td>
-                                    </tr>
-                                </table>
-                                
+                                    
+                            </div>
+                            <div class="clear"></div>
                             </div>
                             
-                            <div class="post-comments" style="margin-bottom:20px">
+                            <div class="post-comments">
                                 <input id="can-post-comments-question-{{question.id}}" type="hidden" value="{{ request.user|can_add_comments }}"/>
                                 <a id="comments-link-question-{{question.id}}" class="comments-link">
 								{% if question.comment_count %}{% trans "comments" %} <strong>({{question.comment_count}})</strong>
@@ -245,15 +206,12 @@
 								{% endif %}</a>
                                 <div id="comments-question-{{question.id}}" class="comments-container">
                                 <div class="comments"/></div>
-                            </div>
+                                </div>
                             
-                        </div>
-                        
-                    </td>
-                </tr>
-            </table>
+                           </div>
+                                          
             {% if question.closed %}
-            <div class="question-status" style="margin-bottom:15px">
+            <div class="question-status">
             <h3>{% blocktrans %}The question has been closed for the following reason "{{ question.get_close_reason_display }}" by{% endblocktrans %} 
 			<a href="{{ question.closed_by.get_profile_url }}">{{ question.closed_by.username }}</a> 
 			{% blocktrans %}close date {{question.closed_at}}{% endblocktrans %}</h3>
@@ -261,13 +219,15 @@
             {% endif %}
             {% block answers %}
             {% ifnotequal answers.length 0 %}
-                <div class="tabBar">
-                    <a name="sort-top"></a>
-                    <div class="headQuestions">{{ answers|length }}{% trans "Answers" %}:</div>
-                    <div class="tabsA">
-                         <a id="oldest" href="?sort=oldest#sort-top" title="{% trans "oldest answers will be shown first" %}">{% trans "oldest answers" %}</a>
-                        <a id="latest" href="?sort=latest#sort-top" title="{% trans "newest answers will be shown first" %}">{% trans "newest answers" %}</a>
-                        <a id="votes" href="?sort=votes#sort-top" title="{% trans "most voted answers will be shown first" %}">{% trans "popular answers" %}</a>   
+                <div class="app-block">                    
+                    <h3>{{ answers|length }}{% trans "Answers" %}:</h3>
+                    <div class="app-menu">
+                       <ul>  
+                        <li><a id="oldest" href="?sort=oldest#sort-top" title="{% trans "oldest answers will be shown first" %}">{% trans "oldest answers" %}</a></li>
+                        <li><a id="latest" href="?sort=latest#sort-top" title="{% trans "newest answers will be shown first" %}">{% trans "newest answers" %}</a></li>
+                        <li><a id="votes" href="?sort=votes#sort-top" title="{% trans "most voted answers will be shown first" %}">{% trans "popular answers" %}</a></li>
+                       </ul>
+                       <div class="clear"></div>
                     </div>
                 </div>
                 {% qna_paginator context %}
@@ -275,11 +235,8 @@
                 
                 {% for answer in answers %}
                     <a name="{{ answer.id }}"></a>
-                    <div id="answer-container-{{ answer.id }}" class="answer {% if answer.accepted %}accepted-answer{% endif %} {% ifequal answer.author_id question.author_id %} answered-by-owner{% endifequal %} {% if answer.deleted %}deleted{% endif %}">
-                        <table style="width:100%;">
-                            <tr>
-                                <td style="width:30px;vertical-align:top">
-                                    <div class="vote-buttons">
+                    <div id="answer-container-{{ answer.id }}" class="answer {% if answer.accepted %}accepted-answer{% endif %} {% ifequal answer.author_id question.author_id %} answered-by-owner{% endifequal %} {% if answer.deleted %}deleted{% endif %}">                        
+                                    <div class="buttons">
                                     {% block answer_vote_buttons %}
                                         <img id="answer-img-upvote-{{ answer.id }}" class="answer-img-upvote" src="{{ MEDIA_URL }}qna/images/vote-arrow-up{% get_user_vote_image user_answer_votes answer.id 1 %}.png" title="{% trans "i like this answer (click again to cancel)" %}">
                                         <div id="answer-vote-number-{{ answer.id }}" class="vote-number" title="{% trans "current number of votes" %}">
@@ -289,7 +246,7 @@
 											src="{{ MEDIA_URL }}qna/images/vote-arrow-down{% get_user_vote_image user_answer_votes answer.id -1 %}.png" 
 											title="{% trans "i dont like this answer (click again to cancel)" %}" >
                                      
-                                        <br><br>
+                                       
                                         {% ifequal request.user question.author  %}
                                         <img id="answer-img-accept-{{ answer.id }}" class="answer-img-accept" 
 											src="{{ MEDIA_URL }}qna/images/vote-accepted{% if answer.accepted %}-on{% endif %}.png" 
@@ -302,99 +259,64 @@
                                             {% endif %}
                                         {% endifequal %}
                                       {% endblock %}
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="item-right">
-                                        <div class="answer-body">
+                                    </div>                                
+                                    <div class="answer-body">
+                                        <div class="answer-content">
                                             {% block answer_body %}
                                             {{ answer.html|safe }}
                                             {% endblock %}
                                         </div>
-                                        <div class="answer-controls" style="clear:both;">
-                                            <table width="100%">
-                        	                    <tr>
-                                                    <td width="400px" style="vertical-align:top">
+                                        <div class="actions">
+                                            
                                                       {% include "answer_actions.html"%}
-                                                    </td>
-                                                    
-                        	                    	<td width="110px" style="vertical-align:top">
+                                        </div>                                                    
                                                     {% if answer.last_edited_by %}
-                                                    <div class="question-edit" >
-                                                        <table width="200px" >
-                                                            <tr>
-                                                                <td colspan="2"> 
-                                                                 {% trans "updated" %}<a href="{% url answer_revisions answer.id %}"><strong title="{{answer.last_edited_at }}">{{ answer.last_edited_at|timesince }} {% trans 'ago' %}</strong></a>
-                                                                </td>
-                                                            </tr>
+                                                    <div class="details" >
+                                                        
+                                                            div class="date">{% trans "updated" %}<a href="{% url answer_revisions answer.id %}"><strong title="{{answer.last_edited_at }}">{{ answer.last_edited_at|timesince }} {% trans 'ago' %}</strong></a></div>
+                                                                
                                                             {% if answer.wiki %}
-                                                            <tr>
-                                                                <td width="40px" style="vertical-align:bottom">
+                                                            <div class="user">
                                                                 {% gravatar answer.last_edited_by 32 %}
-                                                                </td>
-                                                                <td style="width:160px; vertical-align:top">
-                                                                    <div><a href="/users/{{ answer.last_edited_by.id }}/{{ answer.last_edited_by.username }}">{{ answer.last_edited_by.username }}</a></div>
-                                                               
-                                                                </td>
-                                                            </tr>
+                                                               <a href="/users/{{ answer.last_edited_by.id }}/{{ answer.last_edited_by.username }}">{{ answer.last_edited_by.username }}</a></div>
+                                                            </div>                                                                 
                                                             {% else %}
                                                             {% ifequal answer.last_edited_by answer.author %}
-                                                            <tr>
-                                                                <td> </td>
-                                                                <td> </td>
-                                                            </tr>
+                                                            
                                                             {% else %}
-                                                            <tr>
-                                                                <td width="40px" style="vertical-align:bottom">
+                                                            <div class="user">
                                                                 {% gravatar answer.last_edited_by 32 %}
-                                                                </td>
-                                                                <td style="width:160px; vertical-align:top">
-                                                                    <div><a href="/users/{{ answer.last_edited_by.id }}/{{ answer.last_edited_by.username }}">{{ answer.last_edited_by.username }}</a></div>
-                                                                    <div>
-                                                                    {% get_score_badge answer.last_edited_by %}
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
+                                                                <a href="/users/{{ answer.last_edited_by.id }}/{{ answer.last_edited_by.username }}">{{ answer.last_edited_by.username }}</a> {% get_score_badge answer.last_edited_by %}
+                                                            </div>
+                                                                
                                                             {% endifequal %}
                                                             {% endif %}
-                                                        </table>
+                                                        <div class="clear"></div>
                                                     </div>
                                                     {% endif %}
-                                                    
-                                                </td>
-                                                 <td style="vertical-align:top">
+                                                                                                   
                                                     {% if answer.wiki %}
                                                     <span class="wiki-category">{% trans "community wiki" %}</span>
-                                                    <div style="margin-bottom:10px"></div>
+                                                   
                                                     {% else %}
-                                                    <div  class="answer-mark">
-                                                        <table width="200px">
-                            	                            <tr>
-                                	                           	<td colspan="2"> 
+                                                    <div  class="details">
+                                                        <div class="date">
                                                                 {% trans "answered" %} <strong title="{{answer.added_at}}">{{ answer.added_at|timesince }} {% trans 'ago' %}</strong>
-                                                                </td>
-                            	                            </tr>
-                            	                            <tr>
-                                                                <td width="40px" style="vertical-align:bottom">
+                                                         </div>
+                            	                         <div class="user">   
                                                                 {% gravatar answer.author 32 %}
-                                                                </td>
-                                                                <td style="width:160px; vertical-align:top">
-                                                                    <div><a href="/users/{{ answer.author.id }}/{{ answer.author.username }}">{{ answer.author }}</a></div>
-                                                                    <div>
-                                                                    {% get_score_badge answer.author %}
-                                                                    </div>
-                                                                </td>
-                            	                            </tr>
-                                                        </table>
+                                                              
+                                                                    <a href="/users/{{ answer.author.id }}/{{ answer.author.username }}">{{ answer.author }}</a>{% get_score_badge answer.author %}
+                                                         </div>
+                                                         <div class="clear"></div>     
                                                     </div>
                                                     {% endif %}
                                                     
-                                                 </td>
-                        	                    </tr>
-                        	                    
-                                            </table>
-                                            
+                                                
                                         </div>
+                                        <div class="clear"></div>
+                                        </div>
+
                                         <div id="comment-{{ answer.id }}" class="post-comments" >
                                             <input id="can-post-comments-answer-{{answer.id}}" type="hidden" value="{{ request.user|can_add_comments }}"/>
                                             <a id="comments-link-answer-{{answer.id}}" class="comments-link">
@@ -404,12 +326,7 @@
                                             <div class="comments"/></div>
                                         </div>
                                         
-                                    </div>
-                                    
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                                   
                 {% endfor %}
                 
                 <div class="paginator-container-left">
@@ -463,20 +380,23 @@
     </div>
 </div>
 </div>
+</div>
 {% endblock %}
 
 {% block sidebar %}
-<div class="boxC">
-    <p>
+<div class="app-block">
+    <h3>
 		{% trans "Question tags" %}:
-    </p>
-    <p class="tags" >
+    </h3>
+    <div class="app-block-content">
+    <div class="tags" >
         {% for tag in tags %}
         	<a href="{% url tag_search tag.name|urlencode %}" 
 			title="{% trans "see questions tagged"%}'{{tag.name}}'{% trans "using tags" %}" 
-			rel="tag">{{ tag.name }}</a> <span class="tag-number">× {{ tag.used_count|intcomma }}</span><br>
+			rel="tag">{{ tag.name }}</a> <span class="tag-number">× {{ tag.used_count|intcomma }}</span>
         {% endfor %}
-    </p>
+        <div class="clear"></div>
+    </div>
     <p>
         {% trans "question asked" %}: <strong title="{{ question.added_at }}">{{ question.added_at|timesince }} {% trans "ago" %}</strong>
     </p>
@@ -487,9 +407,11 @@
         {% trans "last updated" %}: <strong title="{{ question.last_activity_at }}">{{ question.last_activity_at|timesince }} {% trans "ago" %}</strong>
     </p>
 </div>
+</div>
 
-<div class="boxC">
+<div class="app-block">
     <h3 class="subtitle">{% trans "Related questions" %}</h3>
+ <div class="app-block-content">
     <div class="questions-related">
         {% for question in similar_questions %}
         <p>
@@ -497,7 +419,7 @@
         </p>
         {% endfor %}
     </div>
-    <br>  
+ </div>
 </div>
 
 {% endblock %}
@@ -505,4 +427,12 @@
 {% block endjs %}
 {% endblock %}
 <!-- end question.html -->
+
+
+
+
+
+
+
+
 
