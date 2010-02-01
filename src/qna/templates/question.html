@@ -117,8 +117,52 @@
                                 {% endif %}
                                 {% endfor %}
                                 <div class="clear"></div>
-                            </div>
-                            <div class="actions">                               
+                                </div>
+                                    <div class="details">                                           
+                                              
+                                            {% if question.last_edited_by %}
+                                                                
+                                                      
+                                                    {% if question.wiki %}
+                                                    
+                                                        <div class="user">{% gravatar question.last_edited_by 32 %}
+                                                       
+                                                            <a href="/users/{{ question.last_edited_by.id }}/{{ question.last_edited_by.username }}">{{ question.last_edited_by.username }}</a></div>
+                                                    
+                                                    
+                                                    {% else %}
+                                                    {% ifequal question.last_edited_by question.author %}
+                                                    
+                                                    {% else %}
+                                                   
+                                                        <div class="user">{% gravatar question.last_edited_by 32 %}
+                                                        
+                                                            <a href="/users/{{ question.last_edited_by.id }}/{{ question.last_edited_by.username }}">{{ question.last_edited_by.username }}</a>  {% get_score_badge question.last_edited_by %}</div>                                                                                                                                                                                                                                                                            
+                                                      
+                                                    {% endifequal %}
+                                                    {% endif %}
+                                            <div class="date" >                                                                                                    
+                                                         {% trans "updated" %} <a href="{% url question_revisions question.id %}"><strong title="{{question.last_edited_at }}">{{ question.last_edited_at|timesince }} {% trans 'ago' %}</strong></a>
+                                            </div>  
+                                            
+                                            {% endif %}
+                                                                                    
+                                            {% if question.wiki %}
+                                            <span class="wiki-category">{% trans "community wiki" %}</span>
+                                            
+                                            {% else %}
+                                                                                       
+                                                        <div class="user">
+                                                        {% gravatar question.author 32 %}
+                                                        <a href="/users/{{ question.author.id }}/{{ question.author }}">{{ question.author }}</a>  {% get_score_badge question.author %}                                                            
+                                                        </div>
+                                             <div  class="date">                                                
+                                                        {% trans "asked" %} <strong title="{{ question.added_at }}">{{ question.added_at|timesince }} {% trans 'ago' %}</strong>
+                                            </div>
+                                            
+                                            {% endif %}
+                                        
+                                     <div class="actions">                               
                                             {% if request.user|can_edit_post:question %}
                                             <span class="action-link"><a href="{% url edit_question question.id %}">{% trans 'edit' %}</a></span>
                                             <span class="action-link-separator">|</span>
@@ -145,55 +189,10 @@
 												<span class="darkred">{% if request.user|can_view_offensive_flags %}
 												{% if question.offensive_flag_count %}({{ question.offensive_flag_count }}){% endif %}{% endif %}</span>
                                             </span>
-                          </div>                                       
-                                            {% if question.last_edited_by %}
-                                            <div class="details">
-                                            <div class="date" >                                                                                                    
-                                                         {% trans "updated" %} <a href="{% url question_revisions question.id %}"><strong title="{{question.last_edited_at }}">{{ question.last_edited_at|timesince }} {% trans 'ago' %}</strong></a>
-                                                        
-                                                    {% if question.wiki %}
-                                                    
-                                                        <div class="user">{% gravatar question.last_edited_by 32 %}
-                                                       
-                                                            <a href="/users/{{ question.last_edited_by.id }}/{{ question.last_edited_by.username }}">{{ question.last_edited_by.username }}</a></div>
-                                                    
-                                                    
-                                                    {% else %}
-                                                    {% ifequal question.last_edited_by question.author %}
-                                                    
-                                                    {% else %}
-                                                   
-                                                        <div class="user">{% gravatar question.last_edited_by 32 %}
-                                                        
-                                                            <a href="/users/{{ question.last_edited_by.id }}/{{ question.last_edited_by.username }}">{{ question.last_edited_by.username }}</a>  {% get_score_badge question.last_edited_by %}</div>
-                                                                                                                                                                                                                  
-                                                          
-                                                      
-                                                    {% endifequal %}
-                                                    {% endif %}
-                                            <div class="clear"></div>  
-                                            </div>
-                                            {% endif %}
-                                                                                    
-                                            {% if question.wiki %}
-                                            <span class="wiki-category">{% trans "community wiki" %}</span>
-                                            
-                                            {% else %}
-                                            <div class="details">
-                                            <div  class="date">                                                
-                                                        {% trans "asked" %} <strong title="{{ question.added_at }}">{{ question.added_at|timesince }} {% trans 'ago' %}</strong>
-                                            </div>
-                                                        <div class="user">
-                                                        {% gravatar question.author 32 %}
-                                                        
-                                                        <a href="/users/{{ question.author.id }}/{{ question.author }}">{{ question.author }}</a>  {% get_score_badge question.author %}
-                                                            
-                                            </div>
-                                            <div class="clear"></div>
-                                            </div>
-                                            {% endif %}
-                                        
-                                    
+                          </div>
+                          <div class="clear"></div>
+                            
+                            </div>                            
                             </div>
                             <div class="clear"></div>
                             </div>
@@ -220,7 +219,7 @@
             {% block answers %}
             {% ifnotequal answers.length 0 %}
                 <div class="app-block">                    
-                    <h3>{{ answers|length }}{% trans "Answers" %}:</h3>
+                    <h4>{{ answers|length }} {% trans "Answers" %}:</h4>
                     <div class="app-menu">
                        <ul>  
                         <li><a id="oldest" href="?sort=oldest#sort-top" title="{% trans "oldest answers will be shown first" %}">{% trans "oldest answers" %}</a></li>
@@ -266,14 +265,13 @@
                                             {{ answer.html|safe }}
                                             {% endblock %}
                                         </div>
-                                        <div class="actions">
+                                             <div class="details" >
+                                                      <div class="actions">
                                             
                                                       {% include "answer_actions.html"%}
-                                        </div>                                                    
-                                                    {% if answer.last_edited_by %}
-                                                    <div class="details" >
-                                                        
-                                                            div class="date">{% trans "updated" %}<a href="{% url answer_revisions answer.id %}"><strong title="{{answer.last_edited_at }}">{{ answer.last_edited_at|timesince }} {% trans 'ago' %}</strong></a></div>
+                                                     </div> 
+                                                                                           
+                                                    {% if answer.last_edited_by %}                                                                                                             
                                                                 
                                                             {% if answer.wiki %}
                                                             <div class="user">
@@ -291,27 +289,28 @@
                                                                 
                                                             {% endifequal %}
                                                             {% endif %}
-                                                        <div class="clear"></div>
-                                                    </div>
+
+                                                          <div class="date">{% trans "updated" %}<a href="{% url answer_revisions answer.id %}"><strong title="{{answer.last_edited_at }}">{{ answer.last_edited_at|timesince }} {% trans 'ago' %}</strong></a></div>
                                                     {% endif %}
                                                                                                    
                                                     {% if answer.wiki %}
                                                     <span class="wiki-category">{% trans "community wiki" %}</span>
                                                    
                                                     {% else %}
-                                                    <div  class="details">
-                                                        <div class="date">
-                                                                {% trans "answered" %} <strong title="{{answer.added_at}}">{{ answer.added_at|timesince }} {% trans 'ago' %}</strong>
-                                                         </div>
+                                                   
+                                                        
                             	                         <div class="user">   
                                                                 {% gravatar answer.author 32 %}
                                                               
                                                                     <a href="/users/{{ answer.author.id }}/{{ answer.author.username }}">{{ answer.author }}</a>{% get_score_badge answer.author %}
                                                          </div>
-                                                         <div class="clear"></div>     
-                                                    </div>
+                                                         <div class="date">
+                                                                {% trans "answered" %} <strong title="{{answer.added_at}}">{{ answer.added_at|timesince }} {% trans 'ago' %}</strong>
+                                                         </div>
+                                                        
                                                     {% endif %}
-                                                    
+                                          <div class="clear"></div>     
+                                         </div>           
                                                 
                                         </div>
                                         <div class="clear"></div>
@@ -340,34 +339,27 @@
             </div>
             
             {% if not question.closed %}
-            <div style="padding:10px 0 0 0;">
-                <div class="headNormal">{% trans "Your answer" %}:</div>
-            </div>
+           
+                <p class="p_answer">{% trans "Your answer" %}:</p>
+            
             {% if not request.user.is_authenticated %}
-                <div class="message">{% trans "you can answer anonymously and then login" %}</div>
+                <p class="message">{% trans "you can answer anonymously and then login" %}</p>
             {% endif %}
 
-            <div id="description" class="" >
-                <div id="wmd-button-bar" class="wmd-panel"></div>
+            <div id="description">
+                
                 {{ answer.text }}
-                <div class="preview-toggle">
-                    <table width="100%">
-                        <tr>
-                            <td>
-                                <span id="pre-collapse" 
-									title="{% trans "Toggle the real time Markdown editor preview" %}">{% trans "toggle preview" %}</span>
-                            </td>
-                            <td style="text-align:right;">
-                                {{ answer.wiki }} <span style="font-weight:normal;cursor:help" title="{{answer.wiki.help_text}}">{{ answer.wiki.label_tag }} </span>
-                            </td>
-                        </tr>
-                    
-                    </table>  
-                </div>
-                <div id="previewer" class="wmd-preview"></div>
+                <div class="preview-toggle">                    
+                        <span id="pre-collapse" 
+				      title="{% trans "Toggle the real time Markdown editor preview" %}">{% trans "toggle preview" %}</span>
+                            
+                                <span id="wiki" title="{{answer.wiki.help_text}}">{{ answer.wiki }} {{ answer.wiki.label_tag }} </span>
+                            
+               </div>
+                
                 {{ answer.text.errors }}
-            </div>
-            <br>
+           </div>
+            
             <input type="submit" value="{% trans "Answer the question" %}" class="submit"><span class="form-error"></span>
                 {% if request.user.is_authenticated %}
                     {{ answer.email_notify }} <label for="question-subscribe-updates">{% trans "Notify me daily if there are any new answers." %}</label>
@@ -427,6 +419,18 @@
 {% block endjs %}
 {% endblock %}
 <!-- end question.html -->
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

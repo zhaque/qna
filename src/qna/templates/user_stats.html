@@ -60,7 +60,7 @@
             <div class="description">{% trans "Tags" %}</div>                
         </div>
         
-            <div class="tags">                
+            <div class="tags" style="margin:0 25px;">                
                         {% for tag in tags%}
                         <a rel="tag" title="{% blocktrans %}see other questions tagged '{{ tag }}' {% endblocktrans %}" href="{% url tag_search tag|urlencode %}">{{tag.name}}<span class="tag-number"> × {{ tag.used_count|intcomma }}</span></a>                          
                         {% endfor %}  
@@ -92,6 +92,7 @@
 </div>
 {% endblock %}
 <!-- end user_stats.html -->
+
 
 
 

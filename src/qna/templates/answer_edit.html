@@ -44,7 +44,7 @@
         
 {% block content %}
 <div class="app-block">
-    <h3>{% trans "Edit answer" %} [<a href="{{ answer.question.get_absolute_url }}#{{ answer.id }}">{% trans "back" %}</a>]</h3>
+<h3>{% trans "Edit answer" %} [<a href="{{ answer.question.get_absolute_url }}#{{ answer.id }}">{% trans "back" %}</a>]</h3>
 <div class="app-block-content">
     <div id="askform">
         <form id="fmedit" action="{% url edit_answer answer.id %}" method="post" >
@@ -83,7 +83,10 @@
 {% include "answer_edit_tips.html" %}
 {% endblock %}
 
+
 {% block endjs %}
 {% endblock %}
 <!-- end template answer_edit.html -->
+
+
 

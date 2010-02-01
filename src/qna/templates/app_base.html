@@ -58,17 +58,17 @@
                             </form>
                     </div>
             </div>
-	        <div id="bd" class="{% block type %}app-bd{% endblock %}">
+	    <div id="bd" class="{% block type %}app-bd{% endblock %}">
 	            <div id="{% block column %}yui-main{% endblock %}">
 	                <div class="{% block grid %}yui-b{% endblock %}">
-		              {% block landing_main %}{% endblock %}
-		              {% block content %}{% endblock %}	
-		            </div>
-		            {% block extra_content %}{% endblock %}		
-                </div>
+		              {% block landing_main %}{% endblock landing_main %}
+		              {% block content %}{% endblock content %}	
+		        </div>
+		            {% block extra_content %}{% endblock extra_content %}		
+                    </div>
                  <div class="yui-b app-sidebar">
-     	            {% block sidebar %}{% endblock %}		
-		    {% block extra_sidebar %}{% endblock %}
+     	            {% block sidebar %}{% endblock sidebar %}		
+		    {% block extra_sidebar %}{% endblock extra_sidebar %}
                  </div>
             </div>          
         
@@ -88,6 +88,11 @@
 		{% endblock %}	
     </body>
 </html>
+
+
+
+
+
 
 
 

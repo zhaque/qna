@@ -1,8 +1,8 @@
 <!-- question_edit_tips.html -->
 {% load i18n %}
 <div class="app-block">
-    <p class="subtitle darkred">{% trans "question tips" %}</p>
-    <div>
+    <h3>{% trans "question tips" %}</h3>
+    <div class="app-block-content">
         <ul class="list-item">
             <li> <b>{% trans "please ask a relevant question" %}</b>
             </li>
@@ -19,7 +19,8 @@
 </div>
 
 <div class="app-block">
-    <p class="subtitle">{% trans "Markdown tips" %}</p>
+    <h3>{% trans "Markdown tips" %}</h3>
+    <div class="app-block-content">
     <ul class="list-item">
         <li>
             {% trans "*italic* or __italic__" %}
@@ -48,5 +49,7 @@
     <a href="http://en.wikipedia.org/wiki/Markdown" target="_blank" style="float:right;position:relative">{% trans "learn more about Markdown" %} »</a>
     <br>  
 </div>
+</div>
 <!-- end question_edit_tips.html -->
+
 

@@ -44,7 +44,7 @@
 .yui-skin-app .app-bd h1 { font-size: 167%;  font-weight: bold;  margin:1em 1%; }  /* This style serves purely as a warning - if you see it in the page, remove the tag!  Only one h1 allowed in page! */
 .yui-skin-app .app-bd h2 { font-size:153.9%; margin: 0 0 0.4em 0.4em; }
 .yui-skin-app .app-bd h3 { margin: 10px 0 0 0; background-color: none; padding: 5px 5px 5px 15px; font-size:19px; }  /* Coloured block headings */
-.yui-skin-app .app-bd h4 { margin: 10px 0 0px 0; background-color: none; font-size:16px; }
+.yui-skin-app .app-bd h4 { margin: 10px 0 0px 0; background-color: none; font-size:16px; padding: 5px 5px 5px 15px; }
 .yui-skin-app .app-bd h5 { font-size:123.1%; margin:0.6em 1.2em; }
 .yui-skin-app .app-bd ul { padding-left: 0; }
 .yui-skin-app .app-bd ul li { font-size:12px; margin-left: 10px;}
@@ -75,31 +75,38 @@
 .yui-skin-app .app-bd .app-block .app-block-content .question .status {font-size:12px; float:left}
 
 /*Question page */
-.yui-skin-app .app-bd .app-block .app-block-content .question-page {border:1px solid #000; padding:2px;}
+.yui-skin-app .app-bd .app-block .app-block-content .question-page {border:1px solid #ccc; padding:7px;}
 .yui-skin-app .app-bd .app-block .app-block-content .question-page .buttons {float:left; width:30px;} 
 .yui-skin-app .app-bd .app-block .app-block-content .question-page .buttons .vote-number {font-size:12px; font-style:italic;}
 .yui-skin-app .app-bd .app-block .app-block-content .question-page .buttons .question-img-favorite {margin-top:8px;}
-.yui-skin-app .app-bd .app-block .app-block-content .question-page .question-body {float:left;}
+.yui-skin-app .app-bd .app-block .app-block-content .question-page .question-body {float:left; width:90%;}
 .yui-skin-app .app-bd .app-block .app-block-content .question-page .question-body .content {font-size:15px; font-weight:500;}
 .yui-skin-app .app-bd .app-block .app-block-content .question-page .question-body #question-tags {margin:3px 2px;}
-.yui-skin-app .app-bd .app-block .app-block-content .question-page .question-body .actions {width:300px; font-style:italic;}
 .yui-skin-app .app-bd .app-block .app-block-content .question-page .question-body .details {margin-top:15px;}
-.yui-skin-app .app-bd .app-block .app-block-content .question-page .question-body .details .date {font-size:11px; float:left;}
+.yui-skin-app .app-bd .app-block .app-block-content .question-page .question-body .details .actions { margin-top:30px; font-style:italic;float:right;}
+.yui-skin-app .app-bd .app-block .app-block-content .question-page .question-body .details .date {margin-top:20px; margin-left:10px; font-size:11px; float:left;}
 .yui-skin-app .app-bd .app-block .app-block-content .question-page .question-body .details .user {float:left;}
 .yui-skin-app .app-bd .app-block .app-block-content .post-comments {margin:10px 20px;}
 .yui-skin-app .app-bd .app-block .app-block-content .post-comments a {font-style:italic;}
 .yui-skin-app .app-bd .app-block .app-block-content .post-comments comments {/*background:#fff;*/}
 .yui-skin-app .app-bd .app-block .app-block-content .question-status h3 {font-size:15px; margin-left:15pz;}
-.yui-skin-app .app-bd .app-block .app-block-content .answer {padding:15px;}
+.yui-skin-app .app-bd .app-block .app-block-content .answer {margin:15px; padding:6px; border:1px solid #ffdc73;}
 .yui-skin-app .app-bd .app-block .app-block-content .answer .buttons {float:left; width:30px;}
 .yui-skin-app .app-bd .app-block .app-block-content .answer .buttons .vote-number {font-size:12px; font-style:italic;} 
 .yui-skin-app .app-bd .app-block .app-block-content .answer .answer-img-accept {margin-top:8px;}
 .yui-skin-app .app-bd .app-block .app-block-content .answer .answer-body {float:left; width:95%;}
 .yui-skin-app .app-bd .app-block .app-block-content .answer .answer-body .answer-content {font-size:15px; font-weight:500;}
-.yui-skin-app .app-bd .app-block .app-block-content .answer .answer-body .actions {width:300px; font-style:italic;}
 .yui-skin-app .app-bd .app-block .app-block-content .answer .answer-body .details {margin-top:15px;}
-.yui-skin-app .app-bd .app-block .app-block-content .answer .answer-body .details .date {font-size:11px; float:left;}
+.yui-skin-app .app-bd .app-block .app-block-content .answer .answer-body .details .actions {margin-top:30px; font-style:italic; float:right;}
+.yui-skin-app .app-bd .app-block .app-block-content .answer .answer-body .details .date {margin-top:20px; margin-left:10px;font-size:11px; float:left;}
 .yui-skin-app .app-bd .app-block .app-block-content .answer .answer-body .details .user {float:left;}
+.yui-skin-app .app-bd .app-block .app-block-content p.p_answer {font-size:14px; margin:10px 5px; font-weight:500; letter-spacing:3px;}
+.yui-skin-app .app-bd .app-block .app-block-content p.message {font-size:12px; font-style:italic;}
+.yui-skin-app .app-bd .app-block .app-block-content #description {margin:5px 20px;}
+.yui-skin-app .app-bd .app-block .app-block-content #description .preview-toggle {margin:7px 20px;}
+.yui-skin-app .app-bd .app-block .app-block-content #description .preview-toggle span#pre-collapse {font-size:12px; font-style:italic;}
+.yui-skin-app .app-bd .app-block .app-block-content #description .preview-toggle span#wiki {margin-left:80px;}
+.yui-skin-app .app-bd .app-block .app-block-content input.submit {margin:5px 20px; height:30px; font-size:14px;}
 
 /*User*/
 .yui-skin-app .app-bd .app-block .app-block-content .users {margin-left:20px; margin-right:20px;}
@@ -109,7 +116,7 @@
 .yui-skin-app .app-bd .app-block .app-block-content .users .user ul li.score {text-align:right; font-style:italic; margin-top:3px; display:inline;}
 .yui-skin-app .app-bd .app-block .app-block-content .users .user .thumb {margin-bottom:3px; display:inline}
 .yui-skin-app .app-bd .app-block .app-block-content .user-stats {margin-right:20px; margin-left:20px; padding:8px 5px 8px 5px;}
-.yui-skin-app .app-bd .app-block .app-block-content .user-stats .count {float:left; margin-left:5px; margin-right:3px;margin-bottom:5px;font-size:12px;}
+.yui-skin-app .app-bd .app-block .app-block-content .user-stats .count {float:left; margin-left:5px; margin-right:3px;margin-bottom:5px;font-size:12px;margin-top:4px;}
 .yui-skin-app .app-bd .app-block .app-block-content .user-stats .count span.vote-count {text-align:center; font-style:italic; float:left;}
 .yui-skin-app .app-bd .app-block .app-block-content .user-stats .description {font-size:16px; font-weight:600;}.
 .yui-skin-app .app-bd .app-block .app-block-content .user-stats-table .answer-summary {font-size:12px;}
@@ -191,7 +198,7 @@ body.yui-skin-app { color: #333; background-color: #EBEBEB; }
 
 /* Header */
 .yui-skin-app .app-hd {color:#fff}
-.yui-skin-app .app-hd {background-color:/*#232C30*/#040C72; }
+.yui-skin-app .app-hd {background-color:/*#232C30*/#00a3d4; }
 .yui-skin-app .app-hd .logo {margin: 0; padding: 0px 0px; float: left;}
 .yui-skin-app .app-hd .tagline { color:#fff; }
 .yui-skin-app .app-hd .tagline a:link, .yui-skin-app .app-hd .tagline a:visited { color:#fff;}
@@ -203,26 +210,26 @@ body.yui-skin-app { color: #333; background-color: #EBEBEB; }
 
 .yui-skin-app .app-hd .tagline a:link, .yui-skin-app .app-hd .tagline a:visited {color: #CDE; border-bottom: 1px dotted #345;}
 .yui-skin-app .app-hd .tagline a:hover {color: #fff; border-bottom: 1px dotted #CDE;}
-.yui-skin-app .app-hd .app-search #searchInput {background-color:#23B1D6} 
-.yui-skin-app .app-hd .app-search #searchButton {background-color:#6CCa49;color:#fff;}
+.yui-skin-app .app-hd .app-search #searchInput {background-color:#fff; font-size:14px;} 
+.yui-skin-app .app-hd .app-search #searchButton {background-color:#D8DCDC;color:#fff;}
 
 /* Body */
 .yui-skin-app .app-bd h1 {color:#f00;}
 .yui-skin-app .app-bd h2 {color:#0f00;} 
-.yui-skin-app .app-bd h3 { background-color:#A0C2DE; border-color:#064780; color: #456; } 
-.yui-skin-app .app-bd h4 { color: #456; }
+.yui-skin-app .app-bd h3 { background-color:#00a3d4; border-color:#064780; color: #456; } 
+.yui-skin-app .app-bd h4 { color: #456; background-color:#fff; }
 .yui-skin-app .app-bd h5 { color: #456; }
 .yui-skin-app .app-bd { background-color:#EBEBEB; color: #333; }
 .yui-skin-app .app-bd .app-block .app-menu ul li a{ border-left: 1px solid #ddd;
   border-top: 1px solid #ddd; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;
   background: #fff;}
-.yui-skin-app .app-bd .app-block .app-menu ul li a:visited {color:#A40000;}
-.yui-skin-app .app-bd .app-block .app-menu ul li:hover a {background:#008400; color:#FDDC00;}
+.yui-skin-app .app-bd .app-block .app-menu ul li a:visited {color:#0077BB;}
+.yui-skin-app .app-bd .app-block .app-menu ul li:hover a {background:#85E01A; color:#fff;}
 .yui-skin-app .app-bd .app-block .app-block-content { border-left: 1px solid #ddd;
   border-top: 1px solid #ddd; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;
   background: #eee;}
 
-.yui-skin-app .app-bd .app-block .app-block-content .question {background:#FFFEC1;}
+.yui-skin-app .app-bd .app-block .app-block-content .question {background:#F7FFF4;}
 .yui-skin-app .app-bd .app-block .app-block-content .question .summary p.title {color:#11197D;}
 .yui-skin-app .app-bd .app-block .app-block-content .question .summary span.info {color:#000;}
 .yui-skin-app .app-bd .app-block .app-block-content .question .box-answers {background:#2AD221; color: #B47F09;}
@@ -247,8 +254,8 @@ body.yui-skin-app { color: #333; background-color: #EBEBEB; }
 .yui-skin-app .app-bd .app-block .app-block-content .tags span.tag-number {color:#FF3328;}
 
 /* Sidebar */
-.yui-skin-app .app-bd .app-sidebar h3 {/* background: #fff; border-bottom:1px solid #ccc;border-right:1px solid #ccc; border-left:1px solid #ddd; border-top:1px solid #ddd; color: #333;*/  background-color:#A0C2DE; border-color:#064780; color: #456;}
-.yui-skin-app .app-bd .app-sidebar .question-box h4 {color:#6CCa49;}
+.yui-skin-app .app-bd .app-sidebar h3 {/* background: #fff; border-bottom:1px solid #ccc;border-right:1px solid #ccc; border-left:1px solid #ddd; border-top:1px solid #ddd; color: #333;*/  background-color:#00a3d4; border-color:#064780; color: #456;}
+.yui-skin-app .app-bd .app-sidebar .question-box h4 {color:#6CCa49; background-color:transparent}
 .yui-skin-app .app-bd .app-sidebar .question-box .question-input {background:#fff; border:3px solid #6CCa49;}
 .yui-skin-app .app-bd .app-sidebar .question-box .question-submit {background:#6CCa49; color:#fff}
 
@@ -276,6 +283,35 @@ body.yui-skin-app { color: #333; background-color: #EBEBEB; }
 .uniForm button.button img, a.button img { margin:0 3px -3px 0 !important; padding:0; border:none; width:16px; height:16px; }
 .uniForm button.button:hover, a.button:hover { background-color:#dedede; } 
 .uniForm button.button:active, a.button:active { background-color:#e5e5e5; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
