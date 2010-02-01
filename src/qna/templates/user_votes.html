@@ -11,9 +11,9 @@
                 <div style="width:150px;float:left">{{ vote.voted_at|timesince }} {% trans 'ago' %}</div>
                 <div style="width:30px;float:left">
                 {% ifequal vote.vote 1 %}
-                    <img src="{{ MEDIA_URL }}/images/vote-arrow-up-on.png" title="{% trans "upvote" %}">
+                    <img src="{{ MEDIA_URL }}/img/vote-arrow-up-on.png" title="{% trans "upvote" %}">
                 {% else %}
-                    <img src="{{ MEDIA_URL }}/images/vote-arrow-down-on.png" title="{% trans "downvote" %}">
+                    <img src="{{ MEDIA_URL }}/img/vote-arrow-down-on.png" title="{% trans "downvote" %}">
                 {% endifequal %}
                 </div>
                 <div style="float:left;overflow:hidden;width:750px">
@@ -29,3 +29,4 @@
         </div>
 {% endblock %}
 <!-- end user_votes.html -->
+

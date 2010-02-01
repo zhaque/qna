@@ -1,4 +1,4 @@
-{% extends "base_content.html" %}
+{% extends "app_base.html" %}
 <!-- revisions_question.html -->
 <!--somehow very similar to revisions_answer.html-->
 {% load extra_tags %}
@@ -32,10 +32,9 @@
 {% endblock %}
         
 {% block content %}
-<div id="main-bar" class="headNormal">
-    {% trans "Revision history" %}[<a href="{{ post.get_absolute_url }}">{% trans "back" %}</a>]
-</div>
-<div id="main-body" class="">
+<div class="app-block">
+    <h3>{% trans "Revision history" %}[<a href="{{ post.get_absolute_url }}">{% trans "back" %}</a>]</h3>
+<div class="app-block-content">
     <div id="revisions">
     {% for revision in revisions %}
       <div class="revision">
@@ -95,8 +94,10 @@
     {% endfor %}
     </div>
 </div>
+</div>
 {% endblock %}
 
 {% block endjs %}
 {% endblock %}
 <!-- end revisions_question.html -->
+

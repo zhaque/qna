@@ -75,7 +75,7 @@
 .yui-skin-app .app-bd .app-block .app-block-content .question .status {font-size:12px; float:left}
 
 /*Question page */
-.yui-skin-app .app-bd .app-block .app-block-content .question-page {border:1px solid #ccc; padding:7px;}
+.yui-skin-app .app-bd .app-block .app-block-content .question-page {padding:7px;}
 .yui-skin-app .app-bd .app-block .app-block-content .question-page .buttons {float:left; width:30px;} 
 .yui-skin-app .app-bd .app-block .app-block-content .question-page .buttons .vote-number {font-size:12px; font-style:italic;}
 .yui-skin-app .app-bd .app-block .app-block-content .question-page .buttons .question-img-favorite {margin-top:8px;}
@@ -90,7 +90,7 @@
 .yui-skin-app .app-bd .app-block .app-block-content .post-comments a {font-style:italic;}
 .yui-skin-app .app-bd .app-block .app-block-content .post-comments comments {/*background:#fff;*/}
 .yui-skin-app .app-bd .app-block .app-block-content .question-status h3 {font-size:15px; margin-left:15pz;}
-.yui-skin-app .app-bd .app-block .app-block-content .answer {margin:15px; padding:6px; border:1px solid #ffdc73;}
+.yui-skin-app .app-bd .app-block .app-block-content .answer {margin:15px; padding:6px;}
 .yui-skin-app .app-bd .app-block .app-block-content .answer .buttons {float:left; width:30px;}
 .yui-skin-app .app-bd .app-block .app-block-content .answer .buttons .vote-number {font-size:12px; font-style:italic;} 
 .yui-skin-app .app-bd .app-block .app-block-content .answer .answer-img-accept {margin-top:8px;}
@@ -188,8 +188,8 @@
 /* Generics */
 html {background-color:#ddd;}
 body.yui-skin-app { color: #333; background-color: #EBEBEB; }
-.yui-skin-app a:link, a:visited { color: #07b; }
-.yui-skin-app a, a:hover, a:active { color: #d30; }
+.yui-skin-app a:link, a:visited { color: #0076A0; }
+.yui-skin-app a, a:hover, a:active { color: #0076A0; }
 .yui-skin-app abbr,
 .yui-skin-app acronym { border-color: #000; }
 .yui-skin-app h1 { color: #444 }
@@ -216,7 +216,8 @@ body.yui-skin-app { color: #333; background-color: #EBEBEB; }
 /* Body */
 .yui-skin-app .app-bd h1 {color:#f00;}
 .yui-skin-app .app-bd h2 {color:#0f00;} 
-.yui-skin-app .app-bd h3 { background-color:#00a3d4; border-color:#064780; color: #456; } 
+.yui-skin-app .app-bd h3 { background-color:#00a3d4; border-color:#064780; color: #456; }
+.yui-skin-app .app-bd h3 a {color:#456;} 
 .yui-skin-app .app-bd h4 { color: #456; background-color:#fff; }
 .yui-skin-app .app-bd h5 { color: #456; }
 .yui-skin-app .app-bd { background-color:#EBEBEB; color: #333; }
@@ -244,6 +245,8 @@ body.yui-skin-app { color: #333; background-color: #EBEBEB; }
 .yui-skin-app .app-bd .app-block .app-block-content .question .status .unanswered {color:red;}
 .yui-skin-app .app-bd .app-block .app-block-content .question .status .answer-accepted {color:blue;}
 .yui-skin-app .app-bd .app-block .app-block-content .question .status .answered {color:black;}
+.yui-skin-app .app-bd .app-block .app-block-content .question-page {border:1px solid #ccc; padding:7px; background-color:#F7FFF4;}
+.yui-skin-app .app-bd .app-block .app-block-content .answer {margin:15px; padding:6px; background-color:#ECF4FF}
 
 /*users*/
 .yui-skin-app .app-bd .app-block .app-block-content .users .list-table {color:#000;}
@@ -254,7 +257,7 @@ body.yui-skin-app { color: #333; background-color: #EBEBEB; }
 .yui-skin-app .app-bd .app-block .app-block-content .tags span.tag-number {color:#FF3328;}
 
 /* Sidebar */
-.yui-skin-app .app-bd .app-sidebar h3 {/* background: #fff; border-bottom:1px solid #ccc;border-right:1px solid #ccc; border-left:1px solid #ddd; border-top:1px solid #ddd; color: #333;*/  background-color:#00a3d4; border-color:#064780; color: #456;}
+.yui-skin-app .app-bd .app-sidebar h3 {/* background: #fff; border-bottom:1px solid #ccc;border-right:1px solid #ccc; border-left:1px solid #ddd; border-top:1px solid #ddd; color: #333;*/ /* background-color:#00a3d4; border-color:#064780; color: #456;*/ background-color:#000; color:#fff}
 .yui-skin-app .app-bd .app-sidebar .question-box h4 {color:#6CCa49; background-color:transparent}
 .yui-skin-app .app-bd .app-sidebar .question-box .question-input {background:#fff; border:3px solid #6CCa49;}
 .yui-skin-app .app-bd .app-sidebar .question-box .question-submit {background:#6CCa49; color:#fff}
@@ -283,63 +286,6 @@ body.yui-skin-app { color: #333; background-color: #EBEBEB; }
 .uniForm button.button img, a.button img { margin:0 3px -3px 0 !important; padding:0; border:none; width:16px; height:16px; }
 .uniForm button.button:hover, a.button:hover { background-color:#dedede; } 
 .uniForm button.button:active, a.button:active { background-color:#e5e5e5; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

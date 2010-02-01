@@ -1,4 +1,4 @@
-{% extends "base_content.html" %}
+{% extends "app_base.html" %}
 <!-- reopen.html -->
 {% load extra_tags %}
 {% load i18n %}
@@ -12,10 +12,9 @@
         </script>
 {% endblock %}
 {% block content %}
-<div id="main-bar" class="headNormal">
-	{% trans "Reopen question" %}
-</div>
-<div id="main-body" style="width:100%">
+<div class="app-block">
+	<h3>{% trans "Reopen question" %}</h3>
+<div class="app-block-content">
     <p>{% trans "Open the previously closed question" %}: <a href="{{ question.get_absolute_url }}"><span class="big">{{ question.get_question_title }}</span></a>
     
     </p>   
@@ -33,5 +32,7 @@
         
     </form>
 </div>
+</div>
 {% endblock %}
 <!-- end reopen.html -->
+

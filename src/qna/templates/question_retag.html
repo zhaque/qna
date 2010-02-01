@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "app_base.html" %}
 <!-- question_retag.html -->
 {% block title %}{% spaceless %}{% trans "Change tags" %}{% endspaceless %}{% endblock %}
 {% block forejs %}
@@ -48,10 +48,9 @@
 {% endblock %}
         
 {% block content %}
-<div id="main-bar" class="headNormal">
-    {% trans "Change tags" %} [<a href="{{ question.get_absolute_url }}">{% trans "back" %}</a>]
-</div>
-<div id="main-body" class="ask-body">
+<div class="app-block">
+    <h3>{% trans "Change tags" %} [<a href="{{ question.get_absolute_url }}">{% trans "back" %}</a>]</h3>
+<div class="app-block-content">
     <div id="askform">
         <form id="fmretag" action="{% url edit_question question.id %}" method="post" >
             <h3>
@@ -79,11 +78,13 @@
         </form>
     </div>
 </div>
+</div>
 {% endblock %}
 
 {% block sidebar %}
-<div class="boxC">
-    <p class="subtitle">{% trans "Why use and modify tags?" %}</p>
+<div class="app-block">
+    <h3>{% trans "Why use and modify tags?" %}</h3>
+<div class="app-block-content">
     <ul class="list-item">
         <li>
             {% trans "tags help us keep Questions organized" %}
@@ -98,9 +99,10 @@
     <a href="{% url faq %}" style="float:right;position:relative">faq »</a>
     <br>  
 </div>
-
+</div>
 {% endblock %}
 
 {% block endjs %}
 {% endblock %}
 <!-- end question_retag.html -->
+
