@@ -1,0 +1,10 @@
+{% extends "app_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans 'Account not activated' %}{% endblock %}
+
+{% block content %}
+  <h1>{% trans 'Account not activated' %}</h1>
+  <p>{% blocktrans %}Sorry, it didn't work. Either your activation link was incorrect, or
+  the activation key for your account has expired.{% endblocktrans %}</p>
+{% endblock %}

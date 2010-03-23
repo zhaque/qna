@@ -30,7 +30,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.transaction.TransactionMiddleware',
-    'django_authopenid.middleware.OpenIDMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     #'pagination.middleware.PaginationMiddleware',
@@ -40,7 +39,6 @@ MIDDLEWARE_CLASSES = (
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.core.context_processors.request',
-    'django_authopenid.context_processors.authopenid',
     'qna.context_processors.auth_processor',
     'qna.context_processors.application_settings',
     )
@@ -60,7 +58,7 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'django_extensions',
     'profiles',
-    'django_authopenid',
+    'registration',
     'app_media',
     'qna',
     'qna_profile',
@@ -122,6 +120,8 @@ TEMPLATESADMIN_VALID_FILE_EXTENSIONS = (
 TEMPLATESADMIN_EDITHOOKS = (
          'templatesadmin.edithooks.dotbackupfiles.DotBackupFilesHook',
    )
+
+ACCOUNT_ACTIVATION_DAYS = 7
 
 # User settings
 try:
