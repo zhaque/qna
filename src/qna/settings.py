@@ -72,7 +72,7 @@ INTERNAL_IPS = ('127.0.0.1',)
 
 #for OpenID auth
 ugettext = lambda s: s
-LOGIN_URL = '/accounts/signin'
+LOGIN_URL = '/accounts/login'
 
 #EMAIL AND ADMINS
 ADMINS = (

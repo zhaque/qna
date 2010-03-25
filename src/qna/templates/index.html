@@ -80,10 +80,18 @@
 {% endif %}
 <div class="question-box">
 <h4>Ask a Question</h4>
-           <form method="post" action="#">
-           <textarea class="question-input"></textarea>
+{% if not request.user.is_authenticated %}
+            <div class="message">
+  			    <p>{% url auth_login as login_url %}{% with request.get_full_path as next_path %}{% blocktrans %}<a href="{{ login_url }}?next={{next_path}}">login</a> to post question info{% endblocktrans %}{% endwith %}</p>
+            </div>
+{% else %}
+           <form method="post" action="{% url forum.views.ask %}">
+           {{ askform.title }}
+           {{ askform.text }}
+           {{ askform.tags }}
            <input type="submit" value="Submit!" class="question-submit" />
            </form>
+{% endif %}
 </div>
 <div class="app-block">
 	<h3>{% trans "Recent tags" %}</h3>

@@ -75,7 +75,7 @@ def _get_tags_cache_json(queryset=Tag.objects.filter(deleted=False)):
     return tags
 
 def index(request, queryset=Question.objects.all(), template_name='index.html', 
-          tag_queryset=Tag.objects.filter(deleted=False)):
+          tag_queryset=Tag.objects.filter(deleted=False), form_class=AskForm):
     view_id = request.GET.get('sort', None)
     view_dic = {
         "latest":"-last_activity_at",
@@ -104,6 +104,7 @@ def index(request, queryset=Question.objects.all(), template_name='index.html',
                               "tab_id": view_id,
                               "tags": tags,
                               "awards": awards[:INDEX_AWARD_SIZE],
+                              'askform': form_class()
                               }, context_instance=RequestContext(request))
 
 def about(request):
