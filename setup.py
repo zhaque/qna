@@ -19,7 +19,6 @@ install_requires = [
     'oauth==1.0.1',
 
     'app_media',
-    'django_authopenid',
     'django-profiles',
     'django-registration',
     'pyfacebook',
@@ -41,8 +40,8 @@ setup(
     description = "Q&A System",
     long_description = read('README'),
     author = 'Chen Gang',
-    url = 'http://answerlog.net.com',
-    maintainer="Answerlog",
+    url = 'http://crowdsense.com',
+    maintainer="Crowdsense",
     maintainer_email="admin@answerlog.net",
     packages = find_packages('src'),
     package_dir = {'': 'src'},
