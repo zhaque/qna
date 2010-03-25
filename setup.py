@@ -21,6 +21,8 @@ install_requires = [
     'django_authopenid',
     'django-profiles',
     'django-registration',
+    'pyfacebook',
+    'django-socialregistration',
 ]
 
 extras_require = dict(
