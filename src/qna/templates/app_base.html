@@ -52,8 +52,8 @@
 		        </div>
 	     	    <div class="app-nav">{% block nav %}{% endblock %}</div>
                     <div class="app-search">
-                            <form method="post" action="#">
-                            <input type="text" id="searchInput" />
+                            <form method="get" action="{% url search %}">
+                            <input type="text" id="searchInput" name='q'/>
                             <input type="submit" value="Search Questions" id="searchButton" />
                             </form>
                     </div>

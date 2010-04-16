@@ -1769,13 +1769,13 @@ def search(request, queryset=Question.objects.all(), tag_queryset=Tag.objects.al
     For questions now we only search keywords in question title.
     """
     if request.method == "GET":
-        keywords = request.GET.get("q").strip()
-        search_type = request.GET.get("t")
+        keywords = request.GET.get("q",'').strip()
+        search_type = request.GET.get("t", 'question')
         try:
             page = int(request.GET.get('page', '1'))
         except ValueError:
             page = 1
-        if keywords is None:
+        if not keywords:
             return HttpResponseRedirect('/')
         if search_type == 'tag':
             return HttpResponseRedirect('/tags/?q=%s&page=%s' % (keywords.strip(), page))
