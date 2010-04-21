@@ -1,4 +1,4 @@
-﻿var lanai =
+var lanai =
 {
     /**
      * Finds any <pre><code></code></pre> tags which aren't registered for
@@ -28,7 +28,7 @@ var Vote = function(){
     var questionAuthorId;
     var currentUserId;
     var answerContainerIdPrefix = 'answer-container-';
-    var voteContainerId = 'vote-buttons';
+    var voteContainerId = 'buttons';
     var imgIdPrefixAccept = 'answer-img-accept-';
     var imgClassPrefixFavorite = 'question-img-favorite';
     var imgIdPrefixQuestionVoteup = 'question-img-upvote-';
