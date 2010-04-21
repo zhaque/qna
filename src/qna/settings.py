@@ -59,6 +59,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'profiles',
     'registration',
+    'oembed',
     'app_media',
     'qna',
     'qna_profile',

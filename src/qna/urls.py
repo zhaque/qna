@@ -50,7 +50,7 @@ urlpatterns = patterns('',
     url(r'^questions/(?P<question_id>\d+)/comments/(?P<comment_id>\d+)/delete/$', app.delete_question_comment, name='delete_question_comment'),
     url(r'^answers/(?P<answer_id>\d+)/comments/(?P<comment_id>\d+)/delete/$', app.delete_answer_comment, name='delete_answer_comment'),
     #place general question item in the end of other operations
-    url(r'^questions/(?P<slug>[\w-]+)/$', app.question, name='question'),
+    url(r'^questions/(?P<slug>[\w-]+)/$', app.question, {'template_name': 'question-oembed.html'}, name='question'),
     url(r'^tags/$', app.tags, name="tags"),
     
     url(r'^tags/(?P<tag>[^/]+)/$', 'forum.views.tagged_search', name='tag_search'),

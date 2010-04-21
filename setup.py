@@ -17,6 +17,7 @@ install_requires = [
     'django-extensions==0.4.1',
     'django-templatesadmin==0.6',
     'oauth==1.0.1',
+    'django-oembed==0.1.1',
 
     'app_media',
     'django-profiles',
