@@ -50,6 +50,9 @@
         }
          
         </script>
+
+  {% block endjs %}
+  {% endblock %}
 {% endblock %}
         
 {% block content %}
@@ -347,6 +350,7 @@
             {% endif %}
 
             <div id="description">
+                <div id="wmd-button-bar" class="wmd-panel"></div>                
                 {{ answer.text }}
                 <div class="preview-toggle">                    
                         <span id="pre-collapse" 
@@ -413,9 +417,6 @@
  </div>
 </div>
 
-{% endblock %}
-
-{% block endjs %}
 {% endblock %}
 <!-- end question.html -->
 
