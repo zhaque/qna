@@ -46,8 +46,8 @@ var Vote = function(){
     var removeAnswerLinkIdPrefix = 'answer-delete-link-';
     var questionSubscribeUpdates = 'question-subscribe-updates';
     
-    var acceptAnonymousMessage = $.i18n._('insufficient privilege');
-    var acceptOwnAnswerMessage = $.i18n._('cannot pick own answer as best');
+    var acceptAnonymousMessage = '<p>' + $.i18n._('insufficient privilege') + '</p>';
+    var acceptOwnAnswerMessage = '<p>' + $.i18n._('cannot pick own answer as best') + '</p>';
     var favoriteAnonymousMessage = '<p>' + $.i18n._('anonymous users cannot select favorite questions') + '</p>' 
 					+ "<a href='/accounts/signin/?next=/questions/{{QuestionSlug}}'>"
 					+ $.i18n._('please login') + "</a>";
