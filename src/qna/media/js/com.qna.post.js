@@ -153,17 +153,17 @@ var Vote = function(){
     var setVoteImage = function(voteType, undo, object){
         var flag = undo ? "" : "-on";
         var arrow = (voteType == VoteType.questionUpVote || voteType == VoteType.answerUpVote) ? "up" : "down";
-        object.attr("src", "/content/images/vote-arrow-"+ arrow + flag +".png");
+        object.attr("src", "/media/qna/images/vote-arrow-"+ arrow + flag +".png");
         
         // if undo voting, then undo the pair of arrows.
         if(undo){
             if(voteType == VoteType.questionUpVote || voteType == VoteType.questionDownVote){
-                $(getQuestionVoteUpButton()).attr("src", "/content/images/vote-arrow-up.png");
-                $(getQuestionVoteDownButton()).attr("src", "/content/images/vote-arrow-down.png");
+                $(getQuestionVoteUpButton()).attr("src", "/media/qna/images/vote-arrow-up.png");
+                $(getQuestionVoteDownButton()).attr("src", "/media/qna/images/vote-arrow-down.png");
             }
             else{
-                $(getAnswerVoteUpButton(postId)).attr("src", "/content/images/vote-arrow-up.png");
-                $(getAnswerVoteDownButton(postId)).attr("src", "/content/images/vote-arrow-down.png");
+                $(getAnswerVoteUpButton(postId)).attr("src", "/media/qna/images/vote-arrow-up.png");
+                $(getAnswerVoteDownButton(postId)).attr("src", "/media/qna/images/vote-arrow-down.png");
             }
         }
     };
@@ -258,19 +258,19 @@ var Vote = function(){
             showMessage(object, acceptOwnAnswerMessage);
         }
         else if(data.status == "1"){
-            object.attr("src", "/content/images/vote-accepted.png");
+            object.attr("src", "/media/qna/images/vote-accepted.png");
             $("#"+answerContainerIdPrefix+postId).removeClass("accepted-answer");
             $("#"+commentLinkIdPrefix+postId).removeClass("comment-link-accepted");
         }
         else if(data.success == "1"){
             var acceptedButtons = 'div.'+ voteContainerId +' img[id^='+ imgIdPrefixAccept +']';
-            $(acceptedButtons).attr("src", "/content/images/vote-accepted.png");
+            $(acceptedButtons).attr("src", "/media/qna/images/vote-accepted.png");
             var answers = ("div[id^="+answerContainerIdPrefix +"]");
             $(answers).removeClass("accepted-answer");
             var commentLinks = ("div[id^="+answerContainerIdPrefix +"] div[id^="+ commentLinkIdPrefix +"]");
             $(commentLinks).removeClass("comment-link-accepted");
             
-            object.attr("src", "/content/images/vote-accepted-on.png");
+            object.attr("src", "/media/qna/images/vote-accepted-on.png");
             $("#"+answerContainerIdPrefix+postId).addClass("accepted-answer");
             $("#"+commentLinkIdPrefix+postId).addClass("comment-link-accepted");
         }
@@ -284,7 +284,7 @@ var Vote = function(){
             showMessage(object, favoriteAnonymousMessage.replace("{{QuestionSlug}}", questionSlug));
         }
         else if(data.status == "1"){
-            object.attr("src", "/content/images/vote-favorite-off.png");
+            object.attr("src", "/media/qna/images/vote-favorite-off.png");
             var fav = getFavoriteNumber();
             fav.removeClass("my-favorite-number");
             if(data.count == 0)
@@ -292,7 +292,7 @@ var Vote = function(){
             fav.text(data.count);
         }
         else if(data.success == "1"){
-            object.attr("src", "/content/images/vote-favorite-on.png");
+            object.attr("src", "/media/qna/images/vote-favorite-on.png");
             var fav = getFavoriteNumber();
             fav.text(data.count);
             fav.addClass("my-favorite-number");
@@ -524,8 +524,8 @@ function createComments(type) {
         html += ' <span class="comment-date">(' + json.add_date + ')</span>';
 
         if (json.delete_url) {
-            var img = "/content/images/close-small.png";
-            var imgHover = "/content/images/close-small-hover.png";
+            var img = "/media/qna/images/close-small.png";
+            var imgHover = "/media/qna/images/close-small-hover.png";
             html += '<img onclick="' + objectType + 'Comments.deleteComment($(this), ' + json.object_id + ', \'' + json.delete_url + '\')" src="' + img;
             html += '" onmouseover="$(this).attr(\'src\', \'' + imgHover + '\')" onmouseout="$(this).attr(\'src\', \'' + img
             html += '\')" title="' + $.i18n._('delete this comment') + '" />';
