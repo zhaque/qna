@@ -56,11 +56,10 @@
 {% endblock %}
 
 {% block content %}
-<div id="main-bar" class="headNormal">
-	{% trans "Ask a question" %}
-</div>
-<div id="main-body" class="ask-body">
-    <div id="askform">
+<div class="app-block">
+    <h3>{% trans "Ask a question" %}</h3>
+<div  class="app-block-content">
+    <div id="description">
         <form id="fmask" action="" method="post" >
         {% block ask_form %}
 			{% if not request.user.is_authenticated %}
@@ -76,15 +75,15 @@
                     {% endif %}
                 {% endifequal %}
 			{% endif %}
-            <p class="form-item">
+            <div class="form-item">
                 <label for="id_title" ><strong>{{ form.title.label_tag }}:</strong></label> <span class="form-error"></span><br>
                 {{ form.title }} {{ form.title.errors }}
                 <div class="title-desc">
                     {{ form.title.help_text }}
                 </div>
-            </p>
+            </div>
 
-            <p class="form-item">
+            <div class="form-item">
                 <div id="wmd-button-bar" class="wmd-panel"></div>
                 {{ form.text }}
 
@@ -94,7 +93,7 @@
                             <td>
                                 <span id="pre-collapse" title="{% trans "Toggle the real time Markdown editor preview" %}">{% trans "toggle preview" %}</span>
                             </td>
-                            <td style="text-align:right;">
+                            <td>
                                 {{ form.wiki }} <span style="font-weight:normal;cursor:help" title="{{form.wiki.help_text}}">{{ form.wiki.label_tag }} </span>
                             </td>
                         </tr>
@@ -104,11 +103,11 @@
                 <div id="previewer" class="wmd-preview"></div>
                 <span class="form-error"></span>
                 <br>
-            </p>
-            <p class="form-item">
+            </div>
+            <div class="form-item">
                 <strong>{{ form.tags.label_tag }}:</strong> {% trans "(required)" %} <span class="form-error"></span><br>
                 {{ form.tags }}  {{ form.tags.errors }}
-            </p>
+            </div>
 			<p class="title-desc">
 				{{ form.tags.help_text }}
 			</p>
@@ -120,6 +119,7 @@
           {% endblock %}
         </form>
     </div>
+</div>
 </div>
 {% endblock %}
 
