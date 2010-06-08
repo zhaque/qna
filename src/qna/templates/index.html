@@ -86,8 +86,11 @@
             </div>
 {% else %}
            <form method="post" action="{% url forum.views.ask %}">
+           {{ askform.title.label_tag }}
            {{ askform.title }}
+           {{ askform.text.label_tag }}
            {{ askform.text }}
+           {{ askform.tags.label_tag }}
            {{ askform.tags }}
            <input type="submit" value="Submit!" class="question-submit" />
            </form>

@@ -216,8 +216,8 @@ body.yui-skin-app { color: #333; background-color: #EBEBEB; }
 /* Body */
 .yui-skin-app .app-bd h1 {color:#f00;}
 .yui-skin-app .app-bd h2 {color:#0f00;} 
-.yui-skin-app .app-bd h3 { background-color:#00a3d4; border-color:#064780; color: #456; }
-.yui-skin-app .app-bd h3 a {color:#456;} 
+.yui-skin-app .app-bd h3 { background-color:#00a3d4; border-color:#064780; color: #fff; }
+.yui-skin-app .app-bd h3 a {color:#fff;} 
 .yui-skin-app .app-bd h4 { color: #456; background-color:#fff; }
 .yui-skin-app .app-bd h5 { color: #456; }
 .yui-skin-app .app-bd { background-color:#EBEBEB; color: #333; }
@@ -258,9 +258,13 @@ body.yui-skin-app { color: #333; background-color: #EBEBEB; }
 
 /* Sidebar */
 .yui-skin-app .app-bd .app-sidebar h3 {/* background: #fff; border-bottom:1px solid #ccc;border-right:1px solid #ccc; border-left:1px solid #ddd; border-top:1px solid #ddd; color: #333;*/ /* background-color:#00a3d4; border-color:#064780; color: #456;*/ background-color:#000; color:#fff}
-.yui-skin-app .app-bd .app-sidebar .question-box h4 {color:#6CCa49; background-color:transparent}
-.yui-skin-app .app-bd .app-sidebar .question-box .question-input {background:#fff; border:3px solid #6CCa49;}
-.yui-skin-app .app-bd .app-sidebar .question-box .question-submit {background:#6CCa49; color:#fff}
+.yui-skin-app .app-bd .app-sidebar .question-box h4 {color:#fff; background-color:#00a3d4}
+.yui-skin-app .app-bd .app-sidebar .question-box .question-submit {background:#00a3d4; color:#fff}
+.yui-skin-app .app-bd .app-sidebar .question-box input,
+.yui-skin-app .app-bd .app-sidebar .question-box textarea
+{background:#fff; border:1px solid #ccc; width:100%;}
+.yui-skin-app .app-bd .app-sidebar .question-box label
+{color: #087782}
 
 /* Style the horizontal rules inside .block */
 .yui-skin-app .app-bd hr { background-color: #aaa;}
