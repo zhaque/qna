@@ -248,6 +248,12 @@ body.yui-skin-app { color: #333; background-color: #EBEBEB; }
 .yui-skin-app .app-bd .app-block .app-block-content .question-page {border:1px solid #ccc; padding:7px; background-color:#F7FFF4;}
 .yui-skin-app .app-bd .app-block .app-block-content .answer {margin:15px; padding:6px; background-color:#ECF4FF}
 
+.yui-skin-app .app-bd .app-block .app-block-content .vote-notification
+{position: absolute; background-color:#00a3d4; color:#fff; padding:3px}
+.yui-skin-app .app-bd .app-block .app-block-content .vote-notification h3,
+.yui-skin-app .app-bd .app-block .app-block-content .vote-notification p
+{margin:0; padding:0; font-weight:bold}
+
 /*users*/
 .yui-skin-app .app-bd .app-block .app-block-content .users .list-table {color:#000;}
 .yui-skin-app .app-bd .app-block .app-block-content .users .list-table .list-td.td a {color:#11197D;}
