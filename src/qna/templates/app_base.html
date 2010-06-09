@@ -32,14 +32,13 @@
 
                 <div class="app-nav-rhs">
 					  <ul>
-		                {% block nav-rhs-add %}
+            {% block nav-rhs-add %}
 						  <li>
-						    Something
 						  </li>
 						{% endblock %}						
 
 						{% if user.is_authenticated %}		 
-					      <li><a href="{% url edit_user %}">{{user}}</a></li>	
+					      <li>{% url edit_user as edit_user_url %}{% blocktrans %}Welcome, <a href="{{ edit_user_url }}">{{ user }}</a>{% endblocktrans %}</li>	
 					    {% ifequal user request.muaccount.owner %}
 					      <li><a href="{% url muaccounts_manage_general %}">{% trans "Manage site" %}</a></li>					
 					    {% endifequal %}
