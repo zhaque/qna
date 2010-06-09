@@ -54,6 +54,8 @@
                             <form method="get" action="{% url search %}">
                             <input type="text" id="searchInput" name='q'/>
                             <input type="submit" value="Search Questions" id="searchButton" />
+                            {% trans 'or' %}
+                            <a href="{% url ask %}">{% trans 'Ask' %}</a>
                             </form>
                     </div>
             </div>

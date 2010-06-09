@@ -34,8 +34,9 @@
 .yui-skin-app .app-hd .app-nav-rhs li a { font-size:95%;}
 .yui-skin-app .app-hd .app-nav-rhs ul li a:link, .yui-skin-app .app-hd .app-nav-rhs ul li a:visited, .yui-skin-app .app-hd .app-nav-rhs ul li a:hover, .yui-skin-app .app-hd .app-nav-rhs ul li a:active { text-decoration: none; }
 .yui-skin-app .app-hd .app-search {margin-left:32%; width:60%; margin-bottom:15px;}
-.yui-skin-app .app-hd .app-search #searchInput {width:65%;height:25px; margin:0; outline:0; vertical-align:top;} 
-.yui-skin-app .app-hd .app-search #searchButton {height:30px; text-align:center; font-size:17px; width:26%; margin-left:0; font-weight:800}
+.yui-skin-app .app-hd .app-search #searchInput {width:55%;height:25px; margin:0; outline:0; vertical-align:top;} 
+.yui-skin-app .app-hd .app-search #searchButton {height:30px; text-align:center; font-size:17px; width:26%; margin-left:0; font-weight:800; margin-right:0.5em}
+.yui-skin-app .app-hd .app-search a {font-size:17px; font-weight:800; color:#fff; text-decoration:underline; margin-left:0.5em;} 
 
 /* Body */
 .yui-skin-app .app-bd  { width: 95%;}
