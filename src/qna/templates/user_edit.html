@@ -15,12 +15,11 @@
         {% endblock %}
 {% endblock %}
 {% block content %}
-<div id="main-bar" class="headNormal">
-    {{ request.user.username }} - {% trans "edit profile" %}
-</div>
-<div id="main-body" style="width:100%;padding-top:10px">
+<div class="app-block">
+	<h3>{% filter capfirst %}{{ request.user.username }} - {% trans "edit profile" %}{% endfilter %}</h3>
+<div class="app-block-content">
     <form name="" action="" method="post">
-        <div id="left" style="float:left;width:180px">
+        <div id="left" style="float:right">
             {% if request.user.email %}
             {% gravatar request.user 128 %}
             {% else %}
@@ -32,23 +31,34 @@
             </div>
         </div>
         
-        <div id="askform" style="float:right;width:750px;text-align:left;">
-            <h2>{% trans "Registered user" %}</h2>
+        <div id="askform">
             <table class="user-details">
-              <tr>
-                  <th width="100px"></th>
-                  <th></th>
-              </tr>
-              {{ form }}
+              {{ form.as_table }}
             </table>
-            <div style="margin:30px 0 60px 0">
-                <input type="submit" value="{% trans "Update" %}" class="submit" >
-                <input id="cancel" type="button" value="{% trans "Cancel" %}" class="submit" >
-          
+            <div>
+                <input type="submit" value="{% trans "Update" %}" class="submit" />
+                <input id="cancel" type="button" value="{% trans "Cancel" %}" class="submit" />
             </div>
         </div>
     </form>
     
 </div>
+</div>
 {% endblock %}
 <!-- end user_edit.html -->
+
+{% block sidebar %}
+<div class="app-block">
+	<h3>{% trans "ss" %}</h3>
+<div class="app-block-content">
+  text
+</div>
+</div>
+<div class="app-block">
+	<h3>{% trans "scvdfgdfg" %}</h3>
+    <div class="app-block-content">
+    sdcsdfsdf
+    </div>
+</div>
+
+{% endblock %}

@@ -2,12 +2,29 @@
 {% load i18n %}
 
 {% block content %}
-
-<h1>{% filter capfirst %}{% trans 'login' %}{% endfilter %}</h1>
-
+<div class="app-block">
+	<h3>{% filter capfirst %}{% trans 'login' %}{% endfilter %}</h3>
+<div class="app-block-content">
 <form method="post" action="?next={{ next|default:"/" }}">
 {{ form.as_p }}
 <input type="submit" value="{% trans 'login' %}"/>
 </form>
+</div>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+<div class="app-block">
+	<h3>{% trans "ss" %}</h3>
+<div class="app-block-content">
+  text
+</div>
+</div>
+<div class="app-block">
+	<h3>{% trans "scvdfgdfg" %}</h3>
+    <div class="app-block-content">
+    sdcsdfsdf
+    </div>
+</div>
 
 {% endblock %}
