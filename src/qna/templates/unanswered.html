@@ -25,7 +25,7 @@
     {% for question in questions.object_list %}
 <div class="question">
       <div class="summary">
-        <p><h2><a href="{{ question.get_absolute_url }}">{{ question.get_question_title }}</a></h2></p>
+        <p class="title"><a href="{{ question.get_absolute_url }}">{{ question.get_question_title }}</a></p>
         <p>{{ question.summary }}</p>
         <span class="info"><a href="{{ question.author.get_profile_url }}">{{ question.author }}</a> | {% blocktrans with question.added_at|timesince as time_added %}Created {{ time_added }} ago{% endblocktrans %}</span>
       </div>          
