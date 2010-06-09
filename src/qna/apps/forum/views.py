@@ -108,13 +108,19 @@ def index(request, queryset=Question.objects.all(), template_name='index.html',
                               }, context_instance=RequestContext(request))
 
 def about(request):
-    return render_to_response('about.html', context_instance=RequestContext(request))
+    return render_to_response('pages/about-us.html', context_instance=RequestContext(request))
 
 def faq(request):
-    return render_to_response('faq.html', context_instance=RequestContext(request))
+    return render_to_response('pages/faq.html', context_instance=RequestContext(request))
 
 def privacy(request):
-    return render_to_response('privacy.html', context_instance=RequestContext(request))
+    return render_to_response('pages/privacy.html', context_instance=RequestContext(request))
+
+def help(request):
+    return render_to_response('pages/help-and-support.html', context_instance=RequestContext(request))
+
+def terms(request):
+    return render_to_response('pages/terms.html', context_instance=RequestContext(request))
 
 def questions(request, queryset=Question.objects.all(), tag_queryset=Tag.objects.all(),
               template_name='questions.html', extra_context=None):
