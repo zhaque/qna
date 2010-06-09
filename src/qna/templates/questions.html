@@ -34,12 +34,7 @@
       {% endblock %}
     
     <div class="app-menu">
-      <ul>
-        <li><a id="latest" href="?sort=latest" class="off" title="{% trans "most recently asked questions" %}">{% trans "newest" %}</a></li>
-        <li><a id="active" href="?sort=active" class="off" title="{% trans "most recently updated questions" %}">{% trans "active" %}</a></li>
-        <li><a id="hottest" href="?sort=hottest" class="off" title="{% trans "hottest questions" %}">{% trans "hottest" %}</a></li>
-        <li><a id="mostvoted" href="?sort=mostvoted" class="off" title="{% trans "most voted questions" %}">{% trans "most voted" %}</a></li> 
-      </ul>   
+    {% include 'mainmenu_block.html' %}
     <div class="clear"></div>
     </div>
 

@@ -17,9 +17,7 @@
 <div class="app-block">
     <h3>{% trans "Unanswered questions" %}</h3>
     <div class="app-menu">
-       <ul>
-        <li><a id="latest" href="?sort=latest" class="on" title="{% trans "most recently asked questions" %}">{% trans "newest" %}</a></li>
-       </ul>
+    {% include 'mainmenu_block.html' %}
        <div class="clear"></div>
     </div>
 

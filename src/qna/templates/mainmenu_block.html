@@ -1,0 +1,10 @@
+{% load i18n %}
+
+      <ul>
+        <li><a id="all" href="{% url questions %}" title="{% trans "all questions" %}" >{% trans "all questions" %}</a></li>
+        <li><a id="mostvoted" href="{% url questions %}?sort=mostvoted" title="{% trans "most voted questions" %}" >{% trans "most voted" %}</a></li>
+        <li><a id="hottest" href="{% url questions %}?sort=hottest" title="{% trans "hottest questions" %}" >{% trans "hottest" %}</a></li>
+    	<li><a id="latest" href="{% url questions %}?sort=latest" title="{% trans "last updated questions" %}" >{% trans "newest" %}</a></li>
+    	<li><a id="active" href="{% url questions %}?sort=active" title="{% trans "active questions" %}" >{% trans "active" %}</a></li>
+    	<li><a id="unanswered" href="{% url unanswered %}" title="{% trans "unanswered questions" %}" >{% trans "unanswered" %}</a></li>
+      </ul>

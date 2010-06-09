@@ -19,13 +19,7 @@
     <h3>{% trans "Questions" %}</h3>
     <div class="clear"></div>
     <div class="app-menu">
-      <ul>
-        <li><a id="all" href="{% url questions %}" title="{% trans "all questions" %}" >{% trans "all questions" %}</a></li>
-        <li><a id="mostvoted" href="?sort=mostvoted" title="{% trans "most voted questions" %}" >{% trans "most voted" %}</a></li>
-        <li><a id="hottest" href="?sort=hottest" title="{% trans "hottest questions" %}" >{% trans "hottest" %}</a></li>
-    	<li><a id="latest" href="?sort=latest" title="{% trans "last updated questions" %}" >{% trans "newest" %}</a></li>
-    	<li><a id="unanswered" href="{% url unanswered %}" title="{% trans "unanswered questions" %}" >{% trans "unanswered" %}</a></li>
-      </ul>
+    {% include 'mainmenu_block.html' %}
     <div class="clear"></div>   
     </div> 
 
