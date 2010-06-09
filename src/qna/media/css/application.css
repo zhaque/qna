@@ -36,7 +36,9 @@
 .yui-skin-app .app-hd .app-search {margin-left:32%; width:60%; margin-bottom:15px;}
 .yui-skin-app .app-hd .app-search #searchInput {width:55%;height:25px; margin:0; outline:0; vertical-align:top;} 
 .yui-skin-app .app-hd .app-search #searchButton {height:30px; text-align:center; font-size:17px; width:26%; margin-left:0; font-weight:800; margin-right:0.5em}
+.yui-skin-app .app-hd .app-search #searchButton:hover {background:#85E01A;}
 .yui-skin-app .app-hd .app-search a {font-size:17px; font-weight:800; color:#fff; text-decoration:underline; margin-left:0.5em;} 
+.yui-skin-app .app-hd .app-search a:hover {color:#85E01A;} 
 
 /* Body */
 .yui-skin-app .app-bd  { width: 95%;}
@@ -58,7 +60,6 @@
 .yui-skin-app .app-bd .app-menu { border-bottom:0px; margin-top:-28px;}
 .yui-skin-app .app-bd .app-menu ul {margin: 0; padding: 0; list-style-type: none;}
 .yui-skin-app .app-bd .app-menu ul li a {margin-right: 5px; padding: 3px 10px; display:block; float:right; font-size:16px; }
-.yui-skin-app .app-bd .app-block .app-menu ul li:hover a {font-weight:800}
 
 
 /*Question block*/
